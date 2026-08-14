@@ -1,0 +1,537 @@
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        .myBody {
+            margin: 0%;
+        }
+
+
+        .raleway {
+            font-family: "Raleway", Regular;
+        }
+
+
+        .Economica {
+            font-family: Economica;
+
+        }
+
+
+        .raleway-uniquifier> {
+            font-family: "Raleway", sans-serif;
+            font-optical-sizing: auto;
+            font-weight: <weight>;
+            font-style: normal;
+        }
+
+
+        .container-header {
+            height: 100vh;
+            background-image: url("../assets/images/hero_bg.jpg");
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: bottom;
+            object-fit: cover;
+            padding-top: 200px;
+            box-sizing: border-box;
+        }
+
+
+        .h1 {
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+        }
+
+
+        .size1 {
+            color: white;
+            font-family: raleway, regular;
+            font-weight: bold;
+            font-size: 96px;
+            justify-content: center;
+            margin: 0 0 4px 0;
+            padding-top: 60px;
+        }
+
+
+        .size2 {
+            display: flex;
+            justify-content: center;
+            font-size: 24px;
+            font-family: raleway, regular;
+            color: white;
+            margin: 5px;
+        }
+
+
+        .navbar {
+            position: absolute;
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            left: 0%;
+            right: 0%;
+            top: 0%;
+            padding-top: 20px;
+            font-size: 24px;
+            font-family: "Raleway"
+        }
+
+
+        .logo-sakura {
+            display: flex;
+            width: 64px;
+            height: 64px;
+            margin-left: 112px;
+            margin-top: 20px;
+        }
+
+
+        .nav-menu {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+
+        .nav-item {
+            color: white;
+            text-decoration: none;
+            font-size: 24px;
+        }
+
+        .nav-item:hover {
+            text-decoration: underline;
+            color: rgb(230, 95, 158);
+
+        }
+
+        .locations {
+            color: white;
+            text-decoration: none;
+            font-size: 24px;
+        }
+
+
+
+        .about {
+            color: white;
+            text-decoration: none;
+            font-size: 24px;
+            font-family: raleway;
+        }
+
+
+
+        .button {
+            left: 0px;
+            right: 0px;
+            top: 10px;
+            color: rgb(255, 255, 255);
+            border: none;
+            display: inline-flex;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            font-size: 24px;
+            background-color: #9F0908;
+            border: 2px solid #ffffff;
+            border-radius: 10px;
+            margin-right: 200px;
+        }
+
+
+        .phone-logo {
+            width: 30px;
+            height: 30px;
+            margin-right: 8px;
+            margin-left: 5px;
+            padding-top: 5px;
+            padding-left: 5px;
+        }
+
+
+        .number {
+            display: flex;
+            justify-content: center;
+            padding-right: 20px;
+            padding-bottom: 2px;
+            font-size: 24px;
+            font-family: raleway;
+            text-decoration: none;
+            cursor: pointer;
+            color: white;
+            padding-right: 10px;
+            padding-top: 5px;
+            padding-bottom: 5px;
+        }
+
+        .number1 {
+            display: flex;
+            align-items: center;
+            margin-right: 7px;
+        }
+
+
+        .number1:hover {
+            color: #c95555;
+            text-decoration: underline;
+        }
+
+        .h2 {
+            display: flex;
+            justify-content: center;
+            font-size: 80px;
+            font-family: raleway;
+            font-weight: bold;
+            color: #9F0908;
+            padding-top: 120px;
+        }
+
+
+
+        .pics {
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            padding-top: 64px;
+            padding-bottom: 64px
+        }
+
+
+        .pic1 {
+            display: flex;
+            text-align: center;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        .img1 {
+            width: 128px;
+            height: 120%;
+        }
+
+
+        .text1 {
+            display: flex;
+            justify-content: center;
+            text-align: center;
+            font-size: 56px;
+            font-family: economica;
+            font-weight: bold;
+            margin-top: 16px;
+        }
+
+
+
+        .pic2 {
+            display: flex;
+            text-align: center;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        .img2 {
+            width: 128px;
+            height: 120%;
+        }
+
+
+        .text2 {
+            display: flex;
+            justify-content: center;
+            text-align: center;
+            font-size: 56px;
+            font-family: economica;
+            font-weight: bold;
+            margin-top: 16px;
+        }
+
+
+
+        .pic3 {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            width: 128px;
+            height: 100%;
+
+        }
+
+
+        .img3 {
+            width: 128px;
+            height: 120%;
+        }
+
+
+
+        .text3 {
+            display: flex;
+            justify-content: center;
+            text-align: center;
+            font-size: 56px;
+            font-family: economica;
+            font-weight: bold;
+            margin-top: 16px;
+        }
+
+
+        .ourmenu {
+            background-image: url(../assets/images/section_our_menu_bg.jpg);
+            background-repeat: no-repeat;
+            background-position: bottom;
+            object-fit: cover;
+            padding-bottom: 120px;
+            padding-top: 120px;
+
+        }
+
+        .h3 {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #9F0908;
+            font-family: raleway;
+            font-weight: bold;
+            font-size: 80px;
+        }
+
+        .menu1 {
+            display: flex;
+            align-items: center;
+            padding-top: 64px;
+        }
+
+
+        .plate1 {
+            display: flex;
+            justify-content: flex-start;
+            padding-left: 112px;
+            width: 352px;
+            height: 352px;
+        }
+
+        .text_menu1 {
+            display: flex;
+            font-family: economica;
+            font-size: 56px;
+            font-weight: bold;
+        }
+
+        .table_menu1 {
+            display: flex;
+            margin-top: 15px;
+            font-family: raleway;
+            font-size: 32px;
+            font-weight: bold;
+            color: #675E54;
+        }
+
+        .menu_price {
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            padding-left: 100px;
+        }
+
+        .menuprice1 {
+            padding-left: 200px;
+            padding-top: 16px;
+        }
+
+        .menuprice2 {
+            padding-left: 200px;
+            padding-top: 8px;
+        }
+
+        .menuprice3 {
+            padding-left: 200px;
+            padding-top: 8px;
+        }
+
+
+        .menu2 {
+            display: flex;
+            align-items: flex-end;
+            justify-content: flex-end;
+            padding-right: 112px;
+        }
+
+
+        .plate2 {
+            display: flex;
+            align-items: flex-end;
+            justify-content: flex-end;
+            width: 352px;
+            height: 352px;
+            padding-top: 56px;
+        }
+
+
+        .text_menu2 {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: economica;
+            font-size: 56px;
+            font-weight: bold;
+            padding-right: 250px;
+        }
+
+
+
+        .menu_item {
+            display: flex;
+            align-items: center;
+            flex-direction: row-reverse;
+        }
+
+
+
+        .menuprice4 {
+            padding-left: 200px;
+            padding-top: 16px;
+        }
+
+
+
+        .menuprice5 {
+            padding-left: 200px;
+            padding-top: 8px;
+        }
+
+
+
+        .menuprice6 {
+            padding-left: 200px;
+            padding-top: 8px;
+        }
+
+        .findus {
+            display: flex;
+            justify-content: center;
+            font-family: raleway;
+            font-weight: bold;
+            color: #9F0908;
+            font-size: 80px;
+        }
+
+        .section3 {
+            display: flex;
+            justify-content: center;
+        }
+
+
+        .h4 {
+            display: flex;
+            margin-bottom: 20px;
+            font-family: raleway;
+            font-size: 80px;
+            color: #9F0908;
+            font-weight: bold;
+        }
+
+
+        .loc {
+            display: flex;
+            justify-content: center;
+        }
+
+
+        .imgmap {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 30px;
+            height: 100%;
+        }
+
+        .street {
+            display: flex;
+            font-family: raleway, regular;
+            font-size: 24px;
+            margin-left: 10px;
+
+
+        }
+
+
+        .googlemaps {
+            display: flex;
+            justify-content: center;
+            padding-top: 64px;
+        }
+        .fullmap {
+            display: flex;
+            justify-content: center;
+            width: 100vw;
+            height: 700px;
+        }
+
+
+        .footer {
+            margin-bottom: 0px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #0A141E;
+            padding-left: 80px;
+            height: 100px;
+
+        }
+
+
+        .sakurafooterlogo {
+            display: flex;
+            justify-content: flex-start;
+            align-items: flex-start;
+            height: 44px;
+        }
+
+
+        .sakuratext {
+            display: flex;
+            justify-content: flex-start;
+            font-family: raleway;
+            font-weight: bold;
+            font-size: 44px;
+            margin-left: 30px;
+            color: white;
+        }
+
+        .socialmedia {
+            display: flex;
+            align-items: flex-end;
+            justify-content: flex-end;
+            gap: 20px;
+            padding-right: 100px;
+
+        }
+
+        .tripadvisor {
+            display: flex;
+            width: 40px;
+            height: 40px;
+        }
+
+        .facebook {
+            display: flex;
+            width: 40px;
+            height: 40px;
+        }
+
+        .instagram {
+            display: flex;
+            width: 40px;
+            height: 40px
+        }
+
+    

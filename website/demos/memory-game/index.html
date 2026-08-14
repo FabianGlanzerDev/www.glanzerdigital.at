@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Memory</title>
+    <meta name="theme-color" content="#303131">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Memory">
+
+    <link rel="manifest" href="./manifest.webmanifest">
+    <link rel="apple-touch-icon" href="./icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" href="./assets/favicon-COVsSSxf.png">
+
+
+  <script type="module" crossorigin src="./assets/index-DDecq3om.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-C72AG3yh.css">
+</head>
+
+<body>
+    <main id="app">
+        <section class="home-screen" id="home-screen" aria-labelledby="home-title">
+            <img class="controller" src="./assets/controller-CcsXEKot.svg" alt="">
+
+            <div class="home-content">
+                <span class="home-subtitle">It's play time.</span>
+
+                <h1 id="home-title">Ready to play?</h1>
+
+                <button class="play-button" id="play-button" type="button">
+                    <img class="play-button-icon" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACwAAAAgCAYAAABpRpp6AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAOdEVYdFNvZnR3YXJlAEZpZ21hnrGWYwAAA6xJREFUeAHFWD1W20AQnhU5gFPhR2VOgAxNOsQJgBPYdOmALp3FCUKqlNgnCJwA0aUCpUyFU+EuygW8mdGu7P2XhG343vOzdkc7M5r9ZvaHQQ3iOO5BFA2A8yE2e7AZ5MDYA8zn13meT0MvspAwPjg4JyXwlmAszR8fr3ziLZ8g3t//ilFN4e2RdHd2YPby8uASOh1GZ0fo7Bd4PyTdbvffbDb7aQosSpScZewedL5O8QOIGhPkWAFrBNrr4N8J2hwZNgu0uWva++DQkYDt7FFdMrwW0qExOp6h00/43JEi8SEoU9+PLA1RdKy1OZ+sy1lM4kHc7//F3zM6OADdcQrMxBhyaOqwHeY8MXoy8xWijWK4B00xn6cgIke0c1WfW63F2AmEHEbjMSynhFDgl2dgY7gwLKatKTTdDnlu9HfMgJgRTrQW5zm0cyIMzi+BckIklFVrJZ9Nm1pA9KSLokNUpPbcVQ8y+mIwY0tu4TOKUtkaq3wnzsqFhxxMUTYGJYkc8gn+P6DORPFhD7wO2/zNFcd+gHtpThQDlEi7C8mSsx3JWT2p3PIMfyPFLgXprGouKNGAv82n3j2maCgP8ljlcKKpMvnLeb/kneBepkiyRT/Wa2NMkLMueR2Pl5Rg7Nh46U5tSG6m9FxytqIBcg5lKTjQgLOaXPkQL4/VCMfGsAzWjfo67Lat1OPSYYxYAjZ/QyXtFsRU0m8MzVHH6QpeHleU0KNLUxLSJj5mF9qCOCs2OR0np5f6C1xFyUaidFOUr4XDNn8z2AC8nHXBw+OKw5vnb3tkWkvymJX8FfvfCkX+9PQRaoDjhjiOFgqzfocgShbn43JVC+unxeRZ04374wha8pcUIb/uUdkNCI61WVA6IFbGcXkEC8BXj6PW/BXlKIFVwfkFOn1T844ZvD07wgGHZfkbwLqAVwdSpw+Z1sIkpCqhTWmw/oqSpL0uj0+hmrqAPC/SJio2dGaeIVOj3aMIF5ZSt7EE7P3GaZtDqTwGXRrdSSDKVn6Qw3pEo+jcOZQxPUlEpk+hJeQOMDN0j8Bt88KwmW3h+Z8ZZ6dPeJHR625v/8J7gYK2ndj+DnainZIcXgG0+QdtDpWuHtqI0eZv1DmjWcY2fcRnY2ha3ktgmaLjdQxNIaJ7BiugLI3tqg3RqR9JB07BJrh/IMAVrArOz6C5zaLKl9JhmQxHtQqQQ+u6VGlsc3mRU+aa66pqCFRrGauW3KJ0FOCb58i/Mjw2yUHaxmrXY/8BDF3VVlLThSsAAAAASUVORK5CYII=" alt="">
+                    <span>Play</span>
+                    <span class="play-button-arrow" aria-hidden="true"></span>
+                </button>
+            </div>
+        </section>
+
+
+        <section class="settings-screen hidden" id="settings-screen" aria-labelledby="settings-title">
+            <div class="settings-wrapper">
+                <div class="settings-options">
+                    <h2 id="settings-title">Settings</h2>
+
+                    <fieldset class="settings-group">
+                        <legend>
+                            <img src="./assets/themes-C1dNqI-d.svg" alt="">
+                            <span>Game themes</span>
+                        </legend>
+
+                        <label>
+                            <input type="radio" name="theme" value="coding" checked>
+                            <span>Code vibes theme</span>
+                        </label>
+
+                        <label>
+                            <input type="radio" name="theme" value="gaming">
+                            <span>Gaming theme</span>
+                        </label>
+
+                        <label>
+                            <input type="radio" name="theme" value="projects">
+                            <span>DA Projects theme</span>
+                        </label>
+
+                        <label>
+                            <input type="radio" name="theme" value="foods">
+                            <span>Foods theme</span>
+                        </label>
+                    </fieldset>
+
+
+                    <fieldset class="settings-group">
+                        <legend>
+                            <img src="./assets/player-Br6kYaiJ.svg" alt="">
+                            <span>Choose player</span>
+                        </legend>
+
+                        <label>
+                            <input type="radio" name="player" value="blue">
+                            <span>Blue</span>
+                        </label>
+
+                        <label>
+                            <input type="radio" name="player" value="orange">
+                            <span>Orange</span>
+                        </label>
+                    </fieldset>
+
+
+                    <fieldset class="settings-group">
+                        <legend>
+                            <img src="./assets/board-size-CGOqKs9s.svg" alt="">
+                            <span>Board size</span>
+                        </legend>
+
+                        <label>
+                            <input type="radio" name="board-size" value="16">
+                            <span>16 cards</span>
+                        </label>
+
+                        <label>
+                            <input type="radio" name="board-size" value="24">
+                            <span>24 cards</span>
+                        </label>
+
+                        <label>
+                            <input type="radio" name="board-size" value="36">
+                            <span>36 cards</span>
+                        </label>
+                    </fieldset>
+                </div>
+
+
+                <div class="settings-preview">
+                    <img
+                        class="theme-preview"
+                        id="theme-preview"
+                        src="./assets/coding-vibes-BAsmuakM.svg"
+                        alt="Preview of the selected memory theme"
+                    >
+
+                    <div class="settings-summary">
+                        <span class="settings-summary-value" id="selected-theme">Code vibes theme</span>
+                        <span class="summary-divider" aria-hidden="true"></span>
+
+                        <span class="settings-summary-value" id="selected-player">Player</span>
+                        <span class="summary-divider" aria-hidden="true"></span>
+
+                        <span class="settings-summary-value" id="selected-board-size">Board size</span>
+
+                        <button class="start-button" id="start-button" type="button" disabled>
+                            <span class="start-button-icon" aria-hidden="true"></span>
+                            <span>Start</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <section class="game-screen hidden" id="game-screen" data-theme="coding" data-size="16" aria-label="Memory game">
+            <header class="game-header">
+                <div class="score-panel" aria-label="Current score" aria-live="polite">
+                    <span class="score-badge score-blue">
+                        <span class="score-dot" aria-hidden="true"></span>
+                        Blue
+                        <strong id="blue-score">0</strong>
+                    </span>
+
+                    <span class="score-badge score-orange">
+                        <span class="score-dot" aria-hidden="true"></span>
+                        Orange
+                        <strong id="orange-score">0</strong>
+                    </span>
+                </div>
+
+                <div class="current-player-box" aria-live="polite">
+                    <span>Current player:</span>
+                    <span class="current-player-indicator" id="current-player-indicator" data-player="blue" aria-hidden="true"></span>
+                    <strong id="current-player">Blue</strong>
+                </div>
+
+                <button class="exit-button" id="exit-button" type="button">
+                    <span class="exit-button-icon" aria-hidden="true"></span>
+                    <span>Exit game</span>
+                </button>
+            </header>
+
+            <div class="game-board" id="game-board" aria-label="Memory game board"></div>
+        </section>
+
+
+        <div class="exit-modal hidden" id="exit-modal" data-theme="coding" role="dialog" aria-modal="true" aria-labelledby="exit-modal-title" aria-hidden="true">
+            <div class="exit-modal-card">
+                <h2 id="exit-modal-title">Are you sure you want to quit the game?</h2>
+
+                <div class="exit-modal-actions">
+                    <button class="exit-modal-button exit-modal-back" id="back-to-game-button" type="button">
+                        Back to game
+                    </button>
+
+                    <button class="exit-modal-button exit-modal-confirm" id="confirm-exit-button" type="button">
+                        Exit game
+                    </button>
+                </div>
+            </div>
+        </div>
+
+
+        <section class="result-screen game-over-screen hidden" id="game-over-screen" data-theme="coding" aria-live="polite">
+            <div class="result-content">
+                <h2 id="game-over-title">Game over</h2>
+                <p>Final score</p>
+
+                <div class="final-score">
+                    <span class="final-score-item final-score-orange">
+                        Orange
+                        <strong id="game-over-orange-score">0</strong>
+                    </span>
+
+                    <span class="final-score-item final-score-blue">
+                        Blue
+                        <strong id="game-over-blue-score">0</strong>
+                    </span>
+                </div>
+            </div>
+        </section>
+
+
+        <section class="result-screen winner-screen hidden" id="winner-screen" data-theme="coding" aria-live="polite">
+            <div class="confetti-layer" aria-hidden="true">
+                <span class="confetti-piece"></span>
+                <span class="confetti-piece"></span>
+                <span class="confetti-piece"></span>
+                <span class="confetti-piece"></span>
+                <span class="confetti-piece"></span>
+                <span class="confetti-piece"></span>
+                <span class="confetti-piece"></span>
+                <span class="confetti-piece"></span>
+                <span class="confetti-piece"></span>
+                <span class="confetti-piece"></span>
+                <span class="confetti-piece"></span>
+                <span class="confetti-piece"></span>
+                <span class="confetti-piece"></span>
+                <span class="confetti-piece"></span>
+                <span class="confetti-piece"></span>
+                <span class="confetti-piece"></span>
+            </div>
+
+            <div class="result-content">
+                <p class="winner-kicker" id="winner-kicker">The winner is</p>
+                <h2 id="winner-title">Blue Player</h2>
+
+                <span class="result-icon" id="result-icon" data-icon="pawn" aria-hidden="true"></span>
+
+                <div class="result-actions">
+                    <button class="new-game-button" id="back-to-settings-button" type="button">
+                        Back to settings
+                    </button>
+
+                    <button class="rematch-button" id="rematch-button" type="button">
+                        Rematch
+                    </button>
+                </div>
+            </div>
+        </section>
+    </main>
+</body>
+
+</html>

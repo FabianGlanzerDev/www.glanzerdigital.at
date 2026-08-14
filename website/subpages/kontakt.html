@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Kontakt zu Glanzer Digital für Websites, Web-Apps und digitale Projekte.">
+  <meta name="theme-color" content="#080b10">
+  <title>Kontakt | Glanzer Digital</title>
+  <link rel="icon" href="../assets/favicons/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../styles/variables.css">
+  <link rel="stylesheet" href="../styles/fonts.css">
+  <link rel="stylesheet" href="../styles/style.css">
+  <link rel="stylesheet" href="../styles/assets.css">
+  <link rel="stylesheet" href="../styles/header.css">
+  <link rel="stylesheet" href="../styles/footer.css">
+  <link rel="stylesheet" href="../styles/pages/kontakt.css">
+  <script src="../templates/layout-templates.js" defer></script>
+  <script src="../scripts/main.js" defer></script>
+  <script src="../scripts/kontakt.js" defer></script>
+</head>
+<body data-root=".." data-page="contact">
+  <a class="skip-link" href="#main-content">Zum Inhalt springen</a>
+  <header class="site-header" data-site-header></header>
+  <main id="main-content">
+    <section class="page-hero">
+      <div class="container page-hero-inner">
+        <span class="kicker">Kontakt</span>
+        <h1>Projekt kurz beschreiben und <span class="text-primary">ehrlich einschätzen lassen</span></h1>
+        <p>Schreib, was gebraucht wird, welche Funktionen wichtig sind und ob Inhalte oder ein bestehendes Projekt vorhanden sind.</p>
+      </div>
+    </section>
+
+    <section class="section section--light">
+      <div class="container contact-layout">
+        <div class="contact-stack">
+          <article class="contact-card">
+            <span class="contact-label">Telefon</span>
+            <a class="contact-link" href="tel:+436767875304">+43 676 7875304</a>
+            <p>Für kurze Rückfragen oder eine erste Besprechung.</p>
+          </article>
+          <article class="contact-card">
+            <span class="contact-label">E-Mail</span>
+            <a class="contact-link" href="mailto:fabsdev@gmx.at">fabsdev@gmx.at</a>
+            <p>Ideal für Projektdetails, Links, Dateien und Screenshots.</p>
+          </article>
+          <article class="contact-card contact-card--dark">
+            <h2>Hilfreiche Angaben</h2>
+            <ul class="contact-checklist">
+              <li>Welche Art von Website oder Anwendung?</li>
+              <li>Welche Funktionen werden benötigt?</li>
+              <li>Gibt es bereits Texte, Bilder oder Code?</li>
+              <li>Gibt es einen gewünschten Zeitraum?</li>
+            </ul>
+          </article>
+        </div>
+
+        <article class="contact-form-card">
+          <span class="kicker">Anfrage vorbereiten</span>
+          <h2>Nachricht erstellen</h2>
+          <p>Das Formular öffnet dein E-Mail-Programm mit einer vorbereiteten Nachricht. Es speichert keine Daten auf dieser Website.</p>
+          <form class="form-grid" data-contact-form>
+            <div class="form-row">
+              <div class="form-group"><label for="name">Name</label><input id="name" name="name" autocomplete="name" required></div>
+              <div class="form-group"><label for="email">E-Mail</label><input id="email" name="email" type="email" autocomplete="email" required></div>
+            </div>
+            <div class="form-group">
+              <label for="project">Art des Projekts</label>
+              <select id="project" name="project">
+                <option>Website oder Landingpage</option>
+                <option>Web-App oder digitales Tool</option>
+                <option>Windows-Anwendung</option>
+                <option>Webbetreuung oder Änderung</option>
+                <option>Sonstiges digitales Projekt</option>
+              </select>
+            </div>
+            <div class="form-group"><label for="message">Projektbeschreibung</label><textarea id="message" name="message" required placeholder="Was soll umgesetzt werden und welche Funktionen sind wichtig?"></textarea></div>
+            <p class="form-status" data-form-status aria-live="polite"></p>
+            <button class="button button--primary" type="submit">E-Mail vorbereiten</button>
+          </form>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer" data-site-footer></footer>
+</body>
+</html>

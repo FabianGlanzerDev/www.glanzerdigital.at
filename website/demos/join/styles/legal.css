@@ -1,0 +1,46 @@
+.legal-section {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    width: 100%;
+    max-width: 1024px;
+    font-family: Inter, sans-serif;
+}
+
+.legal-content,
+.legal-block {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.legal-block {
+    gap: 8px;
+}
+
+.legal-section ul {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    font-family: Inter, sans-serif;
+    font-size: 1rem;
+    font-weight: 400;
+    list-style-position: inside;
+}
+
+.legal-section p {
+    color: var(--text-primary);
+    font-size: 1rem;
+}
+
+.legal-section a {
+    color: var(--text-quaternary);
+}
+
+.legal-section a:hover {
+    color: var(--text-secondary);
+}
+
+.legal-section span {
+    color: var(--text-quaternary);
+}

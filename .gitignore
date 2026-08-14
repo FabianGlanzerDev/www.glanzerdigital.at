@@ -1,0 +1,14 @@
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.log
+node_modules/
+dist/
+.env
+.env.*
+Backup/
+**/service-account*.json
+**/credentials*.json
+**/*private-key*
+**/*.sql

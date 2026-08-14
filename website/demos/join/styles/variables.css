@@ -1,0 +1,110 @@
+:root {
+    /** backgrounds */
+    --main-bg-color: rgb(246 247 248);
+    --sidebar-bg-color: rgb(42 54 71);
+    --header-bg-color: rgb(255 255 255);
+    --assets-bg-color: rgb(255 255 255);
+    --no-task-placeholder-bg: rgb(231 231 231 / 100%);
+
+    /** text */
+    --text-primary: rgb(0 0 0);
+    --text-secondary: rgb(42 54 71);
+    --text-tertiary: rgb(168 168 168);
+    --text-quaternary: rgb(41 171 226);
+    --text-white: rgb(255 255 255);
+    --text-link: rgb(168 168 168);
+    --text-link-hover: rgb(41 171 226);
+    --text-link-hover-dark: rgb(18 70 88);
+    --text-user: rgb(18 70 88);
+    --text-card-description: rgb(104 104 104);
+    --text-column-title: rgb(66 82 110);
+    --no-task-placeholder-text: rgb(104 104 104);
+
+    /** avatar */
+    --avatar-bg: rgb(255 255 255);
+    --avatar-bg-hover: rgb(225 230 236);
+    --avatar-border: rgb(42 54 71);
+
+    /** ui */
+    --ui-dark: rgb(42 54 71);
+    --ui-dark-hover: rgb(42 61 89);
+    --ui-light: rgb(41 171 226);
+    --ui-light-hover: rgb(225 230 236);
+    --ui-dark-active: rgb(9 25 49);
+    --focus-ring: rgb(41 171 226);
+    --button-primary-bg: rgb(42 54 71);
+    --button-primary-bg-hover: rgb(41 171 226);
+    --button-primary-bg-active: rgb(9 25 49);
+    --button-secondary-border: rgb(42 54 71);
+    --button-secondary-text: rgb(42 54 71);
+    --button-secondary-hover: rgb(41 171 226);
+    --login-button-primary-bg: rgb(42 54 71);
+    --login-button-primary-bg-hover: rgb(18 70 88);
+    --login-button-primary-bg-active: rgb(9 25 49);
+    --login-button-secondary-border: rgb(42 54 71);
+    --login-button-secondary-text: rgb(42 54 71);
+    --login-button-secondary-hover: rgb(18 70 88);
+    --form-input-border: rgb(209 209 209);
+    --form-input-border-focus: rgb(18 70 88);
+    --form-input-border-error: rgb(230 0 38);
+    --divider-color-blue: rgb(41 171 226);
+    --divider-color-grey: rgb(209 209 209);
+    --board-input-border: rgb(168 168 168);
+    --board-input-border-hover: rgb(231 231 231);
+    --board-input-border-active: rgb(18 70 88);
+    --progress-bar-background: rgb(244 244 244);
+    --progress-bar-content: rgb(69 137 255);
+    --contact-link: rgb(0 124 238);
+    --contact-overlay-bg: rgb(0 0 0 / 25%);
+    --contact-close-hover-bg: rgb(225 230 236);
+    --dialog-overlay-bg: rgb(0 0 0 / 22%);
+    --shadow-black-08: rgb(0 0 0 / 8%);
+    --shadow-black-10: rgb(0 0 0 / 10%);
+    --shadow-black-12: rgb(0 0 0 / 12%);
+    --shadow-black-14: rgb(0 0 0 / 14%);
+    --shadow-black-16: rgb(0 0 0 / 16%);
+    --shadow-black-20: rgb(0 0 0 / 20%);
+    --shadow-black-25: rgb(0 0 0 / 25%);
+    --shadow-black-40: rgb(0 0 0 / 40%);
+    --focus-surface-translucent: rgb(246 247 248 / 70%);
+    --transparent: rgb(0 0 0 / 0%);
+
+    /** Scrollbar */
+    --scrollbar-dialog-track-color: rgb(238 238 238);
+    --scrollbar-dialog-thumb-color: rgb(116 116 116);
+    --scrollbar-dialog-thumb-hover-color: rgb(79 79 79);
+    --scrollbar-track-bg-color: rgb(236 236 236);
+    --scrollbar-track-hover-color: rgb(225 230 236);
+    --scrollbar-track-active-color: rgb(209 209 209);
+    --scrollbar-track-shadow-color: transparent;
+    --scrollbar-primary-thumb-color: rgb(168 168 168);
+    --scrollbar-secondary-thumb-color: rgb(138 138 138);
+    --scrollbar-tertiary-thumb-color: rgb(107 107 107);
+    --scrollbar-thumb-hover-color: rgb(104 104 104);
+    --scrollbar-thumb-active-color: rgb(66 82 110);
+    --scrollbar-thumb-border-color: transparent;
+    --scrollbar-primary-thumb-shadow-color: transparent;
+    --scrollbar-secondary-thumb-shadow-color: transparent;
+
+    /** profile-colors */
+    --profile-orange: rgb(255 122 0);
+    --profile-pink: rgb(255 94 179);
+    --profile-violet: rgb(110 82 255);
+    --profile-purple: rgb(147 39 255);
+    --profile-cyan: rgb(0 190 232);
+    --profile-turquoise: rgb(31 215 193);
+    --profile-salmon: rgb(255 116 94);
+    --profile-peach: rgb(255 163 94);
+    --profile-magenta: rgb(252 113 255);
+    --profile-gold: rgb(255 199 1);
+    --profile-blue: rgb(0 56 255);
+    --profile-lime: rgb(195 255 43);
+    --profile-yellow: rgb(255 230 43);
+    --profile-red: rgb(255 70 70);
+    --profile-amber: rgb(255 187 43);
+
+    /** priority-colors */
+    --priority-urgent: rgb(255 61 0);
+    --priority-medium: rgb(255 168 0);
+    --priority-low: rgb(122 226 41);
+}
