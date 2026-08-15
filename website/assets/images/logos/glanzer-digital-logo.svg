@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 330 76" role="img" aria-labelledby="title desc">
+  <title id="title">Glanzer Digital</title>
+  <desc id="desc">Blau-silbernes GD-Signet mit dem Schriftzug Glanzer Digital</desc>
+  <defs>
+    <linearGradient id="blue" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#3d93ff"/>
+      <stop offset="1" stop-color="#095ee8"/>
+    </linearGradient>
+    <linearGradient id="silver" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset="1" stop-color="#9aa6b5"/>
+    </linearGradient>
+  </defs>
+  <g transform="translate(2 4)">
+    <path d="M62 8H34C15 8 5 20 5 34s10 26 29 26h23V39H36" fill="none" stroke="url(#blue)" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M45 14v46h23c18 0 28-10 28-23S86 14 68 14H45z" fill="none" stroke="url(#silver)" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M67 29l-7 6 7 6M78 29l7 6-7 6" fill="none" stroke="#3d93ff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+  <text x="116" y="47" fill="#f7f9fc" font-family="Arial, Helvetica, sans-serif" font-size="29" font-weight="700" letter-spacing=".3">GLANZER DIGITAL</text>
+</svg>
