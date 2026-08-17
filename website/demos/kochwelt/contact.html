@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Contact | Kochwelt</title>
+<link href="./assets/images/logo_small.png" rel="icon" type="image/png"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&amp;display=swap" rel="stylesheet"/>
+<link href="styles/style.css" rel="stylesheet"/>
+</head>
+<body>
+<header>
+<div class="navbar">
+<div class="nav_width">
+<a href="index.html">
+<img alt="Kochwelt Logo" class="Kochwelt_Logo" src="./assets/images/logo.png"/>
+</a>
+<input id="navlinks-toggle" type="checkbox"/>
+<label class="burger" for="navlinks-toggle">
+<div></div>
+<div></div>
+<div></div>
+</label>
+<nav class="navlinks">
+<a class="navlink" href="index.html">Start</a>
+<a class="navlink" href="rezept-fabs.html">Rezept des Tages</a>
+<a class="navlink" href="contact.html">Kontakt</a>
+<a class="navlink" href="impressum.html">Impressum</a>
+</nav>
+</div>
+</div></header>
+<main class="container_kontakt">
+<form class="Container_contact" onsubmit="sendMail(event)">
+<label class="header-label">Kontaktieren Sie uns</label>
+<label>
+<br/>
+        Name:
+        <input class="width_contact" name="name" type="text"/>
+</label>
+<label>
+        E-Mail:
+        <input class="width_contact" name="email" type="email"/>
+</label>
+<label>
+        Ihre Nachricht:
+        <textarea name="message"></textarea>
+</label>
+<button type="submit">Abschicken</button>
+</form>
+</main>
+<div id="confirmation" style="display:none;">
+<h1>Mail ist unterwegs</h1>
+<p>Vielen Dank für deine Nachricht. Wir melden uns so schnell wie möglich.</p>
+<a href="index.html">Zurück zur Startseite</a>
+</div>
+<footer class="footer">
+<div class="footer_width">
+<a class="footer_left" href="index.html">
+<picture>
+<source alt="" media="(max-width: 520px)" srcset="./assets/images/logo_small.png"/>
+<img alt="Kochwelt Logo" class="footer_logo" src="./assets/images/logo.png"/>
+</picture>
+</a>
+<div class="footer_right">
+<a href="https://www.facebook.com/" target="_blank">
+<img alt="Facebook" class="social_media_logo" src="./assets/images/facebook.png"/>
+</a>
+<a href="https://www.instagram.com/" target="_blank">
+<img alt="Instagram" class="social_media_logo" src="./assets/images/instagram.png"/>
+</a>
+<a href="https://github.com/" target="_blank">
+<img alt="GitHub" class="social_media_logo" src="./assets/images/github.png"/>
+</a>
+</div>
+</div>
+</footer>
+<script src="scripts/contact.js"></script>
+</body>
+</html>
