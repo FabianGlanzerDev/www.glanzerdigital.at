@@ -55,12 +55,13 @@
     grid-template-columns: 1fr 1fr;
   }
 
-  .footer-grid > :first-child {
+  .footer-grid> :first-child {
     grid-column: 1 / -1;
   }
 }
 
 @media (max-width: 620px) {
+
   .footer-grid,
   .footer-bottom {
     display: flex;

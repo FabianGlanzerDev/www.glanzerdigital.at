@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="de">
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -17,6 +18,7 @@
   <script src="../templates/layout-templates.js" defer></script>
   <script src="../scripts/main.js" defer></script>
 </head>
+
 <body data-root=".." data-page="about">
   <a class="skip-link" href="#main-content">Zum Inhalt springen</a>
   <header class="site-header" data-site-header></header>
@@ -25,15 +27,21 @@
       <div class="container page-hero-inner">
         <span class="kicker">Über mich</span>
         <h1>Technik verständlich und <span class="text-primary">praktisch umgesetzt</span></h1>
-        <p>Glanzer Digital verbindet Webentwicklung, kleine Softwarelösungen und einen direkten persönlichen Ansprechpartner.</p>
+        <p>Glanzer Digital verbindet Webentwicklung, kleine Softwarelösungen und einen direkten persönlichen
+          Ansprechpartner.</p>
       </div>
     </section>
 
     <section class="section section--light">
       <div class="container about-page-grid">
-        <aside class="profile-card">
-          <div class="profile-visual" aria-hidden="true"><span class="profile-initials">GD</span></div>
+        <aside class="profile-card" aria-label="Kurzprofil von Fabian Glanzer">
+          <div class="profile-photo-wrap">
+            <img class="profile-photo" src="../assets/images/general/fabian-glanzer.webp"
+              alt="Fabian Glanzer an seinem Entwickler-Arbeitsplatz mit mehreren Code-Monitoren und blauer Beleuchtung."
+              width="1600" height="1600" loading="eager" fetchpriority="high">
+          </div>
           <div class="profile-body">
+            <span class="profile-label">glanzerdigital</span>
             <h2>Fabian Glanzer</h2>
             <p>Webentwicklung, praktische Softwarelösungen und digitale Werkzeuge.</p>
           </div>
@@ -42,14 +50,30 @@
         <div class="about-story">
           <span class="kicker">Glanzer Digital</span>
           <h2>Lösungen, die im Alltag wirklich helfen</h2>
-          <p>Mein Schwerpunkt liegt auf modernen Websites, kleinen Web-Apps und Windows-Anwendungen. Dabei geht es nicht darum, möglichst viele Funktionen einzubauen, sondern eine verständliche und saubere Lösung für eine konkrete Aufgabe zu entwickeln.</p>
-          <p>Ein Teil meiner bisherigen Projekte entstand im Rahmen meiner Ausbildung bei der Developer Akademie. Eigene Projekte wie ShopCheck und die 3D-Modellbibliothek zeigen zusätzlich, wie ich praktische Ideen in funktionierende Anwendungen umsetze.</p>
+          <p>Mein Schwerpunkt liegt auf modernen Websites, kleinen Web-Apps und Windows-Anwendungen. Dabei geht es nicht
+            darum, möglichst viele Funktionen einzubauen, sondern eine verständliche und saubere Lösung für eine
+            konkrete Aufgabe zu entwickeln.</p>
+          <p>Ein Teil meiner bisherigen Projekte entstand im Rahmen meiner Ausbildung bei der Developer Akademie. Die
+            3D-Modellbibliothek zeigt zusätzlich, wie ich eine praktische Idee in eine eigenständige Windows-Anwendung
+            mit echter Dateiverwaltung und 3D-Vorschau umsetze.</p>
 
           <div class="value-grid">
-            <article class="value-card"><h3>Direkte Abstimmung</h3><p>Keine langen Umwege. Anforderungen und Änderungen werden klar besprochen.</p></article>
-            <article class="value-card"><h3>Sauberer Aufbau</h3><p>Nachvollziehbare Dateien, responsive Darstellung und wartbarer Code.</p></article>
-            <article class="value-card"><h3>Ehrliche Einschätzung</h3><p>Ich sage offen, was sinnvoll machbar ist und wo zusätzliche Technik nötig wäre.</p></article>
-            <article class="value-card"><h3>Praktischer Nutzen</h3><p>Die Lösung soll eine echte Aufgabe vereinfachen und nicht nur modern aussehen.</p></article>
+            <article class="value-card">
+              <h3>Direkte Abstimmung</h3>
+              <p>Keine langen Umwege. Anforderungen und Änderungen werden klar besprochen.</p>
+            </article>
+            <article class="value-card">
+              <h3>Sauberer Aufbau</h3>
+              <p>Nachvollziehbare Dateien, responsive Darstellung und wartbarer Code.</p>
+            </article>
+            <article class="value-card">
+              <h3>Ehrliche Einschätzung</h3>
+              <p>Ich sage offen, was sinnvoll machbar ist und wo zusätzliche Technik nötig wäre.</p>
+            </article>
+            <article class="value-card">
+              <h3>Praktischer Nutzen</h3>
+              <p>Die Lösung soll eine echte Aufgabe vereinfachen und nicht nur modern aussehen.</p>
+            </article>
           </div>
 
           <div class="about-actions">
@@ -63,4 +87,5 @@
 
   <footer class="site-footer" data-site-footer></footer>
 </body>
+
 </html>

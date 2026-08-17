@@ -1,234 +1,344 @@
-<!doctype html>
+<!DOCTYPE html>
+
 <html lang="de">
 
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description"
-    content="Glanzer Digital entwickelt moderne Websites, praktische Softwarelösungen und digitale Werkzeuge mit persönlicher Betreuung.">
-  <meta name="theme-color" content="#080b10">
-  <title>Glanzer Digital | Webentwicklung und Softwarelösungen</title>
-  <link rel="icon" href="assets/favicons/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="./styles/variables.css">
-  <link rel="stylesheet" href="./styles/fonts.css">
-  <link rel="stylesheet" href="./styles/style.css">
-  <link rel="stylesheet" href="./styles/assets.css">
-  <link rel="stylesheet" href="./styles/header.css">
-  <link rel="stylesheet" href="./styles/footer.css">
-  <link rel="stylesheet" href="./styles/pages/home.css">
-  <script src="./templates/layout-templates.js" defer></script>
-  <script src="./scripts/main.js" defer></script>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <meta
+        content="Glanzer Digital entwickelt moderne Websites, praktische Softwarelösungen und digitale Werkzeuge mit persönlicher Betreuung."
+        name="description" />
+    <meta content="#080b10" name="theme-color" />
+    <title>Glanzer Digital | Webentwicklung und Softwarelösungen</title>
+    <link href="assets/favicons/favicon.svg" rel="icon" type="image/svg+xml" />
+    <link href="./styles/variables.css" rel="stylesheet" />
+    <link href="./styles/fonts.css" rel="stylesheet" />
+    <link href="./styles/style.css" rel="stylesheet" />
+    <link href="./styles/assets.css" rel="stylesheet" />
+    <link href="./styles/header.css" rel="stylesheet" />
+    <link href="./styles/footer.css" rel="stylesheet" />
+    <link href="./styles/pages/home.css" rel="stylesheet" />
+    <script defer="" src="./templates/layout-templates.js"></script>
+    <script defer="" src="./scripts/main.js"></script>
+    <script defer="True" src="./scripts/home-effects.js"></script>
 </head>
 
-<body data-root="." data-page="home">
-  <a class="skip-link" href="#main-content">Zum Inhalt springen</a>
-
-  <header class="site-header" data-site-header></header>
-
-  <main id="main-content">
-    <section class="hero">
-      <div class="container hero-grid">
-        <div class="hero-copy">
-          <span class="kicker">Web · Software · Digitalisierung</span>
-          <h1>Digitale <span class="text-primary">Lösungen.</span><br>Einfach. Effizient. Zuverlässig.</h1>
-          <p>Glanzer Digital steht für moderne Webentwicklung, praktische Softwarelösungen und persönliche Betreuung –
-            alles aus einer Hand.</p>
-
-          <div class="button-row">
-            <a class="button button--primary" href="#leistungen">Meine Leistungen</a>
-            <a class="button button--secondary" href="subpages/portfolio.html">Portfolio ansehen</a>
-          </div>
-
-          <ul class="trust-list" aria-label="Vorteile">
-            <li><svg viewBox="0 0 24 24" aria-hidden="true">
-                <circle cx="12" cy="12" r="9" />
-                <path d="m8 12 2.5 2.5L16 9" />
-              </svg>Persönlich</li>
-            <li><svg viewBox="0 0 24 24" aria-hidden="true">
-                <path d="m13 2-8 12h7l-1 8 8-12h-7z" />
-              </svg>Effizient</li>
-            <li><svg viewBox="0 0 24 24" aria-hidden="true">
-                <rect x="5" y="10" width="14" height="11" rx="2" />
-                <path d="M8 10V7a4 4 0 0 1 8 0v3" />
-              </svg>Zuverlässig</li>
-          </ul>
-        </div>
-
-        <div class="hero-visual" role="img" aria-label="Dunkler Arbeitsplatz mit Codeansicht und Glanzer-Digital-Logo">
-        </div>
-      </div>
-    </section>
-
-    <section class="section services-section" id="leistungen">
-      <div class="container">
-        <div class="section-heading">
-          <span class="kicker">Meine Leistungen</span>
-          <h2>Digitale Lösungen mit praktischem Nutzen</h2>
-          <p>Von der ersten Idee bis zur laufenden Betreuung – klar geplant, sauber umgesetzt und verständlich erklärt.
-          </p>
-        </div>
-
-        <div class="services-grid">
-          <article class="card service-card">
-            <div class="service-card-header">
-              <span class="icon" aria-hidden="true"><svg viewBox="0 0 32 32">
-                  <rect x="3" y="5" width="26" height="19" rx="2" />
-                  <path d="M11 28h10M16 24v4M3 10h26" />
-                </svg></span>
-              <h3>Webentwicklung</h3>
+<body data-page="home" data-root=".">
+    <a class="skip-link" href="#main-content">Zum Inhalt springen</a>
+    <header class="site-header" data-site-header=""></header>
+    <main id="main-content">
+        <section class="hero">
+            <div class="container hero-grid">
+                <div class="hero-copy">
+                    <span class="kicker">Web · Software · Digitalisierung</span>
+                    <h1>Digitale <span class="text-primary">Lösungen.</span><br />Einfach. Effizient. Zuverlässig.</h1>
+                    <p>Glanzer Digital steht für moderne Webentwicklung, praktische Softwarelösungen und persönliche
+                        Betreuung –
+                        alles aus einer Hand.</p>
+                    <div class="button-row">
+                        <a class="button button--primary" href="#leistungen">Meine Leistungen</a>
+                        <a class="button button--secondary" href="subpages/portfolio.html">Portfolio ansehen</a>
+                    </div>
+                    <ul aria-label="Vorteile" class="trust-list">
+                        <li><svg aria-hidden="true" viewbox="0 0 24 24">
+                                <circle cx="12" cy="12" r="9"></circle>
+                                <path d="m8 12 2.5 2.5L16 9"></path>
+                            </svg>Persönlich</li>
+                        <li><svg aria-hidden="true" viewbox="0 0 24 24">
+                                <path d="m13 2-8 12h7l-1 8 8-12h-7z"></path>
+                            </svg>Effizient</li>
+                        <li><svg aria-hidden="true" viewbox="0 0 24 24">
+                                <rect height="11" rx="2" width="14" x="5" y="10"></rect>
+                                <path d="M8 10V7a4 4 0 0 1 8 0v3"></path>
+                            </svg>Zuverlässig</li>
+                    </ul>
+                    <div aria-label="Technische Schwerpunkte" class="hero-techline">
+                        <span><strong>Frontend</strong> HTML · CSS · JS · TS</span>
+                        <span><strong>Backend</strong> Firebase · APIs</span>
+                        <span><strong>Qualität</strong> Responsive · WCAG</span>
+                    </div>
+                </div>
+                <div aria-labelledby="terminal-title" class="hero-visual">
+                    <div aria-hidden="true" class="code-orbit code-orbit--one">{ }</div>
+                    <div aria-hidden="true" class="code-orbit code-orbit--two">&lt;/&gt;</div>
+                    <article aria-label="Animierter Programmiererwitz im Codefenster" class="hero-terminal">
+                        <div class="terminal-toolbar">
+                            <div aria-hidden="true" class="terminal-dots"><span></span><span></span><span></span></div>
+                            <span class="terminal-title" id="terminal-title">programmer-joke.js</span>
+                            <button aria-pressed="false" class="terminal-pause" data-terminal-pause=""
+                                type="button">Animation pausieren</button>
+                        </div>
+                        <pre aria-hidden="true"
+                            class="terminal-code"><code data-terminal-code=""></code><span class="terminal-cursor">▋</span></pre>
+                        <div class="terminal-output">
+                            <span>console:</span>
+                            <strong data-terminal-output="">Code wird geladen …</strong>
+                        </div>
+                    </article>
+                    <p class="terminal-note">Kleine Dev-Spielerei: der Code wechselt automatisch. Mit dem Button kannst
+                        du die Animation jederzeit pausieren.</p>
+                </div>
             </div>
-            <p>Moderne Websites und Landingpages, die auf Desktop, Tablet und Smartphone sauber funktionieren.</p>
-          </article>
-
-          <article class="card service-card">
-            <div class="service-card-header">
-              <span class="icon" aria-hidden="true"><svg viewBox="0 0 32 32">
-                  <path d="m11 9-7 7 7 7M21 9l7 7-7 7M19 5l-6 22" />
-                </svg></span>
-              <h3>Softwarelösungen</h3>
+        </section>
+        <section class="section services-section" id="leistungen">
+            <div class="container">
+                <div class="section-heading">
+                    <span class="kicker">Meine Leistungen</span>
+                    <h2>Digitale Lösungen mit praktischem Nutzen</h2>
+                    <p>Von der ersten Idee bis zur laufenden Betreuung – klar geplant, sauber umgesetzt und verständlich
+                        erklärt.
+                    </p>
+                </div>
+                <div class="services-grid">
+                    <article class="card service-card">
+                        <div class="service-card-header">
+                            <span aria-hidden="true" class="icon"><svg viewbox="0 0 32 32">
+                                    <rect height="19" rx="2" width="26" x="3" y="5"></rect>
+                                    <path d="M11 28h10M16 24v4M3 10h26"></path>
+                                </svg></span>
+                            <h3>Webentwicklung</h3>
+                        </div>
+                        <p>Moderne Websites und Landingpages, die auf Desktop, Tablet und Smartphone sauber
+                            funktionieren.</p>
+                    </article>
+                    <article class="card service-card">
+                        <div class="service-card-header">
+                            <span aria-hidden="true" class="icon"><svg viewbox="0 0 32 32">
+                                    <path d="m11 9-7 7 7 7M21 9l7 7-7 7M19 5l-6 22"></path>
+                                </svg></span>
+                            <h3>Softwarelösungen</h3>
+                        </div>
+                        <p>Individuelle Web-Apps und Windows-Anwendungen, zugeschnitten auf konkrete Anforderungen.</p>
+                    </article>
+                    <article class="card service-card">
+                        <div class="service-card-header">
+                            <span aria-hidden="true" class="icon"><svg viewbox="0 0 32 32">
+                                    <rect height="22" rx="3" width="24" x="4" y="5"></rect>
+                                    <path d="M9 11h14M9 16h14M9 21h8M23 21h.01"></path>
+                                </svg></span>
+                            <h3>Digitalisierung</h3>
+                        </div>
+                        <p>Einfache digitale Werkzeuge, die wiederkehrende Abläufe übersichtlicher und schneller machen.
+                        </p>
+                    </article>
+                    <article class="card service-card">
+                        <div class="service-card-header">
+                            <span aria-hidden="true" class="icon"><svg viewbox="0 0 32 32">
+                                    <path
+                                        d="M7 18v-4a9 9 0 0 1 18 0v4M7 17H4v7h5v-7zM25 17h3v7h-5v-7zM23 25c-2 3-5 4-8 4">
+                                    </path>
+                                </svg></span>
+                            <h3>Webbetreuung</h3>
+                        </div>
+                        <p>Änderungen, Updates, technische Pflege und laufende Unterstützung für bestehende Websites.
+                        </p>
+                    </article>
+                </div>
             </div>
-            <p>Individuelle Web-Apps und Windows-Anwendungen, zugeschnitten auf konkrete Anforderungen.</p>
-          </article>
+        </section>
+        <section class="section section--light selected-projects-section" id="projekte"
+            aria-labelledby="selected-projects-title">
+            <div class="container">
+                <div class="projects-heading-row selected-projects-heading">
+                    <div>
+                        <span class="kicker">Portfolio</span>
+                        <h2 id="selected-projects-title">Ausgewählte Projekte</h2>
+                        <p>Vier unterschiedliche Projekte – von Web-App und API bis zum interaktiven Browsergame.</p>
+                    </div>
+                    <a class="link-arrow" href="subpages/portfolio.html">Alle Projekte ansehen</a>
+                </div>
 
-          <article class="card service-card">
-            <div class="service-card-header">
-              <span class="icon" aria-hidden="true"><svg viewBox="0 0 32 32">
-                  <rect x="4" y="5" width="24" height="22" rx="3" />
-                  <path d="M9 11h14M9 16h14M9 21h8M23 21h.01" />
-                </svg></span>
-              <h3>Digitalisierung</h3>
+                <div class="selected-projects-grid">
+                    <article class="project-card selected-project-card">
+                        <div class="selected-project-card__media">
+                            <img alt="Portfolio-Vorschau des Memory Games mit Einstellungen und Kartenfeld"
+                                height="1086" loading="lazy" src="assets/images/portfolio/memory-game.png"
+                                width="1448" />
+                            <span class="selected-project-card__status">Spielbar</span>
+                        </div>
+                        <div class="project-card-body selected-project-card__body">
+                            <div class="selected-project-card__topline"><span class="badge">TypeScript · Game</span>
+                            </div>
+                            <h3>Memory Game</h3>
+                            <p>Interaktives Memory-Spiel mit mehreren Themes, Spielfeldgrößen, Spielerwahl und
+                                responsiver Benutzeroberfläche.</p>
+                            <ul class="selected-project-card__tech" aria-label="Technologien">
+                                <li>TypeScript</li>
+                                <li>Responsive UI</li>
+                            </ul>
+                            <div class="project-card-footer selected-project-card__footer">
+                                <a class="button button--primary button--small project-demo-button"
+                                    href="demos/memory-game/" rel="noopener noreferrer" target="_blank">Spiel
+                                    ausprobieren</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="project-card selected-project-card">
+                        <div class="selected-project-card__media">
+                            <img alt="Portfolio-Vorschau der Join Kanban-Anwendung mit Board und Aufgaben" height="1086"
+                                loading="lazy" src="assets/images/portfolio/join.png" width="1448" />
+                            <span class="selected-project-card__status">Live-Demo</span>
+                        </div>
+                        <div class="project-card-body selected-project-card__body">
+                            <div class="selected-project-card__topline"><span class="badge">Web-App · Kanban</span>
+                            </div>
+                            <h3>Join</h3>
+                            <p>Kanban-Anwendung zur Organisation von Aufgaben mit Board, Taskverwaltung, Kontakten und
+                                responsiver Oberfläche.</p>
+                            <ul class="selected-project-card__tech" aria-label="Technologien">
+                                <li>JavaScript</li>
+                                <li>Firebase</li>
+                            </ul>
+                            <div class="project-card-footer selected-project-card__footer">
+                                <a class="button button--primary button--small project-demo-button" href="demos/join/"
+                                    rel="noopener noreferrer" target="_blank">Join ansehen</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="project-card selected-project-card">
+                        <div class="selected-project-card__media">
+                            <img alt="Portfolio-Vorschau des Pokédex mit rotem Interface und Pokémon-Detailansicht"
+                                height="1086" loading="lazy" src="assets/images/portfolio/pokedex-preview.webp"
+                                width="1448" />
+                            <span class="selected-project-card__status">API-Projekt</span>
+                        </div>
+                        <div class="project-card-body selected-project-card__body">
+                            <div class="selected-project-card__topline"><span class="badge">Web-App · REST API</span>
+                            </div>
+                            <h3>Pokédex</h3>
+                            <p>Dynamischer Pokédex mit API-Daten, Suche, Detailansicht und Navigation zwischen den
+                                geladenen Pokémon.</p>
+                            <ul class="selected-project-card__tech" aria-label="Technologien">
+                                <li>JavaScript</li>
+                                <li>REST API</li>
+                            </ul>
+                            <div class="project-card-footer selected-project-card__footer">
+                                <a class="button button--primary button--small project-demo-button"
+                                    href="demos/pokedex/" rel="noopener noreferrer" target="_blank">Pokédex ansehen</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="project-card selected-project-card selected-project-card--sharkie">
+                        <div class="selected-project-card__media">
+                            <img alt="Portfolio-Vorschau des Browsergames Sharkie mit Hai, Münzen und Unterwasserwelt"
+                                height="1086" loading="lazy" src="assets/images/portfolio/sharkie.png" width="1448" />
+                            <span class="selected-project-card__status">Spielbar</span>
+                        </div>
+                        <div class="project-card-body selected-project-card__body">
+                            <div class="selected-project-card__topline"><span class="badge">JavaScript · Game</span>
+                            </div>
+                            <h3>Sharkie</h3>
+                            <p>2D-Browsergame mit Tastatursteuerung, Gegnern, Sammelobjekten, Sounds und animierter
+                                Unterwasserwelt.</p>
+                            <ul class="selected-project-card__tech" aria-label="Technologien">
+                                <li>JavaScript</li>
+                                <li>OOP</li>
+                            </ul>
+                            <div class="project-card-footer selected-project-card__footer">
+                                <a class="button button--primary button--small project-demo-button"
+                                    href="demos/sharkie/" rel="noopener noreferrer" target="_blank">Sharkie spielen</a>
+                            </div>
+                        </div>
+                    </article>
+                </div>
             </div>
-            <p>Einfache digitale Werkzeuge, die wiederkehrende Abläufe übersichtlicher und schneller machen.</p>
-          </article>
-
-          <article class="card service-card">
-            <div class="service-card-header">
-              <span class="icon" aria-hidden="true"><svg viewBox="0 0 32 32">
-                  <path d="M7 18v-4a9 9 0 0 1 18 0v4M7 17H4v7h5v-7zM25 17h3v7h-5v-7zM23 25c-2 3-5 4-8 4" />
-                </svg></span>
-              <h3>Webbetreuung</h3>
+        </section>
+        <section aria-labelledby="model-demo-title" class="section model-demo-section">
+            <div class="container model-demo-teaser">
+                <div class="model-demo-media">
+                    <img alt="Fabs3D Modellbibliothek mit Modellübersicht und eingeblendeter 3D-Vorschau" height="1086"
+                        loading="lazy" src="assets/images/portfolio/model-library-preview.webp" width="1448" />
+                </div>
+                <div class="model-demo-copy">
+                    <span class="kicker">Interaktive Web-Demo</span>
+                    <h2 id="model-demo-title">3D-Modellbibliothek direkt im Browser testen</h2>
+                    <p>Die Windows-App selbst benötigt lokalen Dateizugriff. Für das Portfolio gibt es deshalb eine
+                        sichere Browser-Demo mit Beispieldaten und echter STL-Vorschau.</p>
+                    <ul class="demo-feature-list">
+                        <li>Eigene STL lokal im Browser öffnen und direkt ansehen</li>
+                        <li>Modelle umbenennen, kategorisieren und favorisieren</li>
+                        <li>Zwischen Kachel- und Listenansicht wechseln</li>
+                        <li>3D-Modell drehen, zoomen sowie Modell- und Hintergrundfarbe ändern</li>
+                    </ul>
+                    <div class="button-row">
+                        <a class="button button--primary" href="demos/model-library/" rel="noopener noreferrer"
+                            target="_blank">Web-Demo ausprobieren</a>
+                        <a class="button button--secondary" href="subpages/portfolio.html#modellbibliothek">Projekt
+                            ansehen</a>
+                    </div>
+                    <p class="privacy-note">Dateien werden in der Web-Demo nicht hochgeladen; eine gewählte STL bleibt
+                        im Browser.</p>
+                </div>
             </div>
-            <p>Änderungen, Updates, technische Pflege und laufende Unterstützung für bestehende Websites.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section section--light" id="projekte">
-      <div class="container">
-        <div class="projects-heading-row">
-          <div>
-            <span class="kicker">Portfolio</span>
-            <h2>Ausgewählte Projekte</h2>
-          </div>
-          <a class="link-arrow" href="subpages/portfolio.html">Zum Portfolio</a>
-        </div>
-
-        <div class="project-grid">
-          <article class="project-card">
-            <img src="assets/images/portfolio/allzeit-gut.webp"
-              alt="Allzeit Gut – Themenseite mit der Überschrift Würmer im Darm? Wir sprechen darüber." width="1200"
-              height="675" loading="lazy">
-            <div class="project-card-body">
-              <h3>Allzeit Gut</h3>
-              <p>Kundenprojekt: mehrseitige Informationswebsite mit responsivem Design, Analytics und Adminbereich.</p>
-              <div class="project-card-footer">
-                <span class="badge badge--client">Kundenprojekt · Website</span>
-                <a class="project-card-link" href="subpages/portfolio.html#allzeit-gut" aria-label="Mehr über das Kundenprojekt Allzeit Gut">↗</a>
-              </div>
+        </section>
+        <section class="section about-preview">
+            <div class="container about-grid">
+                <div class="about-panel">
+                    <img class="about-panel__logo" src="assets/images/general/gd-tech-logo.webp"
+                        alt="Glanzer Digital GD-Logo mit Code-Symbol und Serverelementen" width="1200" height="900"
+                        loading="lazy" />
+                    <div class="about-panel__chips" aria-label="Technische Schwerpunkte">
+                        <span>Fullstack</span>
+                        <span>DevSecOps soon</span>
+                    </div>
+                </div>
+                <div class="about-copy">
+                    <span class="kicker">Über mich</span>
+                    <h2>Digitale Lösungen, die nicht nur gut aussehen – sondern wirklich funktionieren</h2>
+                    <p>Ich entwickle moderne Websites, Web-Apps und digitale Werkzeuge mit Fokus auf klare Strukturen,
+                        starke Nutzerführung und saubere technische Umsetzung. Dabei soll Technik verständlich bleiben:
+                        keine unnötigen Umwege, keine überladenen Lösungen – sondern etwas, das zuverlässig funktioniert
+                        und sich auch später noch sinnvoll weiterentwickeln lässt.</p>
+                    <ul class="check-list">
+                        <li>Klare Beratung und ehrliche Einschätzung von Anfang an</li>
+                        <li>Responsives Design, saubere Struktur und gute Bedienbarkeit</li>
+                        <li>Direkte Abstimmung, kurze Wege und praxisnahe Lösungen</li>
+                    </ul>
+                    <a class="button button--primary" href="subpages/ueber-mich.html">Mehr über mich</a>
+                </div>
             </div>
-          </article>
-
-          <article class="project-card">
-            <img src="assets/images/portfolio/shopcheck.svg" alt="Vorschau der ShopCheck-Webanwendung" width="760"
-              height="430">
-            <div class="project-card-body">
-              <h3>ShopCheck</h3>
-              <p>Web-Tool zur strukturierten Prüfung öffentlich erreichbarer Websiteinformationen.</p>
-              <div class="project-card-footer"><span class="badge">Web-App</span><a class="project-card-link"
-                  href="subpages/portfolio.html" aria-label="Mehr über ShopCheck">↗</a></div>
+        </section>
+        <section class="section services-section">
+            <div class="container">
+                <div class="section-heading">
+                    <span class="kicker">Ablauf</span>
+                    <h2>Von der Idee zur fertigen Lösung</h2>
+                </div>
+                <div class="process-grid">
+                    <article class="card process-card">
+                        <div class="process-number">1</div>
+                        <h3>Anforderungen klären</h3>
+                        <p>Ziele, Inhalte, Funktionen und ein realistischer Umfang werden zuerst gemeinsam festgelegt.
+                        </p>
+                    </article>
+                    <article class="card process-card">
+                        <div class="process-number">2</div>
+                        <h3>Sauber umsetzen</h3>
+                        <p>Die Lösung wird strukturiert aufgebaut, getestet und während der Umsetzung abgestimmt.</p>
+                    </article>
+                    <article class="card process-card">
+                        <div class="process-number">3</div>
+                        <h3>Übergeben und betreuen</h3>
+                        <p>Nach der Fertigstellung folgen Übergabe, Erklärung und bei Bedarf laufende Betreuung.</p>
+                    </article>
+                </div>
             </div>
-          </article>
-
-          <article class="project-card">
-            <img src="assets/images/portfolio/model-library.svg" alt="Vorschau der 3D-Modellbibliothek" width="760"
-              height="430">
-            <div class="project-card-body">
-              <h3>3D-Modellbibliothek</h3>
-              <p>Windows-Anwendung zur Verwaltung, Suche und Vorschau eigener 3D-Modelle.</p>
-              <div class="project-card-footer"><span class="badge">Windows-App</span><a class="project-card-link"
-                  href="subpages/portfolio.html" aria-label="Mehr über die 3D-Modellbibliothek">↗</a></div>
+        </section>
+        <section class="cta-section">
+            <div class="container cta-row">
+                <div>
+                    <h2>Du hast ein digitales Projekt im Kopf?</h2>
+                    <p>Beschreibe kurz, was du brauchst. Danach lässt sich ehrlich einschätzen, was sinnvoll umsetzbar
+                        ist.</p>
+                </div>
+                <a class="button button--secondary" href="subpages/kontakt.html">Projekt anfragen</a>
             </div>
-          </article>
-          <article class="project-card">
-            <img src="assets/images/portfolio/sharkie-preview.webp" alt="Portfolio-Vorschau des Browsergames Sharkie mit Hai, Münzen und Unterwasserwelt" width="760" height="430">
-            <div class="project-card-body">
-              <h3>Sharkie</h3>
-              <p>2D-Browsergame mit Gegnern, Sammelobjekten, Sounds und animierter Unterwasserwelt.</p>
-              <div class="project-card-footer"><span class="badge">Ausbildungsprojekt · Game</span><a class="project-card-link"
-                  href="demos/sharkie/" target="_blank" rel="noopener noreferrer" aria-label="Sharkie spielen">↗</a></div>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section about-preview">
-      <div class="container about-grid">
-        <div class="about-panel" aria-hidden="true"><span class="about-mark">GD</span></div>
-        <div class="about-copy">
-          <span class="kicker">Über mich</span>
-          <h2>Technik verständlich und sauber umgesetzt</h2>
-          <p>Ich entwickle Websites, kleine Anwendungen und digitale Werkzeuge mit einem klaren praktischen Nutzen.
-            Dabei lege ich Wert auf eine direkte Abstimmung und eine Lösung, die nicht unnötig kompliziert wird.</p>
-          <ul class="check-list">
-            <li>Klare und ehrliche Einschätzung des Projektumfangs</li>
-            <li>Responsives Design und nachvollziehbarer Aufbau</li>
-            <li>Direkter Ansprechpartner ohne unnötige Umwege</li>
-          </ul>
-          <a class="button button--primary" href="subpages/ueber-mich.html">Mehr über mich</a>
-        </div>
-      </div>
-    </section>
-
-    <section class="section services-section">
-      <div class="container">
-        <div class="section-heading">
-          <span class="kicker">Ablauf</span>
-          <h2>Von der Idee zur fertigen Lösung</h2>
-        </div>
-        <div class="process-grid">
-          <article class="card process-card">
-            <div class="process-number">1</div>
-            <h3>Anforderungen klären</h3>
-            <p>Ziele, Inhalte, Funktionen und ein realistischer Umfang werden zuerst gemeinsam festgelegt.</p>
-          </article>
-          <article class="card process-card">
-            <div class="process-number">2</div>
-            <h3>Sauber umsetzen</h3>
-            <p>Die Lösung wird strukturiert aufgebaut, getestet und während der Umsetzung abgestimmt.</p>
-          </article>
-          <article class="card process-card">
-            <div class="process-number">3</div>
-            <h3>Übergeben und betreuen</h3>
-            <p>Nach der Fertigstellung folgen Übergabe, Erklärung und bei Bedarf laufende Betreuung.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="cta-section">
-      <div class="container cta-row">
-        <div>
-          <h2>Du hast ein digitales Projekt im Kopf?</h2>
-          <p>Beschreibe kurz, was du brauchst. Danach lässt sich ehrlich einschätzen, was sinnvoll umsetzbar ist.</p>
-        </div>
-        <a class="button button--secondary" href="subpages/kontakt.html">Projekt anfragen</a>
-      </div>
-    </section>
-  </main>
-
-  <footer class="site-footer" data-site-footer></footer>
+        </section>
+    </main>
+    <footer class="site-footer" data-site-footer=""></footer>
 </body>
 
 </html>

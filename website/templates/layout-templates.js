@@ -48,6 +48,7 @@ const FOOTER_TEMPLATE = `
         <div class="footer-links">
           <a href="tel:+436767875304">+43 676 7875304</a>
           <a href="mailto:fabsdev@gmx.at">fabsdev@gmx.at</a>
+          <a href="https://github.com/FabianGlanzerDev" target="_blank" rel="noopener noreferrer">GitHub</a>
           <a href="{{ROOT}}/subpages/impressum.html">Impressum</a>
           <a href="{{ROOT}}/subpages/datenschutz.html">Datenschutz</a>
         </div>

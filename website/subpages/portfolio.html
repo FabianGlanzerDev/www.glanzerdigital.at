@@ -1,30 +1,30 @@
-<!doctype html>
+<!DOCTYPE html>
+
 <html lang="de">
 
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description"
-    content="Kundenprojekte, eigene Anwendungen und Ausbildungsprojekte im Portfolio von Glanzer Digital.">
-  <meta name="theme-color" content="#080b10">
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1" name="viewport" />
+  <meta content="Kundenprojekte, eigene Anwendungen und Ausbildungsprojekte im Portfolio von Glanzer Digital."
+    name="description" />
+  <meta content="#080b10" name="theme-color" />
   <title>Portfolio | Glanzer Digital</title>
-  <link rel="icon" href="../assets/favicons/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="../styles/variables.css">
-  <link rel="stylesheet" href="../styles/fonts.css">
-  <link rel="stylesheet" href="../styles/style.css">
-  <link rel="stylesheet" href="../styles/assets.css">
-  <link rel="stylesheet" href="../styles/header.css">
-  <link rel="stylesheet" href="../styles/footer.css">
-  <link rel="stylesheet" href="../styles/pages/portfolio.css">
-  <script src="../templates/layout-templates.js" defer></script>
-  <script src="../scripts/main.js" defer></script>
+  <link href="../assets/favicons/favicon.svg" rel="icon" type="image/svg+xml" />
+  <link href="../styles/variables.css" rel="stylesheet" />
+  <link href="../styles/fonts.css" rel="stylesheet" />
+  <link href="../styles/style.css" rel="stylesheet" />
+  <link href="../styles/assets.css" rel="stylesheet" />
+  <link href="../styles/header.css" rel="stylesheet" />
+  <link href="../styles/footer.css" rel="stylesheet" />
+  <link href="../styles/pages/portfolio.css" rel="stylesheet" />
+  <script defer="" src="../templates/layout-templates.js"></script>
+  <script defer="" src="../scripts/main.js"></script>
+  <script defer="True" src="../scripts/portfolio-effects.js"></script>
 </head>
 
-<body data-root=".." data-page="portfolio">
+<body data-page="portfolio" data-root="..">
   <a class="skip-link" href="#main-content">Zum Inhalt springen</a>
-
-  <header class="site-header" data-site-header></header>
-
+  <header class="site-header" data-site-header=""></header>
   <main id="main-content">
     <section class="page-hero">
       <div class="container page-hero-inner">
@@ -34,82 +34,77 @@
           Softwareentwicklung.</p>
       </div>
     </section>
-
     <section class="section section--light">
       <div class="container">
         <article class="featured-project" id="allzeit-gut">
           <div class="featured-project-media featured-project-media--allzeit">
-            <img class="featured-project-image--allzeit" src="../assets/images/portfolio/allzeit-gut-featured.png"
-              alt="Allzeit Gut – Portfolio-Vorschau mit dem Startseiten-Hero und dem Informationsvideo." width="900"
-              height="1200" loading="lazy">
+            <img alt="Allzeit Gut – Portfolio-Vorschau mit dem Startseiten-Hero und dem Informationsvideo."
+              class="featured-project-image--allzeit" height="1200" loading="lazy"
+              src="../assets/images/portfolio/allzeit-gut-featured.png" width="900" />
           </div>
-
           <div class="featured-project-content">
             <span class="badge badge--client">Kundenprojekt</span>
             <span class="kicker">Website · Allzeit Gut</span>
             <h2>Mehrseitige Informationswebsite mit geschütztem Adminbereich</h2>
             <p>Für Allzeit Gut wurde eine responsive Website mit klarer Inhaltsstruktur, technischer Betreuung und
               integrierter Analytics-Auswertung umgesetzt.</p>
-
             <ul class="featured-project-list">
               <li>Responsive Umsetzung für Desktop, Tablet und Smartphone</li>
               <li>Mehrseitige Struktur mit zentral gepflegten Komponenten</li>
               <li>Google Analytics mit Auswertung im geschützten Adminbereich</li>
               <li>SEO-Grundlagen, Sitemap und technische Vorbereitung für Suchmaschinen</li>
             </ul>
-
             <div class="featured-project-actions">
-              <a class="button button--primary" href="https://allzeitgut.at/" target="_blank"
-                rel="noopener noreferrer">Live-Website ansehen</a>
+              <a class="button button--primary" href="https://allzeitgut.at/" rel="noopener noreferrer"
+                target="_blank">Live-Website ansehen</a>
               <a class="link-arrow" href="kontakt.html">Ähnliches Projekt anfragen</a>
             </div>
           </div>
         </article>
-
-        <section class="portfolio-group" aria-labelledby="own-projects-title">
+        <section aria-labelledby="own-projects-title" class="portfolio-group">
           <div class="portfolio-heading">
             <span class="kicker">Eigene Arbeiten</span>
             <h2 id="own-projects-title">Eigene Projekte</h2>
             <p>Projekte, die aus eigenen Ideen entstanden sind und von mir selbst umgesetzt wurden.</p>
           </div>
+          <div class="portfolio-grid portfolio-grid--single">
 
-          <div class="portfolio-grid portfolio-grid--two">
-            <article class="project-card portfolio-card">
-              <img src="../assets/images/portfolio/shopcheck.svg" alt="Vorschau der ShopCheck-Webanwendung" width="760"
-                height="430">
-              <div class="project-card-body">
-                <h3>ShopCheck</h3>
-                <p>Web-Tool zur strukturierten Prüfung öffentlich erreichbarer Angaben und technischer Hinweise einer
-                  Website.</p>
-                <div class="project-card-footer"><span class="badge">Eigenes Projekt · Web-App</span></div>
-              </div>
-            </article>
-
-            <article class="project-card portfolio-card">
-              <img src="../assets/images/portfolio/model-library.svg" alt="Vorschau der 3D-Modellbibliothek" width="760"
-                height="430">
-              <div class="project-card-body">
+            <article class="project-card portfolio-card portfolio-card--wide" id="modellbibliothek">
+              <img alt="3D-Modellbibliothek mit Modellübersicht und separater 3D-Vorschau der echten Windows-Anwendung."
+                height="1086" src="../assets/images/portfolio/model-library-preview.webp" width="1448" />
+              <div class="project-card-body model-library-card-copy">
+                <span class="kicker">Eigenes Softwareprojekt</span>
                 <h3>3D-Modellbibliothek</h3>
-                <p>Lokale Windows-Anwendung zum Ordnen, Suchen, Anzeigen und Umbenennen eigener 3D-Dateien.</p>
-                <div class="project-card-footer"><span class="badge">Eigenes Projekt · Windows-App</span></div>
+                <p>Eine lokale Windows-Anwendung zur strukturierten Verwaltung größerer STL- und 3MF-Sammlungen. Modelle
+                  lassen sich schnell finden, prüfen und direkt für den nächsten 3D-Druck organisieren.</p>
+                <ul class="project-feature-list">
+                  <li>Modelle suchen, filtern und in Kategorien organisieren</li>
+                  <li>Dateinamen bearbeiten sowie Favoriten verwalten</li>
+                  <li>STL- und 3MF-Dateien mit Metadaten übersichtlich erfassen</li>
+                  <li>Modelle direkt in einer interaktiven 3D-Vorschau prüfen</li>
+                </ul>
+                <p class="project-demo-hint"><strong>Web-Demo:</strong> Eine eigene STL lokal im Browser öffnen,
+                  umbenennen, kategorisieren, einfärben, die Ansicht wechseln und als Favorit markieren.</p>
+                <div class="project-card-footer project-card-footer--action">
+                  <span class="badge">Eigenes Projekt · Windows-App</span>
+                  <a class="button button--primary button--small project-demo-button" href="../demos/model-library/"
+                    rel="noopener noreferrer" target="_blank">Web-Demo testen</a>
+                </div>
               </div>
             </article>
           </div>
         </section>
-
-        <section class="portfolio-group portfolio-group--training" aria-labelledby="training-projects-title">
+        <section aria-labelledby="training-projects-title" class="portfolio-group portfolio-group--training">
           <div class="portfolio-heading">
             <span class="kicker">Developer Akademie</span>
             <h2 id="training-projects-title">Ausbildungsprojekte</h2>
             <p>Diese Projekte entstanden im Rahmen meiner Ausbildung und zeigen unterschiedliche Schwerpunkte aus
               Frontend- und Webentwicklung.</p>
           </div>
-
           <div class="portfolio-grid">
             <article class="project-card portfolio-card">
-              <img src="../assets/images/portfolio/kochwelt-preview.webp"
-                alt="Portfolio-Vorschau von Kochwelt mit modernem Rezept-Layout und Pasta-Gericht" width="760"
-                height="430">
+              <img alt="Portfolio-Vorschau von Kochwelt mit modernem Rezept-Layout und Pasta-Gericht" height="430"
+                src="../assets/images/portfolio/kochwelt.png" width="760" />
               <div class="project-card-body">
                 <h3>Kochwelt</h3>
                 <p>Gruppenprojekt mit responsiver Rezept-Website, Rezept des Tages, mehreren Rezeptseiten und
@@ -117,16 +112,13 @@
                 <div class="project-card-footer project-card-footer--action">
                   <span class="badge">Developer Akademie · Website</span>
                   <a class="button button--primary button--small project-demo-button" href="../demos/kochwelt/"
-                    target="_blank" rel="noopener noreferrer">Demo ansehen</a>
+                    rel="noopener noreferrer" target="_blank">Kochwelt ansehen</a>
                 </div>
               </div>
             </article>
-
-
             <article class="project-card portfolio-card">
-              <img src="../assets/images/portfolio/sakura-ramen-preview.webp"
-                alt="Portfolio-Vorschau der Sakura-Ramen-Website mit Hero-Bereich, Ramen-Bowl und Speisekarte"
-                width="760" height="430">
+              <img alt="Portfolio-Vorschau der Sakura-Ramen-Website mit Hero-Bereich, Ramen-Bowl und Speisekarte"
+                height="430" src="../assets/images/portfolio/sakura-ramen.png" width="760" />
               <div class="project-card-body">
                 <h3>Sakura Ramen</h3>
                 <p>Restaurant-Landingpage mit Hero-Bereich, Speisekarte, Standortinfos und japanisch inspiriertem
@@ -134,15 +126,13 @@
                 <div class="project-card-footer project-card-footer--action">
                   <span class="badge">Developer Akademie · Website</span>
                   <a class="button button--primary button--small project-demo-button" href="../demos/sakura-ramen/"
-                    target="_blank" rel="noopener noreferrer">Demo ansehen</a>
+                    rel="noopener noreferrer" target="_blank">Sakura-Ramen ansehen</a>
                 </div>
               </div>
             </article>
-
             <article class="project-card portfolio-card">
-              <img src="../assets/images/portfolio/fotogram.png"
-                alt="Portfolio-Vorschau von Fotogram mit dunkler Galerieoberfläche und großer Landschaftsaufnahme"
-                width="760" height="430">
+              <img alt="Portfolio-Vorschau von Fotogram mit dunkler Galerieoberfläche und großer Landschaftsaufnahme"
+                height="430" src="../assets/images/portfolio/fotogram.png" width="760" />
               <div class="project-card-body">
                 <h3>Fotogram</h3>
                 <p>Responsive Fotogalerie mit Lightbox, Bildnavigation per Tastatur und einer übersichtlichen
@@ -150,15 +140,13 @@
                 <div class="project-card-footer project-card-footer--action">
                   <span class="badge">Developer Akademie · Website</span>
                   <a class="button button--primary button--small project-demo-button" href="../demos/fotogram/"
-                    target="_blank" rel="noopener noreferrer">Demo ansehen</a>
+                    rel="noopener noreferrer" target="_blank">Fotogram ansehen</a>
                 </div>
               </div>
             </article>
-
             <article class="project-card portfolio-card">
-              <img src="../assets/images/portfolio/pokedex-preview.webp"
-                alt="Portfolio-Vorschau des Pokédex-Projekts mit rotem Neon-Interface und elektrischer Kreatur"
-                width="760" height="430">
+              <img alt="Portfolio-Vorschau des Pokédex-Projekts mit rotem Neon-Interface und elektrischer Kreatur"
+                height="430" src="../assets/images/portfolio/pokedex-preview.webp" width="760" />
               <div class="project-card-body">
                 <h3>Pokédex</h3>
                 <p>Dynamischer Pokédex mit API-Daten, Suche, Detailansicht sowie Navigation zwischen einzelnen Pokémon.
@@ -166,15 +154,13 @@
                 <div class="project-card-footer project-card-footer--action">
                   <span class="badge">Developer Akademie · Web-App</span>
                   <a class="button button--primary button--small project-demo-button" href="../demos/pokedex/"
-                    target="_blank" rel="noopener noreferrer">Demo ansehen</a>
+                    rel="noopener noreferrer" target="_blank">Pokédex ansehen</a>
                 </div>
               </div>
             </article>
-
             <article class="project-card portfolio-card portfolio-card--featured">
-              <img src="../assets/images/portfolio/sharkie-preview.webp"
-                alt="Portfolio-Vorschau des Browsergames Sharkie mit Hai, Münzen und Unterwasserwelt" width="760"
-                height="430">
+              <img alt="Portfolio-Vorschau des Browsergames Sharkie mit Hai, Münzen und Unterwasserwelt" height="430"
+                src="../assets/images/portfolio/sharkie.png" width="760" />
               <div class="project-card-body">
                 <h3>Sharkie</h3>
                 <p>2D-Browsergame mit Tastatursteuerung, Gegnern, Sammelobjekten, Sounds und animierter Unterwasserwelt.
@@ -182,15 +168,13 @@
                 <div class="project-card-footer project-card-footer--action">
                   <span class="badge">Developer Akademie · Game</span>
                   <a class="button button--primary button--small project-demo-button" href="../demos/sharkie/"
-                    target="_blank" rel="noopener noreferrer">Spiel ausprobieren</a>
+                    rel="noopener noreferrer" target="_blank">Sharkie Spielen</a>
                 </div>
               </div>
             </article>
-
             <article class="project-card portfolio-card">
-              <img src="../assets/images/portfolio/join-preview.webp"
-                alt="Portfolio-Vorschau des Taskmanagement-Projekts Join mit Kanban-Board und blauem UI" width="760"
-                height="430">
+              <img alt="Portfolio-Vorschau des Taskmanagement-Projekts Join mit Kanban-Board und blauem UI" height="430"
+                src="../assets/images/portfolio/join.png" width="760" />
               <div class="project-card-body">
                 <h3>Join</h3>
                 <p>Kanban-Anwendung zur Aufgabenorganisation mit Board, Taskverwaltung, Kontakten und responsiver
@@ -198,30 +182,26 @@
                 <div class="project-card-footer project-card-footer--action">
                   <span class="badge">Developer Akademie · Web-App</span>
                   <a class="button button--primary button--small project-demo-button" href="../demos/join/"
-                    target="_blank" rel="noopener noreferrer">Demo ansehen</a>
+                    rel="noopener noreferrer" target="_blank">Join ansehen</a>
                 </div>
               </div>
             </article>
-
             <article class="project-card portfolio-card">
-              <img src="../assets/images/portfolio/poll-app-preview.webp"
-                alt="Portfolio-Vorschau der Poll App mit dunklem Dashboard, Poll-Erstellung und Ergebnisanalyse"
-                width="760" height="430">
+              <img alt="Portfolio-Vorschau der Poll App mit dunklem Dashboard, Poll-Erstellung und Ergebnisanalyse"
+                height="430" src="../assets/images/portfolio/pollapp.png" width="760" />
               <div class="project-card-body">
                 <h3>Poll App</h3>
                 <p>TypeScript-Umfrage-App mit Poll-Erstellung, Voting, Dashboard und dynamischer Ergebnisanalyse.</p>
                 <div class="project-card-footer project-card-footer--action">
                   <span class="badge">Developer Akademie · TypeScript</span>
                   <a class="button button--primary button--small project-demo-button" href="../demos/poll-app/"
-                    target="_blank" rel="noopener noreferrer">Demo ansehen</a>
+                    rel="noopener noreferrer" target="_blank">PollApp ansehen</a>
                 </div>
               </div>
             </article>
-
             <article class="project-card portfolio-card">
-              <img src="../assets/images/portfolio/memory-game-preview.webp"
-                alt="Portfolio-Vorschau des Memory Games mit Neon-Interface, Kartenraster und Spielstatistiken"
-                width="760" height="430">
+              <img alt="Portfolio-Vorschau des Memory Games mit Neon-Interface, Kartenraster und Spielstatistiken"
+                height="430" src="../assets/images/portfolio/memory-game.png" width="760" />
               <div class="project-card-body">
                 <h3>Memory Game</h3>
                 <p>Interaktives Memory-Spiel mit mehreren Themes, Settings-Bereich, Spielstatistiken und responsivem
@@ -229,7 +209,7 @@
                 <div class="project-card-footer project-card-footer--action">
                   <span class="badge">Developer Akademie · TypeScript</span>
                   <a class="button button--primary button--small project-demo-button" href="../demos/memory-game/"
-                    target="_blank" rel="noopener noreferrer">Spiel ausprobieren</a>
+                    rel="noopener noreferrer" target="_blank">Spiel ausprobieren</a>
                 </div>
               </div>
             </article>
@@ -237,24 +217,93 @@
         </section>
       </div>
     </section>
-
-    <section class="section services-section">
+    <section aria-labelledby="github-profile-title" class="section github-profile-section">
+      <div class="container">
+        <article class="github-profile-card">
+          <div class="github-profile-content">
+            <span class="kicker">Open Source &amp; Code</span>
+            <h2 id="github-profile-title">Mehr Projekte auf GitHub</h2>
+            <p>Weitere Repositories, Übungsprojekte und Code-Beispiele findest du direkt auf meinem GitHub-Profil.</p>
+            <a class="button button--primary github-profile-button" href="https://github.com/FabianGlanzerDev"
+              rel="noopener noreferrer" target="_blank">
+              <img alt="" aria-hidden="true" class="github-button-logo"
+                src="../assets/images/technologies/github.png" />
+              GitHub-Profil ansehen
+            </a>
+          </div>
+          <div aria-hidden="true" class="github-profile-logo">
+            <img alt="" src="../assets/images/technologies/github.png" />
+          </div>
+        </article>
+      </div>
+    </section>
+    <section class="section services-section" id="technologien">
       <div class="container">
         <div class="section-heading">
           <span class="kicker">Technologien</span>
           <h2>Werkzeuge hinter den Projekten</h2>
+          <p>Mit Maus, Tastatur oder Touch öffnen: Jede Karte zeigt ein kleines Codebeispiel aus der jeweiligen
+            Technologie.</p>
         </div>
-        <div class="tech-grid">
-          <div class="tech-item">HTML</div>
-          <div class="tech-item">CSS</div>
-          <div class="tech-item">JavaScript</div>
-          <div class="tech-item">TypeScript</div>
-          <div class="tech-item">Firebase</div>
-          <div class="tech-item">GitHub</div>
+        <div class="tech-grid" data-tech-grid="">
+          <button aria-expanded="false" aria-label="HTML Codebeispiel anzeigen" class="tech-card" type="button">
+            <img alt="" aria-hidden="true"
+              src="../assets/images/technologies/html5.png" /><span>HTML5</span><small>Struktur &amp;
+              Semantik</small><code aria-hidden="true">&lt;main&gt;
+  &lt;section&gt;Portfolio&lt;/section&gt;
+&lt;/main&gt;</code>
+          </button>
+          <button aria-expanded="false" aria-label="CSS Codebeispiel anzeigen" class="tech-card" type="button">
+            <img alt="" aria-hidden="true" src="../assets/images/technologies/css3.png" /><span>CSS3</span><small>Layout
+              &amp; Responsive</small><code aria-hidden="true">.grid {
+  display: grid;
+  gap: 1rem;
+}</code>
+          </button>
+          <button aria-expanded="false" aria-label="JavaScript Codebeispiel anzeigen" class="tech-card" type="button">
+            <img alt="" aria-hidden="true"
+              src="../assets/images/technologies/javascript.png" /><span>JavaScript</span><small>Interaktivität</small><code
+              aria-hidden="true">button.addEventListener(
+  'click', openDemo
+);</code>
+          </button>
+          <button aria-expanded="false" aria-label="TypeScript Codebeispiel anzeigen" class="tech-card" type="button">
+            <img alt="" aria-hidden="true"
+              src="../assets/images/technologies/typescript.webp" /><span>TypeScript</span><small>Typisierung</small><code
+              aria-hidden="true">type Project = {
+  name: string;
+  live: boolean;
+};</code>
+          </button>
+          <button aria-expanded="false" aria-label="Angular Codebeispiel anzeigen" class="tech-card" type="button">
+            <img alt="" aria-hidden="true"
+              src="../assets/images/technologies/angular.png" /><span>Angular</span><small>Framework</small><code
+              aria-hidden="true">@Component({
+  selector: 'app-card'
+})</code>
+          </button>
+          <button aria-expanded="false" aria-label="Firebase Codebeispiel anzeigen" class="tech-card" type="button">
+            <img alt="" aria-hidden="true"
+              src="../assets/images/technologies/firebase.webp" /><span>Firebase</span><small>Backend
+              Services</small><code aria-hidden="true">const db =
+  getFirestore(app);</code>
+          </button>
+          <button aria-expanded="false" aria-label="REST API Codebeispiel anzeigen" class="tech-card tech-card--api"
+            type="button">
+            <span aria-hidden="true" class="api-logo">API</span><span>REST API</span><small>Datenaustausch</small><code
+              aria-hidden="true">fetch('/api/data')
+  .then(r =&gt; r.json());</code>
+          </button>
+          <button aria-expanded="false" aria-label="GitHub Codebeispiel anzeigen" class="tech-card" type="button">
+            <img alt="" aria-hidden="true"
+              src="../assets/images/technologies/github.png" /><span>GitHub</span><small>Versionierung</small><code
+              aria-hidden="true">git add .
+git commit -m "update"
+git push</code>
+          </button>
         </div>
       </div>
     </section>
-
     <section class="cta-section">
       <div class="container cta-row">
         <div>
@@ -265,8 +314,7 @@
       </div>
     </section>
   </main>
-
-  <footer class="site-footer" data-site-footer></footer>
+  <footer class="site-footer" data-site-footer=""></footer>
 </body>
 
 </html>
