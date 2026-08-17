@@ -15,22 +15,37 @@
   box-shadow: var(--shadow-card);
 }
 
-.profile-visual {
-  display: grid;
-  min-height: 300px;
-  place-items: center;
-  background:
-    radial-gradient(circle at center, var(--alpha-primary-base-34), transparent 38%),
-    linear-gradient(90deg, var(--alpha-white-05) 1px, transparent 1px),
-    linear-gradient(var(--alpha-white-05) 1px, transparent 1px);
-  background-size: auto, 28px 28px, 28px 28px;
+.profile-photo-wrap {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 1 / 1;
+  background: var(--color-profile-panel);
 }
 
-.profile-initials {
-  font-size: 5.5rem;
-  font-weight: 900;
-  letter-spacing: -0.12em;
-  text-shadow: 0 0 35px var(--alpha-primary-60);
+.profile-photo-wrap::after {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  content: "";
+  background: linear-gradient(180deg, transparent 58%, rgba(6, 13, 24, 0.52) 100%);
+}
+
+.profile-photo {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+}
+
+.profile-label {
+  display: inline-flex;
+  margin-bottom: 0.55rem;
+  color: var(--color-primary-hover);
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: none;
 }
 
 .profile-body {
