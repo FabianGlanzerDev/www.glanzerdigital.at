@@ -1,0 +1,9 @@
+const firebaseConfig = {
+  apiKey: "AIzaSyA7bfLkjpCVdcXLbxtuyFxGmhZ_98bvP0Q",
+  authDomain: "join-94aa0.firebaseapp.com",
+  databaseURL: "https://join-94aa0-default-rtdb.europe-west1.firebasedatabase.app/",
+  projectId: "join-94aa0",
+  storageBucket: "join-94aa0.firebasestorage.app",
+  messagingSenderId: "168463279570",
+  appId: "1:168463279570:web:8bdf1a7f780dc51183d40b"
+};
