@@ -1,189 +1,154 @@
-<!doctype html>
+<!DOCTYPE html>
+
 <html lang="de">
-
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Contacts</title>
-
-    <link rel="shortcut icon" href="../assets/icons/favicon.webp" type="image/x-icon" />
-
-    <link rel="stylesheet" href="../styles/variables.css" />
-    <link rel="stylesheet" href="../styles/assets.css" />
-    <link rel="stylesheet" href="../styles/fonts.css" />
-    <link rel="stylesheet" href="../styles/sidebar.css" />
-    <link rel="stylesheet" href="../styles/header.css" />
-    <link rel="stylesheet" href="../styles/style.css" />
-    <link rel="stylesheet" href="../styles/contacts.css" />
-    <link rel="stylesheet" href="../styles/compactDesktop.css" />
-
-    <script src="../scripts/main.js" defer></script>
-    <script src="../templates/barsTemplates.js" defer></script>
-    <script src="../scripts/bars.js" defer></script>
-    <script src="../scripts/taskDataAccess.js" defer></script>
-    <script src="../scripts/dialogManager.js" defer></script>
-    <script src="../templates/contactsTemplates.js" defer></script>
-    <script src="../scripts/contactsHelper.js" defer></script>
-    <script src="../scripts/contactsValidation.js" defer></script>
-    <script src="../scripts/contactsStorage.js" defer></script>
-    <script src="../scripts/contacts.js" defer></script>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Contacts</title>
+<link href="../assets/icons/favicon.webp" rel="shortcut icon" type="image/x-icon"/>
+<link href="../styles/variables.css" rel="stylesheet"/>
+<link href="../styles/assets.css" rel="stylesheet"/>
+<link href="../styles/fonts.css" rel="stylesheet"/>
+<link href="../styles/sidebar.css" rel="stylesheet"/>
+<link href="../styles/header.css" rel="stylesheet"/>
+<link href="../styles/style.css" rel="stylesheet"/>
+<link href="../styles/contacts.css" rel="stylesheet"/>
+<link href="../styles/compactDesktop.css" rel="stylesheet"/>
+<script defer="" src="../scripts/main.js"></script>
+<script defer="" src="../templates/barsTemplates.js"></script>
+<script defer="" src="../scripts/bars.js"></script>
+<script defer="" src="../scripts/taskDataAccess.js"></script>
+<script defer="" src="../scripts/dialogManager.js"></script>
+<script defer="" src="../templates/contactsTemplates.js"></script>
+<script defer="" src="../scripts/contactsHelper.js"></script>
+<script defer="" src="../scripts/contactsValidation.js"></script>
+<script defer="" src="../scripts/contactsStorage.js"></script>
+<script defer="" src="../scripts/contacts.js"></script>
 </head>
-
 <body data-page="contacts">
-    <aside id="sidebar" class="sidebar"></aside>
-
-    <section class="page-content" aria-label="Seiteninhalt">
-        <header id="topbar" class="topbar"></header>
-
-        <main class="contacts-page main-content">
-            <aside class="contacts-sidebar">
-                <div class="contacts-toolbar">
-                    <button id="addContactBtn" class="add-contact-btn" type="button">
-                        <span class="btn-contact">Add new contact</span>
-                        <img src="../assets/icons/personAdd.webp" alt="Add Contact" />
-                    </button>
-                </div>
-
-                <div id="contactsList">
-                    <div class="contact-group">
-                        <h3>A</h3>
-
-                        <div class="contact-card" onclick="showContact(0)">
-                            <div class="contact-avatar">AM</div>
-
-                            <div class="contact-info">
-                                <h4>Anton Mayer</h4>
-                                <a href="mailto:antonm@gmail.com">antonm@gmail.com</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </aside>
-
-            <section class="contact-details">
-                <button class="mobile-back-btn" type="button">
-                    <img src="../assets/icons/backArrow.webp" alt="Back" />
-                </button>
-
-                <div id="contactDetails">
-                    <div class="contacts-header">
-                        <h1>Contacts</h1>
-                        <div class="header-divider"></div>
-                        <span>Better with a team</span>
-                    </div>
-
-                    <div class="contact-mobile-detail">
-                        <div class="selected-contact">
-                            <div class="contact-avatar">AM</div>
-                            <h2>Anton Mayer</h2>
-                        </div>
-
-                        <div class="contact-information">
-                            <h3>Contact Information</h3>
-
-                            <h4>Email</h4>
-                            <a href="mailto:antonm@gmail.com">antonm@gmail.com</a>
-
-                            <h4>Phone</h4>
-                            <p>+49 111 111 11 11</p>
-                        </div>
-                    </div>
-                </div>
-
-                <button class="mobile-more-btn" type="button">
-                    <img src="../assets/icons/points.webp" alt="More options" />
-                </button>
-
-                <div id="mobileOptionsMenu" class="mobile-options-menu">
-                    <button id="mobileEditContactBtn" type="button">
-                        <img src="../assets/icons/edit.webp" alt="Edit" />
-                        <span>Edit</span>
-                    </button>
-
-                    <button id="mobileDeleteContactBtn" type="button">
-                        <img src="../assets/icons/delete.webp" alt="Delete" />
-                        <span>Delete</span>
-                    </button>
-                </div>
-
-                <div id="contactToast" class="contact-toast">
+<aside class="sidebar" id="sidebar"></aside>
+<section aria-label="Seiteninhalt" class="page-content">
+<header class="topbar" id="topbar"></header>
+<main class="contacts-page main-content">
+<aside class="contacts-sidebar">
+<div class="contacts-toolbar">
+<button class="add-contact-btn" id="addContactBtn" type="button">
+<span class="btn-contact">Add new contact</span>
+<img alt="Add Contact" src="../assets/icons/personAdd.webp"/>
+</button>
+</div>
+<div id="contactsList">
+<div class="contact-group">
+<h3>A</h3>
+<div class="contact-card" onclick="showContact(0)">
+<div class="contact-avatar">AM</div>
+<div class="contact-info">
+<h4>Anton Mayer</h4>
+<a href="mailto:antonm@gmail.com">antonm@gmail.com</a>
+</div>
+</div>
+</div>
+</div>
+</aside>
+<section class="contact-details">
+<button aria-label="Zurück" class="mobile-back-btn" type="button">
+<img alt="Back" src="../assets/icons/backArrow.webp"/>
+</button>
+<div id="contactDetails">
+<div class="contacts-header">
+<h1>Contacts</h1>
+<div class="header-divider"></div>
+<span>Better with a team</span>
+</div>
+<div class="contact-mobile-detail">
+<div class="selected-contact">
+<div class="contact-avatar">AM</div>
+<h2>Anton Mayer</h2>
+</div>
+<div class="contact-information">
+<h3>Contact Information</h3>
+<h4>Email</h4>
+<a href="mailto:antonm@gmail.com">antonm@gmail.com</a>
+<h4>Phone</h4>
+<p>+49 111 111 11 11</p>
+</div>
+</div>
+</div>
+<button aria-label="Weitere Optionen" class="mobile-more-btn" type="button">
+<img alt="More options" src="../assets/icons/points.webp"/>
+</button>
+<div class="mobile-options-menu" id="mobileOptionsMenu">
+<button id="mobileEditContactBtn" type="button">
+<img alt="Edit" src="../assets/icons/edit.webp"/>
+<span>Edit</span>
+</button>
+<button id="mobileDeleteContactBtn" type="button">
+<img alt="Delete" src="../assets/icons/delete.webp"/>
+<span>Delete</span>
+</button>
+</div>
+<div class="contact-toast" id="contactToast">
                     Contact successfully created
                 </div>
-            </section>
-
-            <button id="mobileAddContactBtn" class="mobile-add-contact-btn" type="button">
-                <img src="../assets/icons/personAdd.webp" alt="Add contact" />
-            </button>
-        </main>
-    </section>
-
-    <div id="addContactOverlay" class="add-contact-overlay" role="dialog" aria-modal="true"
-        aria-labelledby="contactModalTitle" tabindex="-1">
-        <div class="add-contact-modal">
-            <button type="button" id="closeContactModal" class="close-modal">
-                <img src="../assets/icons/close.webp" alt="Close" />
-            </button>
-
-            <div class="modal-left">
-                <img src="../assets/icons/joinLogoLight.webp" alt="Join Logo" />
-
-                <h2 id="contactModalTitle">Add contact</h2>
-                <p id="contactModalSubtitle">Tasks are better with a team!</p>
-
-                <div class="blue-line"></div>
-            </div>
-
-            <div class="contact-avatar-picker">
-                <button id="contactPlaceholder" class="contact-placeholder" type="button"
-                    aria-label="Select contact color">
-                    <img src="../assets/icons/contactsLogo.webp" alt="Person" />
-                    <span id="contactAvatarInitials" class="contact-avatar-initials"></span>
-
-                    <span class="avatar-edit-icon" aria-hidden="true">
-                        <img src="../assets/icons/edit.webp" alt="" />
-                    </span>
-                </button>
-
-                <div id="colorPicker" class="color-picker">
-                    <div id="colorOptions" class="color-options"></div>
-                </div>
-            </div>
-
-            <div class="modal-right">
-                <form id="addContactForm" novalidate>
-                    <div class="input-field">
-                        <input id="contactName" type="text" placeholder="Name" />
-                        <img src="../assets/icons/person.webp" alt="Person" />
-                        <p class="contact-input-error">Please enter a name.</p>
-                    </div>
-
-                    <div class="input-field">
-                        <input id="contactEmail" type="email" placeholder="Email" />
-                        <img src="../assets/icons/mail.webp" alt="Mail" />
-                        <p class="contact-input-error">Please enter a valid email.</p>
-                    </div>
-
-                    <div class="input-field">
-                        <input id="contactPhone" type="tel" inputmode="tel" placeholder="Phone" />
-                        <img src="../assets/icons/call.webp" alt="Phone" />
-                        <p class="contact-input-error">Please enter a valid phone number.</p>
-                    </div>
-
-                    <div class="modal-buttons">
-                        <button type="button" id="cancelContactBtn" class="cancel-btn">
-                            <span id="secondaryBtnText">Cancel</span>
-                            <img id="secondaryBtnIcon" src="../assets/icons/close.webp" alt="Cancel" />
-                        </button>
-
-                        <button type="submit" class="create-btn">
-                            <span id="submitBtnText">Create contact</span>
-                            <img src="../assets/icons/check.webp" alt="Check" />
-                        </button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
+</section>
+<button aria-label="Kontakt hinzufügen" class="mobile-add-contact-btn" id="mobileAddContactBtn" type="button">
+<img alt="Add contact" src="../assets/icons/personAdd.webp"/>
+</button>
+</main>
+</section>
+<div aria-labelledby="contactModalTitle" aria-modal="true" class="add-contact-overlay" id="addContactOverlay" role="dialog" tabindex="-1">
+<div class="add-contact-modal">
+<button aria-label="Dialog schließen" class="close-modal" id="closeContactModal" type="button">
+<img alt="Close" src="../assets/icons/close.webp"/>
+</button>
+<div class="modal-left">
+<img alt="Join Logo" src="../assets/icons/joinLogoLight.webp"/>
+<h2 id="contactModalTitle">Add contact</h2>
+<p id="contactModalSubtitle">Tasks are better with a team!</p>
+<div class="blue-line"></div>
+</div>
+<div class="contact-avatar-picker">
+<button aria-label="Select contact color" class="contact-placeholder" id="contactPlaceholder" type="button">
+<img alt="Person" src="../assets/icons/contactsLogo.webp"/>
+<span class="contact-avatar-initials" id="contactAvatarInitials"></span>
+<span aria-hidden="true" class="avatar-edit-icon">
+<img alt="" src="../assets/icons/edit.webp"/>
+</span>
+</button>
+<div class="color-picker" id="colorPicker">
+<div class="color-options" id="colorOptions"></div>
+</div>
+</div>
+<div class="modal-right">
+<form id="addContactForm" novalidate="">
+<div class="input-field">
+<input aria-label="Name" id="contactName" placeholder="Name" type="text"/>
+<img alt="Person" src="../assets/icons/person.webp"/>
+<p class="contact-input-error">Please enter a name.</p>
+</div>
+<div class="input-field">
+<input aria-label="E-Mail-Adresse" id="contactEmail" placeholder="Email" type="email"/>
+<img alt="Mail" src="../assets/icons/mail.webp"/>
+<p class="contact-input-error">Please enter a valid email.</p>
+</div>
+<div class="input-field">
+<input aria-label="Telefonnummer" id="contactPhone" inputmode="tel" placeholder="Phone" type="tel"/>
+<img alt="Phone" src="../assets/icons/call.webp"/>
+<p class="contact-input-error">Please enter a valid phone number.</p>
+</div>
+<div class="modal-buttons">
+<button class="cancel-btn" id="cancelContactBtn" type="button">
+<span id="secondaryBtnText">Cancel</span>
+<img alt="Cancel" id="secondaryBtnIcon" src="../assets/icons/close.webp"/>
+</button>
+<button class="create-btn" type="submit">
+<span id="submitBtnText">Create contact</span>
+<img alt="Check" src="../assets/icons/check.webp"/>
+</button>
+</div>
+</form>
+</div>
+</div>
+</div>
 </body>
-
 </html>
