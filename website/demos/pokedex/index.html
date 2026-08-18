@@ -4,9 +4,9 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="noindex,nofollow" name="robots"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <!-- Beschreibung für den Link, das man liest was es ist-->
-<meta content="Ein responsiver Pokédex mit Daten aus der PokéAPI." name="description"/>
+<meta content="Ein responsiver Pokédex mit Daten aus der PokéAPI." name="description">
 <title>Pokédex</title>
 <link href="./assets/images/Favicon.png" rel="icon"/>
 <link href="https://pokeapi.co" rel="preconnect"/>
@@ -23,12 +23,11 @@
 </a>
 <form class="search-form" id="searchForm">
 <div class="search-wrapper">
-<input autocomplete="off" id="searchInput" placeholder="Pokémon suchen..." type="text"/>
+<input aria-label="Pokémon durchsuchen" autocomplete="off" id="searchInput" placeholder="Pokémon suchen..." type="text"/>
 <div class="suggestion-box" id="suggestionBox"></div>
 </div>
 <button type="submit">Suchen</button>
 </form>
-
 <button class="hidden" id="backHomeButton">suche reseten</button>
 </div>
 </header>
