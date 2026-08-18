@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Interaktive Web-Demo der 3D-Modellbibliothek von Glanzer Digital.">
+  <meta name="theme-color" content="#0d1117">
+  <meta name="robots" content="noindex, nofollow">
+  <title>3D-Modellbibliothek – Web-Demo | Glanzer Digital</title>
+  <link rel="stylesheet" href="./styles/style.css">
+  <script type="importmap">{"imports":{"three":"./vendor/three.module.min.js"}}</script>
+  <script type="module" src="./scripts/demo.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#demo-main">Zum Inhalt springen</a>
+
+  <div class="demo-shell">
+    <aside class="sidebar" aria-label="Bibliotheksnavigation">
+      <div class="brand-block">
+        <div class="brand-mark" aria-hidden="true">3D</div>
+        <div>
+          <strong>Modellbibliothek</strong>
+          <span>Browser-Demo</span>
+        </div>
+      </div>
+
+      <nav class="side-nav" aria-label="Bibliotheksansichten">
+        <button class="nav-item is-active" type="button" data-view="all" aria-pressed="true">
+          Bibliothek <span data-count-all>1</span>
+        </button>
+        <button class="nav-item" type="button" data-view="favorites" aria-pressed="false">
+          Favoriten <span data-count-favorites>0</span>
+        </button>
+        <button class="nav-item" type="button" data-view="uploads" aria-pressed="false">
+          Eigene STL <span data-count-uploads>0</span>
+        </button>
+      </nav>
+
+      <div class="sidebar-info">
+        <span class="status-dot" aria-hidden="true"></span>
+        <span>Alles bleibt lokal im Browser</span>
+      </div>
+    </aside>
+
+    <main class="workspace" id="demo-main">
+      <header class="topbar">
+        <label class="search-field">
+          <span class="sr-only">Modelle durchsuchen</span>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m16 16 4 4"></path></svg>
+          <input type="search" data-search autocomplete="off" placeholder="Modelle durchsuchen …">
+        </label>
+
+        <div class="top-actions">
+          <label class="upload-button" for="stlUpload">STL auswählen</label>
+          <input class="file-input" id="stlUpload" type="file" accept=".stl,model/stl" data-file-input>
+          <a class="secondary-button" href="../../subpages/portfolio.html#modellbibliothek">Zurück zum Portfolio</a>
+        </div>
+      </header>
+
+      <section class="page-heading" aria-labelledby="library-title">
+        <div>
+          <span class="eyebrow">INTERAKTIVE WEB-DEMO</span>
+          <h1 id="library-title">3D-Modellbibliothek</h1>
+          <p>STL lokal öffnen, Modell ansehen, umbenennen, kategorisieren, einfärben und als Favorit markieren.</p>
+        </div>
+        <div class="count-pill" data-model-count aria-live="polite">1 Modell</div>
+      </section>
+
+      <section class="notice" aria-label="Datenschutzhinweis">
+        <strong>Keine Dateiübertragung:</strong> Eine gewählte STL wird ausschließlich in deinem Browser verarbeitet und nicht an einen Server gesendet.
+      </section>
+
+      <section class="toolbar" aria-label="Bibliothek sortieren und darstellen">
+        <label>
+          <span>Kategorie</span>
+          <select data-category-filter>
+            <option value="all">Alle Kategorien</option>
+          </select>
+        </label>
+
+        <label>
+          <span>Sortierung</span>
+          <select data-sort>
+            <option value="name">Name A–Z</option>
+            <option value="favorites">Favoriten zuerst</option>
+          </select>
+        </label>
+
+        <fieldset class="view-switcher">
+          <legend>Ansicht</legend>
+          <button type="button" class="view-button is-active" data-layout="grid" aria-pressed="true">Kacheln</button>
+          <button type="button" class="view-button" data-layout="list" aria-pressed="false">Liste</button>
+        </fieldset>
+
+        <button class="secondary-button" type="button" data-reset-filters>Filter zurücksetzen</button>
+      </section>
+
+      <p class="upload-status" id="uploadStatus" data-upload-status aria-live="polite">Wähle oben eine STL-Datei, um sie der Demo-Bibliothek hinzuzufügen.</p>
+
+      <section class="content-layout">
+        <div class="library-panel">
+          <div class="model-grid" data-model-grid aria-label="Modelle"></div>
+          <div class="empty-state" data-empty hidden>
+            <strong>Keine Modelle gefunden.</strong>
+            <span>Ändere Suche oder Filter – oder wähle eine STL-Datei aus.</span>
+          </div>
+        </div>
+
+        <aside class="details-panel" aria-labelledby="details-title">
+          <div class="viewer-wrap">
+            <div class="viewer-host" data-viewer tabindex="0"
+              aria-label="Interaktive 3D-Vorschau. Ziehen zum Drehen, Mausrad zum Zoomen."
+              aria-describedby="viewer-help"></div>
+            <p class="sr-only" id="viewer-help">Pfeiltasten drehen das Modell. Plus und Minus zoomen.</p>
+
+            <div class="viewer-controls">
+              <label><span>Modellfarbe</span><input type="color" value="#c79762" data-model-color></label>
+              <label><span>Hintergrund</span><input type="color" value="#111519" data-background-color></label>
+              <button class="compact-button" type="button" data-reset-view>Ansicht zurücksetzen</button>
+            </div>
+          </div>
+
+          <div class="details-copy">
+            <span class="eyebrow">MODELL BEARBEITEN</span>
+            <h2 id="details-title" data-detail-title>Demo-Modell</h2>
+            <p data-detail-description>Beispielmodell zum Testen der Browser-Demo.</p>
+
+            <div class="edit-grid">
+              <label>
+                <span>Name</span>
+                <input type="text" maxlength="80" data-name-input>
+              </label>
+              <label>
+                <span>Kategorie</span>
+                <input type="text" maxlength="40" list="categorySuggestions" data-category-input>
+              </label>
+              <datalist id="categorySuggestions">
+                <option value="Unsortiert"></option>
+                <option value="Bauteil"></option>
+                <option value="Prototyp"></option>
+                <option value="Werkzeug"></option>
+                <option value="Sonstiges"></option>
+              </datalist>
+            </div>
+
+            <dl class="detail-list">
+              <div><dt>Dateityp</dt><dd data-detail-type>Demo</dd></div>
+              <div><dt>Dateigröße</dt><dd data-detail-size>–</dd></div>
+              <div><dt>Status</dt><dd data-detail-source>Beispiel</dd></div>
+            </dl>
+
+            <div class="detail-actions">
+              <button class="save-button" type="button" data-save-metadata>Änderungen speichern</button>
+              <button class="favorite-button" type="button" data-favorite aria-pressed="false">☆ Zu Favoriten</button>
+            </div>
+          </div>
+        </aside>
+      </section>
+
+      <footer class="demo-footer">
+        <span>3D-Modellbibliothek – Portfolio-Web-Demo</span>
+        <span>STL-Import nur für diese Browsersitzung</span>
+      </footer>
+    </main>
+  </div>
+</body>
+</html>
