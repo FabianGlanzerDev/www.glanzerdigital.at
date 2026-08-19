@@ -1,7 +1,7 @@
 const HEADER_TEMPLATE = `
   <div class="container header-inner">
     <a class="brand" href="{{ROOT}}/index.html" aria-label="Glanzer Digital Startseite">
-      <img src="{{ROOT}}/assets/images/logos/glanzer-digital-logo.svg" alt="Glanzer Digital">
+      <img src="{{ROOT}}/assets/images/logos/glanzerdigital-neon-logo.webp" alt="Glanzer Digital">
     </a>
 
     <button class="nav-toggle" type="button" aria-label="Navigation öffnen" aria-expanded="false" aria-controls="main-navigation" data-nav-toggle>
@@ -28,7 +28,7 @@ const FOOTER_TEMPLATE = `
     <div class="footer-grid">
       <div>
         <a class="footer-brand" href="{{ROOT}}/index.html">
-          <img src="{{ROOT}}/assets/images/logos/glanzer-digital-logo.svg" alt="Glanzer Digital">
+          <img src="{{ROOT}}/assets/images/logos/glanzerdigital-neon-logo.webp" alt="Glanzer Digital">
         </a>
         <p class="footer-copy">Webentwicklung, Softwarelösungen und digitale Werkzeuge mit persönlicher Betreuung.</p>
       </div>
@@ -57,7 +57,7 @@ const FOOTER_TEMPLATE = `
 
     <div class="footer-bottom">
       <span>© <span data-current-year></span> Glanzer Digital</span>
-      <span>Erstellt mit HTML, CSS und JavaScript</span>
+      <span>Entwickelt und betreut von Fabian Glanzer</span>
     </div>
   </div>
 `;

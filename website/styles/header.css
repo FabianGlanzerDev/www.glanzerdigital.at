@@ -16,8 +16,15 @@
 }
 
 .brand {
-  width: 220px;
+  display: inline-flex;
+  width: 250px;
   flex: 0 0 auto;
+}
+
+.brand img {
+  display: block;
+  width: 100%;
+  height: auto;
 }
 
 .site-nav {
@@ -98,7 +105,7 @@
 
 @media (max-width: 880px) {
   .brand {
-    width: 195px;
+    width: 210px;
   }
 
   .nav-toggle {

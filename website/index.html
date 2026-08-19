@@ -13,11 +13,8 @@
     <link href="assets/favicons/favicon.svg" rel="icon" type="image/svg+xml" />
     <link href="./styles/variables.css" rel="stylesheet" />
     <link href="./styles/fonts.css" rel="stylesheet" />
-    <link href="./styles/style.css" rel="stylesheet" />
-    <link href="./styles/assets.css" rel="stylesheet" />
-    <link href="./styles/header.css" rel="stylesheet" />
-    <link href="./styles/footer.css" rel="stylesheet" />
-    <link href="./styles/pages/home.css" rel="stylesheet" />
+    <link href="./style.css" rel="stylesheet" />
+    <link href="./styles/pages/index.css" rel="stylesheet" />
     <script defer="" src="./templates/layout-templates.js"></script>
     <script defer="" src="./scripts/main.js"></script>
     <script defer="True" src="./scripts/home-effects.js"></script>
@@ -30,11 +27,13 @@
         <section class="hero">
             <div class="container hero-grid">
                 <div class="hero-copy">
-                    <span class="kicker">Web · Software · Digitalisierung</span>
-                    <h1>Digitale <span class="text-primary">Lösungen.</span><br />Einfach. Effizient. Zuverlässig.</h1>
-                    <p>Glanzer Digital steht für moderne Webentwicklung, praktische Softwarelösungen und persönliche
-                        Betreuung –
-                        alles aus einer Hand.</p>
+                    <span class="kicker">Webentwicklung · Software · Digitalisierung</span>
+                    <h1 class="hero-title">
+                        <span>Websites &amp; Software,</span>
+                        <span class="text-primary">die einfach funktionieren.</span>
+                    </h1>
+                    <p>Moderne Websites, individuelle Web-Anwendungen und digitale Lösungen – sauber entwickelt,
+                        verständlich umgesetzt und persönlich betreut.</p>
                     <div class="button-row">
                         <a class="button button--primary" href="#leistungen">Meine Leistungen</a>
                         <a class="button button--secondary" href="subpages/portfolio.html">Portfolio ansehen</a>
@@ -75,8 +74,6 @@
                             <strong data-terminal-output="">Code wird geladen …</strong>
                         </div>
                     </article>
-                    <p class="terminal-note">Kleine Dev-Spielerei: der Code wechselt automatisch. Mit dem Button kannst
-                        du die Animation jederzeit pausieren.</p>
                 </div>
             </div>
         </section>
@@ -136,6 +133,109 @@
                 </div>
             </div>
         </section>
+        <section class="section solution-guide-section" id="loesungsfinder" aria-labelledby="solution-guide-title">
+            <div class="container">
+                <div class="solution-guide-heading">
+                    <div>
+                        <span class="kicker">Welche Lösung passt?</span>
+                        <h2 id="solution-guide-title">Website, Landingpage oder Anwendung?</h2>
+                    </div>
+                    <p>Du musst die technische Bezeichnung nicht selbst kennen. Entscheidend ist, was du erreichen
+                        möchtest. Hier siehst du die wichtigsten Unterschiede und typische Inhalte auf einen Blick.</p>
+                </div>
+
+                <div class="solution-guide-grid">
+                    <article class="solution-guide-card">
+                        <div class="solution-guide-card__topline">
+                            <span class="solution-guide-icon" aria-hidden="true">01</span>
+                            <span class="solution-guide-type">Mehrseitig</span>
+                        </div>
+                        <h3>Website</h3>
+                        <p>Ideal, wenn ein Unternehmen, eine Dienstleistung, ein Projekt oder eine Person ausführlich
+                            vorgestellt werden soll.</p>
+                        <div class="solution-guide-details">
+                            <strong>Typische Inhalte</strong>
+                            <ul>
+                                <li>Startseite und Leistungen</li>
+                                <li>Über mich / Über uns</li>
+                                <li>Portfolio oder Referenzen</li>
+                                <li>Kontakt, FAQ und Formulare</li>
+                                <li>Bilder, Videos und Downloads</li>
+                            </ul>
+                        </div>
+                    </article>
+
+                    <article class="solution-guide-card">
+                        <div class="solution-guide-card__topline">
+                            <span class="solution-guide-icon" aria-hidden="true">02</span>
+                            <span class="solution-guide-type">Eine Seite</span>
+                        </div>
+                        <h3>Landingpage</h3>
+                        <p>Eine fokussierte Einzelseite mit einem klaren Ziel – zum Beispiel Anfrage, Anmeldung,
+                            Bewerbung oder Vorstellung eines bestimmten Angebots.</p>
+                        <div class="solution-guide-details">
+                            <strong>Typische Inhalte</strong>
+                            <ul>
+                                <li>Starker Einstieg mit klarem Nutzen</li>
+                                <li>Vorteile und Leistungen</li>
+                                <li>Referenzen oder Beispiele</li>
+                                <li>Ablauf und häufige Fragen</li>
+                                <li>Kontakt oder WhatsApp-CTA</li>
+                            </ul>
+                        </div>
+                    </article>
+
+                    <article class="solution-guide-card">
+                        <div class="solution-guide-card__topline">
+                            <span class="solution-guide-icon" aria-hidden="true">03</span>
+                            <span class="solution-guide-type">Interaktiv</span>
+                        </div>
+                        <h3>Web-App / digitales Tool</h3>
+                        <p>Geeignet, wenn Besucher nicht nur Inhalte lesen, sondern aktiv mit Daten, Funktionen oder
+                            individuellen Abläufen arbeiten sollen.</p>
+                        <div class="solution-guide-details">
+                            <strong>Mögliche Funktionen</strong>
+                            <ul>
+                                <li>Login und Benutzerbereiche</li>
+                                <li>Dashboards und Datenverwaltung</li>
+                                <li>Suche, Filter und Rechner</li>
+                                <li>Uploads, APIs und Firebase</li>
+                                <li>Adminbereiche und Workflows</li>
+                            </ul>
+                        </div>
+                    </article>
+
+                    <article class="solution-guide-card">
+                        <div class="solution-guide-card__topline">
+                            <span class="solution-guide-icon" aria-hidden="true">04</span>
+                            <span class="solution-guide-type">Lokal</span>
+                        </div>
+                        <h3>Windows-Anwendung</h3>
+                        <p>Sinnvoll, wenn eine Lösung direkt am PC arbeitet und stärker auf lokale Dateien, Daten oder
+                            wiederkehrende interne Abläufe zugreifen soll.</p>
+                        <div class="solution-guide-details">
+                            <strong>Mögliche Funktionen</strong>
+                            <ul>
+                                <li>Dateien verwalten und durchsuchen</li>
+                                <li>Lokale Daten speichern</li>
+                                <li>Abläufe automatisieren</li>
+                                <li>3D-Dateien oder Vorschauen anzeigen</li>
+                                <li>Individuelle interne Werkzeuge</li>
+                            </ul>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="solution-guide-cta">
+                    <div>
+                        <strong>Noch nicht sicher, was du brauchst?</strong>
+                        <span>Beschreibe einfach dein Ziel. Die passende technische Lösung lässt sich gemeinsam einordnen.</span>
+                    </div>
+                    <a class="button button--primary" href="subpages/kontakt.html">Projekt kurz beschreiben</a>
+                </div>
+            </div>
+        </section>
+
         <section class="section section--light selected-projects-section" id="projekte"
             aria-labelledby="selected-projects-title">
             <div class="container">
@@ -247,30 +347,68 @@
             </div>
         </section>
         <section aria-labelledby="model-demo-title" class="section model-demo-section">
-            <div class="container model-demo-teaser">
-                <div class="model-demo-media">
-                    <img alt="Fabs3D Modellbibliothek mit Modellübersicht und eingeblendeter 3D-Vorschau" height="1086"
-                        loading="lazy" src="assets/images/portfolio/model-library-preview.webp" width="1448" />
+            <div class="container model-demo-shell">
+                <div class="model-demo-showcase">
+                    <figure class="model-demo-image-card">
+                        <img alt="3D-Modellbibliothek mit Modellübersicht, Suche, Kategorien und 3D-Vorschau"
+                            height="1086" loading="lazy" src="assets/images/portfolio/modellbibliothek.png"
+                            width="1448" />
+                    </figure>
+
+                    <div class="model-demo-pills" aria-label="Funktionen der 3D-Modellbibliothek">
+                        <span>STL-Vorschau</span>
+                        <span>Favoriten</span>
+                        <span>Kategorien</span>
+                        <span>Ansichten</span>
+                    </div>
                 </div>
+
                 <div class="model-demo-copy">
                     <span class="kicker">Interaktive Web-Demo</span>
-                    <h2 id="model-demo-title">3D-Modellbibliothek direkt im Browser testen</h2>
-                    <p>Die Windows-App selbst benötigt lokalen Dateizugriff. Für das Portfolio gibt es deshalb eine
-                        sichere Browser-Demo mit Beispieldaten und echter STL-Vorschau.</p>
-                    <ul class="demo-feature-list">
-                        <li>Eigene STL lokal im Browser öffnen und direkt ansehen</li>
-                        <li>Modelle umbenennen, kategorisieren und favorisieren</li>
-                        <li>Zwischen Kachel- und Listenansicht wechseln</li>
-                        <li>3D-Modell drehen, zoomen sowie Modell- und Hintergrundfarbe ändern</li>
-                    </ul>
-                    <div class="button-row">
+                    <h2 id="model-demo-title">Deine 3D-Modelle. Schnell gefunden. Direkt geprüft.</h2>
+                    <p class="model-demo-intro">Die 3D-Modellbibliothek bringt Ordnung in große Modellsammlungen.
+                        Suchen, organisieren und STL-Dateien direkt prüfen – die wichtigsten Funktionen lassen sich
+                        auch in der Browser-Demo ausprobieren.</p>
+
+                    <div class="model-demo-highlights">
+                        <article>
+                            <span>01</span>
+                            <div>
+                                <strong>Eigene STL öffnen</strong>
+                                <small>Die ausgewählte Datei bleibt lokal in deinem Browser.</small>
+                            </div>
+                        </article>
+                        <article>
+                            <span>02</span>
+                            <div>
+                                <strong>Direkt in 3D prüfen</strong>
+                                <small>Drehen, zoomen sowie Modell- und Hintergrundfarbe ändern.</small>
+                            </div>
+                        </article>
+                        <article>
+                            <span>03</span>
+                            <div>
+                                <strong>Ordnung schaffen</strong>
+                                <small>Modelle umbenennen, kategorisieren und favorisieren.</small>
+                            </div>
+                        </article>
+                        <article>
+                            <span>04</span>
+                            <div>
+                                <strong>Ansicht wechseln</strong>
+                                <small>Zwischen übersichtlicher Kachel- und Listenansicht wechseln.</small>
+                            </div>
+                        </article>
+                    </div>
+
+                    <div class="button-row model-demo-actions">
                         <a class="button button--primary" href="demos/model-library/" rel="noopener noreferrer"
                             target="_blank">Web-Demo ausprobieren</a>
                         <a class="button button--secondary" href="subpages/portfolio.html#modellbibliothek">Projekt
                             ansehen</a>
                     </div>
-                    <p class="privacy-note">Dateien werden in der Web-Demo nicht hochgeladen; eine gewählte STL bleibt
-                        im Browser.</p>
+                    <p class="privacy-note"><span aria-hidden="true">✓</span> Keine Datei wird auf den Server
+                        hochgeladen – die STL bleibt in deinem Browser.</p>
                 </div>
             </div>
         </section>
@@ -281,8 +419,8 @@
                         alt="Glanzer Digital GD-Logo mit Code-Symbol und Serverelementen" width="1200" height="900"
                         loading="lazy" />
                     <div class="about-panel__chips" aria-label="Technische Schwerpunkte">
-                        <span>Fullstack</span>
-                        <span>DevSecOps soon</span>
+                        <span>Frontend</span>
+                        <span>Backend</span>
                     </div>
                 </div>
                 <div class="about-copy">
