@@ -14,8 +14,14 @@
 
 .footer-brand {
   display: block;
-  width: 220px;
+  width: 250px;
   margin-bottom: 1rem;
+}
+
+.footer-brand img {
+  display: block;
+  width: 100%;
+  height: auto;
 }
 
 .footer-copy {

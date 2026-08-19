@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 84 52" role="img" aria-labelledby="title desc">
+  <title id="title">GlanzerDigital Logo</title>
+  <desc id="desc">Klares GD-Logo mit Code- und Serverelementen</desc>
+  <defs>
+    <linearGradient id="gdBlue" x1="8" y1="8" x2="40" y2="40" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#6cb3ff"/>
+      <stop offset="1" stop-color="#1e6fff"/>
+    </linearGradient>
+    <linearGradient id="gdDark" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#07101c"/>
+      <stop offset="1" stop-color="#091523"/>
+    </linearGradient>
+  </defs>
+
+  <rect x="1.5" y="1.5" width="81" height="49" rx="16" fill="url(#gdDark)" stroke="#203247"/>
+  <rect x="5" y="5" width="74" height="42" rx="13" fill="none" stroke="rgba(92,153,255,.18)" opacity=".55"/>
+
+  <path d="M28 13h-8.5c-7.4 0-12 5.2-12 13s4.6 13 12 13H30V29H20.4" fill="none" stroke="url(#gdBlue)" stroke-width="5.2" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <path d="M36 13v26h10.2c8.9 0 14.8-4.9 14.8-13s-5.9-13-14.8-13H36z" fill="none" stroke="#f5f8ff" stroke-width="5.2" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <path d="M16.3 21.3 13.4 24l2.9 2.7" fill="none" stroke="#d8e9ff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M23.7 21.3 26.6 24l-2.9 2.7" fill="none" stroke="#d8e9ff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M21.7 19.8 18.7 28.2" fill="none" stroke="#8bc0ff" stroke-width="1.6" stroke-linecap="round"/>
+
+  <g transform="translate(43.6 19.1)">
+    <rect x="0" y="0" width="11.8" height="4.8" rx="1.4" fill="#0d1a2a" stroke="#69aaff" stroke-width="1"/>
+    <rect x="0" y="7.1" width="11.8" height="4.8" rx="1.4" fill="#0d1a2a" stroke="#69aaff" stroke-width="1"/>
+    <circle cx="2.2" cy="2.4" r="0.8" fill="#f5f8ff"/>
+    <circle cx="2.2" cy="9.5" r="0.8" fill="#f5f8ff"/>
+    <circle cx="8.3" cy="2.4" r="0.55" fill="#69aaff"/>
+    <circle cx="9.8" cy="2.4" r="0.55" fill="#69aaff"/>
+    <circle cx="8.3" cy="9.5" r="0.55" fill="#69aaff"/>
+    <circle cx="9.8" cy="9.5" r="0.55" fill="#69aaff"/>
+  </g>
+</svg>
