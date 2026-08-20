@@ -1,9 +1,10 @@
 <!doctype html>
 <html lang="de">
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Kontakt zu Glanzer Digital für Websites, Web-Apps und digitale Projekte.">
+  <meta name="description" content="Projektanfrage an Glanzer Digital bequem über WhatsApp vorbereiten und senden.">
   <meta name="theme-color" content="#080b10">
   <title>Kontakt | Glanzer Digital</title>
   <link rel="icon" href="../assets/favicons/favicon.svg" type="image/svg+xml">
@@ -18,70 +19,250 @@
   <script src="../scripts/main.js" defer></script>
   <script src="../scripts/kontakt.js" defer></script>
 </head>
+
 <body data-root=".." data-page="contact">
   <a class="skip-link" href="#main-content">Zum Inhalt springen</a>
   <header class="site-header" data-site-header></header>
+
   <main id="main-content">
-    <section class="page-hero">
+    <section class="page-hero contact-hero">
       <div class="container page-hero-inner">
         <span class="kicker">Kontakt</span>
-        <h1>Projekt kurz beschreiben und <span class="text-primary">ehrlich einschätzen lassen</span></h1>
-        <p>Schreib, was gebraucht wird, welche Funktionen wichtig sind und ob Inhalte oder ein bestehendes Projekt vorhanden sind.</p>
+        <h1>Dein Projekt startet mit einer <span class="text-primary">kurzen WhatsApp-Nachricht</span></h1>
+        <p>Wähle die wichtigsten Eckdaten aus, beschreibe kurz dein Vorhaben und öffne die fertige Anfrage direkt in
+          WhatsApp.</p>
       </div>
     </section>
 
-    <section class="section section--light">
+    <section class="section section--light contact-section">
       <div class="container contact-layout">
-        <div class="contact-stack">
-          <article class="contact-card">
-            <span class="contact-label">Telefon</span>
-            <a class="contact-link" href="tel:+436767875304">+43 676 7875304</a>
-            <p>Für kurze Rückfragen oder eine erste Besprechung.</p>
+        <aside class="contact-stack" aria-label="Kontaktinformationen">
+          <article class="contact-card contact-card--steps">
+            <span class="contact-label">So funktioniert's</span>
+            <ol class="contact-steps">
+              <li><span>01</span>
+                <div><strong>Eckdaten auswählen</strong><small>Projektart, Stand und Zeitraum angeben.</small></div>
+              </li>
+              <li><span>02</span>
+                <div><strong>Kurz beschreiben</strong><small>Was soll entstehen und was ist besonders wichtig?</small>
+                </div>
+              </li>
+              <li><span>03</span>
+                <div><strong>In WhatsApp öffnen</strong><small>Die Nachricht wird vorbereitet – senden entscheidest du
+                    selbst.</small></div>
+              </li>
+            </ol>
           </article>
-          <article class="contact-card">
-            <span class="contact-label">E-Mail</span>
-            <a class="contact-link" href="mailto:fabsdev@gmx.at">fabsdev@gmx.at</a>
-            <p>Ideal für Projektdetails, Links, Dateien und Screenshots.</p>
-          </article>
+
           <article class="contact-card contact-card--dark">
-            <h2>Hilfreiche Angaben</h2>
+            <h2>Hilfreich für eine gute Einschätzung</h2>
             <ul class="contact-checklist">
-              <li>Welche Art von Website oder Anwendung?</li>
-              <li>Welche Funktionen werden benötigt?</li>
-              <li>Gibt es bereits Texte, Bilder oder Code?</li>
-              <li>Gibt es einen gewünschten Zeitraum?</li>
+              <li>Ziel der Website oder Anwendung</li>
+              <li>gewünschte Funktionen oder Besonderheiten</li>
+              <li>bestehende Inhalte, Designs oder Projekte</li>
+              <li>gewünschter Zeitraum für die Umsetzung</li>
             </ul>
           </article>
-        </div>
+        </aside>
 
         <article class="contact-form-card">
-          <span class="kicker">Anfrage vorbereiten</span>
-          <h2>Nachricht erstellen</h2>
-          <p>Das Formular öffnet dein E-Mail-Programm mit einer vorbereiteten Nachricht. Es speichert keine Daten auf dieser Website.</p>
-          <form class="form-grid" data-contact-form>
+          <div class="contact-form-head">
+            <div>
+              <span class="kicker">WhatsApp-Anfrage</span>
+              <h2>Projekt kurz vorbereiten</h2>
+            </div>
+            <span class="whatsapp-status"><span aria-hidden="true"></span>Direkter Kontakt</span>
+          </div>
+          <p class="contact-form-intro">Keine lange E-Mail und kein kompliziertes Formular: ein paar sinnvolle Angaben
+            reichen für den ersten Überblick.</p>
+
+          <form class="form-grid" data-contact-form novalidate>
+            <div class="form-group" data-field="name">
+              <label for="name">Dein Name <span aria-hidden="true">*</span></label>
+              <input id="name" name="name" autocomplete="name" placeholder="Vor- und Nachname"
+                aria-describedby="name-error">
+              <small class="field-error" id="name-error" data-error-for="name" aria-live="polite"></small>
+            </div>
+
+            <fieldset class="form-group project-choice" data-field="project">
+              <legend>Was möchtest du umsetzen? <span aria-hidden="true">*</span></legend>
+              <div class="project-choice-help">
+                <span>Du musst die technische Bezeichnung nicht selbst kennen.</span>
+                <button type="button" class="solution-info-button" data-solution-dialog-open>
+                  Was ist der Unterschied?
+                </button>
+              </div>
+              <div class="project-choice-grid">
+                <label class="choice-card">
+                  <input type="radio" name="project" value="Neue Website oder Landingpage">
+                  <span class="choice-card__surface">
+                    <span class="choice-card__icon" aria-hidden="true">
+                      <svg viewBox="0 0 24 24">
+                        <path d="M4 5h16v14H4z"></path>
+                        <path d="M4 9h16"></path>
+                        <path d="M8 7h.01M11 7h.01"></path>
+                      </svg>
+                    </span>
+                    <span class="choice-card__copy"><strong>Website / Landingpage</strong><small>Mehrseitige Website, Portfolio oder
+                        gezielte Einzelseite</small></span>
+                    <span class="choice-card__check" aria-hidden="true">✓</span>
+                  </span>
+                </label>
+                <label class="choice-card">
+                  <input type="radio" name="project" value="Web-App oder digitales Tool">
+                  <span class="choice-card__surface">
+                    <span class="choice-card__icon" aria-hidden="true">
+                      <svg viewBox="0 0 24 24">
+                        <path d="m8 8-4 4 4 4M16 8l4 4-4 4M14 5l-4 14"></path>
+                      </svg>
+                    </span>
+                    <span class="choice-card__copy"><strong>Web-App / digitales Tool</strong><small>Interaktive
+                        Anwendung für den Browser</small></span>
+                    <span class="choice-card__check" aria-hidden="true">✓</span>
+                  </span>
+                </label>
+                <label class="choice-card">
+                  <input type="radio" name="project" value="Windows-Anwendung">
+                  <span class="choice-card__surface">
+                    <span class="choice-card__icon" aria-hidden="true">
+                      <svg viewBox="0 0 24 24">
+                        <rect x="4" y="4" width="16" height="16" rx="2"></rect>
+                        <path d="M4 9h16M9 9v11"></path>
+                      </svg>
+                    </span>
+                    <span class="choice-card__copy"><strong>Windows-Anwendung</strong><small>Individuelle Software für
+                        einen konkreten Ablauf</small></span>
+                    <span class="choice-card__check" aria-hidden="true">✓</span>
+                  </span>
+                </label>
+                <label class="choice-card">
+                  <input type="radio" name="project" value="Bestehende Website verbessern">
+                  <span class="choice-card__surface">
+                    <span class="choice-card__icon" aria-hidden="true">
+                      <svg viewBox="0 0 24 24">
+                        <path d="M20 7v5h-5"></path>
+                        <path d="M18.2 15a7 7 0 1 1-.8-7.7L20 10"></path>
+                      </svg>
+                    </span>
+                    <span class="choice-card__copy"><strong>Bestehende Website verbessern</strong><small>Änderungen,
+                        Erweiterungen oder laufende Betreuung</small></span>
+                    <span class="choice-card__check" aria-hidden="true">✓</span>
+                  </span>
+                </label>
+                <label class="choice-card choice-card--wide">
+                  <input type="radio" name="project" value="Noch unsicher – Beratung gewünscht">
+                  <span class="choice-card__surface">
+                    <span class="choice-card__icon" aria-hidden="true">
+                      <svg viewBox="0 0 24 24">
+                        <circle cx="12" cy="12" r="9"></circle>
+                        <path d="M9.8 9a2.4 2.4 0 0 1 4.6 1c0 1.7-2.4 2-2.4 3.5M12 17h.01"></path>
+                      </svg>
+                    </span>
+                    <span class="choice-card__copy"><strong>Noch unsicher</strong><small>Gemeinsam herausfinden, welche
+                        Lösung für dein Vorhaben sinnvoll ist</small></span>
+                    <span class="choice-card__check" aria-hidden="true">✓</span>
+                  </span>
+                </label>
+              </div>
+              <small class="field-error" id="project-error" data-error-for="project" aria-live="polite"></small>
+            </fieldset>
+
             <div class="form-row">
-              <div class="form-group"><label for="name">Name</label><input id="name" name="name" autocomplete="name" required></div>
-              <div class="form-group"><label for="email">E-Mail</label><input id="email" name="email" type="email" autocomplete="email" required></div>
+              <div class="form-group" data-field="projectStatus">
+                <label for="project-status">Projektstand <span aria-hidden="true">*</span></label>
+                <select id="project-status" name="projectStatus" aria-describedby="project-status-error">
+                  <option value="">Bitte auswählen</option>
+                  <option>Neue Idee – noch nichts vorhanden</option>
+                  <option>Inhalte oder Design sind teilweise vorhanden</option>
+                  <option>Bestehende Website / Anwendung soll überarbeitet werden</option>
+                  <option>Projekt ist bereits gestartet und braucht Unterstützung</option>
+                </select>
+                <small class="field-error" id="project-status-error" data-error-for="projectStatus"
+                  aria-live="polite"></small>
+              </div>
+
+              <div class="form-group" data-field="timeframe">
+                <label for="timeframe">Gewünschter Zeitraum <span aria-hidden="true">*</span></label>
+                <select id="timeframe" name="timeframe" aria-describedby="timeframe-error">
+                  <option value="">Bitte auswählen</option>
+                  <option>Kein fixer Termin</option>
+                  <option>So bald wie möglich</option>
+                  <option>Innerhalb von 1–2 Monaten</option>
+                  <option>Innerhalb von 3–6 Monaten</option>
+                </select>
+                <small class="field-error" id="timeframe-error" data-error-for="timeframe" aria-live="polite"></small>
+              </div>
             </div>
-            <div class="form-group">
-              <label for="project">Art des Projekts</label>
-              <select id="project" name="project">
-                <option>Website oder Landingpage</option>
-                <option>Web-App oder digitales Tool</option>
-                <option>Windows-Anwendung</option>
-                <option>Webbetreuung oder Änderung</option>
-                <option>Sonstiges digitales Projekt</option>
-              </select>
+
+            <div class="form-group" data-field="message">
+              <label for="message">Worum geht es? <span aria-hidden="true">*</span></label>
+              <textarea id="message" name="message" rows="6"
+                placeholder="Zum Beispiel: Ich brauche eine neue Website für … Wichtig sind mir … Bereits vorhanden sind …"
+                aria-describedby="message-error"></textarea>
+              <div class="textarea-meta"><small class="field-error" id="message-error" data-error-for="message"
+                  aria-live="polite"></small><small><span data-message-count>0</span>/1200</small></div>
             </div>
-            <div class="form-group"><label for="message">Projektbeschreibung</label><textarea id="message" name="message" required placeholder="Was soll umgesetzt werden und welche Funktionen sind wichtig?"></textarea></div>
-            <p class="form-status" data-form-status aria-live="polite"></p>
-            <button class="button button--primary" type="submit">E-Mail vorbereiten</button>
+
+            <div class="form-submit-area">
+              <p class="form-status" data-form-status aria-live="polite"></p>
+              <button class="button button--primary whatsapp-submit" type="submit">
+                <img src="../assets/images/icons/whatsapp.webp" alt="" aria-hidden="true" width="40" height="40">
+                Anfrage in WhatsApp öffnen
+              </button>
+            </div>
+
+            <p class="privacy-note">Die Angaben werden nicht über diese Website versendet oder gespeichert. Erst nach
+              Klick öffnet sich WhatsApp mit deiner vorbereiteten Nachricht.</p>
           </form>
         </article>
       </div>
     </section>
+
+    <dialog class="solution-dialog" data-solution-dialog aria-labelledby="solution-dialog-title">
+      <div class="solution-dialog__panel">
+        <div class="solution-dialog__header">
+          <div>
+            <span class="kicker">Kurz erklärt</span>
+            <h2 id="solution-dialog-title">Welche Lösung ist die richtige?</h2>
+          </div>
+          <button class="solution-dialog__close" type="button" data-solution-dialog-close aria-label="Erklärung schließen">×</button>
+        </div>
+
+        <p class="solution-dialog__intro">Du musst das nicht selbst technisch einordnen. Die Auswahl hilft nur dabei,
+          dein Vorhaben grob zu verstehen.</p>
+
+        <div class="solution-dialog__grid">
+          <article>
+            <span>Website</span>
+            <strong>Mehrere Seiten für Informationen und Vertrauen</strong>
+            <p>Zum Beispiel Startseite, Leistungen, Über mich, Referenzen, FAQ und Kontakt.</p>
+          </article>
+          <article>
+            <span>Landingpage</span>
+            <strong>Eine fokussierte Seite mit einem klaren Ziel</strong>
+            <p>Ideal für ein Angebot, eine Kampagne, Anmeldung oder gezielte Kontaktanfrage.</p>
+          </article>
+          <article>
+            <span>Web-App / Tool</span>
+            <strong>Interaktive Funktionen direkt im Browser</strong>
+            <p>Zum Beispiel Login, Dashboard, Suche, Datenverwaltung, Uploads oder APIs.</p>
+          </article>
+          <article>
+            <span>Windows-App</span>
+            <strong>Lokale Software für Dateien und interne Abläufe</strong>
+            <p>Sinnvoll für Dateizugriff, Automatisierung, lokale Daten oder spezielle Werkzeuge.</p>
+          </article>
+        </div>
+
+        <div class="solution-dialog__footer">
+          <span>Noch unsicher? Wähle einfach „Noch unsicher“ – das Ziel ist wichtiger als die technische Bezeichnung.</span>
+          <a href="../index.html#loesungsfinder">Ausführliche Erklärung ansehen</a>
+        </div>
+      </div>
+    </dialog>
   </main>
 
   <footer class="site-footer" data-site-footer></footer>
 </body>
+
 </html>
