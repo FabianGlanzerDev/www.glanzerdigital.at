@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <meta name="theme-color" content="#07101d">
+  <title>Admin | Glanzer Digital</title>
+  <link rel="icon" href="../assets/favicons/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles/admin.css">
+  <script src="scripts/config.js" defer></script>
+  <script src="scripts/auth.js" defer></script>
+  <script src="scripts/analytics.js" defer></script>
+  <script src="scripts/maintenance.js" defer></script>
+  <script src="scripts/admin.js" defer></script>
+</head>
+<body class="admin-body">
+  <a class="admin-skip" href="#admin-main">Zum Inhalt springen</a>
+
+  <aside class="admin-sidebar" aria-label="Admin-Navigation">
+    <a class="admin-brand" href="./" aria-label="Glanzer Digital Admin Startseite">
+      <span class="admin-brand-mark">GD</span>
+      <span>Admin</span>
+    </a>
+
+    <nav class="admin-nav" aria-label="Dashboard-Bereiche">
+      <a href="#overview" aria-current="page">Übersicht</a>
+      <a href="#analytics">Analytics</a>
+      <a href="#maintenance">Wartung</a>
+      <a href="#status">Systemstatus</a>
+    </nav>
+
+    <div class="admin-sidebar-footer">
+      <a href="../" target="_blank" rel="noopener noreferrer">Website öffnen</a>
+      <button class="admin-text-button" type="button" data-auth-action="logout" disabled>Abmelden</button>
+    </div>
+  </aside>
+
+  <main class="admin-main" id="admin-main">
+    <header class="admin-topbar">
+      <div>
+        <span class="admin-kicker">Glanzer Digital</span>
+        <h1>Website Control Center</h1>
+      </div>
+      <div class="admin-site-state is-pending" role="status" data-auth-status>
+        <span aria-hidden="true"></span>
+        Firebase noch nicht verbunden
+      </div>
+    </header>
+
+    <section class="admin-setup-notice" aria-labelledby="setup-title">
+      <div>
+        <span class="admin-kicker">Vorbereitet</span>
+        <h2 id="setup-title">Admin-Dashboard ist bereit für Firebase</h2>
+        <p>Die Oberfläche ist vollständig vorbereitet. Login, geschützte Analytics-Daten und Wartungssteuerung werden erst aktiviert, sobald Firebase Authentication und die serverseitige Tokenprüfung eingerichtet sind.</p>
+      </div>
+      <span class="admin-setup-badge">Kein unsicherer Übergangslogin</span>
+    </section>
+
+    <section class="admin-section" id="overview" aria-labelledby="overview-title">
+      <div class="admin-section-heading">
+        <div>
+          <span class="admin-kicker">Übersicht</span>
+          <h2 id="overview-title">Website auf einen Blick</h2>
+        </div>
+        <span class="admin-muted">Daten werden nach erfolgreicher Authentifizierung geladen.</span>
+      </div>
+
+      <div class="admin-stats-grid">
+        <article class="admin-stat-card"><span>Heute</span><strong data-stat="today">–</strong><small>Seitenaufrufe</small></article>
+        <article class="admin-stat-card"><span>7 Tage</span><strong data-stat="week">–</strong><small>Seitenaufrufe</small></article>
+        <article class="admin-stat-card"><span>30 Tage</span><strong data-stat="month">–</strong><small>Seitenaufrufe</small></article>
+        <article class="admin-stat-card"><span>Demos</span><strong data-stat="demos">–</strong><small>Starts in 30 Tagen</small></article>
+        <article class="admin-stat-card"><span>Kontakt</span><strong data-stat="contact">–</strong><small>Klicks in 30 Tagen</small></article>
+        <article class="admin-stat-card"><span>GitHub</span><strong data-stat="github">–</strong><small>Klicks in 30 Tagen</small></article>
+      </div>
+    </section>
+
+    <section class="admin-section" id="analytics" aria-labelledby="analytics-title">
+      <div class="admin-section-heading">
+        <div><span class="admin-kicker">Analytics</span><h2 id="analytics-title">Reichweite &amp; Interaktionen</h2></div>
+      </div>
+
+      <div class="admin-analytics-layout">
+        <article class="admin-panel admin-chart-panel">
+          <div class="admin-panel-heading">
+            <h3>Seitenaufrufe · 14 Tage</h3>
+            <span class="admin-panel-state">wartet auf Auth</span>
+          </div>
+          <div class="admin-chart-placeholder" role="img" aria-label="Analytics-Diagramm wird nach Firebase-Verbindung geladen">
+            <span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+          </div>
+        </article>
+
+        <article class="admin-panel">
+          <div class="admin-panel-heading"><h3>Geräte · 30 Tage</h3><span class="admin-panel-state">geschützt</span></div>
+          <dl class="admin-metrics-list">
+            <div><dt>Desktop</dt><dd>–</dd></div>
+            <div><dt>Tablet</dt><dd>–</dd></div>
+            <div><dt>Smartphone</dt><dd>–</dd></div>
+          </dl>
+        </article>
+      </div>
+
+      <div class="admin-analytics-layout admin-analytics-layout--tables">
+        <article class="admin-panel">
+          <h3>Meistbesuchte Seiten</h3>
+          <p class="admin-empty-state">Nach der Firebase-Verbindung erscheinen hier die meistbesuchten Seiten.</p>
+        </article>
+        <article class="admin-panel">
+          <h3>Interaktionen</h3>
+          <p class="admin-empty-state">Demo-, Kontakt-, GitHub-, Portfolio- und CTA-Klicks werden hier zusammengefasst.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="admin-section" id="maintenance" aria-labelledby="maintenance-title">
+      <div class="admin-section-heading">
+        <div><span class="admin-kicker">Website-Steuerung</span><h2 id="maintenance-title">Wartungsmodus</h2></div>
+      </div>
+
+      <article class="admin-maintenance-card is-locked">
+        <div>
+          <span class="admin-maintenance-label">Vorbereitet</span>
+          <h3>Wartungssteuerung wird mit Firebase freigeschaltet</h3>
+          <p>Später kann die Website hier mit einem Klick in den Wartungsmodus versetzt werden. Die öffentliche Website liefert dabei HTTP 503, während der Adminbereich erreichbar bleibt.</p>
+        </div>
+        <button class="admin-button admin-button--locked" type="button" disabled data-maintenance-toggle>
+          Firebase zuerst verbinden
+        </button>
+      </article>
+    </section>
+
+    <section class="admin-section" id="status" aria-labelledby="status-title">
+      <div class="admin-section-heading">
+        <div><span class="admin-kicker">System</span><h2 id="status-title">Technischer Status</h2></div>
+      </div>
+
+      <div class="admin-status-grid">
+        <article class="admin-status-card is-ok"><span class="admin-status-dot" aria-hidden="true"></span><div><strong>Admin-Oberfläche</strong><small>Bereit</small></div></article>
+        <article class="admin-status-card is-ok"><span class="admin-status-dot" aria-hidden="true"></span><div><strong>Analytics-Tracking</strong><small>Vorbereitet</small></div></article>
+        <article class="admin-status-card is-pending"><span class="admin-status-dot" aria-hidden="true"></span><div><strong>Firebase Authentication</strong><small>Noch verbinden</small></div></article>
+        <article class="admin-status-card is-pending"><span class="admin-status-dot" aria-hidden="true"></span><div><strong>Tokenprüfung</strong><small>Noch verbinden</small></div></article>
+        <article class="admin-status-card is-pending"><span class="admin-status-dot" aria-hidden="true"></span><div><strong>Wartungssteuerung</strong><small>Gesperrt</small></div></article>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
