@@ -117,3 +117,75 @@ function initializeSite() {
 
 
 initializeSite();
+
+
+/**
+ * Returns the coarse device class used by local analytics.
+ * @returns {string} desktop, tablet or mobile.
+ */
+function getAnalyticsDevice() {
+  if (window.innerWidth <= 620) return 'mobile';
+  if (window.innerWidth <= 980) return 'tablet';
+  return 'desktop';
+}
+
+
+/**
+ * Builds the local analytics endpoint for the current page depth.
+ * @returns {string} Relative endpoint URL.
+ */
+function getAnalyticsEndpoint() {
+  const rootPath = document.body.dataset.root || '.';
+  return `${rootPath}/api/analytics-track.php`;
+}
+
+
+/**
+ * Sends one anonymous aggregate event to the local analytics endpoint.
+ * @param {string} eventName - Allowed analytics event name.
+ */
+function sendAnalyticsEvent(eventName) {
+  const payload = JSON.stringify({ event: eventName, page: location.pathname, device: getAnalyticsDevice() });
+  if (navigator.sendBeacon) return navigator.sendBeacon(getAnalyticsEndpoint(), new Blob([payload], { type: 'application/json' }));
+  fetch(getAnalyticsEndpoint(), { method: 'POST', body: payload, headers: { 'Content-Type': 'application/json' }, keepalive: true }).catch(() => {});
+}
+
+
+/**
+ * Classifies a clicked link into a small, non-identifying event group.
+ * @param {HTMLAnchorElement} link - Clicked link.
+ * @returns {string|null} Event name or null.
+ */
+function getLinkAnalyticsEvent(link) {
+  const href = link.getAttribute('href') || '';
+  if (href.includes('/demos/') || href.startsWith('demos/')) return 'demo_click';
+  if (href.includes('kontakt.html') || href.includes('wa.me/') || href.startsWith('mailto:') || href.startsWith('tel:')) return 'contact_click';
+  if (href.includes('github.com/')) return 'github_click';
+  if (href.includes('portfolio.html')) return 'portfolio_click';
+  if (link.classList.contains('button')) return 'cta_click';
+  return null;
+}
+
+
+/**
+ * Tracks supported link interactions without storing personal identifiers.
+ * @param {MouseEvent} event - Document click event.
+ */
+function handleAnalyticsClick(event) {
+  const link = event.target instanceof Element ? event.target.closest('a') : null;
+  if (!(link instanceof HTMLAnchorElement)) return;
+  const eventName = getLinkAnalyticsEvent(link);
+  if (eventName) sendAnalyticsEvent(eventName);
+}
+
+
+/**
+ * Starts local, cookieless aggregate analytics.
+ */
+function initializeAnalytics() {
+  sendAnalyticsEvent('page_view');
+  document.addEventListener('click', handleAnalyticsClick, { passive: true });
+}
+
+
+initializeAnalytics();
