@@ -1,5 +1,8 @@
 User-agent: *
 Allow: /
+Disallow: /admin/
+Disallow: /api/
 Disallow: /demos/
+Disallow: /maintenance.php
 
 Sitemap: https://www.glanzerdigital.at/sitemap.xml

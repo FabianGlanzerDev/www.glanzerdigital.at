@@ -1,14 +1,10 @@
+# Private Laufzeitdaten / spätere Firebase-Admin-Konfiguration
+server-private/data/*
+!server-private/data/.gitkeep
+server-private/firebase-service-account.json
+server-private/firebase-admin-config.php
+website/.maintenance
+
+# Lokale IDE-/Systemdateien
 .DS_Store
 Thumbs.db
-.vscode/
-.idea/
-*.log
-node_modules/
-dist/
-.env
-.env.*
-Backup/
-**/service-account*.json
-**/credentials*.json
-**/*private-key*
-**/*.sql
