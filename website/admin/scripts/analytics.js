@@ -3,13 +3,13 @@
 let selectedRange = '30';
 
 
-function getConfig() {
-  return window.GLANZER_ADMIN_CONFIG || {};
+function getEndpoint() {
+  return window.GlanzerAdminConfig?.endpoints?.analytics || './api/analytics.php';
 }
 
 
 function isReady() {
-  return window.GlanzerAdminAuth?.isFirebaseConfigured() === true;
+  return window.GlanzerAdminAuth?.isAuthenticated() === true;
 }
 
 
@@ -53,10 +53,10 @@ function renderSummary(summary = {}) {
 }
 
 
-function renderRanking(name, rows = []) {
-  const list = document.querySelector(`[data-ranking="${name}"]`);
-  if (!list) return;
-  list.innerHTML = rows.length ? rows.slice(0, 6).map(createRankingItem).join('') : '<li><span>Keine Daten</span><strong>–</strong></li>';
+function escapeHtml(value) {
+  const div = document.createElement('div');
+  div.textContent = String(value);
+  return div.innerHTML;
 }
 
 
@@ -67,22 +67,21 @@ function createRankingItem(item) {
 }
 
 
-function escapeHtml(value) {
-  const div = document.createElement('div');
-  div.textContent = String(value);
-  return div.innerHTML;
+function renderRanking(name, rows = []) {
+  const list = document.querySelector(`[data-ranking="${name}"]`);
+  if (!list) return;
+  list.innerHTML = rows.length ? rows.slice(0, 6).map(createRankingItem).join('') : '<li><span>Keine Daten</span><strong>–</strong></li>';
 }
 
 
 function renderRankings(data = {}) {
-  ['landingPages', 'referrers', 'pages', 'demos', 'exitPages', 'portfolio', 'ctas', 'browsers', 'operatingSystems', 'screens'].forEach((name) => {
-    renderRanking(name, data[name] || []);
-  });
+  const names = ['landingPages', 'referrers', 'pages', 'demos', 'exitPages', 'portfolio', 'ctas', 'browsers', 'operatingSystems', 'screens'];
+  names.forEach((name) => renderRanking(name, data[name] || []));
 }
 
 
 function renderInsights(insights = {}) {
-  setText('[data-insight="bestHour"]', insights.bestHour || '–');
+  setText('[data-insight="bestHour"]', insights.bestHour || 'noch nicht erfasst');
   setText('[data-insight="bestDay"]', insights.bestDay || '–');
   setText('[data-insight="topProject"]', insights.topProject || 'Noch offen');
   setText('[data-insight="topProjectClicks"]', formatNumber(insights.topProjectClicks));
@@ -97,12 +96,6 @@ function renderFunnel(funnel = {}) {
 }
 
 
-function renderSourceDistribution(sources = []) {
-  const rows = document.querySelectorAll('[data-source-distribution] > div');
-  rows.forEach((row, index) => updateDistributionRow(row, sources[index]));
-}
-
-
 function updateDistributionRow(row, item = {}) {
   const percent = Number(item.percent) || 0;
   const label = row.querySelector('span');
@@ -114,30 +107,56 @@ function updateDistributionRow(row, item = {}) {
 }
 
 
+function renderSourceDistribution(sources = []) {
+  const rows = document.querySelectorAll('[data-source-distribution] > div');
+  rows.forEach((row, index) => updateDistributionRow(row, sources[index]));
+}
+
+
+function updateDeviceLegend(values) {
+  document.querySelectorAll('[data-legend="devices"] strong').forEach((element, index) => {
+    element.textContent = values[index] || '–';
+  });
+}
+
+
 function renderDevices(devices = {}) {
-  const desktop = Number(devices.desktop) || 0;
-  const tablet = Number(devices.tablet) || 0;
-  const mobile = Number(devices.mobile) || 0;
-  const total = desktop + tablet + mobile;
-  updateDeviceLegend(desktop, tablet, mobile, total);
-  updateDeviceDonut(desktop, tablet, mobile, total);
+  const values = ['desktop', 'tablet', 'mobile'].map((key) => Number(devices[key]) || 0);
+  const total = values.reduce((sum, value) => sum + value, 0);
+  updateDeviceLegend(total ? values.map((value) => formatPercent(value / total * 100)) : ['–', '–', '–']);
+  renderDeviceDonut(values, total);
 }
 
 
-function updateDeviceLegend(desktop, tablet, mobile, total) {
-  const values = total ? [desktop, tablet, mobile].map((value) => formatPercent(value / total * 100)) : ['–', '–', '–'];
-  document.querySelectorAll('[data-legend="devices"] strong').forEach((element, index) => { element.textContent = values[index] || '–'; });
-}
-
-
-function updateDeviceDonut(desktop, tablet, mobile, total) {
+function renderDeviceDonut(values, total) {
   const donut = document.querySelector('[data-donut="devices"]');
-  if (!donut || !total) return;
-  const d = desktop / total * 100;
-  const t = tablet / total * 100;
-  donut.style.background = `conic-gradient(#3d8dff 0 ${d}%, #21c7ff ${d}% ${d + t}%, #826fff ${d + t}% 100%)`;
+  if (!donut) return;
   const label = donut.querySelector('span');
-  if (label) label.textContent = formatNumber(total);
+  if (label) label.textContent = total ? formatNumber(total) : '–';
+  if (!total) return;
+  const desktop = values[0] / total * 100;
+  const tablet = values[1] / total * 100;
+  donut.style.background = `conic-gradient(#3d8dff 0 ${desktop}%, #21c7ff ${desktop}% ${desktop + tablet}%, #826fff ${desktop + tablet}% 100%)`;
+}
+
+
+function renderSeries(series = []) {
+  const line = document.querySelector('[data-chart-line]');
+  const empty = document.querySelector('.admin-chart-empty');
+  if (!line || !series.length) return showEmptyChart(empty);
+  const max = Math.max(1, ...series.map((item) => Number(item.views) || 0));
+  const denominator = Math.max(1, series.length - 1);
+  const points = series.map((item, index) => `${index / denominator * 900},${230 - (Number(item.views) || 0) / max * 190}`);
+  line.setAttribute('points', points.join(' '));
+  line.style.opacity = '1';
+  if (empty) empty.hidden = true;
+}
+
+
+function showEmptyChart(empty = document.querySelector('.admin-chart-empty')) {
+  const line = document.querySelector('[data-chart-line]');
+  if (line) line.style.opacity = '0.18';
+  if (empty) empty.hidden = false;
 }
 
 
@@ -148,28 +167,37 @@ function renderDashboard(data = {}) {
   renderFunnel(data.funnel || {});
   renderSourceDistribution(data.sources || []);
   renderDevices(data.devices || {});
+  renderSeries(data.series || []);
 }
 
 
 async function fetchDashboardData() {
   const token = await getToken();
   if (!token) throw new Error('Firebase-ID-Token fehlt.');
-  const endpoint = `${getConfig().analyticsEndpoint}?range=${encodeURIComponent(selectedRange)}`;
+  const endpoint = `${getEndpoint()}?range=${encodeURIComponent(selectedRange)}`;
   const response = await fetch(endpoint, { headers: { Authorization: `Bearer ${token}` }, cache: 'no-store' });
-  if (!response.ok) throw new Error('Analytics konnten nicht geladen werden.');
-  return response.json();
+  const data = await response.json().catch(() => ({}));
+  if (!response.ok) throw new Error(data.message || 'Analytics konnten nicht geladen werden.');
+  return data;
 }
 
 
-function showUnavailableState() {
-  setText('[data-chart-state]', 'Firebase noch nicht verbunden');
+function rangeLabel() {
+  return selectedRange === 'all' ? 'gesamter Zeitraum' : `${selectedRange} Tage`;
 }
 
 
 async function refreshDashboard() {
-  if (!isReady()) return showUnavailableState();
-  try { renderDashboard(await fetchDashboardData()); setText('[data-chart-state]', `${selectedRange} Tage`); }
-  catch (error) { setText('[data-chart-state]', error.message || 'Fehler'); }
+  if (!isReady()) return setText('[data-chart-state]', 'Anmeldung erforderlich');
+  setText('[data-chart-state]', 'wird geladen …');
+  try {
+    renderDashboard(await fetchDashboardData());
+    setText('[data-chart-state]', rangeLabel());
+    window.GlanzerAdminUi?.setSystemState('analyticsApi', 'is-ok', 'Token geprüft / Daten geladen');
+  } catch (error) {
+    setText('[data-chart-state]', error.message || 'Fehler');
+    window.GlanzerAdminUi?.setSystemState('analyticsApi', 'is-pending', error.message || 'API nicht erreichbar');
+  }
 }
 
 
@@ -180,8 +208,7 @@ function setRange(range) {
 
 
 function initializeAnalyticsPanel() {
-  if (!isReady()) return showUnavailableState();
-  refreshDashboard();
+  if (isReady()) refreshDashboard();
 }
 
 
