@@ -17,17 +17,17 @@ function setActiveNavigation(id) {
 }
 
 
+function handleSectionEntries(entries) {
+  const visible = entries.find((entry) => entry.isIntersecting);
+  if (visible) setActiveNavigation(visible.target.id);
+}
+
+
 function observeAdminSections() {
   const sections = document.querySelectorAll('[id].admin-section, #overview');
   if (!('IntersectionObserver' in window)) return;
   const observer = new IntersectionObserver(handleSectionEntries, { rootMargin: '-25% 0px -65%' });
   sections.forEach((section) => observer.observe(section));
-}
-
-
-function handleSectionEntries(entries) {
-  const visible = entries.find((entry) => entry.isIntersecting);
-  if (visible) setActiveNavigation(visible.target.id);
 }
 
 
@@ -41,14 +41,7 @@ function handleRangeClick(event) {
 
 
 function initializeRangeButtons() {
-  const group = document.querySelector('.admin-range');
-  if (group) group.addEventListener('click', handleRangeClick);
-}
-
-
-function handleRefreshClick() {
-  window.GlanzerAdminAnalytics?.refreshDashboard();
-  runHealthCheck();
+  document.querySelector('.admin-range')?.addEventListener('click', handleRangeClick);
 }
 
 
@@ -66,23 +59,53 @@ function runHealthCheck() {
 }
 
 
+function handleRefreshClick() {
+  window.GlanzerAdminAnalytics?.refreshDashboard();
+  window.GlanzerAdminMaintenance?.loadMaintenanceState();
+  runHealthCheck();
+}
+
+
 function initializeSystemActions() {
   document.querySelector('[data-refresh-dashboard]')?.addEventListener('click', handleRefreshClick);
   document.querySelector('[data-action="check-health"]')?.addEventListener('click', runHealthCheck);
 }
 
 
-function initializeAdminDashboard() {
-  window.GlanzerAdminAuth?.renderAuthState();
+function setSystemState(name, state, text) {
+  const card = document.querySelector(`[data-system="${name}"]`);
+  if (!card) return;
+  card.classList.remove('is-pending', 'is-ok');
+  if (state) card.classList.add(state);
+  const label = card.querySelector('small');
+  if (label) label.textContent = text;
+}
+
+
+function markFirebaseReady() {
+  setSystemState('firebase', 'is-ok', 'Firebase Auth verbunden');
+  setSystemState('token', 'is-ok', 'ID-Token verfügbar');
+}
+
+
+function handleAuthenticated() {
+  markFirebaseReady();
   window.GlanzerAdminAnalytics?.initializeAnalyticsPanel();
   window.GlanzerAdminMaintenance?.initializeMaintenancePanel();
+  runHealthCheck();
+}
+
+
+function initializeAdminDashboard() {
   initializeRangeButtons();
   initializeSystemActions();
   observeAdminSections();
   updateClock();
-  runHealthCheck();
   window.setInterval(updateClock, 30000);
+  document.addEventListener('glanzer:auth-ready', handleAuthenticated);
+  if (window.GlanzerAdminAuth?.isAuthenticated()) handleAuthenticated();
 }
 
 
+window.GlanzerAdminUi = { setSystemState };
 initializeAdminDashboard();

@@ -1,0 +1,5 @@
+DirectoryIndex index.html
+
+<FilesMatch "^(?:index|login|logout|setup)\.php$">
+  Require all denied
+</FilesMatch>

@@ -12,6 +12,7 @@
   <script src="scripts/auth.js" defer></script>
   <script src="scripts/analytics.js" defer></script>
   <script src="scripts/maintenance.js" defer></script>
+  <script src="scripts/search-console.js" defer></script>
   <script src="scripts/admin.js" defer></script>
 </head>
 <body class="admin-body">
@@ -29,8 +30,9 @@
       <a href="#content"><span>03</span>Inhalte</a>
       <a href="#interactions"><span>04</span>Interaktionen</a>
       <a href="#audience"><span>05</span>Zielgruppe</a>
-      <a href="#maintenance"><span>06</span>Wartung</a>
-      <a href="#system"><span>07</span>System</a>
+      <a href="#search-console"><span>06</span>Google Suche</a>
+      <a href="#maintenance"><span>07</span>Wartung</a>
+      <a href="#system"><span>08</span>System</a>
     </nav>
 
     <div class="admin-sidebar-footer">
@@ -219,6 +221,66 @@
       </div>
     </section>
 
+    <section class="admin-section admin-search-console" id="search-console" aria-labelledby="search-console-title">
+      <div class="admin-section-heading admin-section-heading--toolbar">
+        <div>
+          <span class="admin-kicker">Google Search Console</span>
+          <h2 id="search-console-title">So wirst du bei Google gefunden</h2>
+        </div>
+        <span class="admin-integration-state is-pending" data-search-console-state>Domain noch nicht verbunden</span>
+      </div>
+
+      <article class="admin-integration-banner">
+        <div class="admin-integration-icon" aria-hidden="true">G</div>
+        <div>
+          <span class="admin-eyebrow">Vorbereitet</span>
+          <h3>Search-Console-Auswertung wartet auf deine Domain</h3>
+          <p>Sobald glanzerdigital.at in der Google Search Console eingerichtet ist, können hier echte Suchanfragen, Klicks, Impressionen, CTR, Positionen, Länder, Geräte und Zielseiten angezeigt werden.</p>
+        </div>
+        <div class="admin-integration-meta">
+          <span>Property</span>
+          <strong data-search-console-property>noch offen</strong>
+        </div>
+      </article>
+
+      <div class="admin-kpi-grid admin-search-kpis">
+        <article class="admin-kpi-card"><span>Google Klicks</span><strong data-search-stat="clicks">–</strong><small>organische Suche</small><em>Search Console</em></article>
+        <article class="admin-kpi-card"><span>Impressionen</span><strong data-search-stat="impressions">–</strong><small>Einblendungen bei Google</small><em>Search Console</em></article>
+        <article class="admin-kpi-card"><span>CTR</span><strong data-search-stat="ctr">–</strong><small>Klickrate</small><em>Search Console</em></article>
+        <article class="admin-kpi-card"><span>Ø Position</span><strong data-search-stat="position">–</strong><small>durchschnittliches Ranking</small><em>Search Console</em></article>
+      </div>
+
+      <div class="admin-dashboard-grid admin-dashboard-grid--two">
+        <article class="admin-panel admin-search-queries">
+          <div class="admin-panel-heading">
+            <div><span class="admin-eyebrow">Suchbegriffe</span><h3>Google-Suchanfragen</h3></div>
+            <span class="admin-panel-state">Top Queries</span>
+          </div>
+          <div class="admin-search-table-wrap">
+            <table class="admin-search-table">
+              <thead><tr><th>Suchanfrage</th><th>Klicks</th><th>Impr.</th><th>CTR</th><th>Pos.</th></tr></thead>
+              <tbody data-search-queries><tr><td colspan="5">Wird nach Search-Console-Verbindung automatisch geladen.</td></tr></tbody>
+            </table>
+          </div>
+        </article>
+
+        <article class="admin-panel">
+          <div class="admin-panel-heading"><div><span class="admin-eyebrow">Regionen</span><h3>Länder aus der Google-Suche</h3></div></div>
+          <ol class="admin-ranking" data-search-ranking="countries"><li><span>Keine Daten verbunden</span><strong>–</strong></li></ol>
+        </article>
+      </div>
+
+      <div class="admin-dashboard-grid admin-dashboard-grid--three">
+        <article class="admin-panel"><span class="admin-eyebrow">Zielseiten</span><h3>Seiten aus Google</h3><ol class="admin-ranking" data-search-ranking="pages"><li><span>–</span><strong>–</strong></li></ol></article>
+        <article class="admin-panel"><span class="admin-eyebrow">Geräte</span><h3>Google-Suche nach Gerät</h3><ol class="admin-ranking" data-search-ranking="devices"><li><span>–</span><strong>–</strong></li></ol></article>
+        <article class="admin-panel admin-search-opportunity"><span class="admin-eyebrow">SEO-Spielerei</span><h3>Beste Chance</h3><strong data-search-opportunity>–</strong><p data-search-opportunity-copy>Später erscheint hier automatisch eine Suchanfrage mit vielen Impressionen und Verbesserungspotenzial.</p></article>
+      </div>
+
+      <div class="admin-search-note">
+        <strong>Noch nichts einzurichten.</strong> Die Oberfläche und Datenplätze sind bereits vorbereitet. Später tragen wir nur die Search-Console-Property ein und verbinden die API serverseitig – der Adminbereich muss dafür nicht neu aufgebaut werden.
+      </div>
+    </section>
+
     <section class="admin-section" id="maintenance" aria-labelledby="maintenance-title">
       <div class="admin-section-heading"><div><span class="admin-kicker">Website-Steuerung</span><h2 id="maintenance-title">Wartungsmodus</h2></div></div>
 
@@ -246,6 +308,7 @@
         <article class="admin-status-card is-pending"><span class="admin-status-dot" aria-hidden="true"></span><div><strong>Tokenprüfung</strong><small>Noch verbinden</small></div></article>
         <article class="admin-status-card is-pending"><span class="admin-status-dot" aria-hidden="true"></span><div><strong>Analytics API</strong><small>Geschützt / gesperrt</small></div></article>
         <article class="admin-status-card is-pending"><span class="admin-status-dot" aria-hidden="true"></span><div><strong>Wartungsmodus</strong><small>Gesperrt</small></div></article>
+        <article class="admin-status-card is-pending"><span class="admin-status-dot" aria-hidden="true"></span><div><strong>Search Console</strong><small>Vorbereitet / Domain fehlt</small></div></article>
         <article class="admin-status-card"><span class="admin-status-dot is-info" aria-hidden="true"></span><div><strong>Sitemap</strong><small data-health="sitemap">prüfen …</small></div></article>
         <article class="admin-status-card"><span class="admin-status-dot is-info" aria-hidden="true"></span><div><strong>robots.txt</strong><small data-health="robots">prüfen …</small></div></article>
       </div>
