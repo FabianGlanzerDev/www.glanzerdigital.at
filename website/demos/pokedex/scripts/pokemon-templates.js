@@ -1,7 +1,4 @@
-function getPokemonCard(pokemon) {
-    const mainType = pokemon.types[0].type.name;
-
-    return `
+function getPokemonCard(pokemon) {const mainType = pokemon.types[0].type.name;return `
     <button class="pokemon-card" style="background:${typeColors[mainType]}" data-id="${pokemon.id}">
       <div class="card-content">
         <span class="card-id">#${formatId(pokemon.id)}</span>
@@ -14,27 +11,15 @@ function getPokemonCard(pokemon) {
         <img src="${getPokemonImage(pokemon)}" alt="${pokemon.name}">
       </div>
     </button>
-  `;
-}
-
-function getTypeHtml(types) {
-    return `
+  `;}function getTypeHtml(types) {return `
     <div class="type-list">
       ${types.map(type => getTypePill(type.type.name)).join('')}
     </div>
-  `;
-}
-
-function getTypePill(typeName) {
-    return `
+  `;}function getTypePill(typeName) {return `
     <span class="type-pill">
       ${translateType(typeName)}
     </span>
-  `;
-}
-
-function getDetailCard(pokemon, mainType) {
-    return `
+  `;}function getDetailCard(pokemon, mainType) {return `
     <div class="detail-top" style="background:${typeColors[mainType]}">
 
       ${getDetailHeader(pokemon)}
@@ -51,11 +36,7 @@ function getDetailCard(pokemon, mainType) {
       ${getInfoBox(pokemon)}
       ${getStats(pokemon.stats)}
     </div>
-  `;
-}
-
-function getDetailHeader(pokemon) {
-    return `
+  `;}function getDetailHeader(pokemon) {return `
     <div class="detail-header">
       <h2 id="detailName">
         ${formatName(pokemon.name)}
@@ -65,11 +46,7 @@ function getDetailHeader(pokemon) {
         #${formatId(pokemon.id)}
       </strong>
     </div>
-  `;
-}
-
-function getInfoBox(pokemon) {
-    return `
+  `;}function getInfoBox(pokemon) {return `
     <div class="info-grid">
 
       <div class="info-box">
@@ -93,21 +70,7 @@ function getInfoBox(pokemon) {
       </div>
 
     </div>
-  `;
-}
-
-
-function getStats(stats) {
-    return stats.map(stat => getStatRow(stat)).join('');
-}
-
-function getStatRow(stat) {
-    const percent = Math.min(
-        stat.base_stat,
-        150
-    ) / 150 * 100;
-
-    return `
+  `;}function getStats(stats) {return stats.map(stat => getStatRow(stat)).join('');}function getStatRow(stat) {const percent = Math.min(stat.base_stat, 150) / 150 * 100;return `
     <div class="stat-row">
 
       <strong>
@@ -126,11 +89,7 @@ function getStatRow(stat) {
       </div>
 
     </div>
-  `;
-}
-
-function getSuggestionButton(name) {
-    return `
+  `;}function getSuggestionButton(name) {return `
     <button 
       class="suggestion-button"
       type="button"
@@ -138,5 +97,4 @@ function getSuggestionButton(name) {
     >
       ${formatName(name)}
     </button>
-  `;
-}
+  `;}
