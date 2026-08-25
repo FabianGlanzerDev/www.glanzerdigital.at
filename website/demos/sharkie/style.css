@@ -1,42 +1,6 @@
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
-
-html {
-    width: 100%;
-    min-height: 100%;
-}
-
-body {
-    width: 100%;
-    min-height: 100dvh;
-    background:
-        radial-gradient(circle at 50% 20%, var(--color-page-glow), var(--color-transparent) 35%),
-        var(--color-page-background);
-}
-
-button {
-    cursor: pointer;
-}
-
-a {
-    color: inherit;
-}
-
-[hidden] {
-    display: none !important;
-}
-
-
-@media (orientation: landscape) and (min-height: 700px) and (max-aspect-ratio: 16 / 9) {
-    .touch-device body {
-        background:
-            linear-gradient(
+*{box-sizing:border-box;margin:0;padding:0}html{width:100%;min-height:100%}body{width:100%;min-height:100dvh;background:radial-gradient(circle at 50% 20%, var(--color-page-glow), var(--color-transparent) 35%),
+        var(--color-page-background)}button{cursor:pointer}a{color:inherit}[hidden]{display:none!important}@media (orientation: landscape) and (min-height: 700px) and (max-aspect-ratio: 16 / 9){.touch-device body{background:linear-gradient(
                 var(--color-start-overlay-top),
                 var(--color-start-overlay-bottom)
             ),
-            url("assets/images/backgrounds/layers/far-background.png") center / cover no-repeat;
-    }
-}
+            url("assets/images/backgrounds/layers/far-background.png") center / cover no-repeat}}

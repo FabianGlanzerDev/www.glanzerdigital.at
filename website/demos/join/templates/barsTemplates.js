@@ -1,10 +1,4 @@
-/**
- * Gets the sidebar template.
- * @param {Object} activePage - The active page classes.
- * @returns {string} The sidebar html.
- */
-function getSidebarTemplate(activePage) {
-    return `
+function getSidebarTemplate(activePage) {return `
         <div class="logo">
             <img src="../assets/icons/joinLogoLight.webp" alt="Join Logo">
         </div>
@@ -32,17 +26,7 @@ function getSidebarTemplate(activePage) {
             <a class="${activePage.privacyPolicy}" href="./privacyPolicy.html">Privacy Policy</a>
             <a class="${activePage.legalNotice}" href="./legalNotice.html">Legal Notice</a>
         </div>
-    `;
-}
-
-
-/**
- * Gets the legal sidebar template.
- * @param {Object} activePage - The active page classes.
- * @returns {string} The sidebar html.
- */
-function getNotLoggedInLegalSidebarTemplate(activePage) {
-    return `
+    `;}function getNotLoggedInLegalSidebarTemplate(activePage) {return `
         <div class="logo">
             <img src="../assets/icons/joinLogoLight.webp" alt="Join Logo">
         </div>
@@ -58,17 +42,7 @@ function getNotLoggedInLegalSidebarTemplate(activePage) {
             <a class="${activePage.privacyPolicy}" href="./privacyPolicy.html">Privacy Policy</a>
             <a class="${activePage.legalNotice}" href="./legalNotice.html">Legal Notice</a>
         </div>
-    `;
-}
-
-
-/**
- * Gets the mobile nav template.
- * @param {Object} activePage - The active page classes.
- * @returns {string} The mobile nav html.
- */
-function getMobileNavTemplate(activePage) {
-    return `
+    `;}function getMobileNavTemplate(activePage) {return `
         <a class="${activePage.summary}" href="./summary.html" aria-label="Summary">
             <img src="../assets/icons/summary.webp" alt="">
             <span>Summary</span>
@@ -85,17 +59,7 @@ function getMobileNavTemplate(activePage) {
             <img src="../assets/icons/contacts.webp" alt="">
             <span>Contacts</span>
         </a>
-    `;
-}
-
-
-/**
- * Gets the logged out legal mobile nav template.
- * @param {Object} activePage - The active page classes.
- * @returns {string} The mobile nav html.
- */
-function getNotLoggedInLegalMobileNavTemplate(activePage) {
-    return `
+    `;}function getNotLoggedInLegalMobileNavTemplate(activePage) {return `
         <a class="login-link" href="../index.html" aria-label="Log In">
             <img src="../assets/icons/login.webp" alt="">
             <span>Log In</span>
@@ -106,31 +70,11 @@ function getNotLoggedInLegalMobileNavTemplate(activePage) {
         <a class="${activePage.legalNotice}" href="./legalNotice.html" aria-label="Legal Notice">
             <span>Legal Notice</span>
         </a>
-    `;
-}
-
-
-/**
- * Gets the help link template.
- * @returns {string} The help link html.
- */
-function getHelpLinkTemplate() {
-    return `
+    `;}function getHelpLinkTemplate() {return `
         <a class="help-link mobile-hide" href="./help.html">
             <img src="../assets/icons/help.webp" alt="Help Icon">
         </a>
-    `;
-}
-
-
-/**
- * Gets the topbar template.
- * @param {string} helpLink - The help link.
- * @param {Object} accountAvatar - The account avatar.
- * @returns {string} The topbar html.
- */
-function getTopbarTemplate(helpLink, accountAvatar) {
-    return `
+    `;}function getTopbarTemplate(helpLink, accountAvatar) {return `
         <div class="topbar-left">
             <p class="mobile-hide">Kanban Project Management Tool</p>
             <img class="topbar-logo desktop-hide" src="../assets/icons/joinLogoDark.webp" alt="Join Logo">
@@ -149,19 +93,9 @@ function getTopbarTemplate(helpLink, accountAvatar) {
                 </nav>
             </div>
         </div>
-    `;
-}
-
-
-/**
- * Gets the legal topbar template.
- * @returns {string} The topbar html.
- */
-function getNotLoggedInLegalTopbarTemplate() {
-    return `
+    `;}function getNotLoggedInLegalTopbarTemplate() {return `
         <div class="topbar-left">
             <p class="mobile-hide">Kanban Project Management Tool</p>
             <img class="topbar-logo desktop-hide" src="../assets/icons/joinLogoDark.webp" alt="Join Logo">
         </div>
-    `;
-}
+    `;}
