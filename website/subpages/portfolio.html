@@ -8,18 +8,30 @@
   <meta content="Kundenprojekte, eigene Anwendungen und Ausbildungsprojekte im Portfolio von Glanzer Digital."
     name="description" />
   <meta content="#080b10" name="theme-color" />
+  <meta content="website" property="og:type" />
+  <meta content="Glanzer Digital" property="og:site_name" />
+  <meta content="Portfolio | Glanzer Digital" property="og:title" />
+  <meta content="Kundenprojekte, eigene Anwendungen und Ausbildungsprojekte im Portfolio von Glanzer Digital."
+    property="og:description" />
+  <meta content="https://glanzerdigital.at/subpages/portfolio.html" property="og:url" />
+  <meta content="https://glanzerdigital.at/assets/images/portfolio/allzeit-gut-featured.png" property="og:image" />
+  <meta content="summary_large_image" name="twitter:card" />
+  <meta content="Portfolio | Glanzer Digital" name="twitter:title" />
+  <meta content="Kundenprojekte, eigene Anwendungen und Ausbildungsprojekte im Portfolio von Glanzer Digital."
+    name="twitter:description" />
+  <meta content="https://glanzerdigital.at/assets/images/portfolio/allzeit-gut-featured.png" name="twitter:image" />
   <title>Portfolio | Glanzer Digital</title>
   <link href="../assets/favicons/favicon.svg" rel="icon" type="image/svg+xml" />
   <link href="../styles/variables.css" rel="stylesheet" />
   <link href="../styles/fonts.css" rel="stylesheet" />
-  <link href="../styles/style.css" rel="stylesheet" />
-  <link href="../styles/assets.css" rel="stylesheet" />
-  <link href="../styles/header.css" rel="stylesheet" />
-  <link href="../styles/footer.css" rel="stylesheet" />
-  <link href="../styles/pages/portfolio.css" rel="stylesheet" />
+  <link href="../style.css" rel="stylesheet" />
+  <link href="../styles/pages/portfolio.css" rel="stylesheet">
   <script defer="" src="../templates/layout-templates.js"></script>
   <script defer="" src="../scripts/main.js"></script>
-  <script defer="True" src="../scripts/portfolio-effects.js"></script>
+  <script defer="" src="../scripts/i18n-translations.js"></script>
+  <script defer="" src="../scripts/i18n.js"></script>
+  <script defer src="../scripts/portfolio-effects.js"></script>
+  <link href="https://glanzerdigital.at/subpages/portfolio.html" rel="canonical" />
 </head>
 
 <body data-page="portfolio" data-root="..">
@@ -30,7 +42,7 @@
       <div class="container page-hero-inner">
         <span class="kicker">Portfolio</span>
         <h1>Projekte &amp; <span class="text-primary">Referenzen</span></h1>
-        <p>Kundenprojekte, eigene Anwendungen und ausgewählte Ausbildungsprojekte aus Webentwicklung und
+        <p>Kundenprojekte, eigene Anwendungen und ausgewählte Ausbildungsprojekte aus der Web- und
           Softwareentwicklung.</p>
       </div>
     </section>
@@ -39,7 +51,7 @@
         <article class="featured-project" id="allzeit-gut">
           <div class="featured-project-media featured-project-media--allzeit">
             <img alt="Allzeit Gut – Portfolio-Vorschau mit dem Startseiten-Hero und dem Informationsvideo."
-              class="featured-project-image--allzeit" height="1200" loading="lazy"
+              class="featured-project-image--allzeit" decoding="async" height="1200" loading="lazy"
               src="../assets/images/portfolio/allzeit-gut-featured.png" width="900" />
           </div>
           <div class="featured-project-content">
@@ -54,9 +66,21 @@
               <li>Google Analytics mit Auswertung im geschützten Adminbereich</li>
               <li>SEO-Grundlagen, Sitemap und technische Vorbereitung für Suchmaschinen</li>
             </ul>
+            <div class="project-case-study">
+              <div><strong>Ausgangslage</strong>
+                <p>Mehrere Themenbereiche sollten auf Desktop und Mobilgeräten übersichtlich erreichbar sein.</p>
+              </div>
+              <div><strong>Umsetzung</strong>
+                <p>Responsive Seitenstruktur, geschützter Adminbereich, Analytics und SEO-Grundlagen wurden gemeinsam
+                  aufgebaut.</p>
+              </div>
+              <div><strong>Ergebnis</strong>
+                <p>Inhalte, Auswertung und spätere Anpassungen sind in einer nachvollziehbaren Struktur vorbereitet.</p>
+              </div>
+            </div>
             <div class="featured-project-actions">
-              <a class="button button--primary" href="https://allzeitgut.at/" rel="noopener noreferrer"
-                target="_blank">Live-Website ansehen</a>
+              <a class="button button--primary" data-analytics-label="Allzeit Gut · Live-Website"
+                href="https://allzeitgut.at/" rel="noopener noreferrer" target="_blank">Live-Website ansehen</a>
               <a class="link-arrow" href="kontakt.html">Ähnliches Projekt anfragen</a>
             </div>
           </div>
@@ -68,10 +92,10 @@
             <p>Projekte, die aus eigenen Ideen entstanden sind und von mir selbst umgesetzt wurden.</p>
           </div>
           <div class="portfolio-grid portfolio-grid--single">
-
             <article class="project-card portfolio-card portfolio-card--wide" id="modellbibliothek">
               <img alt="3D-Modellbibliothek mit Modellübersicht und separater 3D-Vorschau der echten Windows-Anwendung."
-                height="1086" src="../assets/images/portfolio/modellbibliothek.png" width="1448" />
+                decoding="async" height="1086" loading="lazy" src="../assets/images/portfolio/modellbibliothek.png"
+                width="1448" />
               <div class="project-card-body model-library-card-copy">
                 <span class="kicker">Eigenes Softwareprojekt</span>
                 <h3>3D-Modellbibliothek</h3>
@@ -87,8 +111,10 @@
                   umbenennen, kategorisieren, einfärben, die Ansicht wechseln und als Favorit markieren.</p>
                 <div class="project-card-footer project-card-footer--action">
                   <span class="badge">Eigenes Projekt · Windows-App</span>
-                  <a class="button button--primary button--small project-demo-button" href="../demos/model-library/"
-                    rel="noopener noreferrer" target="_blank">Web-Demo testen</a>
+                  <a class="button button--primary button--small project-demo-button"
+                    data-analytics-label="3D-Modellbibliothek" data-local-href="../demos/model-library/"
+                    href="https://modellbibliothek.glanzerdigital.at" rel="noopener noreferrer" target="_blank">Web-Demo
+                    testen</a>
                 </div>
               </div>
             </article>
@@ -103,113 +129,151 @@
           </div>
           <div class="portfolio-grid">
             <article class="project-card portfolio-card">
-              <img alt="Portfolio-Vorschau von Kochwelt mit modernem Rezept-Layout und Pasta-Gericht" height="430"
-                src="../assets/images/portfolio/kochwelt.png" width="760" />
+              <img alt="Portfolio-Vorschau von Kochwelt mit modernem Rezept-Layout und Pasta-Gericht" decoding="async"
+                height="430" loading="lazy" src="../assets/images/portfolio/kochwelt.png" width="760" />
               <div class="project-card-body">
                 <h3>Kochwelt</h3>
                 <p>Gruppenprojekt mit responsiver Rezept-Website, Rezept des Tages, mehreren Rezeptseiten und
                   Kontaktbereich.</p>
                 <div class="project-card-footer project-card-footer--action">
                   <span class="badge">Developer Akademie · Website</span>
-                  <a class="button button--primary button--small project-demo-button" href="../demos/kochwelt/"
-                    rel="noopener noreferrer" target="_blank">Kochwelt ansehen</a>
+                  <div class="project-card-actions"><a class="project-source-button"
+                      data-analytics-label="Kochwelt · GitHub" href="https://github.com/FabianGlanzerDev/Kochwelt"
+                      rel="noopener noreferrer" target="_blank">GitHub</a><a
+                      class="button button--primary button--small project-demo-button" data-analytics-label="Kochwelt"
+                      data-local-href="../demos/kochwelt/" href="https://kochwelt.glanzerdigital.at"
+                      rel="noopener noreferrer" target="_blank">Live-Demo</a></div>
                 </div>
               </div>
             </article>
             <article class="project-card portfolio-card">
               <img alt="Portfolio-Vorschau der Sakura-Ramen-Website mit Hero-Bereich, Ramen-Bowl und Speisekarte"
-                height="430" src="../assets/images/portfolio/sakura-ramen.png" width="760" />
+                decoding="async" height="430" loading="lazy" src="../assets/images/portfolio/sakura-ramen.png"
+                width="760" />
               <div class="project-card-body">
                 <h3>Sakura Ramen</h3>
                 <p>Restaurant-Landingpage mit Hero-Bereich, Speisekarte, Standortinfos und japanisch inspiriertem
                   Design.</p>
                 <div class="project-card-footer project-card-footer--action">
                   <span class="badge">Developer Akademie · Website</span>
-                  <a class="button button--primary button--small project-demo-button" href="../demos/sakura-ramen/"
-                    rel="noopener noreferrer" target="_blank">Sakura-Ramen ansehen</a>
+                  <div class="project-card-actions"><a class="project-source-button"
+                      data-analytics-label="Sakura Ramen · GitHub"
+                      href="https://github.com/FabianGlanzerDev/Sakura_Ramen_Responsive" rel="noopener noreferrer"
+                      target="_blank">GitHub</a><a class="button button--primary button--small project-demo-button"
+                      data-analytics-label="Sakura Ramen" data-local-href="../demos/sakura-ramen/"
+                      href="https://sakura.glanzerdigital.at" rel="noopener noreferrer" target="_blank">Live-Demo</a>
+                  </div>
                 </div>
               </div>
             </article>
             <article class="project-card portfolio-card">
               <img alt="Portfolio-Vorschau von Fotogram mit dunkler Galerieoberfläche und großer Landschaftsaufnahme"
-                height="430" src="../assets/images/portfolio/fotogram.png" width="760" />
+                decoding="async" height="430" loading="lazy" src="../assets/images/portfolio/fotogram.png"
+                width="760" />
               <div class="project-card-body">
                 <h3>Fotogram</h3>
                 <p>Responsive Fotogalerie mit Lightbox, Bildnavigation per Tastatur und einer übersichtlichen
                   Galerieansicht.</p>
                 <div class="project-card-footer project-card-footer--action">
                   <span class="badge">Developer Akademie · Website</span>
-                  <a class="button button--primary button--small project-demo-button" href="../demos/fotogram/"
-                    rel="noopener noreferrer" target="_blank">Fotogram ansehen</a>
+                  <div class="project-card-actions"><a class="project-source-button"
+                      data-analytics-label="Fotogram · GitHub" href="https://github.com/FabianGlanzerDev/Fotogram"
+                      rel="noopener noreferrer" target="_blank">GitHub</a><a
+                      class="button button--primary button--small project-demo-button" data-analytics-label="Fotogram"
+                      data-local-href="../demos/fotogram/" href="https://fotogram.glanzerdigital.at"
+                      rel="noopener noreferrer" target="_blank">Live-Demo</a></div>
                 </div>
               </div>
             </article>
             <article class="project-card portfolio-card">
               <img alt="Portfolio-Vorschau des Pokédex-Projekts mit rotem Neon-Interface und elektrischer Kreatur"
-                height="430" src="../assets/images/portfolio/pokedex-preview.webp" width="760" />
+                decoding="async" height="430" loading="lazy" src="../assets/images/portfolio/pokedex-preview.webp"
+                width="760" />
               <div class="project-card-body">
                 <h3>Pokédex</h3>
                 <p>Dynamischer Pokédex mit API-Daten, Suche, Detailansicht sowie Navigation zwischen einzelnen Pokémon.
                 </p>
                 <div class="project-card-footer project-card-footer--action">
                   <span class="badge">Developer Akademie · Web-App</span>
-                  <a class="button button--primary button--small project-demo-button" href="../demos/pokedex/"
-                    rel="noopener noreferrer" target="_blank">Pokédex ansehen</a>
+                  <div class="project-card-actions"><a class="project-source-button"
+                      data-analytics-label="Pokédex · GitHub" href="https://github.com/FabianGlanzerDev/Pokedex"
+                      rel="noopener noreferrer" target="_blank">GitHub</a><a
+                      class="button button--primary button--small project-demo-button" data-analytics-label="Pokédex"
+                      data-local-href="../demos/pokedex/" href="https://pokedex.glanzerdigital.at"
+                      rel="noopener noreferrer" target="_blank">Live-Demo</a></div>
                 </div>
               </div>
             </article>
             <article class="project-card portfolio-card portfolio-card--featured">
-              <img alt="Portfolio-Vorschau des Browsergames Sharkie mit Hai, Münzen und Unterwasserwelt" height="430"
-                src="../assets/images/portfolio/sharkie.png" width="760" />
+              <img alt="Portfolio-Vorschau des Browsergames Sharkie mit Hai, Münzen und Unterwasserwelt"
+                decoding="async" height="430" loading="lazy" src="../assets/images/portfolio/sharkie.png" width="760" />
               <div class="project-card-body">
                 <h3>Sharkie</h3>
                 <p>2D-Browsergame mit Tastatursteuerung, Gegnern, Sammelobjekten, Sounds und animierter Unterwasserwelt.
                 </p>
                 <div class="project-card-footer project-card-footer--action">
                   <span class="badge">Developer Akademie · Game</span>
-                  <a class="button button--primary button--small project-demo-button" href="../demos/sharkie/"
-                    rel="noopener noreferrer" target="_blank">Sharkie Spielen</a>
+                  <div class="project-card-actions"><a class="project-source-button"
+                      data-analytics-label="Sharkie · GitHub" href="https://github.com/FabianGlanzerDev/Sharkie-2D-Game"
+                      rel="noopener noreferrer" target="_blank">GitHub</a><a
+                      class="button button--primary button--small project-demo-button" data-analytics-label="Sharkie"
+                      data-local-href="../demos/sharkie/" href="https://sharkie.glanzerdigital.at"
+                      rel="noopener noreferrer" target="_blank">Live-Demo</a></div>
                 </div>
               </div>
             </article>
             <article class="project-card portfolio-card">
-              <img alt="Portfolio-Vorschau des Taskmanagement-Projekts Join mit Kanban-Board und blauem UI" height="430"
-                src="../assets/images/portfolio/join.png" width="760" />
+              <img alt="Portfolio-Vorschau des Taskmanagement-Projekts Join mit Kanban-Board und blauem UI"
+                decoding="async" height="430" loading="lazy" src="../assets/images/portfolio/join.png" width="760" />
               <div class="project-card-body">
                 <h3>Join</h3>
                 <p>Kanban-Anwendung zur Aufgabenorganisation mit Board, Taskverwaltung, Kontakten und responsiver
                   Oberfläche.</p>
                 <div class="project-card-footer project-card-footer--action">
                   <span class="badge">Developer Akademie · Web-App</span>
-                  <a class="button button--primary button--small project-demo-button" href="../demos/join/"
-                    rel="noopener noreferrer" target="_blank">Join ansehen</a>
+                  <div class="project-card-actions"><a class="project-source-button"
+                      data-analytics-label="Join · GitHub" href="https://github.com/FabianGlanzerDev/Join-"
+                      rel="noopener noreferrer" target="_blank">GitHub</a><a
+                      class="button button--primary button--small project-demo-button" data-analytics-label="Join"
+                      data-local-href="../demos/join/" href="https://join.glanzerdigital.at" rel="noopener noreferrer"
+                      target="_blank">Live-Demo</a></div>
                 </div>
               </div>
             </article>
             <article class="project-card portfolio-card">
               <img alt="Portfolio-Vorschau der Poll App mit dunklem Dashboard, Poll-Erstellung und Ergebnisanalyse"
-                height="430" src="../assets/images/portfolio/pollapp.png" width="760" />
+                decoding="async" height="430" loading="lazy" src="../assets/images/portfolio/pollapp.png" width="760" />
               <div class="project-card-body">
                 <h3>Poll App</h3>
                 <p>TypeScript-Umfrage-App mit Poll-Erstellung, Voting, Dashboard und dynamischer Ergebnisanalyse.</p>
                 <div class="project-card-footer project-card-footer--action">
                   <span class="badge">Developer Akademie · TypeScript</span>
-                  <a class="button button--primary button--small project-demo-button" href="../demos/poll-app/"
-                    rel="noopener noreferrer" target="_blank">PollApp ansehen</a>
+                  <div class="project-card-actions"><a class="project-source-button"
+                      data-analytics-label="Poll App · GitHub" href="https://github.com/FabianGlanzerDev/PollApp"
+                      rel="noopener noreferrer" target="_blank">GitHub</a><a
+                      class="button button--primary button--small project-demo-button" data-analytics-label="Poll App"
+                      data-local-href="../demos/poll-app/" href="https://poll.glanzerdigital.at"
+                      rel="noopener noreferrer" target="_blank">Live-Demo</a></div>
                 </div>
               </div>
             </article>
             <article class="project-card portfolio-card">
               <img alt="Portfolio-Vorschau des Memory Games mit Neon-Interface, Kartenraster und Spielstatistiken"
-                height="430" src="../assets/images/portfolio/memory-game.png" width="760" />
+                decoding="async" height="430" loading="lazy" src="../assets/images/portfolio/memory-game.png"
+                width="760" />
               <div class="project-card-body">
                 <h3>Memory Game</h3>
                 <p>Interaktives Memory-Spiel mit mehreren Themes, Settings-Bereich, Spielstatistiken und responsivem
                   Layout.</p>
                 <div class="project-card-footer project-card-footer--action">
                   <span class="badge">Developer Akademie · TypeScript</span>
-                  <a class="button button--primary button--small project-demo-button" href="../demos/memory-game/"
-                    rel="noopener noreferrer" target="_blank">Spiel ausprobieren</a>
+                  <div class="project-card-actions"><a class="project-source-button"
+                      data-analytics-label="Memory Game · GitHub" href="https://github.com/FabianGlanzerDev/Memory-Game"
+                      rel="noopener noreferrer" target="_blank">GitHub</a><a
+                      class="button button--primary button--small project-demo-button"
+                      data-analytics-label="Memory Game" data-local-href="../demos/memory-game/"
+                      href="https://memory.glanzerdigital.at" rel="noopener noreferrer" target="_blank">Live-Demo</a>
+                  </div>
                 </div>
               </div>
             </article>
@@ -224,15 +288,15 @@
             <span class="kicker">Open Source &amp; Code</span>
             <h2 id="github-profile-title">Mehr Projekte auf GitHub</h2>
             <p>Weitere Repositories, Übungsprojekte und Code-Beispiele findest du direkt auf meinem GitHub-Profil.</p>
-            <a class="button button--primary github-profile-button" href="https://github.com/FabianGlanzerDev"
-              rel="noopener noreferrer" target="_blank">
-              <img alt="" aria-hidden="true" class="github-button-logo"
+            <a class="button button--primary github-profile-button" data-analytics-label="GitHub-Profil"
+              href="https://github.com/FabianGlanzerDev" rel="noopener noreferrer" target="_blank">
+              <img alt="" aria-hidden="true" class="github-button-logo" decoding="async" loading="lazy"
                 src="../assets/images/technologies/github.png" />
               GitHub-Profil ansehen
             </a>
           </div>
           <div aria-hidden="true" class="github-profile-logo">
-            <img alt="" src="../assets/images/technologies/github.png" />
+            <img alt="" decoding="async" loading="lazy" src="../assets/images/technologies/github.png" />
           </div>
         </article>
       </div>
@@ -247,28 +311,29 @@
         </div>
         <div class="tech-grid" data-tech-grid="">
           <button aria-expanded="false" aria-label="HTML Codebeispiel anzeigen" class="tech-card" type="button">
-            <img alt="" aria-hidden="true"
+            <img alt="" aria-hidden="true" decoding="async" loading="lazy"
               src="../assets/images/technologies/html5.png" /><span>HTML5</span><small>Struktur &amp;
               Semantik</small><code aria-hidden="true">&lt;main&gt;
   &lt;section&gt;Portfolio&lt;/section&gt;
 &lt;/main&gt;</code>
           </button>
           <button aria-expanded="false" aria-label="CSS Codebeispiel anzeigen" class="tech-card" type="button">
-            <img alt="" aria-hidden="true" src="../assets/images/technologies/css3.png" /><span>CSS3</span><small>Layout
+            <img alt="" aria-hidden="true" decoding="async" loading="lazy"
+              src="../assets/images/technologies/css3.png" /><span>CSS3</span><small>Layout
               &amp; Responsive</small><code aria-hidden="true">.grid {
   display: grid;
   gap: 1rem;
 }</code>
           </button>
           <button aria-expanded="false" aria-label="JavaScript Codebeispiel anzeigen" class="tech-card" type="button">
-            <img alt="" aria-hidden="true"
+            <img alt="" aria-hidden="true" decoding="async" loading="lazy"
               src="../assets/images/technologies/javascript.png" /><span>JavaScript</span><small>Interaktivität</small><code
               aria-hidden="true">button.addEventListener(
   'click', openDemo
 );</code>
           </button>
           <button aria-expanded="false" aria-label="TypeScript Codebeispiel anzeigen" class="tech-card" type="button">
-            <img alt="" aria-hidden="true"
+            <img alt="" aria-hidden="true" decoding="async" loading="lazy"
               src="../assets/images/technologies/typescript.webp" /><span>TypeScript</span><small>Typisierung</small><code
               aria-hidden="true">type Project = {
   name: string;
@@ -276,14 +341,14 @@
 };</code>
           </button>
           <button aria-expanded="false" aria-label="Angular Codebeispiel anzeigen" class="tech-card" type="button">
-            <img alt="" aria-hidden="true"
+            <img alt="" aria-hidden="true" decoding="async" loading="lazy"
               src="../assets/images/technologies/angular.png" /><span>Angular</span><small>Framework</small><code
               aria-hidden="true">@Component({
   selector: 'app-card'
 })</code>
           </button>
           <button aria-expanded="false" aria-label="Firebase Codebeispiel anzeigen" class="tech-card" type="button">
-            <img alt="" aria-hidden="true"
+            <img alt="" aria-hidden="true" decoding="async" loading="lazy"
               src="../assets/images/technologies/firebase.webp" /><span>Firebase</span><small>Backend
               Services</small><code aria-hidden="true">const db =
   getFirestore(app);</code>
@@ -295,7 +360,7 @@
   .then(r =&gt; r.json());</code>
           </button>
           <button aria-expanded="false" aria-label="GitHub Codebeispiel anzeigen" class="tech-card" type="button">
-            <img alt="" aria-hidden="true"
+            <img alt="" aria-hidden="true" decoding="async" loading="lazy"
               src="../assets/images/technologies/github.png" /><span>GitHub</span><small>Versionierung</small><code
               aria-hidden="true">git add .
 git commit -m "update"

@@ -1,28 +1,61 @@
 <!DOCTYPE html>
-
 <html lang="de">
 
 <head>
-    <meta charset="utf-8" />
-    <meta content="width=device-width, initial-scale=1" name="viewport" />
-    <meta
-        content="Glanzer Digital entwickelt moderne Websites, praktische Softwarelösungen und digitale Werkzeuge mit persönlicher Betreuung."
-        name="description" />
-    <meta content="#080b10" name="theme-color" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description"
+        content="Glanzer Digital entwickelt moderne Websites, Landingpages, Web-Apps und digitale Lösungen mit persönlicher Betreuung.">
+    <meta name="theme-color" content="#080b10">
+
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Glanzer Digital">
+    <meta property="og:title" content="Glanzer Digital | Webentwicklung und Softwarelösungen">
+    <meta property="og:description"
+        content="Glanzer Digital entwickelt moderne Websites, Landingpages, Web-Apps und digitale Lösungen mit persönlicher Betreuung.">
+    <meta property="og:url" content="https://glanzerdigital.at/">
+    <meta property="og:image" content="https://glanzerdigital.at/assets/images/general/hero-workspace.webp">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Glanzer Digital | Webentwicklung und Softwarelösungen">
+    <meta name="twitter:description"
+        content="Glanzer Digital entwickelt moderne Websites, Landingpages, Web-Apps und digitale Lösungen mit persönlicher Betreuung.">
+    <meta name="twitter:image" content="https://glanzerdigital.at/assets/images/general/hero-workspace.webp">
     <title>Glanzer Digital | Webentwicklung und Softwarelösungen</title>
-    <link href="assets/favicons/favicon.svg" rel="icon" type="image/svg+xml" />
-    <link href="./styles/variables.css" rel="stylesheet" />
-    <link href="./styles/fonts.css" rel="stylesheet" />
-    <link href="./style.css" rel="stylesheet" />
-    <link href="./styles/pages/index.css" rel="stylesheet" />
-    <script defer="" src="./templates/layout-templates.js"></script>
-    <script defer="" src="./scripts/main.js"></script>
-    <script defer="True" src="./scripts/home-effects.js"></script>
+    <link rel="canonical" href="https://glanzerdigital.at/">
+    <link rel="icon" href="assets/favicons/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="./styles/variables.css">
+    <link rel="stylesheet" href="./styles/fonts.css">
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./styles/pages/index.css">
+    <script src="./templates/layout-templates.js" defer></script>
+    <script src="./scripts/main.js" defer></script>
+    <script src="./scripts/i18n-translations.js" defer></script>
+    <script src="./scripts/i18n.js" defer></script>
+    <script src="./scripts/home-effects.js" defer></script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Glanzer Digital",
+  "url": "https://glanzerdigital.at/",
+  "logo": "https://glanzerdigital.at/assets/images/logos/glanzerdigital-neon-logo.webp",
+  "email": "mailto:fabsdev@gmx.at",
+  "telephone": "+43 676 7875304",
+  "founder": {
+    "@type": "Person",
+    "name": "Fabian Glanzer"
+  },
+  "sameAs": [
+    "https://github.com/FabianGlanzerDev"
+  ]
+}
+  </script>
 </head>
 
 <body data-page="home" data-root=".">
     <a class="skip-link" href="#main-content">Zum Inhalt springen</a>
-    <header class="site-header" data-site-header=""></header>
+    <header class="site-header" data-site-header></header>
+
     <main id="main-content">
         <section class="hero">
             <div class="container hero-grid">
@@ -32,451 +65,283 @@
                         <span>Websites &amp; Software,</span>
                         <span class="text-primary">die einfach funktionieren.</span>
                     </h1>
-                    <p>Moderne Websites, individuelle Web-Anwendungen und digitale Lösungen – sauber entwickelt,
-                        verständlich umgesetzt und persönlich betreut.</p>
+                    <p>Von der kleinen Unternehmenswebsite bis zum individuellen digitalen Werkzeug: sauber entwickelt,
+                        verständlich erklärt und persönlich betreut.</p>
                     <div class="button-row">
-                        <a class="button button--primary" href="#leistungen">Meine Leistungen</a>
-                        <a class="button button--secondary" href="subpages/portfolio.html">Portfolio ansehen</a>
+                        <a class="button button--primary" href="subpages/kontakt.html">Projekt besprechen</a>
+                        <a class="button button--secondary" href="subpages/leistungen.html">Leistungen ansehen</a>
                     </div>
-                    <ul aria-label="Vorteile" class="trust-list">
-                        <li><svg aria-hidden="true" viewbox="0 0 24 24">
+
+                    <ul class="trust-list" aria-label="Vorteile">
+                        <li><svg aria-hidden="true" viewBox="0 0 24 24">
                                 <circle cx="12" cy="12" r="9"></circle>
                                 <path d="m8 12 2.5 2.5L16 9"></path>
-                            </svg>Persönlich</li>
-                        <li><svg aria-hidden="true" viewbox="0 0 24 24">
+                            </svg>Persönliche Betreuung</li>
+                        <li><svg aria-hidden="true" viewBox="0 0 24 24">
                                 <path d="m13 2-8 12h7l-1 8 8-12h-7z"></path>
-                            </svg>Effizient</li>
-                        <li><svg aria-hidden="true" viewbox="0 0 24 24">
-                                <rect height="11" rx="2" width="14" x="5" y="10"></rect>
+                            </svg>Klare Lösungen</li>
+                        <li><svg aria-hidden="true" viewBox="0 0 24 24">
+                                <rect x="5" y="10" width="14" height="11" rx="2"></rect>
                                 <path d="M8 10V7a4 4 0 0 1 8 0v3"></path>
-                            </svg>Zuverlässig</li>
+                            </svg>Sauber entwickelt</li>
                     </ul>
-                    <div aria-label="Technische Schwerpunkte" class="hero-techline">
-                        <span><strong>Frontend</strong> HTML · CSS · JS · TS</span>
-                        <span><strong>Backend</strong> Firebase · APIs</span>
-                        <span><strong>Qualität</strong> Responsive · WCAG</span>
-                    </div>
+
                 </div>
-                <div aria-labelledby="terminal-title" class="hero-visual">
-                    <div aria-hidden="true" class="code-orbit code-orbit--one">{ }</div>
-                    <div aria-hidden="true" class="code-orbit code-orbit--two">&lt;/&gt;</div>
-                    <article aria-label="Animierter Programmiererwitz im Codefenster" class="hero-terminal">
+
+                <div class="hero-visual" aria-labelledby="terminal-title">
+                    <div class="code-orbit code-orbit--one" aria-hidden="true">{ }</div>
+                    <div class="code-orbit code-orbit--two" aria-hidden="true">&lt;/&gt;</div>
+                    <article class="hero-terminal" aria-label="Animierter Programmiererwitz im Codefenster">
                         <div class="terminal-toolbar">
-                            <div aria-hidden="true" class="terminal-dots"><span></span><span></span><span></span></div>
+                            <div class="terminal-dots" aria-hidden="true"><span></span><span></span><span></span></div>
                             <span class="terminal-title" id="terminal-title">programmer-joke.js</span>
-                            <button aria-pressed="false" class="terminal-pause" data-terminal-pause=""
-                                type="button">Animation pausieren</button>
+                            <button class="terminal-pause" data-terminal-pause type="button"
+                                aria-pressed="false">Animation pausieren</button>
                         </div>
-                        <pre aria-hidden="true"
-                            class="terminal-code"><code data-terminal-code=""></code><span class="terminal-cursor">▋</span></pre>
-                        <div class="terminal-output">
-                            <span>console:</span>
-                            <strong data-terminal-output="">Code wird geladen …</strong>
-                        </div>
+                        <pre class="terminal-code"
+                            aria-hidden="true"><code data-terminal-code></code><span class="terminal-cursor">▋</span></pre>
+                        <div class="terminal-output"><span>console:</span><strong data-terminal-output>Code wird geladen
+                                …</strong></div>
                     </article>
                 </div>
             </div>
         </section>
+
         <section class="section services-section" id="leistungen">
             <div class="container">
                 <div class="section-heading">
-                    <span class="kicker">Meine Leistungen</span>
-                    <h2>Digitale Lösungen mit praktischem Nutzen</h2>
-                    <p>Von der ersten Idee bis zur laufenden Betreuung – klar geplant, sauber umgesetzt und verständlich
-                        erklärt.
-                    </p>
+                    <span class="kicker">Was ich umsetze</span>
+                    <h2>Von der Website bis zum digitalen Werkzeug</h2>
+                    <p>Auf der Startseite bekommst du den Überblick. Auf der Leistungsseite findest du ausführlich,
+                        welche Lösungen möglich sind und wofür sie sinnvoll eingesetzt werden können.</p>
                 </div>
+
                 <div class="services-grid">
                     <article class="card service-card">
                         <div class="service-card-header">
-                            <span aria-hidden="true" class="icon"><svg viewbox="0 0 32 32">
-                                    <rect height="19" rx="2" width="26" x="3" y="5"></rect>
+                            <span class="icon" aria-hidden="true"><svg viewBox="0 0 32 32">
+                                    <rect x="3" y="5" width="26" height="19" rx="2"></rect>
                                     <path d="M11 28h10M16 24v4M3 10h26"></path>
                                 </svg></span>
-                            <h3>Webentwicklung</h3>
+                            <h3>Websites</h3>
                         </div>
-                        <p>Moderne Websites und Landingpages, die auf Desktop, Tablet und Smartphone sauber
-                            funktionieren.</p>
+                        <p>Professionelle Internetauftritte für Selbstständige, kleine Unternehmen, Vereine und
+                            individuelle Projekte.</p>
                     </article>
+
                     <article class="card service-card">
                         <div class="service-card-header">
-                            <span aria-hidden="true" class="icon"><svg viewbox="0 0 32 32">
+                            <span class="icon" aria-hidden="true"><svg viewBox="0 0 32 32">
                                     <path d="m11 9-7 7 7 7M21 9l7 7-7 7M19 5l-6 22"></path>
+                                </svg></span>
+                            <h3>Web-Apps &amp; Tools</h3>
+                        </div>
+                        <p>Interaktive Anwendungen, Dashboards und digitale Werkzeuge für konkrete Aufgaben und Abläufe.
+                        </p>
+                    </article>
+
+                    <article class="card service-card">
+                        <div class="service-card-header">
+                            <span class="icon" aria-hidden="true"><svg viewBox="0 0 32 32">
+                                    <rect x="4" y="5" width="24" height="22" rx="3"></rect>
+                                    <path d="M9 11h14M9 16h14M9 21h8M23 21h.01"></path>
                                 </svg></span>
                             <h3>Softwarelösungen</h3>
                         </div>
-                        <p>Individuelle Web-Apps und Windows-Anwendungen, zugeschnitten auf konkrete Anforderungen.</p>
+                        <p>Windows-Anwendungen und lokale Werkzeuge für Dateien, Daten und wiederkehrende
+                            Arbeitsabläufe.</p>
                     </article>
+
                     <article class="card service-card">
                         <div class="service-card-header">
-                            <span aria-hidden="true" class="icon"><svg viewbox="0 0 32 32">
-                                    <rect height="22" rx="3" width="24" x="4" y="5"></rect>
-                                    <path d="M9 11h14M9 16h14M9 21h8M23 21h.01"></path>
-                                </svg></span>
-                            <h3>Digitalisierung</h3>
-                        </div>
-                        <p>Einfache digitale Werkzeuge, die wiederkehrende Abläufe übersichtlicher und schneller machen.
-                        </p>
-                    </article>
-                    <article class="card service-card">
-                        <div class="service-card-header">
-                            <span aria-hidden="true" class="icon"><svg viewbox="0 0 32 32">
+                            <span class="icon" aria-hidden="true"><svg viewBox="0 0 32 32">
                                     <path
                                         d="M7 18v-4a9 9 0 0 1 18 0v4M7 17H4v7h5v-7zM25 17h3v7h-5v-7zM23 25c-2 3-5 4-8 4">
                                     </path>
                                 </svg></span>
-                            <h3>Webbetreuung</h3>
+                            <h3>Betreuung &amp; Weiterentwicklung</h3>
                         </div>
-                        <p>Änderungen, Updates, technische Pflege und laufende Unterstützung für bestehende Websites.
+                        <p>Bestehende Websites verbessern, Inhalte ändern, Funktionen ergänzen und technische Probleme
+                            beheben.</p>
+                    </article>
+                </div>
+
+                <div class="services-overview-actions">
+                    <a class="button button--primary" href="subpages/leistungen.html">Alle Leistungen ansehen</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="section industry-section" id="branchen-check" aria-labelledby="industry-title">
+            <div class="container industry-layout">
+                <div class="industry-copy">
+                    <span class="kicker">Auch kleine Websites können viel</span>
+                    <h2 id="industry-title">Was könnte eine Website für deinen Betrieb erledigen?</h2>
+                    <p>Eine gute Website muss nicht riesig sein. Für viele Betriebe reichen wenige, klar aufgebaute
+                        Inhalte, damit Kunden sofort finden, was sie brauchen.</p>
+
+                    <div class="industry-tabs" role="group" aria-label="Branche auswählen">
+                        <button type="button" class="industry-tab" data-industry="friseur"
+                            aria-pressed="true">Friseur</button>
+                        <button type="button" class="industry-tab" data-industry="handwerk"
+                            aria-pressed="false">Handwerk</button>
+                        <button type="button" class="industry-tab" data-industry="gastronomie"
+                            aria-pressed="false">Gastronomie</button>
+                        <button type="button" class="industry-tab" data-industry="verein"
+                            aria-pressed="false">Verein</button>
+                        <button type="button" class="industry-tab" data-industry="selbststaendig"
+                            aria-pressed="false">Selbstständig</button>
+                        <button type="button" class="industry-tab" data-industry="sonstiges"
+                            aria-pressed="false">Sonstiges</button>
+                    </div>
+                </div>
+
+                <article class="industry-result" data-industry-result aria-live="polite">
+                    <div class="industry-result__head">
+                        <span class="industry-result__icon" aria-hidden="true"><img data-industry-icon
+                                src="assets/images/icons/industries/friseur.svg" alt=""></span>
+                        <div>
+                            <span class="industry-result__label">Beispiel</span>
+                            <h3 data-industry-title>Friseursalon</h3>
+                        </div>
+                    </div>
+                    <p data-industry-text>Eine kompakte Website kann Öffnungszeiten, Leistungen, Preise und
+                        Kontaktmöglichkeiten jederzeit erreichbar machen.</p>
+                    <ul class="industry-feature-list" data-industry-features>
+                        <li>Leistungen &amp; Preise</li>
+                        <li>Öffnungszeiten</li>
+                        <li>Team &amp; Galerie</li>
+                        <li>Google Maps &amp; Anfahrt</li>
+                        <li>WhatsApp-Termin-Anfrage</li>
+                        <li>Instagram &amp; Social Media</li>
+                    </ul>
+                    <a class="button button--primary industry-cta" data-industry-cta
+                        href="subpages/kontakt.html?project=Neue%20Website&amp;industry=Friseursalon">So etwas brauche
+                        ich</a>
+                </article>
+            </div>
+        </section>
+
+        <section class="section benefit-section" aria-labelledby="benefit-title">
+            <div class="container">
+                <div class="section-heading section-heading--left benefit-heading">
+                    <span class="kicker">Mehr als nur schön aussehen</span>
+                    <h2 id="benefit-title">Was dir eine gute Website wirklich bringt</h2>
+                    <p>Der Nutzen beginnt dort, wo Besucher schneller Antworten finden und einfacher mit dir in Kontakt
+                        kommen.</p>
+                </div>
+
+                <div class="benefit-grid">
+                    <article class="benefit-card"><span>24/7</span>
+                        <h3>Jederzeit gefunden werden</h3>
+                        <p>Leistungen, Öffnungszeiten und Kontaktinformationen sind auch außerhalb deiner
+                            Geschäftszeiten erreichbar.</p>
+                    </article>
+                    <article class="benefit-card"><span>01</span>
+                        <h3>Professioneller auftreten</h3>
+                        <p>Ein klarer, moderner Internetauftritt schafft Vertrauen, bevor der erste Anruf oder die erste
+                            Nachricht kommt.</p>
+                    </article>
+                    <article class="benefit-card"><span>02</span>
+                        <h3>Weniger Rückfragen</h3>
+                        <p>Häufige Fragen, Preise, Abläufe oder Leistungen können direkt auf der Website beantwortet
+                            werden.</p>
+                    </article>
+                    <article class="benefit-card"><span>03</span>
+                        <h3>Kontakt vereinfachen</h3>
+                        <p>WhatsApp, Telefon, Maps, Terminlinks oder Anfrageformulare sind mit einem Klick erreichbar.
                         </p>
                     </article>
-                </div>
-            </div>
-        </section>
-        <section class="section solution-guide-section" id="loesungsfinder" aria-labelledby="solution-guide-title">
-            <div class="container">
-                <div class="solution-guide-heading">
-                    <div>
-                        <span class="kicker">Welche Lösung passt?</span>
-                        <h2 id="solution-guide-title">Website, Landingpage oder Anwendung?</h2>
-                    </div>
-                    <p>Du musst die technische Bezeichnung nicht selbst kennen. Entscheidend ist, was du erreichen
-                        möchtest. Hier siehst du die wichtigsten Unterschiede und typische Inhalte auf einen Blick.</p>
-                </div>
-
-                <div class="solution-guide-grid">
-                    <article class="solution-guide-card">
-                        <div class="solution-guide-card__topline">
-                            <span class="solution-guide-icon" aria-hidden="true">01</span>
-                            <span class="solution-guide-type">Mehrseitig</span>
-                        </div>
-                        <h3>Website</h3>
-                        <p>Ideal, wenn ein Unternehmen, eine Dienstleistung, ein Projekt oder eine Person ausführlich
-                            vorgestellt werden soll.</p>
-                        <div class="solution-guide-details">
-                            <strong>Typische Inhalte</strong>
-                            <ul>
-                                <li>Startseite und Leistungen</li>
-                                <li>Über mich / Über uns</li>
-                                <li>Portfolio oder Referenzen</li>
-                                <li>Kontakt, FAQ und Formulare</li>
-                                <li>Bilder, Videos und Downloads</li>
-                            </ul>
-                        </div>
+                    <article class="benefit-card"><span>04</span>
+                        <h3>Auf jedem Gerät funktionieren</h3>
+                        <p>Die Inhalte bleiben auf Smartphone, Tablet und Desktop übersichtlich und einfach bedienbar.
+                        </p>
                     </article>
-
-                    <article class="solution-guide-card">
-                        <div class="solution-guide-card__topline">
-                            <span class="solution-guide-icon" aria-hidden="true">02</span>
-                            <span class="solution-guide-type">Eine Seite</span>
-                        </div>
-                        <h3>Landingpage</h3>
-                        <p>Eine fokussierte Einzelseite mit einem klaren Ziel – zum Beispiel Anfrage, Anmeldung,
-                            Bewerbung oder Vorstellung eines bestimmten Angebots.</p>
-                        <div class="solution-guide-details">
-                            <strong>Typische Inhalte</strong>
-                            <ul>
-                                <li>Starker Einstieg mit klarem Nutzen</li>
-                                <li>Vorteile und Leistungen</li>
-                                <li>Referenzen oder Beispiele</li>
-                                <li>Ablauf und häufige Fragen</li>
-                                <li>Kontakt oder WhatsApp-CTA</li>
-                            </ul>
-                        </div>
-                    </article>
-
-                    <article class="solution-guide-card">
-                        <div class="solution-guide-card__topline">
-                            <span class="solution-guide-icon" aria-hidden="true">03</span>
-                            <span class="solution-guide-type">Interaktiv</span>
-                        </div>
-                        <h3>Web-App / digitales Tool</h3>
-                        <p>Geeignet, wenn Besucher nicht nur Inhalte lesen, sondern aktiv mit Daten, Funktionen oder
-                            individuellen Abläufen arbeiten sollen.</p>
-                        <div class="solution-guide-details">
-                            <strong>Mögliche Funktionen</strong>
-                            <ul>
-                                <li>Login und Benutzerbereiche</li>
-                                <li>Dashboards und Datenverwaltung</li>
-                                <li>Suche, Filter und Rechner</li>
-                                <li>Uploads, APIs und Firebase</li>
-                                <li>Adminbereiche und Workflows</li>
-                            </ul>
-                        </div>
-                    </article>
-
-                    <article class="solution-guide-card">
-                        <div class="solution-guide-card__topline">
-                            <span class="solution-guide-icon" aria-hidden="true">04</span>
-                            <span class="solution-guide-type">Lokal</span>
-                        </div>
-                        <h3>Windows-Anwendung</h3>
-                        <p>Sinnvoll, wenn eine Lösung direkt am PC arbeitet und stärker auf lokale Dateien, Daten oder
-                            wiederkehrende interne Abläufe zugreifen soll.</p>
-                        <div class="solution-guide-details">
-                            <strong>Mögliche Funktionen</strong>
-                            <ul>
-                                <li>Dateien verwalten und durchsuchen</li>
-                                <li>Lokale Daten speichern</li>
-                                <li>Abläufe automatisieren</li>
-                                <li>3D-Dateien oder Vorschauen anzeigen</li>
-                                <li>Individuelle interne Werkzeuge</li>
-                            </ul>
-                        </div>
-                    </article>
-                </div>
-
-                <div class="solution-guide-cta">
-                    <div>
-                        <strong>Noch nicht sicher, was du brauchst?</strong>
-                        <span>Beschreibe einfach dein Ziel. Die passende technische Lösung lässt sich gemeinsam einordnen.</span>
-                    </div>
-                    <a class="button button--primary" href="subpages/kontakt.html">Projekt kurz beschreiben</a>
-                </div>
-            </div>
-        </section>
-
-        <section class="section section--light selected-projects-section" id="projekte"
-            aria-labelledby="selected-projects-title">
-            <div class="container">
-                <div class="projects-heading-row selected-projects-heading">
-                    <div>
-                        <span class="kicker">Portfolio</span>
-                        <h2 id="selected-projects-title">Ausgewählte Projekte</h2>
-                        <p>Vier unterschiedliche Projekte – von Web-App und API bis zum interaktiven Browsergame.</p>
-                    </div>
-                    <a class="link-arrow" href="subpages/portfolio.html">Alle Projekte ansehen</a>
-                </div>
-
-                <div class="selected-projects-grid">
-                    <article class="project-card selected-project-card">
-                        <div class="selected-project-card__media">
-                            <img alt="Portfolio-Vorschau des Memory Games mit Einstellungen und Kartenfeld"
-                                height="1086" loading="lazy" src="assets/images/portfolio/memory-game.png"
-                                width="1448" />
-                            <span class="selected-project-card__status">Spielbar</span>
-                        </div>
-                        <div class="project-card-body selected-project-card__body">
-                            <div class="selected-project-card__topline"><span class="badge">TypeScript · Game</span>
-                            </div>
-                            <h3>Memory Game</h3>
-                            <p>Interaktives Memory-Spiel mit mehreren Themes, Spielfeldgrößen, Spielerwahl und
-                                responsiver Benutzeroberfläche.</p>
-                            <ul class="selected-project-card__tech" aria-label="Technologien">
-                                <li>TypeScript</li>
-                                <li>Responsive UI</li>
-                            </ul>
-                            <div class="project-card-footer selected-project-card__footer">
-                                <a class="button button--primary button--small project-demo-button"
-                                    href="demos/memory-game/" rel="noopener noreferrer" target="_blank">Spiel
-                                    ausprobieren</a>
-                            </div>
-                        </div>
-                    </article>
-
-                    <article class="project-card selected-project-card">
-                        <div class="selected-project-card__media">
-                            <img alt="Portfolio-Vorschau der Join Kanban-Anwendung mit Board und Aufgaben" height="1086"
-                                loading="lazy" src="assets/images/portfolio/join.png" width="1448" />
-                            <span class="selected-project-card__status">Live-Demo</span>
-                        </div>
-                        <div class="project-card-body selected-project-card__body">
-                            <div class="selected-project-card__topline"><span class="badge">Web-App · Kanban</span>
-                            </div>
-                            <h3>Join</h3>
-                            <p>Kanban-Anwendung zur Organisation von Aufgaben mit Board, Taskverwaltung, Kontakten und
-                                responsiver Oberfläche.</p>
-                            <ul class="selected-project-card__tech" aria-label="Technologien">
-                                <li>JavaScript</li>
-                                <li>Firebase</li>
-                            </ul>
-                            <div class="project-card-footer selected-project-card__footer">
-                                <a class="button button--primary button--small project-demo-button" href="demos/join/"
-                                    rel="noopener noreferrer" target="_blank">Join ansehen</a>
-                            </div>
-                        </div>
-                    </article>
-
-                    <article class="project-card selected-project-card">
-                        <div class="selected-project-card__media">
-                            <img alt="Portfolio-Vorschau des Pokédex mit rotem Interface und Pokémon-Detailansicht"
-                                height="1086" loading="lazy" src="assets/images/portfolio/pokedex-preview.webp"
-                                width="1448" />
-                            <span class="selected-project-card__status">API-Projekt</span>
-                        </div>
-                        <div class="project-card-body selected-project-card__body">
-                            <div class="selected-project-card__topline"><span class="badge">Web-App · REST API</span>
-                            </div>
-                            <h3>Pokédex</h3>
-                            <p>Dynamischer Pokédex mit API-Daten, Suche, Detailansicht und Navigation zwischen den
-                                geladenen Pokémon.</p>
-                            <ul class="selected-project-card__tech" aria-label="Technologien">
-                                <li>JavaScript</li>
-                                <li>REST API</li>
-                            </ul>
-                            <div class="project-card-footer selected-project-card__footer">
-                                <a class="button button--primary button--small project-demo-button"
-                                    href="demos/pokedex/" rel="noopener noreferrer" target="_blank">Pokédex ansehen</a>
-                            </div>
-                        </div>
-                    </article>
-
-                    <article class="project-card selected-project-card selected-project-card--sharkie">
-                        <div class="selected-project-card__media">
-                            <img alt="Portfolio-Vorschau des Browsergames Sharkie mit Hai, Münzen und Unterwasserwelt"
-                                height="1086" loading="lazy" src="assets/images/portfolio/sharkie.png" width="1448" />
-                            <span class="selected-project-card__status">Spielbar</span>
-                        </div>
-                        <div class="project-card-body selected-project-card__body">
-                            <div class="selected-project-card__topline"><span class="badge">JavaScript · Game</span>
-                            </div>
-                            <h3>Sharkie</h3>
-                            <p>2D-Browsergame mit Tastatursteuerung, Gegnern, Sammelobjekten, Sounds und animierter
-                                Unterwasserwelt.</p>
-                            <ul class="selected-project-card__tech" aria-label="Technologien">
-                                <li>JavaScript</li>
-                                <li>OOP</li>
-                            </ul>
-                            <div class="project-card-footer selected-project-card__footer">
-                                <a class="button button--primary button--small project-demo-button"
-                                    href="demos/sharkie/" rel="noopener noreferrer" target="_blank">Sharkie spielen</a>
-                            </div>
-                        </div>
+                    <article class="benefit-card"><span>05</span>
+                        <h3>Mit dir mitwachsen</h3>
+                        <p>Neue Seiten, Funktionen oder Inhalte können später ergänzt werden, wenn dein Bedarf größer
+                            wird.</p>
                     </article>
                 </div>
             </div>
         </section>
-        <section aria-labelledby="model-demo-title" class="section model-demo-section">
-            <div class="container model-demo-shell">
-                <div class="model-demo-showcase">
-                    <figure class="model-demo-image-card">
-                        <img alt="3D-Modellbibliothek mit Modellübersicht, Suche, Kategorien und 3D-Vorschau"
-                            height="1086" loading="lazy" src="assets/images/portfolio/modellbibliothek.png"
-                            width="1448" />
-                    </figure>
 
-                    <div class="model-demo-pills" aria-label="Funktionen der 3D-Modellbibliothek">
-                        <span>STL-Vorschau</span>
-                        <span>Favoriten</span>
-                        <span>Kategorien</span>
-                        <span>Ansichten</span>
-                    </div>
-                </div>
-
-                <div class="model-demo-copy">
-                    <span class="kicker">Interaktive Web-Demo</span>
-                    <h2 id="model-demo-title">Deine 3D-Modelle. Schnell gefunden. Direkt geprüft.</h2>
-                    <p class="model-demo-intro">Die 3D-Modellbibliothek bringt Ordnung in große Modellsammlungen.
-                        Suchen, organisieren und STL-Dateien direkt prüfen – die wichtigsten Funktionen lassen sich
-                        auch in der Browser-Demo ausprobieren.</p>
-
-                    <div class="model-demo-highlights">
-                        <article>
-                            <span>01</span>
-                            <div>
-                                <strong>Eigene STL öffnen</strong>
-                                <small>Die ausgewählte Datei bleibt lokal in deinem Browser.</small>
-                            </div>
-                        </article>
-                        <article>
-                            <span>02</span>
-                            <div>
-                                <strong>Direkt in 3D prüfen</strong>
-                                <small>Drehen, zoomen sowie Modell- und Hintergrundfarbe ändern.</small>
-                            </div>
-                        </article>
-                        <article>
-                            <span>03</span>
-                            <div>
-                                <strong>Ordnung schaffen</strong>
-                                <small>Modelle umbenennen, kategorisieren und favorisieren.</small>
-                            </div>
-                        </article>
-                        <article>
-                            <span>04</span>
-                            <div>
-                                <strong>Ansicht wechseln</strong>
-                                <small>Zwischen übersichtlicher Kachel- und Listenansicht wechseln.</small>
-                            </div>
-                        </article>
-                    </div>
-
-                    <div class="button-row model-demo-actions">
-                        <a class="button button--primary" href="demos/model-library/" rel="noopener noreferrer"
-                            target="_blank">Web-Demo ausprobieren</a>
-                        <a class="button button--secondary" href="subpages/portfolio.html#modellbibliothek">Projekt
-                            ansehen</a>
-                    </div>
-                    <p class="privacy-note"><span aria-hidden="true">✓</span> Keine Datei wird auf den Server
-                        hochgeladen – die STL bleibt in deinem Browser.</p>
-                </div>
-            </div>
-        </section>
-        <section class="section about-preview">
-            <div class="container about-grid">
-                <div class="about-panel">
-                    <img class="about-panel__logo" src="assets/images/general/gd-tech-logo.webp"
-                        alt="Glanzer Digital GD-Logo mit Code-Symbol und Serverelementen" width="1200" height="900"
-                        loading="lazy" />
-                    <div class="about-panel__chips" aria-label="Technische Schwerpunkte">
-                        <span>Frontend</span>
-                        <span>Backend</span>
-                    </div>
-                </div>
-                <div class="about-copy">
-                    <span class="kicker">Über mich</span>
-                    <h2>Digitale Lösungen, die nicht nur gut aussehen – sondern wirklich funktionieren</h2>
-                    <p>Ich entwickle moderne Websites, Web-Apps und digitale Werkzeuge mit Fokus auf klare Strukturen,
-                        starke Nutzerführung und saubere technische Umsetzung. Dabei soll Technik verständlich bleiben:
-                        keine unnötigen Umwege, keine überladenen Lösungen – sondern etwas, das zuverlässig funktioniert
-                        und sich auch später noch sinnvoll weiterentwickeln lässt.</p>
-                    <ul class="check-list">
-                        <li>Klare Beratung und ehrliche Einschätzung von Anfang an</li>
-                        <li>Responsives Design, saubere Struktur und gute Bedienbarkeit</li>
-                        <li>Direkte Abstimmung, kurze Wege und praxisnahe Lösungen</li>
-                    </ul>
-                    <a class="button button--primary" href="subpages/ueber-mich.html">Mehr über mich</a>
-                </div>
-            </div>
-        </section>
-        <section class="section services-section">
+        <section class="section process-section" aria-labelledby="process-title">
             <div class="container">
                 <div class="section-heading">
-                    <span class="kicker">Ablauf</span>
-                    <h2>Von der Idee zur fertigen Lösung</h2>
+                    <span class="kicker">So läuft ein Projekt ab</span>
+                    <h2 id="process-title">Von der Idee bis zur fertigen Lösung</h2>
+                    <p>Ein klarer Ablauf hält das Projekt übersichtlich und verhindert unnötige Umwege.</p>
                 </div>
-                <div class="process-grid">
-                    <article class="card process-card">
-                        <div class="process-number">1</div>
-                        <h3>Anforderungen klären</h3>
-                        <p>Ziele, Inhalte, Funktionen und ein realistischer Umfang werden zuerst gemeinsam festgelegt.
-                        </p>
+
+                <div class="process-grid process-grid--four">
+                    <article class="process-card">
+                        <div class="process-number">01</div>
+                        <h3>Idee besprechen</h3>
+                        <p>Wir klären, was du erreichen möchtest und welche Inhalte oder Funktionen wirklich gebraucht
+                            werden.</p>
                     </article>
-                    <article class="card process-card">
-                        <div class="process-number">2</div>
-                        <h3>Sauber umsetzen</h3>
-                        <p>Die Lösung wird strukturiert aufgebaut, getestet und während der Umsetzung abgestimmt.</p>
+                    <article class="process-card">
+                        <div class="process-number">02</div>
+                        <h3>Lösung planen</h3>
+                        <p>Struktur, Umfang und technische Umsetzung werden verständlich festgelegt, bevor unnötige
+                            Arbeit entsteht.</p>
                     </article>
-                    <article class="card process-card">
-                        <div class="process-number">3</div>
-                        <h3>Übergeben und betreuen</h3>
-                        <p>Nach der Fertigstellung folgen Übergabe, Erklärung und bei Bedarf laufende Betreuung.</p>
+                    <article class="process-card">
+                        <div class="process-number">03</div>
+                        <h3>Entwickeln &amp; abstimmen</h3>
+                        <p>Die Umsetzung entsteht Schritt für Schritt, responsive und mit regelmäßiger Abstimmung.</p>
+                    </article>
+                    <article class="process-card">
+                        <div class="process-number">04</div>
+                        <h3>Online &amp; betreut</h3>
+                        <p>Nach dem Test geht die Lösung online. Änderungen und Weiterentwicklung sind danach jederzeit
+                            möglich.</p>
                     </article>
                 </div>
             </div>
         </section>
-        <section class="cta-section">
+
+        <section class="section why-section" aria-labelledby="why-title">
+            <div class="container why-layout">
+                <div class="why-copy">
+                    <span class="kicker">Warum GlanzerDigital?</span>
+                    <h2 id="why-title">Technik verständlich, direkt und ohne unnötige Komplexität</h2>
+                    <p>Du musst keine Fachbegriffe kennen und nicht selbst entscheiden, welche Technologie eingesetzt
+                        wird. Wichtig ist, dass die Lösung zu deinem Ziel passt und zuverlässig funktioniert.</p>
+                    <a class="button button--secondary" href="subpages/ueber-mich.html">Mehr über mich</a>
+                </div>
+
+                <div class="why-grid">
+                    <article><span aria-hidden="true">01</span>
+                        <h3>Persönlich</h3>
+                        <p>Direkte Abstimmung ohne unnötige Zwischenstellen.</p>
+                    </article>
+                    <article><span aria-hidden="true">02</span>
+                        <h3>Verständlich</h3>
+                        <p>Technische Entscheidungen werden nachvollziehbar erklärt.</p>
+                    </article>
+                    <article><span aria-hidden="true">03</span>
+                        <h3>Sauber entwickelt</h3>
+                        <p>Responsive, strukturiert und sinnvoll weiterentwickelbar.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-section home-cta">
             <div class="container cta-row">
                 <div>
-                    <h2>Du hast ein digitales Projekt im Kopf?</h2>
-                    <p>Beschreibe kurz, was du brauchst. Danach lässt sich ehrlich einschätzen, was sinnvoll umsetzbar
-                        ist.</p>
+                    <h2>Du musst noch nicht wissen, welche Lösung du brauchst.</h2>
+                    <p>Erzähl mir einfach, was du erreichen möchtest. Den technischen Teil klären wir danach gemeinsam.
+                    </p>
                 </div>
-                <a class="button button--secondary" href="subpages/kontakt.html">Projekt anfragen</a>
+                <a class="button button--secondary" href="subpages/kontakt.html">Über WhatsApp besprechen</a>
             </div>
         </section>
     </main>
-    <footer class="site-footer" data-site-footer=""></footer>
+
+    <footer class="site-footer" data-site-footer></footer>
 </body>
 
 </html>

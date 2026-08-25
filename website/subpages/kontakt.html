@@ -6,17 +6,28 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Projektanfrage an Glanzer Digital bequem über WhatsApp vorbereiten und senden.">
   <meta name="theme-color" content="#080b10">
+  
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Glanzer Digital">
+  <meta property="og:title" content="Kontakt | Glanzer Digital">
+  <meta property="og:description" content="Projektanfrage an Glanzer Digital bequem über WhatsApp vorbereiten und senden.">
+  <meta property="og:url" content="https://glanzerdigital.at/subpages/kontakt.html">
+  <meta property="og:image" content="https://glanzerdigital.at/assets/images/general/hero-workspace.webp">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Kontakt | Glanzer Digital">
+  <meta name="twitter:description" content="Projektanfrage an Glanzer Digital bequem über WhatsApp vorbereiten und senden.">
+  <meta name="twitter:image" content="https://glanzerdigital.at/assets/images/general/hero-workspace.webp">
   <title>Kontakt | Glanzer Digital</title>
+  <link rel="canonical" href="https://glanzerdigital.at/subpages/kontakt.html">
   <link rel="icon" href="../assets/favicons/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="../styles/variables.css">
   <link rel="stylesheet" href="../styles/fonts.css">
-  <link rel="stylesheet" href="../styles/style.css">
-  <link rel="stylesheet" href="../styles/assets.css">
-  <link rel="stylesheet" href="../styles/header.css">
-  <link rel="stylesheet" href="../styles/footer.css">
+  <link rel="stylesheet" href="../style.css">
   <link rel="stylesheet" href="../styles/pages/kontakt.css">
   <script src="../templates/layout-templates.js" defer></script>
   <script src="../scripts/main.js" defer></script>
+  <script src="../scripts/i18n-translations.js" defer></script>
+  <script src="../scripts/i18n.js" defer></script>
   <script src="../scripts/kontakt.js" defer></script>
 </head>
 
@@ -103,7 +114,8 @@
                         <path d="M8 7h.01M11 7h.01"></path>
                       </svg>
                     </span>
-                    <span class="choice-card__copy"><strong>Website / Landingpage</strong><small>Mehrseitige Website, Portfolio oder
+                    <span class="choice-card__copy"><strong>Website / Landingpage</strong><small>Mehrseitige Website,
+                        Portfolio oder
                         gezielte Einzelseite</small></span>
                     <span class="choice-card__check" aria-hidden="true">✓</span>
                   </span>
@@ -203,9 +215,17 @@
                   aria-live="polite"></small><small><span data-message-count>0</span>/1200</small></div>
             </div>
 
+            <div class="form-group privacy-consent" data-field="privacy">
+              <label class="privacy-consent__label" for="privacy-consent">
+                <input id="privacy-consent" name="privacy" type="checkbox" aria-describedby="privacy-error">
+                <span>Ich habe die <a href="datenschutz.html" target="_blank" rel="noopener noreferrer">Datenschutzerklärung</a> gelesen.</span>
+              </label>
+              <small class="field-error" id="privacy-error" data-error-for="privacy" aria-live="polite"></small>
+            </div>
+
             <div class="form-submit-area">
               <p class="form-status" data-form-status aria-live="polite"></p>
-              <button class="button button--primary whatsapp-submit" type="submit">
+              <button class="button button--primary whatsapp-submit" type="submit" disabled aria-disabled="true">
                 <img src="../assets/images/icons/whatsapp.webp" alt="" aria-hidden="true" width="40" height="40">
                 Anfrage in WhatsApp öffnen
               </button>
@@ -225,7 +245,8 @@
             <span class="kicker">Kurz erklärt</span>
             <h2 id="solution-dialog-title">Welche Lösung ist die richtige?</h2>
           </div>
-          <button class="solution-dialog__close" type="button" data-solution-dialog-close aria-label="Erklärung schließen">×</button>
+          <button class="solution-dialog__close" type="button" data-solution-dialog-close
+            aria-label="Erklärung schließen">×</button>
         </div>
 
         <p class="solution-dialog__intro">Du musst das nicht selbst technisch einordnen. Die Auswahl hilft nur dabei,
@@ -255,7 +276,8 @@
         </div>
 
         <div class="solution-dialog__footer">
-          <span>Noch unsicher? Wähle einfach „Noch unsicher“ – das Ziel ist wichtiger als die technische Bezeichnung.</span>
+          <span>Noch unsicher? Wähle einfach „Noch unsicher“ – das Ziel ist wichtiger als die technische
+            Bezeichnung.</span>
           <a href="../index.html#loesungsfinder">Ausführliche Erklärung ansehen</a>
         </div>
       </div>

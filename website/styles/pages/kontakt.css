@@ -741,3 +741,66 @@
     grid-template-columns: 1fr;
   }
 }
+
+/* Developer-Akademie checklist: stable validation, privacy consent and autofill */
+.privacy-consent {
+  padding: 0.25rem 0 0;
+}
+
+.privacy-consent__label {
+  display: flex;
+  gap: 0.7rem;
+  align-items: flex-start;
+  cursor: pointer;
+}
+
+.privacy-consent__label input {
+  width: 20px;
+  height: 20px;
+  min-height: 20px;
+  margin: 0.1rem 0 0;
+  flex: 0 0 auto;
+  accent-color: var(--color-primary);
+}
+
+.privacy-consent__label span {
+  color: var(--color-dark-muted);
+  font-size: 0.82rem;
+  line-height: 1.5;
+}
+
+.privacy-consent__label a {
+  color: var(--color-primary);
+  font-weight: 760;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.privacy-consent[data-invalid="true"] .privacy-consent__label span {
+  color: #8f2837;
+}
+
+.whatsapp-submit:disabled,
+.whatsapp-submit[aria-disabled="true"] {
+  cursor: not-allowed;
+  opacity: 0.48;
+  box-shadow: none;
+  transform: none;
+}
+
+.whatsapp-submit:disabled:hover {
+  box-shadow: none;
+  transform: none;
+}
+
+.form-group input:-webkit-autofill,
+.form-group input:-webkit-autofill:hover,
+.form-group input:-webkit-autofill:focus,
+.form-group textarea:-webkit-autofill,
+.form-group select:-webkit-autofill {
+  -webkit-text-fill-color: var(--color-dark-text);
+  -webkit-box-shadow: 0 0 0 1000px var(--color-white) inset;
+  box-shadow: 0 0 0 1000px var(--color-white) inset;
+  caret-color: var(--color-dark-text);
+  transition: background-color 9999s ease-out 0s;
+}
