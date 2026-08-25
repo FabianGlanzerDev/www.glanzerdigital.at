@@ -66,9 +66,15 @@ function handleRefreshClick() {
 }
 
 
+function handleExportClick() {
+  window.GlanzerAdminAnalytics?.exportAnalytics();
+}
+
+
 function initializeSystemActions() {
   document.querySelector('[data-refresh-dashboard]')?.addEventListener('click', handleRefreshClick);
   document.querySelector('[data-action="check-health"]')?.addEventListener('click', runHealthCheck);
+  document.querySelector('[data-action="export"]')?.addEventListener('click', handleExportClick);
 }
 
 

@@ -1,324 +1,304 @@
-<!doctype html>
+<!DOCTYPE html>
+
 <html lang="de">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="robots" content="noindex,nofollow,noarchive">
-  <meta name="theme-color" content="#06101b">
-  <title>Control Center | Glanzer Digital</title>
-  <link rel="icon" href="../assets/favicons/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="styles/admin.css">
-  <script src="scripts/config.js" defer></script>
-  <script src="scripts/auth.js" defer></script>
-  <script src="scripts/analytics.js" defer></script>
-  <script src="scripts/maintenance.js" defer></script>
-  <script src="scripts/search-console.js" defer></script>
-  <script src="scripts/admin.js" defer></script>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta content="noindex,nofollow,noarchive" name="robots"/>
+<meta content="#06101b" name="theme-color"/>
+<title>Control Center | Glanzer Digital</title>
+<link href="../assets/favicons/favicon.svg" rel="icon" type="image/svg+xml"/>
+<link href="styles/admin.css" rel="stylesheet"/>
+<script src="scripts/auth.js" type="module"></script>
+<script defer="" src="scripts/analytics.js"></script>
+<script defer="" src="scripts/maintenance.js"></script>
+<script defer="" src="scripts/search-console.js"></script>
+<script defer="" src="scripts/admin.js"></script>
 </head>
 <body class="admin-body">
-  <a class="admin-skip" href="#admin-main">Zum Inhalt springen</a>
-
-  <aside class="admin-sidebar" aria-label="Admin-Navigation">
-    <a class="admin-brand" href="./" aria-label="Glanzer Digital Admin Startseite">
-      <img src="../assets/images/logos/glanzerdigital-neon-logo.webp" alt="Glanzer Digital">
-      <span>Control Center</span>
-    </a>
-
-    <nav class="admin-nav" aria-label="Dashboard-Bereiche">
-      <a href="#overview" aria-current="page"><span>01</span>Übersicht</a>
-      <a href="#traffic"><span>02</span>Traffic</a>
-      <a href="#content"><span>03</span>Inhalte</a>
-      <a href="#interactions"><span>04</span>Interaktionen</a>
-      <a href="#audience"><span>05</span>Zielgruppe</a>
-      <a href="#search-console"><span>06</span>Google Suche</a>
-      <a href="#maintenance"><span>07</span>Wartung</a>
-      <a href="#system"><span>08</span>System</a>
-    </nav>
-
-    <div class="admin-sidebar-footer">
-      <div class="admin-sidebar-state">
-        <span class="admin-status-dot is-warning" aria-hidden="true"></span>
-        <div><strong>Admin-Modus</strong><small>Firebase noch offen</small></div>
-      </div>
-      <a class="admin-sidebar-link" href="../" target="_blank" rel="noopener noreferrer">Website öffnen ↗</a>
-      <button class="admin-text-button" type="button" data-auth-action="logout" disabled>Abmelden</button>
-    </div>
-  </aside>
-
-  <main class="admin-main" id="admin-main">
-    <header class="admin-topbar">
-      <div>
-        <span class="admin-kicker">Glanzer Digital</span>
-        <h1>Website Control Center</h1>
-        <p>Reichweite, Projekte, Interaktionen und Systemstatus auf einen Blick.</p>
-      </div>
-
-      <div class="admin-topbar-actions">
-        <div class="admin-clock" aria-label="Aktuelle Uhrzeit">
-          <strong data-clock-time>--:--</strong>
-          <span data-clock-date>--.--.----</span>
+<a class="admin-skip" href="#admin-main">Zum Inhalt springen</a>
+<section class="admin-auth-gate" data-auth-gate="">
+<div class="admin-auth-card">
+<img alt="Glanzer Digital" src="../assets/images/logos/glanzerdigital-neon-logo.webp"/>
+<span class="admin-kicker">Geschützter Adminbereich</span>
+<h1>Control Center anmelden</h1>
+<p>Melde dich mit deinem freigegebenen Firebase-Adminzugang an. Das Passwort wird nicht in dieser Website gespeichert.</p>
+<form class="admin-auth-form" data-auth-form="" novalidate="">
+<label for="admin-email">E-Mail-Adresse</label>
+<input autocomplete="username" data-auth-email="" id="admin-email" required="" type="email"/>
+<label for="admin-password">Passwort</label>
+<input autocomplete="current-password" data-auth-password="" id="admin-password" required="" type="password"/>
+<p aria-live="polite" class="admin-auth-message" data-auth-message=""></p>
+<button class="admin-auth-submit" data-auth-submit="" type="submit">Sicher anmelden</button>
+<button class="admin-auth-reset" data-auth-reset="" type="button">Passwort vergessen?</button>
+</form>
+</div>
+</section><div class="admin-app" data-admin-app="" hidden=""><aside aria-label="Admin-Navigation" class="admin-sidebar">
+<a aria-label="Glanzer Digital Admin Startseite" class="admin-brand" href="./">
+<img alt="Glanzer Digital" src="../assets/images/logos/glanzerdigital-neon-logo.webp"/>
+<span>Control Center</span>
+</a>
+<nav aria-label="Dashboard-Bereiche" class="admin-nav">
+<a aria-current="page" href="#overview"><span>01</span>Übersicht</a>
+<a href="#traffic"><span>02</span>Traffic</a>
+<a href="#content"><span>03</span>Inhalte</a>
+<a href="#interactions"><span>04</span>Interaktionen</a>
+<a href="#audience"><span>05</span>Zielgruppe</a>
+<a href="#search-console"><span>06</span>Google Suche</a>
+<a href="#maintenance"><span>07</span>Wartung</a>
+<a href="#system"><span>08</span>System</a>
+</nav>
+<div class="admin-sidebar-footer">
+<div class="admin-sidebar-state" data-auth-sidebar="">
+<span aria-hidden="true" class="admin-status-dot is-warning"></span>
+<div><strong>Admin-Modus</strong><small>Anmeldung erforderlich</small></div>
+</div>
+<a class="admin-sidebar-link" href="../" rel="noopener noreferrer" target="_blank">Website öffnen ↗</a>
+<button class="admin-text-button" data-auth-action="logout" disabled="" type="button">Abmelden</button>
+</div>
+</aside><main class="admin-main" id="admin-main">
+<header class="admin-topbar">
+<div>
+<span class="admin-kicker">Glanzer Digital</span>
+<h1>Website Control Center</h1>
+<p>Reichweite, Projekte, Interaktionen und Systemstatus auf einen Blick.</p>
+</div>
+<div class="admin-topbar-actions">
+<div aria-label="Aktuelle Uhrzeit" class="admin-clock">
+<strong data-clock-time="">--:--</strong>
+<span data-clock-date="">--.--.----</span>
+</div>
+<button aria-label="Dashboard aktualisieren" class="admin-icon-button" data-refresh-dashboard="" title="Dashboard aktualisieren" type="button">↻</button>
+<div class="admin-site-state is-pending" data-auth-status="" role="status">
+<span aria-hidden="true"></span>
+          Anmeldung erforderlich
         </div>
-        <button class="admin-icon-button" type="button" data-refresh-dashboard title="Dashboard aktualisieren" aria-label="Dashboard aktualisieren">↻</button>
-        <div class="admin-site-state is-pending" role="status" data-auth-status>
-          <span aria-hidden="true"></span>
-          Firebase noch nicht verbunden
-        </div>
+</div>
+</header>
+<section aria-labelledby="overview-title" class="admin-hero" id="overview">
+<div class="admin-hero-copy">
+<div class="admin-live-pill"><span aria-hidden="true"></span> Dashboard bereit</div>
+<h2 id="overview-title">Alles Wichtige. Ohne Suchen.</h2>
+<p>Nach der Firebase-Anmeldung werden ausschließlich tatsächlich gemessene, lokale Statistikdaten geladen. Nicht erfasste Werte bleiben bewusst leer.</p>
+</div>
+<div aria-hidden="true" class="admin-hero-pulse">
+<span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+</div>
+</section>
+<section aria-labelledby="kpi-title" class="admin-section admin-section--first">
+<div class="admin-section-heading">
+<div><span class="admin-kicker">Live-Übersicht</span><h2 id="kpi-title">Kennzahlen</h2></div>
+<span class="admin-muted">Echte Daten erscheinen nach erfolgreicher Authentifizierung.</span>
+</div>
+<div class="admin-kpi-grid">
+<article class="admin-kpi-card is-primary"><span>Heute</span><strong data-stat="today">–</strong><small>Seitenaufrufe</small><em data-delta="today">–</em></article>
+<article class="admin-kpi-card"><span>Gestern</span><strong data-stat="yesterday">–</strong><small>Seitenaufrufe</small><em data-delta="yesterday">–</em></article>
+<article class="admin-kpi-card"><span>7 Tage</span><strong data-stat="week">–</strong><small>Seitenaufrufe</small><em data-delta="week">–</em></article>
+<article class="admin-kpi-card"><span>30 Tage</span><strong data-stat="month">–</strong><small>Seitenaufrufe</small><em data-delta="month">–</em></article>
+<article class="admin-kpi-card"><span>Gesamt</span><strong data-stat="total">–</strong><small>gemessene Aufrufe</small><em>seit Tracking-Start</em></article>
+<article class="admin-kpi-card"><span>Demos</span><strong data-stat="demos">–</strong><small>Demo-Starts</small><em data-ratio="demos">–</em></article>
+<article class="admin-kpi-card"><span>WhatsApp</span><strong data-stat="contact">–</strong><small>Kontaktaktionen</small><em data-ratio="contact">–</em></article>
+<article class="admin-kpi-card"><span>Conversion</span><strong data-stat="conversion">–</strong><small>Kontakt / Aufrufe</small><em>30 Tage</em></article>
+</div>
+</section>
+<section aria-labelledby="traffic-title" class="admin-section" id="traffic">
+<div class="admin-section-heading admin-section-heading--toolbar">
+<div><span class="admin-kicker">Traffic</span><h2 id="traffic-title">Besucher &amp; Reichweite</h2></div>
+<div aria-label="Zeitraum auswählen" class="admin-range" role="group">
+<button data-range="7" type="button">7T</button>
+<button aria-pressed="true" data-range="30" type="button">30T</button>
+<button data-range="90" type="button">90T</button>
+<button data-range="all" type="button">Alle</button>
+</div>
+</div>
+<div class="admin-dashboard-grid admin-dashboard-grid--wide">
+<article class="admin-panel admin-panel--chart">
+<div class="admin-panel-heading">
+<div><span class="admin-eyebrow">Verlauf</span><h3>Seitenaufrufe</h3></div>
+<span class="admin-panel-state" data-chart-state="">wartet auf Daten</span>
+</div>
+<div aria-label="Seitenaufrufe im ausgewählten Zeitraum" class="admin-line-chart" data-pageview-chart="" role="img">
+<div aria-hidden="true" class="admin-chart-grid"></div>
+<svg aria-hidden="true" preserveaspectratio="none" viewbox="0 0 900 260">
+<polyline data-chart-line="" points="0,215 120,190 250,205 380,150 510,165 650,100 780,130 900,75"></polyline>
+</svg>
+<div class="admin-chart-empty">Analytics wird nach der Anmeldung geladen.</div>
+</div>
+</article>
+<article class="admin-panel admin-panel--live">
+<div class="admin-panel-heading">
+<div><span class="admin-eyebrow">Live</span><h3>Ereignisse in 5 Min.</h3></div>
+<span aria-hidden="true" class="admin-pulse-dot"></span>
+</div>
+<div class="admin-live-number"><strong data-stat="activeNow">–</strong><span>gemessene Ereignisse</span></div>
+<dl class="admin-mini-metrics">
+<div><dt>Letztes Ereignis</dt><dd data-live="lastEvent">–</dd></div>
+<div><dt>Stärkste Stunde</dt><dd data-insight="bestHour">–</dd></div>
+<div><dt>Stärkster Tag</dt><dd data-insight="bestDay">–</dd></div>
+</dl>
+</article>
+</div>
+<div class="admin-dashboard-grid admin-dashboard-grid--three">
+<article class="admin-panel">
+<div class="admin-panel-heading"><div><span class="admin-eyebrow">Quellen</span><h3>Woher kommen Besucher?</h3></div></div>
+<div class="admin-distribution" data-source-distribution="">
+<div><span>Direkt</span><i style="--value: 0%"></i><strong>–</strong></div>
+<div><span>Google</span><i style="--value: 0%"></i><strong>–</strong></div>
+<div><span>Social</span><i style="--value: 0%"></i><strong>–</strong></div>
+<div><span>Sonstige</span><i style="--value: 0%"></i><strong>–</strong></div>
+</div>
+</article>
+<article class="admin-panel">
+<div class="admin-panel-heading"><div><span class="admin-eyebrow">Einstieg</span><h3>Landingpages</h3></div></div>
+<ol class="admin-ranking" data-ranking="landingPages"><li><span>–</span><strong>–</strong></li></ol>
+</article>
+<article class="admin-panel">
+<div class="admin-panel-heading"><div><span class="admin-eyebrow">Verweise</span><h3>Top-Referrer</h3></div></div>
+<ol class="admin-ranking" data-ranking="referrers"><li><span>–</span><strong>–</strong></li></ol>
+</article>
+</div>
+</section>
+<section aria-labelledby="content-title" class="admin-section" id="content">
+<div class="admin-section-heading">
+<div><span class="admin-kicker">Inhalte</span><h2 id="content-title">Was wird wirklich angesehen?</h2></div>
+</div>
+<div class="admin-dashboard-grid admin-dashboard-grid--two">
+<article class="admin-panel">
+<div class="admin-panel-heading"><div><span class="admin-eyebrow">Seiten</span><h3>Meistbesuchte Seiten</h3></div></div>
+<ol class="admin-ranking admin-ranking--large" data-ranking="pages"><li><span>Keine Daten</span><strong>–</strong></li></ol>
+</article>
+<article class="admin-panel admin-panel--spotlight">
+<span class="admin-eyebrow">Top-Projekt</span>
+<div class="admin-project-spotlight">
+<div class="admin-project-orb">#1</div>
+<div><h3 data-insight="topProject">Noch offen</h3><p>Das meistgeklickte Portfolio-Projekt erscheint hier automatisch.</p></div>
+</div>
+<div class="admin-spotlight-value"><strong data-insight="topProjectClicks">–</strong><span>Interaktionen</span></div>
+</article>
+</div>
+<div class="admin-dashboard-grid admin-dashboard-grid--three">
+<article class="admin-panel"><span class="admin-eyebrow">Demos</span><h3>Beliebteste Demos</h3><ol class="admin-ranking" data-ranking="demos"><li><span>–</span><strong>–</strong></li></ol></article>
+<article class="admin-panel"><span class="admin-eyebrow">Kontakt</span><h3>Kontaktwege</h3><ol class="admin-ranking" data-ranking="contacts"><li><span>–</span><strong>–</strong></li></ol></article>
+<article class="admin-panel"><span class="admin-eyebrow">Interesse</span><h3>Portfolio-Klicks</h3><ol class="admin-ranking" data-ranking="portfolio"><li><span>–</span><strong>–</strong></li></ol></article>
+</div>
+</section>
+<section aria-labelledby="interactions-title" class="admin-section" id="interactions">
+<div class="admin-section-heading">
+<div><span class="admin-kicker">Interaktionen</span><h2 id="interactions-title">Vom Besuch zur Anfrage</h2></div>
+</div>
+<article class="admin-panel admin-funnel-panel">
+<div class="admin-funnel">
+<div><span>01</span><strong data-funnel="pageviews">–</strong><small>Seitenaufrufe</small></div>
+<i>→</i>
+<div><span>02</span><strong data-funnel="portfolio">–</strong><small>Portfolio-Klicks</small></div>
+<i>→</i>
+<div><span>03</span><strong data-funnel="demos">–</strong><small>Demo-Starts</small></div>
+<i>→</i>
+<div class="is-goal"><span>04</span><strong data-funnel="contact">–</strong><small>WhatsApp / Kontakt</small></div>
+</div>
+</article>
+<div class="admin-dashboard-grid admin-dashboard-grid--three">
+<article class="admin-panel"><span class="admin-eyebrow">CTA</span><h3>Button-Performance</h3><ol class="admin-ranking" data-ranking="ctas"><li><span>–</span><strong>–</strong></li></ol></article>
+<article class="admin-panel"><span class="admin-eyebrow">GitHub</span><h3>GitHub-Interesse</h3><div class="admin-big-metric"><strong data-stat="github">–</strong><span>Klicks</span></div></article>
+<article class="admin-panel"><span class="admin-eyebrow">Kontakt</span><h3>WhatsApp-Quote</h3><div class="admin-big-metric"><strong data-stat="contactRate">–</strong><span>der Besuche</span></div></article>
+</div>
+</section>
+<section aria-labelledby="audience-title" class="admin-section" id="audience">
+<div class="admin-section-heading"><div><span class="admin-kicker">Zielgruppe</span><h2 id="audience-title">Technische Nutzung</h2></div></div>
+<div class="admin-dashboard-grid admin-dashboard-grid--four">
+<article class="admin-panel"><span class="admin-eyebrow">Geräte</span><h3>Desktop / Tablet / Mobile</h3><div class="admin-donut" data-donut="devices"><span>–</span></div><ul class="admin-legend" data-legend="devices"><li>Desktop <strong>–</strong></li><li>Tablet <strong>–</strong></li><li>Smartphone <strong>–</strong></li></ul></article>
+<article class="admin-panel"><span class="admin-eyebrow">Browser</span><h3>Browser</h3><ol class="admin-ranking" data-ranking="browsers"><li><span>–</span><strong>–</strong></li></ol></article>
+<article class="admin-panel"><span class="admin-eyebrow">System</span><h3>Betriebssysteme</h3><ol class="admin-ranking" data-ranking="operatingSystems"><li><span>–</span><strong>–</strong></li></ol></article>
+<article class="admin-panel"><span class="admin-eyebrow">Viewport</span><h3>Display-Größen</h3><ol class="admin-ranking" data-ranking="screens"><li><span>–</span><strong>–</strong></li></ol></article>
+</div>
+</section>
+<section aria-labelledby="search-console-title" class="admin-section admin-search-console" id="search-console">
+<div class="admin-section-heading admin-section-heading--toolbar">
+<div>
+<span class="admin-kicker">Google Search Console</span>
+<h2 id="search-console-title">So wirst du bei Google gefunden</h2>
+</div>
+<span class="admin-integration-state is-pending" data-search-console-state="">Domain noch nicht verbunden</span>
+</div>
+<article class="admin-integration-banner">
+<div aria-hidden="true" class="admin-integration-icon">G</div>
+<div>
+<span class="admin-eyebrow">Vorbereitet</span>
+<h3>Search-Console-Auswertung wartet auf deine Domain</h3>
+<p>Sobald glanzerdigital.at in der Google Search Console eingerichtet ist, können hier echte Suchanfragen, Klicks, Impressionen, CTR, Positionen, Länder, Geräte und Zielseiten angezeigt werden.</p>
+</div>
+<div class="admin-integration-meta">
+<span>Property</span>
+<strong data-search-console-property="">noch offen</strong>
+</div>
+</article>
+<div class="admin-kpi-grid admin-search-kpis">
+<article class="admin-kpi-card"><span>Google Klicks</span><strong data-search-stat="clicks">–</strong><small>organische Suche</small><em>Search Console</em></article>
+<article class="admin-kpi-card"><span>Impressionen</span><strong data-search-stat="impressions">–</strong><small>Einblendungen bei Google</small><em>Search Console</em></article>
+<article class="admin-kpi-card"><span>CTR</span><strong data-search-stat="ctr">–</strong><small>Klickrate</small><em>Search Console</em></article>
+<article class="admin-kpi-card"><span>Ø Position</span><strong data-search-stat="position">–</strong><small>durchschnittliches Ranking</small><em>Search Console</em></article>
+</div>
+<div class="admin-dashboard-grid admin-dashboard-grid--two">
+<article class="admin-panel admin-search-queries">
+<div class="admin-panel-heading">
+<div><span class="admin-eyebrow">Suchbegriffe</span><h3>Google-Suchanfragen</h3></div>
+<span class="admin-panel-state">Top Queries</span>
+</div>
+<div class="admin-search-table-wrap">
+<table class="admin-search-table">
+<thead><tr><th>Suchanfrage</th><th>Klicks</th><th>Impr.</th><th>CTR</th><th>Pos.</th></tr></thead>
+<tbody data-search-queries=""><tr><td colspan="5">Wird nach Search-Console-Verbindung automatisch geladen.</td></tr></tbody>
+</table>
+</div>
+</article>
+<article class="admin-panel">
+<div class="admin-panel-heading"><div><span class="admin-eyebrow">Regionen</span><h3>Länder aus der Google-Suche</h3></div></div>
+<ol class="admin-ranking" data-search-ranking="countries"><li><span>Keine Daten verbunden</span><strong>–</strong></li></ol>
+</article>
+</div>
+<div class="admin-dashboard-grid admin-dashboard-grid--three">
+<article class="admin-panel"><span class="admin-eyebrow">Zielseiten</span><h3>Seiten aus Google</h3><ol class="admin-ranking" data-search-ranking="pages"><li><span>–</span><strong>–</strong></li></ol></article>
+<article class="admin-panel"><span class="admin-eyebrow">Geräte</span><h3>Google-Suche nach Gerät</h3><ol class="admin-ranking" data-search-ranking="devices"><li><span>–</span><strong>–</strong></li></ol></article>
+<article class="admin-panel admin-search-opportunity"><span class="admin-eyebrow">SEO-Spielerei</span><h3>Beste Chance</h3><strong data-search-opportunity="">–</strong><p data-search-opportunity-copy="">Später erscheint hier automatisch eine Suchanfrage mit vielen Impressionen und Verbesserungspotenzial.</p></article>
+</div>
+<div class="admin-search-note">
+<strong>Noch nichts einzurichten.</strong> Die Oberfläche und Datenplätze sind bereits vorbereitet. Später tragen wir nur die Search-Console-Property ein und verbinden die API serverseitig – der Adminbereich muss dafür nicht neu aufgebaut werden.
       </div>
-    </header>
-
-    <section class="admin-hero" id="overview" aria-labelledby="overview-title">
-      <div class="admin-hero-copy">
-        <div class="admin-live-pill"><span aria-hidden="true"></span> Dashboard bereit</div>
-        <h2 id="overview-title">Alles Wichtige. Ohne Suchen.</h2>
-        <p>Der Adminbereich ist für umfangreiche Analytics vorbereitet. Solange Firebase noch nicht verbunden ist, werden bewusst keine erfundenen Zahlen angezeigt.</p>
-      </div>
-      <div class="admin-hero-pulse" aria-hidden="true">
-        <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
-      </div>
-    </section>
-
-    <section class="admin-section admin-section--first" aria-labelledby="kpi-title">
-      <div class="admin-section-heading">
-        <div><span class="admin-kicker">Live-Übersicht</span><h2 id="kpi-title">Kennzahlen</h2></div>
-        <span class="admin-muted">Echte Daten erscheinen nach erfolgreicher Authentifizierung.</span>
-      </div>
-
-      <div class="admin-kpi-grid">
-        <article class="admin-kpi-card is-primary"><span>Heute</span><strong data-stat="today">–</strong><small>Seitenaufrufe</small><em data-delta="today">–</em></article>
-        <article class="admin-kpi-card"><span>Gestern</span><strong data-stat="yesterday">–</strong><small>Seitenaufrufe</small><em data-delta="yesterday">–</em></article>
-        <article class="admin-kpi-card"><span>7 Tage</span><strong data-stat="week">–</strong><small>Seitenaufrufe</small><em data-delta="week">–</em></article>
-        <article class="admin-kpi-card"><span>30 Tage</span><strong data-stat="month">–</strong><small>Seitenaufrufe</small><em data-delta="month">–</em></article>
-        <article class="admin-kpi-card"><span>Gesamt</span><strong data-stat="total">–</strong><small>gemessene Aufrufe</small><em>seit Tracking-Start</em></article>
-        <article class="admin-kpi-card"><span>Demos</span><strong data-stat="demos">–</strong><small>Demo-Starts</small><em data-ratio="demos">–</em></article>
-        <article class="admin-kpi-card"><span>WhatsApp</span><strong data-stat="contact">–</strong><small>Kontaktaktionen</small><em data-ratio="contact">–</em></article>
-        <article class="admin-kpi-card"><span>Conversion</span><strong data-stat="conversion">–</strong><small>Kontakt / Aufrufe</small><em>30 Tage</em></article>
-      </div>
-    </section>
-
-    <section class="admin-section" id="traffic" aria-labelledby="traffic-title">
-      <div class="admin-section-heading admin-section-heading--toolbar">
-        <div><span class="admin-kicker">Traffic</span><h2 id="traffic-title">Besucher &amp; Reichweite</h2></div>
-        <div class="admin-range" role="group" aria-label="Zeitraum auswählen">
-          <button type="button" data-range="7">7T</button>
-          <button type="button" data-range="30" aria-pressed="true">30T</button>
-          <button type="button" data-range="90">90T</button>
-          <button type="button" data-range="all">Alle</button>
-        </div>
-      </div>
-
-      <div class="admin-dashboard-grid admin-dashboard-grid--wide">
-        <article class="admin-panel admin-panel--chart">
-          <div class="admin-panel-heading">
-            <div><span class="admin-eyebrow">Verlauf</span><h3>Seitenaufrufe</h3></div>
-            <span class="admin-panel-state" data-chart-state>wartet auf Daten</span>
-          </div>
-          <div class="admin-line-chart" data-pageview-chart role="img" aria-label="Seitenaufrufe im ausgewählten Zeitraum">
-            <div class="admin-chart-grid" aria-hidden="true"></div>
-            <svg viewBox="0 0 900 260" preserveAspectRatio="none" aria-hidden="true">
-              <polyline data-chart-line points="0,215 120,190 250,205 380,150 510,165 650,100 780,130 900,75"></polyline>
-            </svg>
-            <div class="admin-chart-empty">Analytics wird nach Firebase-Verbindung geladen.</div>
-          </div>
-        </article>
-
-        <article class="admin-panel admin-panel--live">
-          <div class="admin-panel-heading">
-            <div><span class="admin-eyebrow">Live</span><h3>Website Pulse</h3></div>
-            <span class="admin-pulse-dot" aria-hidden="true"></span>
-          </div>
-          <div class="admin-live-number"><strong data-stat="activeNow">–</strong><span>aktiv jetzt</span></div>
-          <dl class="admin-mini-metrics">
-            <div><dt>Letztes Ereignis</dt><dd data-live="lastEvent">–</dd></div>
-            <div><dt>Stärkste Stunde</dt><dd data-insight="bestHour">–</dd></div>
-            <div><dt>Stärkster Tag</dt><dd data-insight="bestDay">–</dd></div>
-          </dl>
-        </article>
-      </div>
-
-      <div class="admin-dashboard-grid admin-dashboard-grid--three">
-        <article class="admin-panel">
-          <div class="admin-panel-heading"><div><span class="admin-eyebrow">Quellen</span><h3>Woher kommen Besucher?</h3></div></div>
-          <div class="admin-distribution" data-source-distribution>
-            <div><span>Direkt</span><i style="--value: 0%"></i><strong>–</strong></div>
-            <div><span>Google</span><i style="--value: 0%"></i><strong>–</strong></div>
-            <div><span>Social</span><i style="--value: 0%"></i><strong>–</strong></div>
-            <div><span>Sonstige</span><i style="--value: 0%"></i><strong>–</strong></div>
-          </div>
-        </article>
-
-        <article class="admin-panel">
-          <div class="admin-panel-heading"><div><span class="admin-eyebrow">Einstieg</span><h3>Landingpages</h3></div></div>
-          <ol class="admin-ranking" data-ranking="landingPages"><li><span>–</span><strong>–</strong></li></ol>
-        </article>
-
-        <article class="admin-panel">
-          <div class="admin-panel-heading"><div><span class="admin-eyebrow">Verweise</span><h3>Top-Referrer</h3></div></div>
-          <ol class="admin-ranking" data-ranking="referrers"><li><span>–</span><strong>–</strong></li></ol>
-        </article>
-      </div>
-    </section>
-
-    <section class="admin-section" id="content" aria-labelledby="content-title">
-      <div class="admin-section-heading">
-        <div><span class="admin-kicker">Inhalte</span><h2 id="content-title">Was wird wirklich angesehen?</h2></div>
-      </div>
-
-      <div class="admin-dashboard-grid admin-dashboard-grid--two">
-        <article class="admin-panel">
-          <div class="admin-panel-heading"><div><span class="admin-eyebrow">Seiten</span><h3>Meistbesuchte Seiten</h3></div></div>
-          <ol class="admin-ranking admin-ranking--large" data-ranking="pages"><li><span>Keine Daten</span><strong>–</strong></li></ol>
-        </article>
-
-        <article class="admin-panel admin-panel--spotlight">
-          <span class="admin-eyebrow">Top-Projekt</span>
-          <div class="admin-project-spotlight">
-            <div class="admin-project-orb">#1</div>
-            <div><h3 data-insight="topProject">Noch offen</h3><p>Das meistgeklickte Portfolio-Projekt erscheint hier automatisch.</p></div>
-          </div>
-          <div class="admin-spotlight-value"><strong data-insight="topProjectClicks">–</strong><span>Interaktionen</span></div>
-        </article>
-      </div>
-
-      <div class="admin-dashboard-grid admin-dashboard-grid--three">
-        <article class="admin-panel"><span class="admin-eyebrow">Demos</span><h3>Beliebteste Demos</h3><ol class="admin-ranking" data-ranking="demos"><li><span>–</span><strong>–</strong></li></ol></article>
-        <article class="admin-panel"><span class="admin-eyebrow">Ausgänge</span><h3>Letzte Seite vor Exit</h3><ol class="admin-ranking" data-ranking="exitPages"><li><span>–</span><strong>–</strong></li></ol></article>
-        <article class="admin-panel"><span class="admin-eyebrow">Interesse</span><h3>Portfolio-Klicks</h3><ol class="admin-ranking" data-ranking="portfolio"><li><span>–</span><strong>–</strong></li></ol></article>
-      </div>
-    </section>
-
-    <section class="admin-section" id="interactions" aria-labelledby="interactions-title">
-      <div class="admin-section-heading">
-        <div><span class="admin-kicker">Interaktionen</span><h2 id="interactions-title">Vom Besuch zur Anfrage</h2></div>
-      </div>
-
-      <article class="admin-panel admin-funnel-panel">
-        <div class="admin-funnel">
-          <div><span>01</span><strong data-funnel="pageviews">–</strong><small>Seitenaufrufe</small></div>
-          <i>→</i>
-          <div><span>02</span><strong data-funnel="portfolio">–</strong><small>Portfolio-Klicks</small></div>
-          <i>→</i>
-          <div><span>03</span><strong data-funnel="demos">–</strong><small>Demo-Starts</small></div>
-          <i>→</i>
-          <div class="is-goal"><span>04</span><strong data-funnel="contact">–</strong><small>WhatsApp / Kontakt</small></div>
-        </div>
-      </article>
-
-      <div class="admin-dashboard-grid admin-dashboard-grid--three">
-        <article class="admin-panel"><span class="admin-eyebrow">CTA</span><h3>Button-Performance</h3><ol class="admin-ranking" data-ranking="ctas"><li><span>–</span><strong>–</strong></li></ol></article>
-        <article class="admin-panel"><span class="admin-eyebrow">GitHub</span><h3>GitHub-Interesse</h3><div class="admin-big-metric"><strong data-stat="github">–</strong><span>Klicks</span></div></article>
-        <article class="admin-panel"><span class="admin-eyebrow">Kontakt</span><h3>WhatsApp-Quote</h3><div class="admin-big-metric"><strong data-stat="contactRate">–</strong><span>der Besuche</span></div></article>
-      </div>
-    </section>
-
-    <section class="admin-section" id="audience" aria-labelledby="audience-title">
-      <div class="admin-section-heading"><div><span class="admin-kicker">Zielgruppe</span><h2 id="audience-title">Technische Nutzung</h2></div></div>
-
-      <div class="admin-dashboard-grid admin-dashboard-grid--four">
-        <article class="admin-panel"><span class="admin-eyebrow">Geräte</span><h3>Desktop / Tablet / Mobile</h3><div class="admin-donut" data-donut="devices"><span>–</span></div><ul class="admin-legend" data-legend="devices"><li>Desktop <strong>–</strong></li><li>Tablet <strong>–</strong></li><li>Smartphone <strong>–</strong></li></ul></article>
-        <article class="admin-panel"><span class="admin-eyebrow">Browser</span><h3>Browser</h3><ol class="admin-ranking" data-ranking="browsers"><li><span>–</span><strong>–</strong></li></ol></article>
-        <article class="admin-panel"><span class="admin-eyebrow">System</span><h3>Betriebssysteme</h3><ol class="admin-ranking" data-ranking="operatingSystems"><li><span>–</span><strong>–</strong></li></ol></article>
-        <article class="admin-panel"><span class="admin-eyebrow">Viewport</span><h3>Display-Größen</h3><ol class="admin-ranking" data-ranking="screens"><li><span>–</span><strong>–</strong></li></ol></article>
-      </div>
-    </section>
-
-    <section class="admin-section admin-search-console" id="search-console" aria-labelledby="search-console-title">
-      <div class="admin-section-heading admin-section-heading--toolbar">
-        <div>
-          <span class="admin-kicker">Google Search Console</span>
-          <h2 id="search-console-title">So wirst du bei Google gefunden</h2>
-        </div>
-        <span class="admin-integration-state is-pending" data-search-console-state>Domain noch nicht verbunden</span>
-      </div>
-
-      <article class="admin-integration-banner">
-        <div class="admin-integration-icon" aria-hidden="true">G</div>
-        <div>
-          <span class="admin-eyebrow">Vorbereitet</span>
-          <h3>Search-Console-Auswertung wartet auf deine Domain</h3>
-          <p>Sobald glanzerdigital.at in der Google Search Console eingerichtet ist, können hier echte Suchanfragen, Klicks, Impressionen, CTR, Positionen, Länder, Geräte und Zielseiten angezeigt werden.</p>
-        </div>
-        <div class="admin-integration-meta">
-          <span>Property</span>
-          <strong data-search-console-property>noch offen</strong>
-        </div>
-      </article>
-
-      <div class="admin-kpi-grid admin-search-kpis">
-        <article class="admin-kpi-card"><span>Google Klicks</span><strong data-search-stat="clicks">–</strong><small>organische Suche</small><em>Search Console</em></article>
-        <article class="admin-kpi-card"><span>Impressionen</span><strong data-search-stat="impressions">–</strong><small>Einblendungen bei Google</small><em>Search Console</em></article>
-        <article class="admin-kpi-card"><span>CTR</span><strong data-search-stat="ctr">–</strong><small>Klickrate</small><em>Search Console</em></article>
-        <article class="admin-kpi-card"><span>Ø Position</span><strong data-search-stat="position">–</strong><small>durchschnittliches Ranking</small><em>Search Console</em></article>
-      </div>
-
-      <div class="admin-dashboard-grid admin-dashboard-grid--two">
-        <article class="admin-panel admin-search-queries">
-          <div class="admin-panel-heading">
-            <div><span class="admin-eyebrow">Suchbegriffe</span><h3>Google-Suchanfragen</h3></div>
-            <span class="admin-panel-state">Top Queries</span>
-          </div>
-          <div class="admin-search-table-wrap">
-            <table class="admin-search-table">
-              <thead><tr><th>Suchanfrage</th><th>Klicks</th><th>Impr.</th><th>CTR</th><th>Pos.</th></tr></thead>
-              <tbody data-search-queries><tr><td colspan="5">Wird nach Search-Console-Verbindung automatisch geladen.</td></tr></tbody>
-            </table>
-          </div>
-        </article>
-
-        <article class="admin-panel">
-          <div class="admin-panel-heading"><div><span class="admin-eyebrow">Regionen</span><h3>Länder aus der Google-Suche</h3></div></div>
-          <ol class="admin-ranking" data-search-ranking="countries"><li><span>Keine Daten verbunden</span><strong>–</strong></li></ol>
-        </article>
-      </div>
-
-      <div class="admin-dashboard-grid admin-dashboard-grid--three">
-        <article class="admin-panel"><span class="admin-eyebrow">Zielseiten</span><h3>Seiten aus Google</h3><ol class="admin-ranking" data-search-ranking="pages"><li><span>–</span><strong>–</strong></li></ol></article>
-        <article class="admin-panel"><span class="admin-eyebrow">Geräte</span><h3>Google-Suche nach Gerät</h3><ol class="admin-ranking" data-search-ranking="devices"><li><span>–</span><strong>–</strong></li></ol></article>
-        <article class="admin-panel admin-search-opportunity"><span class="admin-eyebrow">SEO-Spielerei</span><h3>Beste Chance</h3><strong data-search-opportunity>–</strong><p data-search-opportunity-copy>Später erscheint hier automatisch eine Suchanfrage mit vielen Impressionen und Verbesserungspotenzial.</p></article>
-      </div>
-
-      <div class="admin-search-note">
-        <strong>Noch nichts einzurichten.</strong> Die Oberfläche und Datenplätze sind bereits vorbereitet. Später tragen wir nur die Search-Console-Property ein und verbinden die API serverseitig – der Adminbereich muss dafür nicht neu aufgebaut werden.
-      </div>
-    </section>
-
-    <section class="admin-section" id="maintenance" aria-labelledby="maintenance-title">
-      <div class="admin-section-heading"><div><span class="admin-kicker">Website-Steuerung</span><h2 id="maintenance-title">Wartungsmodus</h2></div></div>
-
-      <article class="admin-maintenance-card is-locked">
-        <div class="admin-maintenance-visual"><span></span><span></span><span></span></div>
-        <div>
-          <span class="admin-maintenance-label">Vorbereitet</span>
-          <h3>Website kontrolliert offline schalten</h3>
-          <p>Nach der Firebase-Anbindung lässt sich die öffentliche Website hier per geschützter API auf HTTP 503 setzen. Admin und API bleiben erreichbar.</p>
-        </div>
-        <div class="admin-maintenance-actions">
-          <span class="admin-maintenance-state">Aktueller Status: <strong data-maintenance-state>nicht verfügbar</strong></span>
-          <button class="admin-button admin-button--locked" type="button" disabled data-maintenance-toggle>Firebase zuerst verbinden</button>
-        </div>
-      </article>
-    </section>
-
-    <section class="admin-section" id="system" aria-labelledby="system-title">
-      <div class="admin-section-heading"><div><span class="admin-kicker">System</span><h2 id="system-title">Technischer Status</h2></div></div>
-
-      <div class="admin-status-grid">
-        <article class="admin-status-card is-ok"><span class="admin-status-dot" aria-hidden="true"></span><div><strong>Admin-Oberfläche</strong><small>Bereit</small></div></article>
-        <article class="admin-status-card is-ok"><span class="admin-status-dot" aria-hidden="true"></span><div><strong>Analytics-Tracking</strong><small>Client aktiv</small></div></article>
-        <article class="admin-status-card is-pending"><span class="admin-status-dot" aria-hidden="true"></span><div><strong>Firebase Auth</strong><small>Noch verbinden</small></div></article>
-        <article class="admin-status-card is-pending"><span class="admin-status-dot" aria-hidden="true"></span><div><strong>Tokenprüfung</strong><small>Noch verbinden</small></div></article>
-        <article class="admin-status-card is-pending"><span class="admin-status-dot" aria-hidden="true"></span><div><strong>Analytics API</strong><small>Geschützt / gesperrt</small></div></article>
-        <article class="admin-status-card is-pending"><span class="admin-status-dot" aria-hidden="true"></span><div><strong>Wartungsmodus</strong><small>Gesperrt</small></div></article>
-        <article class="admin-status-card is-pending"><span class="admin-status-dot" aria-hidden="true"></span><div><strong>Search Console</strong><small>Vorbereitet / Domain fehlt</small></div></article>
-        <article class="admin-status-card"><span class="admin-status-dot is-info" aria-hidden="true"></span><div><strong>Sitemap</strong><small data-health="sitemap">prüfen …</small></div></article>
-        <article class="admin-status-card"><span class="admin-status-dot is-info" aria-hidden="true"></span><div><strong>robots.txt</strong><small data-health="robots">prüfen …</small></div></article>
-      </div>
-
-      <div class="admin-system-actions">
-        <button type="button" class="admin-secondary-button" data-action="check-health">Systemcheck starten</button>
-        <button type="button" class="admin-secondary-button" data-action="export" disabled>Analytics exportieren</button>
-        <a class="admin-secondary-button" href="../" target="_blank" rel="noopener noreferrer">Website öffnen ↗</a>
-      </div>
-    </section>
-  </main>
+</section>
+<section aria-labelledby="maintenance-title" class="admin-section" id="maintenance">
+<div class="admin-section-heading"><div><span class="admin-kicker">Website-Steuerung</span><h2 id="maintenance-title">Wartungsmodus</h2></div></div>
+<article class="admin-maintenance-card is-locked">
+<div class="admin-maintenance-visual"><span></span><span></span><span></span></div>
+<div>
+<span class="admin-maintenance-label">Vorbereitet</span>
+<h3>Website kontrolliert offline schalten</h3>
+<p>Nach der Anmeldung lässt sich die öffentliche Website hier per geschützter API auf HTTP 503 setzen. Admin und notwendige APIs bleiben erreichbar.</p>
+</div>
+<div class="admin-maintenance-actions">
+<span class="admin-maintenance-state">Aktueller Status: <strong data-maintenance-state="">nicht verfügbar</strong></span>
+<button class="admin-button admin-button--locked" data-maintenance-toggle="" disabled="" type="button">Status wird geladen</button>
+</div>
+</article>
+</section>
+<section aria-labelledby="system-title" class="admin-section" id="system">
+<div class="admin-section-heading"><div><span class="admin-kicker">System</span><h2 id="system-title">Technischer Status</h2></div></div>
+<div class="admin-status-grid">
+<article class="admin-status-card is-ok"><span aria-hidden="true" class="admin-status-dot"></span><div><strong>Admin-Oberfläche</strong><small>Bereit</small></div></article>
+<article class="admin-status-card is-ok"><span aria-hidden="true" class="admin-status-dot"></span><div><strong>Analytics-Tracking</strong><small>Client aktiv</small></div></article>
+<article class="admin-status-card is-pending" data-system="firebase"><span aria-hidden="true" class="admin-status-dot"></span><div><strong>Firebase Auth</strong><small>Anmeldung erforderlich</small></div></article>
+<article class="admin-status-card is-pending" data-system="token"><span aria-hidden="true" class="admin-status-dot"></span><div><strong>ID-Token</strong><small>Anmeldung erforderlich</small></div></article>
+<article class="admin-status-card is-pending" data-system="analyticsApi"><span aria-hidden="true" class="admin-status-dot"></span><div><strong>Analytics API</strong><small>Geschützt / gesperrt</small></div></article>
+<article class="admin-status-card is-pending" data-system="maintenanceApi"><span aria-hidden="true" class="admin-status-dot"></span><div><strong>Wartungsmodus</strong><small>Gesperrt</small></div></article>
+<article class="admin-status-card is-pending"><span aria-hidden="true" class="admin-status-dot"></span><div><strong>Search Console</strong><small>Vorbereitet / Domain fehlt</small></div></article>
+<article class="admin-status-card"><span aria-hidden="true" class="admin-status-dot is-info"></span><div><strong>Sitemap</strong><small data-health="sitemap">prüfen …</small></div></article>
+<article class="admin-status-card"><span aria-hidden="true" class="admin-status-dot is-info"></span><div><strong>robots.txt</strong><small data-health="robots">prüfen …</small></div></article>
+</div>
+<div class="admin-system-actions">
+<button class="admin-secondary-button" data-action="check-health" type="button">Systemcheck starten</button>
+<button class="admin-secondary-button" data-action="export" disabled="" type="button">Analytics exportieren</button>
+<a class="admin-secondary-button" href="../" rel="noopener noreferrer" target="_blank">Website öffnen ↗</a>
+</div>
+</section>
+</main></div>
 </body>
 </html>

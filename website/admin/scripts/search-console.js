@@ -117,4 +117,5 @@ async function initializeSearchConsole() {
 }
 
 
-initializeSearchConsole();
+document.addEventListener('glanzer:auth-ready', initializeSearchConsole);
+if (window.GlanzerAdminAuth?.isAuthenticated()) initializeSearchConsole();
