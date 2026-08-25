@@ -8,7 +8,7 @@ import {
   signInWithEmailAndPassword,
   signOut,
 } from 'https://www.gstatic.com/firebasejs/12.18.0/firebase-auth.js';
-import { ADMIN_ENDPOINTS, ALLOWED_ADMIN_UIDS, FIREBASE_CONFIG } from './config.js';
+import { ALLOWED_ADMIN_UIDS, FIREBASE_CONFIG } from './config.js';
 
 const app = initializeApp(FIREBASE_CONFIG);
 const auth = getAuth(app);
@@ -57,6 +57,10 @@ function renderAdminIdentity(user) {
   if (status) status.innerHTML = '<span aria-hidden="true"></span> Firebase geschützt';
   if (status) status.className = 'admin-site-state is-online';
   if (label) label.textContent = user.email || 'Admin angemeldet';
+  const sidebar = getElement('[data-auth-sidebar]');
+  const sidebarText = sidebar?.querySelector('small');
+  if (sidebar) sidebar.querySelector('.admin-status-dot')?.classList.replace('is-warning', 'is-ok');
+  if (sidebarText) sidebarText.textContent = 'Firebase geschützt';
   if (logout) logout.disabled = false;
 }
 
@@ -73,6 +77,7 @@ function getFriendlyError(error) {
   if (code.includes('network-request-failed')) return 'Firebase ist gerade nicht erreichbar.';
   if (code.includes('invalid-email')) return 'Bitte eine gültige E-Mail-Adresse eingeben.';
   if (code.includes('user-disabled')) return 'Dieser Adminzugang wurde deaktiviert.';
+  if (code.includes('unauthorized-domain')) return 'Diese Domain ist in Firebase Authentication noch nicht freigegeben.';
   return 'Anmeldung konnte nicht durchgeführt werden.';
 }
 
@@ -149,6 +154,5 @@ async function initializeFirebaseAuth() {
 }
 
 
-window.GlanzerAdminConfig = { endpoints: ADMIN_ENDPOINTS };
 window.GlanzerAdminAuth = { getIdToken, isAuthenticated, handleLogout };
 initializeFirebaseAuth().catch(() => setAuthMessage('Firebase konnte nicht initialisiert werden.', 'error'));

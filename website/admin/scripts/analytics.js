@@ -1,6 +1,7 @@
 'use strict';
 
 let selectedRange = '30';
+let lastDashboardData = null;
 
 
 function getEndpoint() {
@@ -75,8 +76,15 @@ function renderRanking(name, rows = []) {
 
 
 function renderRankings(data = {}) {
-  const names = ['landingPages', 'referrers', 'pages', 'demos', 'exitPages', 'portfolio', 'ctas', 'browsers', 'operatingSystems', 'screens'];
+  const names = ['landingPages', 'referrers', 'pages', 'demos', 'contacts', 'portfolio', 'ctas', 'browsers', 'operatingSystems', 'screens'];
   names.forEach((name) => renderRanking(name, data[name] || []));
+}
+
+
+function formatTimestamp(value) {
+  const date = new Date(value || '');
+  if (Number.isNaN(date.getTime())) return '–';
+  return date.toLocaleString('de-AT', { dateStyle: 'short', timeStyle: 'short' });
 }
 
 
@@ -85,7 +93,7 @@ function renderInsights(insights = {}) {
   setText('[data-insight="bestDay"]', insights.bestDay || '–');
   setText('[data-insight="topProject"]', insights.topProject || 'Noch offen');
   setText('[data-insight="topProjectClicks"]', formatNumber(insights.topProjectClicks));
-  setText('[data-live="lastEvent"]', insights.lastEvent || '–');
+  setText('[data-live="lastEvent"]', formatTimestamp(insights.lastEvent));
 }
 
 
@@ -161,6 +169,9 @@ function showEmptyChart(empty = document.querySelector('.admin-chart-empty')) {
 
 
 function renderDashboard(data = {}) {
+  lastDashboardData = data;
+  const exportButton = document.querySelector('[data-action="export"]');
+  if (exportButton) exportButton.disabled = false;
   renderSummary(data.summary || {});
   renderRankings(data.rankings || {});
   renderInsights(data.insights || {});
@@ -212,4 +223,17 @@ function initializeAnalyticsPanel() {
 }
 
 
-window.GlanzerAdminAnalytics = { initializeAnalyticsPanel, refreshDashboard, setRange };
+function exportAnalytics() {
+  if (!lastDashboardData) return;
+  const content = JSON.stringify(lastDashboardData, null, 2);
+  const blob = new Blob([content], { type: 'application/json' });
+  const url = URL.createObjectURL(blob);
+  const link = document.createElement('a');
+  link.href = url;
+  link.download = `glanzerdigital-analytics-${new Date().toISOString().slice(0, 10)}.json`;
+  link.click();
+  URL.revokeObjectURL(url);
+}
+
+
+window.GlanzerAdminAnalytics = { exportAnalytics, initializeAnalyticsPanel, refreshDashboard, setRange };

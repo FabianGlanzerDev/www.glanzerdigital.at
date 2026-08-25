@@ -161,9 +161,9 @@ function gd_require_firebase_admin(): array
 function gd_admin_read_analytics(): array
 {
     $path = gd_admin_private_path('data/analytics.json');
-    if (!is_file($path)) return ['days' => [], 'updated_at' => null];
+    if (!is_file($path)) return ['days' => [], 'recent_events' => [], 'updated_at' => null];
     $data = json_decode((string) file_get_contents($path), true);
-    return is_array($data) ? $data : ['days' => [], 'updated_at' => null];
+    return is_array($data) ? $data : ['days' => [], 'recent_events' => [], 'updated_at' => null];
 }
 
 
@@ -187,17 +187,20 @@ function gd_admin_merge_counts(array &$target, array $values): void
 
 function gd_admin_aggregate(array $days, array $keys): array
 {
-    $result = ['views' => 0, 'events' => [], 'pages' => [], 'devices' => [], 'series' => []];
-    foreach ($keys as $date) {
-        $day = is_array($days[$date] ?? null) ? $days[$date] : [];
-        $views = (int) ($day['page_views'] ?? 0);
-        $result['views'] += $views;
-        $result['series'][] = ['date' => $date, 'views' => $views];
-        gd_admin_merge_counts($result['events'], (array) ($day['events'] ?? []));
-        gd_admin_merge_counts($result['pages'], (array) ($day['pages'] ?? []));
-        gd_admin_merge_counts($result['devices'], (array) ($day['devices'] ?? []));
-    }
+    $buckets = ['events', 'pages', 'devices', 'browsers', 'operating_systems', 'screens', 'hours', 'landing_pages', 'referrers', 'sources', 'demos', 'portfolio', 'ctas', 'contacts'];
+    $result = ['views' => 0, 'series' => []];
+    foreach ($buckets as $bucket) $result[$bucket] = [];
+    foreach ($keys as $date) gd_admin_add_day($result, (array) ($days[$date] ?? []), $date, $buckets);
     return $result;
+}
+
+
+function gd_admin_add_day(array &$result, array $day, string $date, array $buckets): void
+{
+    $views = (int) ($day['page_views'] ?? 0);
+    $result['views'] += $views;
+    $result['series'][] = ['date' => $date, 'views' => $views];
+    foreach ($buckets as $bucket) gd_admin_merge_counts($result[$bucket], (array) ($day[$bucket] ?? []));
 }
 
 
@@ -221,7 +224,7 @@ function gd_admin_ranking(array $counts, int $limit = 8): array
 }
 
 
-function gd_admin_demo_ranking(array $pages): array
+function gd_admin_fallback_demo_ranking(array $pages): array
 {
     $demos = [];
     foreach ($pages as $path => $count) {
@@ -229,7 +232,7 @@ function gd_admin_demo_ranking(array $pages): array
         $label = ucwords(str_replace('-', ' ', $match[1]));
         $demos[$label] = (int) ($demos[$label] ?? 0) + (int) $count;
     }
-    return gd_admin_ranking($demos);
+    return $demos;
 }
 
 
@@ -243,52 +246,105 @@ function gd_admin_best_day(array $series): string
 }
 
 
+function gd_admin_best_hour(array $hours): string
+{
+    if ($hours === []) return '–';
+    arsort($hours);
+    $hour = array_key_first($hours);
+    if ($hour === null || (int) ($hours[$hour] ?? 0) === 0) return '–';
+    return sprintf('%02d:00–%02d:59', (int) $hour, (int) $hour);
+}
+
+
+function gd_admin_active_events(array $recentEvents): int
+{
+    $cutoff = time() - 300;
+    return count(array_filter($recentEvents, static fn($stamp): bool => (int) $stamp >= $cutoff));
+}
+
+
+function gd_admin_sources(array $counts): array
+{
+    $labels = ['Direkt', 'Google', 'Social', 'Sonstige'];
+    $total = array_sum($counts);
+    $rows = [];
+    foreach ($labels as $label) {
+        $value = (int) ($counts[$label] ?? 0);
+        $rows[] = ['label' => $label, 'value' => $value, 'percent' => $total > 0 ? $value / $total * 100 : 0];
+    }
+    return $rows;
+}
+
+
 function gd_admin_analytics_payload(string $range): array
 {
     $stored = gd_admin_read_analytics();
     $days = is_array($stored['days'] ?? null) ? $stored['days'] : [];
     $aggregate = gd_admin_aggregate($days, gd_admin_date_keys($days, $range));
     $events = $aggregate['events'];
-    $demos = gd_admin_demo_ranking($aggregate['pages']);
-    $totalViews = array_sum(array_map(static fn(array $day): int => (int) ($day['page_views'] ?? 0), $days));
+    $demoCounts = $aggregate['demos'] ?: gd_admin_fallback_demo_ranking($aggregate['pages']);
+    $demos = gd_admin_ranking($demoCounts);
     $contact = (int) ($events['contact_click'] ?? 0);
+    $views = (int) $aggregate['views'];
+    return gd_admin_build_payload($days, $stored, $aggregate, $events, $demos, $contact, $views);
+}
+
+
+function gd_admin_build_payload(array $days, array $stored, array $aggregate, array $events, array $demos, int $contact, int $views): array
+{
+    $totalViews = array_sum(array_map(static fn(array $day): int => (int) ($day['page_views'] ?? 0), $days));
     return [
         'ok' => true,
-        'summary' => [
-            'today' => gd_admin_views_for_days($days, 1),
-            'yesterday' => gd_admin_views_for_days($days, 1, 1),
-            'week' => gd_admin_views_for_days($days, 7),
-            'month' => gd_admin_views_for_days($days, 30),
-            'total' => $totalViews,
-            'demos' => (int) ($events['demo_click'] ?? 0),
-            'contact' => $contact,
-            'github' => (int) ($events['github_click'] ?? 0),
-            'activeNow' => null,
-            'conversion' => $aggregate['views'] > 0 ? $contact / $aggregate['views'] * 100 : null,
-            'contactRate' => $aggregate['views'] > 0 ? $contact / $aggregate['views'] * 100 : null,
-        ],
-        'rankings' => [
-            'pages' => gd_admin_ranking($aggregate['pages']),
-            'demos' => $demos,
-            'landingPages' => [], 'referrers' => [], 'exitPages' => [], 'portfolio' => [], 'ctas' => [],
-            'browsers' => [], 'operatingSystems' => [], 'screens' => [],
-        ],
-        'insights' => [
-            'bestHour' => null,
-            'bestDay' => gd_admin_best_day($aggregate['series']),
-            'topProject' => $demos[0]['label'] ?? null,
-            'topProjectClicks' => $demos[0]['value'] ?? null,
-            'lastEvent' => $stored['updated_at'] ?? null,
-        ],
-        'funnel' => [
-            'pageviews' => $aggregate['views'],
-            'portfolio' => (int) ($events['portfolio_click'] ?? 0),
-            'demos' => (int) ($events['demo_click'] ?? 0),
-            'contact' => $contact,
-        ],
-        'sources' => [],
+        'summary' => gd_admin_summary($days, $stored, $events, $contact, $views, $totalViews),
+        'rankings' => gd_admin_rankings($aggregate, $demos),
+        'insights' => gd_admin_insights($stored, $aggregate, $demos),
+        'funnel' => gd_admin_funnel($events, $contact, $views),
+        'sources' => gd_admin_sources($aggregate['sources']),
         'devices' => $aggregate['devices'],
         'series' => $aggregate['series'],
+    ];
+}
+
+
+function gd_admin_summary(array $days, array $stored, array $events, int $contact, int $views, int $totalViews): array
+{
+    $rate = $views > 0 ? $contact / $views * 100 : null;
+    return [
+        'today' => gd_admin_views_for_days($days, 1), 'yesterday' => gd_admin_views_for_days($days, 1, 1),
+        'week' => gd_admin_views_for_days($days, 7), 'month' => gd_admin_views_for_days($days, 30), 'total' => $totalViews,
+        'demos' => (int) ($events['demo_click'] ?? 0), 'contact' => $contact, 'github' => (int) ($events['github_click'] ?? 0),
+        'activeNow' => gd_admin_active_events((array) ($stored['recent_events'] ?? [])), 'conversion' => $rate, 'contactRate' => $rate,
+    ];
+}
+
+
+function gd_admin_rankings(array $aggregate, array $demos): array
+{
+    return [
+        'pages' => gd_admin_ranking($aggregate['pages']), 'demos' => $demos,
+        'landingPages' => gd_admin_ranking($aggregate['landing_pages']), 'referrers' => gd_admin_ranking($aggregate['referrers']),
+        'portfolio' => gd_admin_ranking($aggregate['portfolio']), 'ctas' => gd_admin_ranking($aggregate['ctas']),
+        'contacts' => gd_admin_ranking($aggregate['contacts']), 'browsers' => gd_admin_ranking($aggregate['browsers']),
+        'operatingSystems' => gd_admin_ranking($aggregate['operating_systems']), 'screens' => gd_admin_ranking($aggregate['screens']),
+    ];
+}
+
+
+function gd_admin_insights(array $stored, array $aggregate, array $demos): array
+{
+    return [
+        'bestHour' => gd_admin_best_hour($aggregate['hours']), 'bestDay' => gd_admin_best_day($aggregate['series']),
+        'topProject' => $demos[0]['label'] ?? null, 'topProjectClicks' => $demos[0]['value'] ?? null,
+        'lastEvent' => $stored['updated_at'] ?? null,
+    ];
+}
+
+
+function gd_admin_funnel(array $events, int $contact, int $views): array
+{
+    return [
+        'pageviews' => $views, 'portfolio' => (int) ($events['portfolio_click'] ?? 0),
+        'demos' => (int) ($events['demo_click'] ?? 0), 'contact' => $contact,
     ];
 }
 
