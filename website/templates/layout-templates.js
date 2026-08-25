@@ -13,12 +13,12 @@ const HEADER_TEMPLATE = `
     <nav class="site-nav" id="main-navigation" aria-label="Hauptnavigation" data-nav data-open="false">
       <ul>
         <li><a href="{{ROOT}}/index.html" {{HOME_CURRENT}}>Home</a></li>
-        <li><a href="{{ROOT}}/index.html#leistungen">Leistungen</a></li>
+        <li><a href="{{ROOT}}/subpages/leistungen.html" {{SERVICES_CURRENT}}>Leistungen</a></li>
         <li><a href="{{ROOT}}/subpages/portfolio.html" {{PORTFOLIO_CURRENT}}>Portfolio</a></li>
         <li><a href="{{ROOT}}/subpages/ueber-mich.html" {{ABOUT_CURRENT}}>Über mich</a></li>
-        <li><a href="{{ROOT}}/subpages/kontakt.html" {{CONTACT_CURRENT}}>Kontakt</a></li>
       </ul>
-      <a class="button button--primary button--small" href="{{ROOT}}/subpages/kontakt.html">Jetzt anfragen</a>
+      <button class="language-toggle" type="button" data-language-toggle aria-label="Sprache auf Englisch wechseln" title="English">EN</button>
+      <a class="button button--primary button--small" href="{{ROOT}}/subpages/kontakt.html">Projekt anfragen</a>
     </nav>
   </div>
 `;
@@ -36,7 +36,7 @@ const FOOTER_TEMPLATE = `
       <div>
         <div class="footer-title">Navigation</div>
         <div class="footer-links">
-          <a href="{{ROOT}}/index.html#leistungen">Leistungen</a>
+          <a href="{{ROOT}}/subpages/leistungen.html">Leistungen</a>
           <a href="{{ROOT}}/subpages/portfolio.html">Portfolio</a>
           <a href="{{ROOT}}/subpages/ueber-mich.html">Über mich</a>
           <a href="{{ROOT}}/subpages/kontakt.html">Kontakt</a>
@@ -86,9 +86,9 @@ function getHeaderTemplate(rootPath, activePage) {
   return HEADER_TEMPLATE
     .replaceAll('{{ROOT}}', rootPath)
     .replace('{{HOME_CURRENT}}', getCurrentAttribute('home', activePage))
+    .replace('{{SERVICES_CURRENT}}', getCurrentAttribute('services', activePage))
     .replace('{{PORTFOLIO_CURRENT}}', getCurrentAttribute('portfolio', activePage))
-    .replace('{{ABOUT_CURRENT}}', getCurrentAttribute('about', activePage))
-    .replace('{{CONTACT_CURRENT}}', getCurrentAttribute('contact', activePage));
+    .replace('{{ABOUT_CURRENT}}', getCurrentAttribute('about', activePage));
 }
 
 
