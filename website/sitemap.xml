@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://www.glanzerdigital.at/</loc></url>
-  <url><loc>https://www.glanzerdigital.at/subpages/portfolio.html</loc></url>
-  <url><loc>https://www.glanzerdigital.at/subpages/ueber-mich.html</loc></url>
-  <url><loc>https://www.glanzerdigital.at/subpages/kontakt.html</loc></url>
-  <url><loc>https://www.glanzerdigital.at/subpages/impressum.html</loc></url>
-  <url><loc>https://www.glanzerdigital.at/subpages/datenschutz.html</loc></url>
+  <url><loc>https://glanzerdigital.at/</loc></url>
+  <url><loc>https://glanzerdigital.at/subpages/leistungen.html</loc></url>
+  <url><loc>https://glanzerdigital.at/subpages/portfolio.html</loc></url>
+  <url><loc>https://glanzerdigital.at/subpages/ueber-mich.html</loc></url>
+  <url><loc>https://glanzerdigital.at/subpages/kontakt.html</loc></url>
 </urlset>

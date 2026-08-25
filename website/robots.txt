@@ -5,4 +5,4 @@ Disallow: /api/
 Disallow: /demos/
 Disallow: /maintenance.php
 
-Sitemap: https://www.glanzerdigital.at/sitemap.xml
+Sitemap: https://glanzerdigital.at/sitemap.xml

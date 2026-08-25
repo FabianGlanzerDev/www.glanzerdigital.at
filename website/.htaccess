@@ -1,7 +1,19 @@
+ErrorDocument 404 /404.html
+
 Options -Indexes
 
 <IfModule mod_rewrite.c>
   RewriteEngine On
+
+  # HTTPS erzwingen und die Hauptdomain ohne www kanonisieren.
+  # ACME-Challenges bleiben erreichbar, damit Let's Encrypt Zertifikate erneuern kann.
+  RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/ [NC]
+  RewriteCond %{HTTP_HOST} ^www\.glanzerdigital\.at$ [NC]
+  RewriteRule ^ https://glanzerdigital.at%{REQUEST_URI} [R=301,L]
+
+  RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/ [NC]
+  RewriteCond %{HTTPS} !=on
+  RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
 
   # Wartungsmodus: Die versteckte Datei wird ausschließlich vom Adminbereich gesetzt.
   RewriteCond %{DOCUMENT_ROOT}/.maintenance -f
@@ -20,6 +32,21 @@ Options -Indexes
   Header always set X-Frame-Options "SAMEORIGIN"
 </IfModule>
 
-<FilesMatch "(^\.|\.(?:bak|backup|log|map|md|sql|env)$)">
+<FilesMatch "(^\.|\.(?:bak|backup|log|map|md|sql|env|zip)$)">
   Require all denied
 </FilesMatch>
+
+
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType text/css "access plus 7 days"
+  ExpiresByType application/javascript "access plus 7 days"
+  ExpiresByType image/webp "access plus 30 days"
+  ExpiresByType image/png "access plus 30 days"
+  ExpiresByType image/svg+xml "access plus 30 days"
+  ExpiresByType font/woff2 "access plus 30 days"
+</IfModule>
+
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/plain text/css application/javascript application/json image/svg+xml
+</IfModule>
