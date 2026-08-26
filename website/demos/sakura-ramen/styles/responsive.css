@@ -1,1 +1,387 @@
-html{scroll-behavior:smooth}.myBody{margin:0%}.raleway{font-family:"Raleway", Regular}.Economica{font-family:Economica}.raleway-uniquifier>{font-family:"Raleway", sans-serif;font-optical-sizing:auto;font-weight:<weight>;font-style:normal}.container-header{height:100vh;background-image:url("../assets/images/hero_bg.jpg");background-size:cover;background-repeat:no-repeat;background-position:bottom;object-fit:cover;padding-top:200px;box-sizing:border-box}.h1{display:flex;justify-content:center;flex-direction:column;align-items:center}.size1{color:white;font-family:raleway, regular;font-weight:bold;font-size:96px;justify-content:center;margin:0 0 4px 0;padding-top:60px}.size2{display:flex;justify-content:center;font-size:24px;font-family:raleway, regular;color:white;margin:5px}.navbar{position:absolute;display:flex;justify-content:space-between;width:100%;left:0%;right:0%;top:0%;padding-top:20px;font-size:24px;font-family:"Raleway"}.logo-sakura{display:flex;width:64px;height:64px;margin-left:112px;margin-top:20px}.nav-menu{display:flex;gap:20px;align-items:center}.nav-item{color:white;text-decoration:none;font-size:24px}.nav-item:hover{text-decoration:underline;color:rgb(230, 95, 158)}.locations{color:white;text-decoration:none;font-size:24px}.about{color:white;text-decoration:none;font-size:24px;font-family:raleway}.button{left:0px;right:0px;top:10px;color:rgb(255, 255, 255);border:none;display:inline-flex;text-align:center;display:flex;align-items:center;font-size:24px;background-color:#9F0908;border:2px solid #ffffff;border-radius:10px;margin-right:200px}.phone-logo{width:30px;height:30px;margin-right:8px;margin-left:5px;padding-top:5px;padding-left:5px}.number{display:flex;justify-content:center;padding-right:20px;padding-bottom:2px;font-size:24px;font-family:raleway;text-decoration:none;cursor:pointer;color:white;padding-right:10px;padding-top:5px;padding-bottom:5px}.number1{display:flex;align-items:center;margin-right:7px}.number1:hover{color:#c95555;text-decoration:underline}.h2{display:flex;justify-content:center;font-size:80px;font-family:raleway;font-weight:bold;color:#9F0908;padding-top:120px}.pics{display:flex;justify-content:space-evenly;align-items:center;padding-top:64px;padding-bottom:64px}.pic1{display:flex;text-align:center;align-items:center;justify-content:center;flex-direction:column}.img1{width:128px;height:120%}.text1{display:flex;justify-content:center;text-align:center;font-size:56px;font-family:economica;font-weight:bold;margin-top:16px}.pic2{display:flex;text-align:center;align-items:center;justify-content:center;flex-direction:column}.img2{width:128px;height:120%}.text2{display:flex;justify-content:center;text-align:center;font-size:56px;font-family:economica;font-weight:bold;margin-top:16px}.pic3{display:flex;align-items:center;justify-content:center;flex-direction:column;width:128px;height:100%}.img3{width:128px;height:120%}.text3{display:flex;justify-content:center;text-align:center;font-size:56px;font-family:economica;font-weight:bold;margin-top:16px}.ourmenu{background-image:url(../assets/images/section_our_menu_bg.jpg);background-repeat:no-repeat;background-position:bottom;object-fit:cover;padding-bottom:120px;padding-top:120px}.h3{display:flex;justify-content:center;align-items:center;color:#9F0908;font-family:raleway;font-weight:bold;font-size:80px}.menu1{display:flex;align-items:center;padding-top:64px}.plate1{display:flex;justify-content:flex-start;padding-left:80px;width:352px;height:352px}.text_menu1{display:flex;font-family:economica;font-size:56px;font-weight:bold}.table_menu1{display:flex;margin-top:15px;font-family:raleway;font-size:32px;font-weight:bold;color:#675E54}.menu_price{display:flex;justify-content:center;flex-direction:column;padding-left:100px}.menuprice1{padding-left:200px;padding-top:16px}.menuprice2{padding-left:200px;padding-top:8px}.menuprice3{padding-left:200px;padding-top:8px}.menu2{display:flex;align-items:flex-end;justify-content:flex-end;padding-right:112px}.plate2{display:flex;align-items:flex-end;justify-content:flex-end;width:352px;height:352px;padding-top:56px}.text_menu2{display:flex;justify-content:center;align-items:center;font-family:economica;font-size:56px;font-weight:bold;padding-right:200px}.menu_item{display:flex;align-items:center;flex-direction:row-reverse}.menuprice4{padding-left:200px;padding-top:16px}.menuprice5{padding-left:200px;padding-top:8px}.menuprice6{padding-left:200px;padding-top:8px}.findus{display:flex;justify-content:center;font-family:raleway;font-weight:bold;color:#9F0908;font-size:80px}.section3{display:flex;justify-content:center}.h4{display:flex;margin-bottom:20px;font-family:raleway;font-size:80px;color:#9F0908;font-weight:bold}.loc{display:flex;justify-content:center}.imgmap{display:flex;justify-content:center;align-items:center;width:30px;height:100%}.street{display:flex;font-family:raleway, regular;font-size:24px;margin-left:10px}.googlemaps{display:flex;justify-content:center;padding-top:64px}.fullmap{display:flex;justify-content:center;width:100vw;height:700px}.footer{margin-bottom:0px;display:flex;justify-content:space-between;align-items:center;background-color:#0A141E;padding-left:80px;height:100px}.sakurafooterlogo{display:flex;justify-content:flex-start;align-items:flex-start;height:44px}.sakuratext{display:flex;justify-content:flex-start;font-family:raleway;font-weight:bold;font-size:44px;margin-left:30px;color:white}.socialmedia{display:flex;align-items:flex-end;justify-content:flex-end;gap:20px;padding-right:100px}.tripadvisor{display:flex;width:40px;height:40px}.facebook{display:flex;width:40px;height:40px}.instagram{display:flex;width:40px;height:40px}.sakuralogoalone{display:flex;justify-content:flex-start;width:43px}@media (max-width: 1280px){.logo-sakura{margin-left:20px;margin-top:5px;width:64px;height:64px}.nav-menu{padding-right:20px}.number1{justify-content:flex-end;font-size:20px}.button{justify-content:flex-end;margin-right:0px}.phone-logo{width:25px;height:30px}.number{padding-top:8px;padding-bottom:8px;padding-left:8px;padding-left:8px}.size1{font-size:72px;font-weight:bold}.size2{font-size:20px;display:flex;justify-content:center;margin-block-start:0;margin-block-end:0}.h2{padding-top:96px;font-size:64px;font-weight:bold}.pics{padding-top:48px;padding-bottom:96px}.img1{width:112px}.img2{width:112px}.img3{width:112px}.text1{margin-top:8px;font-size:32px}.text2{margin-top:8px;font-size:32px}.text3{margin-top:8px;font-size:32px}.ourmenu{padding-top:96px;padding-bottom:96px;align-items:center}.h3{font-size:64px;font-weight:bold}.menu1{padding-top:0px}.plate1{width:352px;height:352px;justify-content:center}.menuprice1{padding-left:100px}.menuprice2{padding-left:100px}.menuprice3{padding-left:100px}.menuprice4{padding-left:100px}.menuprice5{padding-left:100px}.menuprice6{padding-left:100px}.menu_price{padding-left:24px}.text_menu1{font-size:32px;font-weight:bold}.table_menu1{font-size:24px;margin-top:16px;text-align:left}.menu2{padding-right:0px;justify-content:center}.menu_price2{padding-left:0px;align-items:center}.plate2{width:352px;height:352px;padding-top:32px;padding-right:10px}.menu_item{padding-bottom:32px}.text_menu2{font-size:32px;font-weight:bold;justify-content:left}.h4{margin-top:96px;font-size:64px;font-weight:bold;margin-bottom:8px}.street{font-size:20px}.imgmap{width:25px}.googlemaps{padding-top:48px}.footer{height:144px}.loc{padding-right:0;margin-right:0}}@media (max-width: 990px){.nav-menu{padding-right:30px;padding-top:0px;align-items:center}.navbar{align-items:center}.button{margin-right:0;justify-content:flex-end;align-items:center}.logo-sakura{margin-left:20px}.size1{text-align:center;font-size:72px;padding-top:0;font-weight:bold;font-family:raleway}.container-header-img{background-size:contain}}@media (max-width: 635px){.section2{display:flex;flex-direction:column;align-items:center}.h2{text-align:center}}@media (max-width: 650px){.pics{flex-direction:column}}@media (max-width: 768px){.menu1{align-items:center;flex-direction:column}.menu_price{padding-top:30px;font-size:40px;text-align:center;padding-left:0}.h3{text-align:center}.plate1{align-items:center;padding-left:0}.menuprice1{padding-left:30px}.menuprice2{padding-left:30px}.menuprice3{padding-left:30px}.menu_item{flex-direction:column}.ourmenu{display:flex;flex-direction:column}.menu2{padding-left:0px;padding-right:0;align-items:center}.plate2{display:flex;align-items:center}.text_menu2{text-align:center;padding-right:0;padding-top:30px}.menuprice4{padding-left:30px}.menuprice5{padding-left:30px}.menuprice6{padding-left:30px}.menu_price2{text-align:center}.text_menu1{text-align:center;padding-right:0}}@media (max-width: 720px){.nav-item{display:none}}@media (max-width:450px){.h4{text-align:center}.loc{text-align:center}}@media (max-width:681px){.socialmedia{display:flex;justify-content:flex-end;padding-right:30px}.sakurafooterlogo{display:none}.sakuralogoalone{display:flex;justify-content:flex-start;padding-left:20px}.footer{padding-left:0}}@media (min-width:682px){.sakuralogoalone{display:none}}@media (max-width: 375px){.logo-sakura{width:40px;height:40px}.nav-menu{padding-top:0px;padding-right:0px;padding-left:0;align-items:center}.navbar{align-items:center}.button{width:90%}.phone-logo{padding-left:20px;margin-left:10px;width:25px;height:25px}.number{font-size:16px;padding-top:0;padding-bottom:0}.h1{display:flex;justify-content:center;padding-top:50px}.size1{font-size:44px;font-weight:bold}.size2{font-size:16px}.h2{padding-top:72px;font-size:40px}.img1{width:112px}.img2{width:112px}.img3{width:112px}.text1{font-size:38px;margin-top:8px;margin-bottom:32px}.text2{font-size:38px;margin-top:8px;margin-bottom:32px}.text3{font-size:38px;margin-top:8px}.pics{padding-bottom:72px;padding-top:72px}.ourmenu{padding-top:72px;padding-bottom:72px;align-items:center}.h3{font-size:40px;margin-block-start:0;margin-block-end:0}.menu1{padding-top:0}.plate1{width:343px;height:343px;display:flex}.menu_price{padding-top:16px}.text_menu1{font-weight:bold;font-size:32px;margin-top:0}.table_menu1{font-size:24px;text-align:start;margin-top:8px}.menuprice1{padding-left:100px}.menuprice2{padding-left:100px}.menuprice3{padding-left:100px}.plate2{padding-top:32px;width:343px;height:343px;align-items:center}.text_menu2{font-size:32px;font-weight:bold;margin-top:0;padding-top:16px;justify-content:flex-start}.table_menu1{font-size:24px;text-align:start;margin-top:8px}.menuprice4{padding-left:80px}.menuprice5{padding-left:80px}.menuprice6{padding-left:80px}.menu_price2{padding-bottom:32px}.section3{display:flex}.h4{font-size:40px;font-weight:bold;margin-bottom:8px}.loc{}.street{font-size:16px;margin-left:5px}.imgmap{width:20px}.googlemaps{padding-top:40px}.footer{height:86px}.sakurafooterlogo{width:40px;height:40px}.tripadvisor{width:32px;height:32px}.facebook{width:32px;height:32px}.instagram{width:32px;height:32px}}@media (max-width:367px){.plate1{width:300px;height:300px}.plate2{width:300px;height:300px}}
+/* Responsive overrides for the Sakura Ramen demo. */
+
+html {
+  overflow-x: hidden;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+img {
+  max-width: 100%;
+}
+
+@media (max-width: 1280px) {
+  .navbar {
+    box-sizing: border-box;
+    padding: 20px 24px 0;
+  }
+
+  .logo-sakura {
+    margin: 0;
+  }
+
+  .nav-menu {
+    padding: 0;
+  }
+
+  .button {
+    margin-right: 0;
+  }
+
+  .size1 {
+    font-size: clamp(64px, 7vw, 88px);
+  }
+
+  .h2,
+  .h3,
+  .h4 {
+    font-size: clamp(52px, 6vw, 72px);
+  }
+
+  .menu1,
+  .menu_item {
+    box-sizing: border-box;
+    width: min(100%, 1120px);
+    margin-inline: auto;
+    padding-inline: 40px;
+  }
+
+  .plate1 {
+    padding-left: 0;
+  }
+
+  .menu2 {
+    padding-right: 0;
+  }
+
+  .text_menu2 {
+    padding-right: 0;
+  }
+
+  .footer {
+    box-sizing: border-box;
+    padding-inline: 40px;
+  }
+
+  .socialmedia {
+    padding-right: 0;
+  }
+}
+
+@media (max-width: 900px) {
+  .container-header {
+    min-height: 620px;
+    height: 85vh;
+    padding-top: 170px;
+    background-position: center;
+  }
+
+  .navbar {
+    align-items: center;
+    gap: 18px;
+  }
+
+  .nav-menu {
+    gap: 14px;
+  }
+
+  .nav-item {
+    font-size: 18px;
+  }
+
+  .number,
+  .number1 {
+    font-size: 17px;
+  }
+
+  .pics {
+    gap: 28px;
+    padding-inline: 24px;
+  }
+
+  .text1,
+  .text2,
+  .text3 {
+    font-size: 42px;
+  }
+
+  .menu1,
+  .menu_item {
+    gap: 32px;
+    padding-inline: 28px;
+  }
+
+  .menu_price,
+  .menu_price2 {
+    padding-left: 0;
+  }
+
+  .menuprice1,
+  .menuprice2,
+  .menuprice3,
+  .menuprice4,
+  .menuprice5,
+  .menuprice6 {
+    padding-left: 72px;
+  }
+
+  .fullmap {
+    height: 520px;
+  }
+}
+
+@media (max-width: 720px) {
+  .container-header {
+    min-height: 560px;
+    height: 78vh;
+    padding-top: 150px;
+  }
+
+  .navbar {
+    padding: 16px 16px 0;
+  }
+
+  .logo-sakura {
+    width: 52px;
+    height: 52px;
+  }
+
+  .nav-item {
+    display: none;
+  }
+
+  .button {
+    border-radius: 9px;
+  }
+
+  .number {
+    padding: 7px 10px;
+  }
+
+  .phone-logo {
+    width: 24px;
+    height: 24px;
+    margin: 0 7px 0 0;
+    padding: 0;
+  }
+
+  .size1 {
+    padding-top: 20px;
+    font-size: clamp(48px, 13vw, 72px);
+    line-height: 1.02;
+    text-align: center;
+  }
+
+  .size2 {
+    font-size: 18px;
+    text-align: center;
+  }
+
+  .h2,
+  .h3,
+  .h4 {
+    font-size: clamp(40px, 10vw, 56px);
+    text-align: center;
+  }
+
+  .h2 {
+    padding-top: 72px;
+  }
+
+  .pics {
+    flex-direction: column;
+    padding-top: 52px;
+    padding-bottom: 72px;
+  }
+
+  .img1,
+  .img2,
+  .img3 {
+    width: 104px;
+    height: auto;
+  }
+
+  .text1,
+  .text2,
+  .text3 {
+    margin: 10px 0 24px;
+    font-size: 38px;
+  }
+
+  .ourmenu {
+    padding: 72px 0;
+  }
+
+  .menu1,
+  .menu_item {
+    flex-direction: column;
+    width: 100%;
+    padding: 0 20px 56px;
+  }
+
+  .menu1:last-child {
+    padding-bottom: 0;
+  }
+
+  .plate1,
+  .plate2 {
+    box-sizing: border-box;
+    width: min(82vw, 340px);
+    height: auto;
+    padding: 0;
+  }
+
+  .menu2 {
+    justify-content: center;
+  }
+
+  .menu_price,
+  .menu_price2 {
+    width: min(100%, 430px);
+    align-items: stretch;
+    padding: 0;
+    text-align: left;
+  }
+
+  .text_menu1,
+  .text_menu2 {
+    display: block;
+    padding: 0;
+    font-size: 40px;
+    text-align: center;
+  }
+
+  .table_menu1 {
+    display: table;
+    width: 100%;
+    margin-top: 14px;
+    font-size: 22px;
+    border-collapse: collapse;
+  }
+
+  .table_menu1 td {
+    padding-top: 10px;
+  }
+
+  .menuprice1,
+  .menuprice2,
+  .menuprice3,
+  .menuprice4,
+  .menuprice5,
+  .menuprice6 {
+    padding-left: 24px;
+    text-align: right;
+    white-space: nowrap;
+  }
+
+  .section3 {
+    padding-inline: 20px;
+  }
+
+  .loc {
+    box-sizing: border-box;
+    align-items: flex-start;
+    padding-inline: 20px;
+  }
+
+  .street {
+    font-size: 18px;
+    line-height: 1.45;
+  }
+
+  .googlemaps {
+    padding-top: 40px;
+  }
+
+  .fullmap {
+    width: 100%;
+    height: 420px;
+  }
+
+  .footer {
+    height: auto;
+    min-height: 96px;
+    gap: 20px;
+    padding: 22px 20px 76px;
+  }
+
+  .sakurafooterlogo {
+    max-width: 180px;
+    height: auto;
+  }
+
+  .socialmedia {
+    gap: 14px;
+  }
+
+  .tripadvisor,
+  .facebook,
+  .instagram {
+    width: 34px;
+    height: 34px;
+  }
+}
+
+@media (max-width: 420px) {
+  .container-header {
+    min-height: 500px;
+    height: 72vh;
+    padding-top: 132px;
+  }
+
+  .logo-sakura {
+    width: 44px;
+    height: 44px;
+  }
+
+  .number1 {
+    font-size: 14px;
+  }
+
+  .phone-logo {
+    width: 20px;
+    height: 20px;
+  }
+
+  .size1 {
+    font-size: 46px;
+  }
+
+  .size2 {
+    font-size: 15px;
+  }
+
+  .h2,
+  .h3,
+  .h4 {
+    font-size: 38px;
+  }
+
+  .text_menu1,
+  .text_menu2 {
+    font-size: 34px;
+  }
+
+  .table_menu1 {
+    font-size: 18px;
+  }
+
+  .street {
+    font-size: 15px;
+  }
+
+  .imgmap {
+    width: 20px;
+    flex: 0 0 auto;
+  }
+
+  .footer {
+    flex-wrap: wrap;
+  }
+
+  .sakurafooterlogo {
+    width: 150px;
+  }
+}
