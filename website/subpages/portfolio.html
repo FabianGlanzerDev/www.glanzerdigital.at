@@ -26,11 +26,14 @@
   <link href="../styles/fonts.css" rel="stylesheet" />
   <link href="../style.css" rel="stylesheet" />
   <link href="../styles/pages/portfolio.css" rel="stylesheet">
-  <script defer="" src="../templates/layout-templates.js"></script>
+  <script defer="" src="../templates/layoutTemplates.js"></script>
   <script defer="" src="../scripts/main.js"></script>
-  <script defer="" src="../scripts/i18n-translations.js"></script>
+  <script src="../scripts/i18nCore.js" defer></script>
+    <script src="../scripts/i18nContent.js" defer></script>
+    <script src="../scripts/i18nLegal.js" defer></script>
+    <script src="../scripts/i18nTranslations.js" defer></script>
   <script defer="" src="../scripts/i18n.js"></script>
-  <script defer src="../scripts/portfolio-effects.js"></script>
+  <script defer src="../scripts/portfolioEffects.js"></script>
   <link href="https://glanzerdigital.at/subpages/portfolio.html" rel="canonical" />
 </head>
 
@@ -129,29 +132,65 @@
           <div class="portfolio-heading">
             <span class="kicker">Developer Akademie</span>
             <h2 id="training-projects-title">Ausbildungsprojekte</h2>
-            <p>Diese Projekte entstanden im Rahmen meiner Ausbildung und zeigen unterschiedliche Schwerpunkte aus
-              Frontend- und Webentwicklung.</p>
+            <p>Eine bewusst ausgewählte Auswahl aus meiner Ausbildung. Weitere Übungsprojekte und Repositories sind über GitHub erreichbar.</p>
           </div>
           <div class="portfolio-grid">
-            <article class="project-card portfolio-card">
-              <img alt="Portfolio-Vorschau von Kochwelt mit modernem Rezept-Layout und Pasta-Gericht" decoding="async"
-                height="430" loading="lazy" src="../assets/images/portfolio/kochwelt.png" width="760" />
+<article class="project-card portfolio-card portfolio-card--featured" id="join-project">
+              <img alt="Portfolio-Vorschau des Taskmanagement-Projekts Join mit Kanban-Board und blauem UI"
+                decoding="async" height="430" loading="lazy" src="../assets/images/portfolio/join.png" width="760" />
               <div class="project-card-body">
-                <h3>Kochwelt</h3>
-                <p>Gruppenprojekt mit responsiver Rezept-Website, Rezept des Tages, mehreren Rezeptseiten und
-                  Kontaktbereich.</p>
+                <h3>Join</h3>
+                <p>Kanban-Anwendung zur Aufgabenorganisation mit Board, Taskverwaltung, Kontakten und responsiver
+                  Oberfläche.</p>
                 <div class="project-card-footer project-card-footer--action">
-                  <span class="badge">Developer Akademie · Website</span>
+                  <span class="badge">Developer Akademie · Web-App</span>
                   <div class="project-card-actions"><a class="project-source-button"
-                      data-analytics-label="Kochwelt · GitHub" href="https://github.com/FabianGlanzerDev/Kochwelt"
+                      data-analytics-label="Join · GitHub" href="https://github.com/FabianGlanzerDev/Join-"
                       rel="noopener noreferrer" target="_blank">GitHub</a><a
-                      class="button button--primary button--small project-demo-button" data-analytics-label="Kochwelt"
-                      data-local-href="../demos/kochwelt/" href="https://kochwelt.glanzerdigital.at"
+                      class="button button--primary button--small project-demo-button" data-analytics-label="Join"
+                      data-local-href="../demos/join/" href="https://join.glanzerdigital.at" rel="noopener noreferrer"
+                      target="_blank">Live-Demo</a></div>
+                </div>
+              </div>
+            </article>
+<article class="project-card portfolio-card">
+              <img alt="Portfolio-Vorschau der Poll App mit dunklem Dashboard, Poll-Erstellung und Ergebnisanalyse"
+                decoding="async" height="430" loading="lazy" src="../assets/images/portfolio/pollapp.png" width="760" />
+              <div class="project-card-body">
+                <h3>Poll App</h3>
+                <p>TypeScript-Umfrage-App mit Poll-Erstellung, Voting, Dashboard und dynamischer Ergebnisanalyse.</p>
+                <div class="project-card-footer project-card-footer--action">
+                  <span class="badge">Developer Akademie · TypeScript</span>
+                  <div class="project-card-actions"><a class="project-source-button"
+                      data-analytics-label="Poll App · GitHub" href="https://github.com/FabianGlanzerDev/PollApp"
+                      rel="noopener noreferrer" target="_blank">GitHub</a><a
+                      class="button button--primary button--small project-demo-button" data-analytics-label="Poll App"
+                      data-local-href="../demos/poll-app/" href="https://poll.glanzerdigital.at"
                       rel="noopener noreferrer" target="_blank">Live-Demo</a></div>
                 </div>
               </div>
             </article>
-            <article class="project-card portfolio-card">
+<article class="project-card portfolio-card">
+              <img alt="Portfolio-Vorschau des Memory Games mit Neon-Interface, Kartenraster und Spielstatistiken"
+                decoding="async" height="430" loading="lazy" src="../assets/images/portfolio/memory-game.png"
+                width="760" />
+              <div class="project-card-body">
+                <h3>Memory Game</h3>
+                <p>Interaktives Memory-Spiel mit mehreren Themes, Settings-Bereich, Spielstatistiken und responsivem
+                  Layout.</p>
+                <div class="project-card-footer project-card-footer--action">
+                  <span class="badge">Developer Akademie · TypeScript</span>
+                  <div class="project-card-actions"><a class="project-source-button"
+                      data-analytics-label="Memory Game · GitHub" href="https://github.com/FabianGlanzerDev/Memory-Game"
+                      rel="noopener noreferrer" target="_blank">GitHub</a><a
+                      class="button button--primary button--small project-demo-button"
+                      data-analytics-label="Memory Game" data-local-href="../demos/memory-game/"
+                      href="https://memory.glanzerdigital.at" rel="noopener noreferrer" target="_blank">Live-Demo</a>
+                  </div>
+                </div>
+              </div>
+            </article>
+<article class="project-card portfolio-card">
               <img alt="Portfolio-Vorschau der Sakura-Ramen-Website mit Hero-Bereich, Ramen-Bowl und Speisekarte"
                 decoding="async" height="430" loading="lazy" src="../assets/images/portfolio/sakura-ramen.png"
                 width="760" />
@@ -171,45 +210,7 @@
                 </div>
               </div>
             </article>
-            <article class="project-card portfolio-card">
-              <img alt="Portfolio-Vorschau von Fotogram mit dunkler Galerieoberfläche und großer Landschaftsaufnahme"
-                decoding="async" height="430" loading="lazy" src="../assets/images/portfolio/fotogram.png"
-                width="760" />
-              <div class="project-card-body">
-                <h3>Fotogram</h3>
-                <p>Responsive Fotogalerie mit Lightbox, Bildnavigation per Tastatur und einer übersichtlichen
-                  Galerieansicht.</p>
-                <div class="project-card-footer project-card-footer--action">
-                  <span class="badge">Developer Akademie · Website</span>
-                  <div class="project-card-actions"><a class="project-source-button"
-                      data-analytics-label="Fotogram · GitHub" href="https://github.com/FabianGlanzerDev/Fotogram"
-                      rel="noopener noreferrer" target="_blank">GitHub</a><a
-                      class="button button--primary button--small project-demo-button" data-analytics-label="Fotogram"
-                      data-local-href="../demos/fotogram/" href="https://fotogram.glanzerdigital.at"
-                      rel="noopener noreferrer" target="_blank">Live-Demo</a></div>
-                </div>
-              </div>
-            </article>
-            <article class="project-card portfolio-card">
-              <img alt="Portfolio-Vorschau des Pokédex-Projekts mit rotem Neon-Interface und elektrischer Kreatur"
-                decoding="async" height="430" loading="lazy" src="../assets/images/portfolio/pokedex-preview.webp"
-                width="760" />
-              <div class="project-card-body">
-                <h3>Pokédex</h3>
-                <p>Dynamischer Pokédex mit API-Daten, Suche, Detailansicht sowie Navigation zwischen einzelnen Pokémon.
-                </p>
-                <div class="project-card-footer project-card-footer--action">
-                  <span class="badge">Developer Akademie · Web-App</span>
-                  <div class="project-card-actions"><a class="project-source-button"
-                      data-analytics-label="Pokédex · GitHub" href="https://github.com/FabianGlanzerDev/Pokedex"
-                      rel="noopener noreferrer" target="_blank">GitHub</a><a
-                      class="button button--primary button--small project-demo-button" data-analytics-label="Pokédex"
-                      data-local-href="../demos/pokedex/" href="https://pokedex.glanzerdigital.at"
-                      rel="noopener noreferrer" target="_blank">Live-Demo</a></div>
-                </div>
-              </div>
-            </article>
-            <article class="project-card portfolio-card portfolio-card--featured">
+<article class="project-card portfolio-card">
               <img alt="Portfolio-Vorschau des Browsergames Sharkie mit Hai, Münzen und Unterwasserwelt"
                 decoding="async" height="430" loading="lazy" src="../assets/images/portfolio/sharkie.png" width="760" />
               <div class="project-card-body">
@@ -224,61 +225,6 @@
                       class="button button--primary button--small project-demo-button" data-analytics-label="Sharkie"
                       data-local-href="../demos/sharkie/" href="https://sharkie.glanzerdigital.at"
                       rel="noopener noreferrer" target="_blank">Live-Demo</a></div>
-                </div>
-              </div>
-            </article>
-            <article class="project-card portfolio-card">
-              <img alt="Portfolio-Vorschau des Taskmanagement-Projekts Join mit Kanban-Board und blauem UI"
-                decoding="async" height="430" loading="lazy" src="../assets/images/portfolio/join.png" width="760" />
-              <div class="project-card-body">
-                <h3>Join</h3>
-                <p>Kanban-Anwendung zur Aufgabenorganisation mit Board, Taskverwaltung, Kontakten und responsiver
-                  Oberfläche.</p>
-                <div class="project-card-footer project-card-footer--action">
-                  <span class="badge">Developer Akademie · Web-App</span>
-                  <div class="project-card-actions"><a class="project-source-button"
-                      data-analytics-label="Join · GitHub" href="https://github.com/FabianGlanzerDev/Join-"
-                      rel="noopener noreferrer" target="_blank">GitHub</a><a
-                      class="button button--primary button--small project-demo-button" data-analytics-label="Join"
-                      data-local-href="../demos/join/" href="https://join.glanzerdigital.at" rel="noopener noreferrer"
-                      target="_blank">Live-Demo</a></div>
-                </div>
-              </div>
-            </article>
-            <article class="project-card portfolio-card">
-              <img alt="Portfolio-Vorschau der Poll App mit dunklem Dashboard, Poll-Erstellung und Ergebnisanalyse"
-                decoding="async" height="430" loading="lazy" src="../assets/images/portfolio/pollapp.png" width="760" />
-              <div class="project-card-body">
-                <h3>Poll App</h3>
-                <p>TypeScript-Umfrage-App mit Poll-Erstellung, Voting, Dashboard und dynamischer Ergebnisanalyse.</p>
-                <div class="project-card-footer project-card-footer--action">
-                  <span class="badge">Developer Akademie · TypeScript</span>
-                  <div class="project-card-actions"><a class="project-source-button"
-                      data-analytics-label="Poll App · GitHub" href="https://github.com/FabianGlanzerDev/PollApp"
-                      rel="noopener noreferrer" target="_blank">GitHub</a><a
-                      class="button button--primary button--small project-demo-button" data-analytics-label="Poll App"
-                      data-local-href="../demos/poll-app/" href="https://poll.glanzerdigital.at"
-                      rel="noopener noreferrer" target="_blank">Live-Demo</a></div>
-                </div>
-              </div>
-            </article>
-            <article class="project-card portfolio-card">
-              <img alt="Portfolio-Vorschau des Memory Games mit Neon-Interface, Kartenraster und Spielstatistiken"
-                decoding="async" height="430" loading="lazy" src="../assets/images/portfolio/memory-game.png"
-                width="760" />
-              <div class="project-card-body">
-                <h3>Memory Game</h3>
-                <p>Interaktives Memory-Spiel mit mehreren Themes, Settings-Bereich, Spielstatistiken und responsivem
-                  Layout.</p>
-                <div class="project-card-footer project-card-footer--action">
-                  <span class="badge">Developer Akademie · TypeScript</span>
-                  <div class="project-card-actions"><a class="project-source-button"
-                      data-analytics-label="Memory Game · GitHub" href="https://github.com/FabianGlanzerDev/Memory-Game"
-                      rel="noopener noreferrer" target="_blank">GitHub</a><a
-                      class="button button--primary button--small project-demo-button"
-                      data-analytics-label="Memory Game" data-local-href="../demos/memory-game/"
-                      href="https://memory.glanzerdigital.at" rel="noopener noreferrer" target="_blank">Live-Demo</a>
-                  </div>
                 </div>
               </div>
             </article>

@@ -213,7 +213,7 @@
 }
 
 .project-card-footer--action .button {
-  min-height: 38px;
+  min-height: 44px;
   padding: 0.6rem 0.85rem;
   font-size: 0.78rem;
 }
@@ -602,7 +602,7 @@
 
 .project-source-button {
   display: inline-flex;
-  min-height: 38px;
+  min-height: 44px;
   padding: 0.6rem 0.85rem;
   align-items: center;
   justify-content: center;

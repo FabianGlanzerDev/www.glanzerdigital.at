@@ -64,24 +64,14 @@ const FOOTER_TEMPLATE = `
 
 
 
-/**
- * Returns the aria-current attribute for the active navigation item.
- * @param {string} pageName - The page represented by the navigation item.
- * @param {string} activePage - The currently active page.
- * @returns {string} The aria-current attribute or an empty string.
- */
+/** Returns the aria-current attribute for the active navigation item. @param {string} pageName - The page represented by the navigation item. @param {string} activePage - The currently active page. @returns {string} The aria-current attribute or an empty string. */
 function getCurrentAttribute(pageName, activePage) {
   return pageName === activePage ? 'aria-current="page"' : '';
 }
 
 
 
-/**
- * Builds the global header markup for the current page.
- * @param {string} rootPath - Relative path to the project root.
- * @param {string} activePage - The currently active page.
- * @returns {string} The complete header markup.
- */
+/** Builds the global header markup for the current page. @param {string} rootPath - Relative path to the project root. @param {string} activePage - The currently active page. @returns {string} The complete header markup. */
 function getHeaderTemplate(rootPath, activePage) {
   return HEADER_TEMPLATE
     .replaceAll('{{ROOT}}', rootPath)
@@ -93,11 +83,7 @@ function getHeaderTemplate(rootPath, activePage) {
 
 
 
-/**
- * Builds the global footer markup for the current page.
- * @param {string} rootPath - Relative path to the project root.
- * @returns {string} The complete footer markup.
- */
+/** Builds the global footer markup for the current page. @param {string} rootPath - Relative path to the project root. @returns {string} The complete footer markup. */
 function getFooterTemplate(rootPath) {
   return FOOTER_TEMPLATE.replaceAll('{{ROOT}}', rootPath);
 }

@@ -15,11 +15,15 @@ const auth = getAuth(app);
 let currentAdmin = null;
 
 
+
+/** Returns element. @param {string} selector - The selector value. @returns {Element|null} The operation result. */
 function getElement(selector) {
   return document.querySelector(selector);
 }
 
 
+
+/** Updates auth message. @param {string} message - The message value. @param {string} state - The state value. @returns {void} The operation result. */
 function setAuthMessage(message = '', state = '') {
   const target = getElement('[data-auth-message]');
   if (!target) return;
@@ -28,6 +32,8 @@ function setAuthMessage(message = '', state = '') {
 }
 
 
+
+/** Updates loading. @param {boolean} isLoading - The is loading value. @returns {void} The operation result. */
 function setLoading(isLoading) {
   const button = getElement('[data-auth-submit]');
   if (!button) return;
@@ -36,6 +42,8 @@ function setLoading(isLoading) {
 }
 
 
+
+/** Shows login. @returns {void} The operation result. */
 function showLogin() {
   getElement('[data-admin-app]')?.setAttribute('hidden', '');
   getElement('[data-auth-gate]')?.removeAttribute('hidden');
@@ -43,6 +51,8 @@ function showLogin() {
 }
 
 
+
+/** Shows dashboard. @param {Object} user - The user value. @returns {void} The operation result. */
 function showDashboard(user) {
   getElement('[data-auth-gate]')?.setAttribute('hidden', '');
   getElement('[data-admin-app]')?.removeAttribute('hidden');
@@ -50,6 +60,8 @@ function showDashboard(user) {
 }
 
 
+
+/** Renders admin identity. @param {Object} user - The user value. @returns {void} The operation result. */
 function renderAdminIdentity(user) {
   const status = getElement('[data-auth-status]');
   const label = getElement('[data-auth-user]');
@@ -65,11 +77,15 @@ function renderAdminIdentity(user) {
 }
 
 
+
+/** Checks whether allowed admin. @param {Object} user - The user value. @returns {boolean} The operation result. */
 function isAllowedAdmin(user) {
   return Boolean(user?.uid && ALLOWED_ADMIN_UIDS.includes(user.uid));
 }
 
 
+
+/** Returns friendly error. @param {unknown} error - The error value. @returns {string} The operation result. */
 function getFriendlyError(error) {
   const code = String(error?.code || '');
   if (code.includes('invalid-credential')) return 'E-Mail-Adresse oder Passwort ist falsch.';
@@ -82,6 +98,8 @@ function getFriendlyError(error) {
 }
 
 
+
+/** Handles login. @param {Event} event - The event value. @returns {Promise<void>} The operation result. */
 async function handleLogin(event) {
   event.preventDefault();
   const email = String(getElement('[data-auth-email]')?.value || '').trim();
@@ -95,6 +113,8 @@ async function handleLogin(event) {
 }
 
 
+
+/** Handles password reset. @returns {Promise<void>} The operation result. */
 async function handlePasswordReset() {
   const email = String(getElement('[data-auth-email]')?.value || '').trim();
   if (!email) return setAuthMessage('Trage zuerst deine Admin-E-Mail-Adresse ein.', 'error');
@@ -107,33 +127,45 @@ async function handlePasswordReset() {
 }
 
 
+
+/** Handles logout. @returns {Promise<void>} The operation result. */
 async function handleLogout() {
   await signOut(auth);
 }
 
 
+
+/** Returns id token. @param {boolean} forceRefresh - The force refresh value. @returns {Promise<string>} The operation result. */
 async function getIdToken(forceRefresh = false) {
   if (!currentAdmin) return '';
   return currentAdmin.getIdToken(forceRefresh);
 }
 
 
+
+/** Checks whether authenticated. @returns {boolean} The operation result. */
 function isAuthenticated() {
   return currentAdmin !== null;
 }
 
 
+
+/** Dispatches auth event. @param {string} name - The name value. @param {Object} detail - The detail value. @returns {void} The operation result. */
 function dispatchAuthEvent(name, detail = {}) {
   document.dispatchEvent(new CustomEvent(name, { detail }));
 }
 
 
+
+/** Rejects unauthorized admin. @returns {Promise<unknown>} The operation result. */
 async function rejectUnauthorizedAdmin() {
   setAuthMessage('Dieser Firebase-Nutzer besitzt keinen Adminzugang.', 'error');
   await signOut(auth);
 }
 
 
+
+/** Handles auth state. @param {Object} user - The user value. @returns {Promise<void>} The operation result. */
 async function handleAuthState(user) {
   if (!user) {
     currentAdmin = null;
@@ -147,6 +179,8 @@ async function handleAuthState(user) {
 }
 
 
+
+/** Initializes firebase auth. @returns {Promise<void>} The operation result. */
 async function initializeFirebaseAuth() {
   await setPersistence(auth, browserSessionPersistence);
   getElement('[data-auth-form]')?.addEventListener('submit', handleLogin);

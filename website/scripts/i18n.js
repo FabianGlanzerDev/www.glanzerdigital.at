@@ -6,10 +6,16 @@ const META_TRANSLATIONS = window.GD_I18N_DATA?.meta || {};
 
 const ATTRIBUTE_NAMES = ['placeholder', 'aria-label', 'title', 'alt'];
 
+
+
+/** Normalizes text. @param {unknown} value - The value value. @returns {string} The operation result. */
 function normalizeText(value) {
   return String(value || '').replace(/\s+/g, ' ').trim();
 }
 
+
+
+/** Translates value. @param {unknown} value - The value value. @param {string} language - The language value. @returns {string} The operation result. */
 function translateValue(value, language) {
   const normalized = normalizeText(value);
   if (!normalized) return value;
@@ -18,6 +24,9 @@ function translateValue(value, language) {
   return reverse ? reverse[0] : value;
 }
 
+
+
+/** Translates text node. @param {Text} node - The node value. @param {string} language - The language value. @returns {unknown} The operation result. */
 function translateTextNode(node, language) {
   const original = normalizeText(node.nodeValue);
   if (!original) return;
@@ -28,6 +37,9 @@ function translateTextNode(node, language) {
   node.nodeValue = `${leading}${translated}${trailing}`;
 }
 
+
+
+/** Translates attributes. @param {Element} root - The root value. @param {string} language - The language value. @returns {unknown} The operation result. */
 function translateAttributes(root, language) {
   root.querySelectorAll('*').forEach((element) => {
     ATTRIBUTE_NAMES.forEach((attribute) => {
@@ -39,6 +51,9 @@ function translateAttributes(root, language) {
   });
 }
 
+
+
+/** Translates document text. @param {string} language - The language value. @returns {void} The operation result. */
 function translateDocumentText(language) {
   const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
   const nodes = [];
@@ -51,6 +66,9 @@ function translateDocumentText(language) {
   translateAttributes(document.body, language);
 }
 
+
+
+/** Translates metadata. @param {string} language - The language value. @returns {unknown} The operation result. */
 function translateMetadata(language) {
   document.title = translateValue(document.title, language);
   const description = document.querySelector('meta[name="description"]');
@@ -58,6 +76,9 @@ function translateMetadata(language) {
   description.content = translateValue(description.content, language);
 }
 
+
+
+/** Updates language toggle. @param {string} language - The language value. @returns {void} The operation result. */
 function updateLanguageToggle(language) {
   const toggle = document.querySelector('[data-language-toggle]');
   if (!(toggle instanceof HTMLButtonElement)) return;
@@ -67,6 +88,9 @@ function updateLanguageToggle(language) {
   toggle.setAttribute('title', isGerman ? 'English' : 'Deutsch');
 }
 
+
+
+/** Updates language. @param {string} language - The language value. @param {boolean} persist - The persist value. @returns {void} The operation result. */
 function setLanguage(language, persist = true) {
   const resolved = language === 'en' ? 'en' : DEFAULT_LANGUAGE;
   translateDocumentText(resolved);
@@ -77,15 +101,24 @@ function setLanguage(language, persist = true) {
   window.dispatchEvent(new CustomEvent('gd:languagechange', { detail: { language: resolved } }));
 }
 
+
+
+/** Returns stored language. @returns {string} The operation result. */
 function getStoredLanguage() {
   const saved = localStorage.getItem(LANGUAGE_STORAGE_KEY);
   return saved === 'en' ? 'en' : DEFAULT_LANGUAGE;
 }
 
+
+
+/** Toggles language. @returns {void} The operation result. */
 function toggleLanguage() {
   setLanguage(document.documentElement.lang === 'en' ? 'de' : 'en');
 }
 
+
+
+/** Initializes language switch. @returns {void} The operation result. */
 function initializeLanguageSwitch() {
   const toggle = document.querySelector('[data-language-toggle]');
   if (toggle) toggle.addEventListener('click', toggleLanguage);
