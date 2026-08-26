@@ -11,6 +11,7 @@ window.GD_I18N_PARTS.push({
     "Kontakt": "Contact",
     "Impressum": "Legal notice",
     "Datenschutz": "Privacy",
+    "Datenschutz-Einstellungen": "Privacy settings",
     "Webentwicklung, Softwarelösungen und digitale Werkzeuge mit persönlicher Betreuung.": "Web development, software solutions and digital tools with personal support.",
     "Entwickelt und betreut von Fabian Glanzer": "Developed and maintained by Fabian Glanzer",
     "Glanzer Digital Startseite": "Glanzer Digital home page",

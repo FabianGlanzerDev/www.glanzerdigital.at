@@ -51,6 +51,7 @@ const FOOTER_TEMPLATE = `
           <a href="https://github.com/FabianGlanzerDev" target="_blank" rel="noopener noreferrer">GitHub</a>
           <a href="/impressum">Impressum</a>
           <a href="/datenschutz">Datenschutz</a>
+          <button class="footer-privacy-settings" type="button" data-consent-settings>Datenschutz-Einstellungen</button>
         </div>
       </div>
     </div>

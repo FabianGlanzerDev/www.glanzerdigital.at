@@ -136,7 +136,130 @@ function initializeSite() {
 }
 
 
-initializeSite();
+
+const CONSENT_STORAGE_KEY = 'gd-consent';
+const CONSENT_VERSION = 1;
+
+const CONSENT_COPY = {
+  de: { title: 'Datenschutz-Einstellungen', text: 'Wir verwenden notwendige Browser-Speicherungen für Sprache und Datenschutzeinstellungen. Mit deiner Zustimmung aktivieren wir unsere eigene cookielose Reichweitenmessung für Seitenaufrufe, ausgewählte Klicks, Geräte- und Viewport-Kategorien, Browser, Betriebssystem und Referrer-Domain.', note: 'Keine Werbetracker, keine Besucher-ID und keine Analyse-Cookies.', accept: 'Statistik erlauben', reject: 'Ablehnen', privacy: 'Datenschutz ansehen' },
+  en: { title: 'Privacy settings', text: 'We use necessary browser storage for language and privacy settings. With your consent, we activate our own cookieless audience measurement for page views, selected clicks, device and viewport categories, browser, operating system and referrer domain.', note: 'No advertising trackers, no visitor ID and no analytics cookies.', accept: 'Allow statistics', reject: 'Reject', privacy: 'View privacy policy' },
+};
+
+let analyticsInitialized = false;
+let consentBanner = null;
+
+
+
+/** Returns the stored consent choice. @returns {string|null} The current analytics consent choice. */
+function getConsentChoice() {
+  try {
+    const saved = JSON.parse(localStorage.getItem(CONSENT_STORAGE_KEY) || 'null');
+    if (saved?.version !== CONSENT_VERSION) return null;
+    return ['accepted', 'rejected'].includes(saved.analytics) ? saved.analytics : null;
+  } catch {
+    return null;
+  }
+}
+
+
+
+/** Checks whether analytics consent is active. @returns {boolean} Whether analytics may run. */
+function hasAnalyticsConsent() {
+  return getConsentChoice() === 'accepted';
+}
+
+
+
+/** Stores the analytics consent choice locally. @param {string} choice - Accepted or rejected. @returns {void} */
+function storeConsentChoice(choice) {
+  const value = { version: CONSENT_VERSION, analytics: choice, updatedAt: new Date().toISOString() };
+  localStorage.setItem(CONSENT_STORAGE_KEY, JSON.stringify(value));
+}
+
+
+
+/** Returns the privacy policy URL for the current environment. @returns {string} The privacy policy URL. */
+function getConsentPrivacyUrl() {
+  if (!isLocalDevelopment()) return '/datenschutz';
+  const rootPath = document.body.dataset.root || '.';
+  return `${rootPath}/subpages/datenschutz.html`;
+}
+
+
+
+/** Returns the consent copy for the active language. @returns {Object} Localized consent copy. */
+function getConsentCopy() {
+  const language = document.documentElement.lang === 'en' ? 'en' : 'de';
+  return CONSENT_COPY[language];
+}
+
+
+
+/** Builds the consent banner markup. @returns {string} The consent banner markup. */
+function getConsentMarkup() {
+  const copy = getConsentCopy();
+  return `<div class="consent-copy"><strong id="consent-title">${copy.title}</strong><p>${copy.text}</p><small>${copy.note}</small></div>
+    <div class="consent-actions"><a href="${getConsentPrivacyUrl()}" class="consent-link">${copy.privacy}</a><button class="button button--secondary" type="button" data-consent-action="reject">${copy.reject}</button><button class="button button--primary" type="button" data-consent-action="accept">${copy.accept}</button></div>`;
+}
+
+
+
+/** Hides the consent banner. @returns {void} */
+function hideConsentBanner() {
+  if (consentBanner) consentBanner.hidden = true;
+}
+
+
+
+/** Shows the consent settings. @param {boolean} focus - Whether to focus the first decision button. @returns {void} */
+function showConsentBanner(focus = true) {
+  if (!consentBanner) return;
+  consentBanner.innerHTML = getConsentMarkup();
+  consentBanner.hidden = false;
+  if (focus) consentBanner.querySelector('[data-consent-action="reject"]')?.focus();
+}
+
+
+
+/** Applies a consent choice and updates analytics. @param {string} choice - Accepted or rejected. @returns {void} */
+function applyConsentChoice(choice) {
+  storeConsentChoice(choice);
+  if (choice === 'accepted') initializeAnalytics();
+  else stopAnalytics();
+  hideConsentBanner();
+}
+
+
+
+/** Handles interactions inside the consent banner. @param {Event} event - The click event. @returns {void} */
+function handleConsentClick(event) {
+  const button = event.target instanceof Element ? event.target.closest('[data-consent-action]') : null;
+  if (!(button instanceof HTMLButtonElement)) return;
+  applyConsentChoice(button.dataset.consentAction === 'accept' ? 'accepted' : 'rejected');
+}
+
+
+
+/** Refreshes an open banner after a language change. @returns {void} */
+function refreshConsentLanguage() {
+  if (consentBanner && !consentBanner.hidden) showConsentBanner(false);
+}
+
+
+
+/** Creates and initializes the site privacy controls. @returns {void} */
+function initializeConsent() {
+  consentBanner = document.createElement('section');
+  consentBanner.className = 'consent-banner';
+  consentBanner.setAttribute('role', 'dialog');
+  consentBanner.setAttribute('aria-labelledby', 'consent-title');
+  consentBanner.hidden = true;
+  consentBanner.addEventListener('click', handleConsentClick);
+  document.body.append(consentBanner);
+  document.querySelector('[data-consent-settings]')?.addEventListener('click', () => showConsentBanner());
+  window.addEventListener('gd:languagechange', refreshConsentLanguage);
+  if (!getConsentChoice()) showConsentBanner(false);
+}
 
 
 
@@ -190,7 +313,7 @@ function buildAnalyticsPayload(eventName, label = '') {
   return {
     event: eventName, page: location.pathname, device: getAnalyticsDevice(),
     screen: getAnalyticsScreen(), referrer: getAnalyticsReferrer(),
-    label: normalizeAnalyticsLabel(label),
+    label: normalizeAnalyticsLabel(label), consent: true,
   };
 }
 
@@ -198,9 +321,11 @@ function buildAnalyticsPayload(eventName, label = '') {
 
 /** Sends analytics event. @param {string} eventName - The event name value. @param {string} label - The label value. @returns {unknown} The operation result. */
 function sendAnalyticsEvent(eventName, label = '') {
+  if (!hasAnalyticsConsent()) return false;
   const payload = JSON.stringify(buildAnalyticsPayload(eventName, label));
   if (navigator.sendBeacon) return navigator.sendBeacon(getAnalyticsEndpoint(), new Blob([payload], { type: 'application/json' }));
   fetch(getAnalyticsEndpoint(), { method: 'POST', body: payload, headers: { 'Content-Type': 'application/json' }, keepalive: true }).catch(() => {});
+  return true;
 }
 
 
@@ -250,10 +375,23 @@ function handleAnalyticsClick(event) {
 
 /** Initializes analytics. @returns {void} The operation result. */
 function initializeAnalytics() {
+  if (analyticsInitialized || !hasAnalyticsConsent()) return;
+  analyticsInitialized = true;
   sendAnalyticsEvent('page_view');
   document.addEventListener('click', handleAnalyticsClick, { passive: true });
 }
 
 
-window.GlanzerAnalytics = { track: sendAnalyticsEvent };
+/** Stops analytics after consent is withdrawn. @returns {void} */
+function stopAnalytics() {
+  if (!analyticsInitialized) return;
+  document.removeEventListener('click', handleAnalyticsClick);
+  analyticsInitialized = false;
+}
+
+
+window.GlanzerAnalytics = { track: sendAnalyticsEvent, hasConsent: hasAnalyticsConsent };
+window.GlanzerConsent = { open: () => showConsentBanner(), hasAnalyticsConsent };
+initializeSite();
+initializeConsent();
 initializeAnalytics();

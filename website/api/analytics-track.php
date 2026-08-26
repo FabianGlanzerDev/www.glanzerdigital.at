@@ -26,6 +26,11 @@ if (!is_array($payload)) {
     exit('{"ok":false}');
 }
 
+if (($payload['consent'] ?? null) !== true) {
+    http_response_code(403);
+    exit('{"ok":false}');
+}
+
 require dirname(__DIR__, 2) . '/server-private/lib.php';
 $ok = gd_track_event($payload);
 http_response_code($ok ? 204 : 400);
