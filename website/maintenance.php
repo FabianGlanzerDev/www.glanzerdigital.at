@@ -102,7 +102,7 @@ header('Cache-Control: no-store, no-cache, must-revalidate');
 
 <body>
   <main class="maintenance-card">
-    <img class="maintenance-logo" src="/assets/images/logos/glanzer-digital-logo.svg" alt="Glanzer Digital">
+    <img class="maintenance-logo" src="/assets/images/logos/glanzerdigital-neon-logo.webp" alt="Glanzer Digital">
     <span class="maintenance-kicker">Kurze technische Pause</span>
     <h1>Wir sind gleich wieder da.</h1>
     <p>Glanzer Digital wird gerade aktualisiert. Die Website ist vorübergehend nicht erreichbar und kommt nach den Arbeiten automatisch wieder online.</p>

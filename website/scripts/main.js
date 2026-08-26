@@ -1,6 +1,5 @@
 const layoutTemplates = window.LayoutTemplates;
 
-
 const LOCAL_ROUTE_FILES = {
   '/': 'index.html',
   '/leistungen': 'subpages/leistungen.html',
@@ -10,7 +9,6 @@ const LOCAL_ROUTE_FILES = {
   '/impressum': 'subpages/impressum.html',
   '/datenschutz': 'subpages/datenschutz.html',
 };
-
 
 
 /** Checks whether the website runs on a local development host. @returns {boolean} Whether local routing is required. */
@@ -135,17 +133,16 @@ function initializeSite() {
   updateCurrentYear();
 }
 
-
-
 const CONSENT_STORAGE_KEY = 'gd-consent';
-const CONSENT_VERSION = 1;
+const CONSENT_VERSION = 2;
 
 const CONSENT_COPY = {
-  de: { title: 'Datenschutz-Einstellungen', text: 'Wir verwenden notwendige Browser-Speicherungen für Sprache und Datenschutzeinstellungen. Mit deiner Zustimmung aktivieren wir unsere eigene cookielose Reichweitenmessung für Seitenaufrufe, ausgewählte Klicks, Geräte- und Viewport-Kategorien, Browser, Betriebssystem und Referrer-Domain.', note: 'Keine Werbetracker, keine Besucher-ID und keine Analyse-Cookies.', accept: 'Statistik erlauben', reject: 'Ablehnen', privacy: 'Datenschutz ansehen' },
-  en: { title: 'Privacy settings', text: 'We use necessary browser storage for language and privacy settings. With your consent, we activate our own cookieless audience measurement for page views, selected clicks, device and viewport categories, browser, operating system and referrer domain.', note: 'No advertising trackers, no visitor ID and no analytics cookies.', accept: 'Allow statistics', reject: 'Reject', privacy: 'View privacy policy' },
+  de: { title: 'Datenschutz-Einstellungen', text: 'Wir verwenden notwendige Browser-Speicherungen für Sprache und Datenschutzeinstellungen. Mit deiner Zustimmung aktivieren wir unsere eigene Reichweitenmessung und Google Analytics 4 (GA4) für Seitenaufrufe und ausgewählte Interaktionen.', note: 'GA4 wird erst nach deiner Zustimmung geladen und kann Analyse-Cookies setzen. Keine Werbetracker.', accept: 'Statistik erlauben', reject: 'Ablehnen', privacy: 'Datenschutz ansehen' },
+  en: { title: 'Privacy settings', text: 'We use necessary browser storage for language and privacy settings. With your consent, we activate our own audience measurement and Google Analytics 4 (GA4) for page views and selected interactions.', note: 'GA4 is only loaded after your consent and may set analytics cookies. No advertising trackers.', accept: 'Allow statistics', reject: 'Reject', privacy: 'View privacy policy' },
 };
 
 let analyticsInitialized = false;
+let ga4ModulePromise = null;
 let consentBanner = null;
 
 
@@ -295,8 +292,7 @@ function getAnalyticsReferrer() {
 
 /** Returns analytics endpoint. @returns {string} The operation result. */
 function getAnalyticsEndpoint() {
-  const rootPath = document.body.dataset.root || '.';
-  return `${rootPath}/api/analytics-track.php`;
+  return '/api/analytics-track.php';
 }
 
 
@@ -323,8 +319,11 @@ function buildAnalyticsPayload(eventName, label = '') {
 function sendAnalyticsEvent(eventName, label = '') {
   if (!hasAnalyticsConsent()) return false;
   const payload = JSON.stringify(buildAnalyticsPayload(eventName, label));
-  if (navigator.sendBeacon) return navigator.sendBeacon(getAnalyticsEndpoint(), new Blob([payload], { type: 'application/json' }));
-  fetch(getAnalyticsEndpoint(), { method: 'POST', body: payload, headers: { 'Content-Type': 'application/json' }, keepalive: true }).catch(() => {});
+  fetch(getAnalyticsEndpoint(), {
+    method: 'POST', body: payload, headers: { 'Content-Type': 'application/json' },
+    credentials: 'same-origin', cache: 'no-store', keepalive: true,
+  }).catch(() => {});
+  ga4ModulePromise?.then((module) => module.trackGoogleAnalyticsEvent(eventName, label));
   return true;
 }
 
@@ -377,6 +376,10 @@ function handleAnalyticsClick(event) {
 function initializeAnalytics() {
   if (analyticsInitialized || !hasAnalyticsConsent()) return;
   analyticsInitialized = true;
+  if (!isLocalDevelopment()) {
+    ga4ModulePromise ||= import('/scripts/googleAnalytics.js?v=20260826-2000');
+    ga4ModulePromise.then((module) => module.initializeGoogleAnalytics());
+  }
   sendAnalyticsEvent('page_view');
   document.addEventListener('click', handleAnalyticsClick, { passive: true });
 }
@@ -384,14 +387,14 @@ function initializeAnalytics() {
 
 /** Stops analytics after consent is withdrawn. @returns {void} */
 function stopAnalytics() {
+  ga4ModulePromise?.then((module) => module.disableGoogleAnalytics());
   if (!analyticsInitialized) return;
   document.removeEventListener('click', handleAnalyticsClick);
   analyticsInitialized = false;
 }
 
 
-window.GlanzerAnalytics = { track: sendAnalyticsEvent, hasConsent: hasAnalyticsConsent };
-window.GlanzerConsent = { open: () => showConsentBanner(), hasAnalyticsConsent };
+window.GlanzerAnalytics = { track: sendAnalyticsEvent, hasConsent: hasAnalyticsConsent };window.GlanzerConsent = { open: () => showConsentBanner(), hasAnalyticsConsent };
 initializeSite();
 initializeConsent();
 initializeAnalytics();

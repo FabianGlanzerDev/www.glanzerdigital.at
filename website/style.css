@@ -648,6 +648,12 @@ ul {
 }
 
 @media (max-width: 880px) {
+  .site-header {
+    background: #080b10;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+
   .brand {
     gap: 0.58rem;
   }
@@ -667,15 +673,17 @@ ul {
 
   .site-nav {
     position: fixed;
-    top: var(--header-height);
-    right: 0;
-    bottom: 0;
-    left: 0;
+    z-index: 101;
+    inset: var(--header-height) 0 0;
     display: none;
+    width: 100%;
+    height: calc(100dvh - var(--header-height));
     padding: 1.25rem 1rem 2rem;
+    overflow-y: auto;
+    overscroll-behavior: contain;
     align-items: stretch;
     flex-direction: column;
-    background: var(--alpha-header-99);
+    background: #080b10;
   }
 
   .site-nav[data-open="true"] {

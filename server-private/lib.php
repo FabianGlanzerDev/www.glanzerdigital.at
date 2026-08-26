@@ -252,8 +252,18 @@ function gd_store_event($handle, array $event): bool
 
 function gd_ensure_analytics_storage(): bool
 {
-    $dir = dirname(gd_analytics_path());
+    $path = gd_analytics_path();
+    $dir = dirname($path);
+
     if (!is_dir($dir) && !@mkdir($dir, 0750, true)) return false;
-    if (is_file(gd_analytics_path())) return is_writable(gd_analytics_path());
-    return @file_put_contents(gd_analytics_path(), json_encode(gd_default_analytics()), LOCK_EX) !== false;
+    if (!is_writable($dir)) @chmod($dir, 0750);
+
+    if (is_file($path)) {
+        if (!is_writable($path)) @chmod($path, 0660);
+        return is_writable($path);
+    }
+
+    $created = @file_put_contents($path, json_encode(gd_default_analytics()), LOCK_EX) !== false;
+    if ($created) @chmod($path, 0660);
+    return $created && is_writable($path);
 }

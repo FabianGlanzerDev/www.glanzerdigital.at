@@ -12,6 +12,7 @@ export const ALLOWED_ADMIN_UIDS = ['8sXo9V8XkAOPs7kqtx6wQsQsCat1'];
 
 export const ADMIN_ENDPOINTS = {
   analytics: './api/analytics.php',
+  googleAnalytics: './api/google-analytics.php',
   maintenance: './api/maintenance.php',
   searchConsole: './api/search-console.php',
   health: './api/health.php',
@@ -26,6 +27,7 @@ window.GlanzerAdminConfig = { endpoints: ADMIN_ENDPOINTS };
 window.GLANZER_ADMIN_CONFIG = {
   firebaseConfigured: true,
   analyticsEndpoint: ADMIN_ENDPOINTS.analytics,
+  googleAnalyticsEndpoint: ADMIN_ENDPOINTS.googleAnalytics,
   maintenanceEndpoint: ADMIN_ENDPOINTS.maintenance,
   searchConsoleEndpoint: ADMIN_ENDPOINTS.searchConsole,
   searchConsoleConfigured: SEARCH_CONSOLE_CONFIG.configured,

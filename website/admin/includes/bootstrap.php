@@ -27,15 +27,43 @@ function gd_admin_website_path(string $relative = ''): string
 
 function gd_admin_private_path(string $relative = ''): string
 {
-    $root = dirname(__DIR__, 3) . DIRECTORY_SEPARATOR . 'server-private';
+    $documentRoot = rtrim((string) ($_SERVER['DOCUMENT_ROOT'] ?? ''), '/\\');
+    $roots = [dirname(__DIR__, 3) . DIRECTORY_SEPARATOR . 'server-private'];
+
+    if ($documentRoot !== '') {
+        $roots[] = dirname($documentRoot) . DIRECTORY_SEPARATOR . 'server-private';
+    }
+
+    foreach (array_unique($roots) as $root) {
+        if (is_dir($root)) {
+            return $relative === '' ? $root : $root . DIRECTORY_SEPARATOR . ltrim($relative, '/\\');
+        }
+    }
+
+    $root = $roots[0];
     return $relative === '' ? $root : $root . DIRECTORY_SEPARATOR . ltrim($relative, '/\\');
+}
+
+
+function gd_admin_authorization_header(): string
+{
+    foreach (['HTTP_AUTHORIZATION', 'REDIRECT_HTTP_AUTHORIZATION'] as $key) {
+        $value = trim((string) ($_SERVER[$key] ?? ''));
+        if ($value !== '') return $value;
+    }
+
+    if (!function_exists('getallheaders')) return '';
+    foreach ((array) getallheaders() as $name => $value) {
+        if (strcasecmp((string) $name, 'Authorization') === 0) return trim((string) $value);
+    }
+    return '';
 }
 
 
 function gd_admin_bearer_token(): string
 {
-    $header = (string) ($_SERVER['HTTP_AUTHORIZATION'] ?? '');
-    if (!preg_match('/^Bearer\s+(.+)$/i', trim($header), $matches)) return '';
+    $header = gd_admin_authorization_header();
+    if (!preg_match('/^Bearer\s+(.+)$/i', $header, $matches)) return '';
     return trim($matches[1]);
 }
 
@@ -161,14 +189,33 @@ function gd_require_firebase_admin(): array
 function gd_admin_read_analytics(): array
 {
     $path = gd_admin_private_path('data/analytics.json');
-    if (!is_file($path)) return ['days' => [], 'recent_events' => [], 'updated_at' => null];
-    $handle = @fopen($path, 'r');
-    if (!$handle || !flock($handle, LOCK_SH)) return ['days' => [], 'recent_events' => [], 'updated_at' => null];
+    clearstatcache(true, $path);
+
+    if (!is_file($path) || !is_readable($path)) return gd_admin_empty_analytics();
+
+    $raw = gd_admin_read_analytics_file($path);
+    $data = json_decode($raw, true);
+    return is_array($data) ? $data : gd_admin_empty_analytics();
+}
+
+
+function gd_admin_read_analytics_file(string $path): string
+{
+    $handle = @fopen($path, 'rb');
+    if (!$handle) return '';
+
+    $locked = @flock($handle, LOCK_SH);
     $raw = stream_get_contents($handle);
-    flock($handle, LOCK_UN);
+
+    if ($locked) @flock($handle, LOCK_UN);
     fclose($handle);
-    $data = json_decode(is_string($raw) ? $raw : '', true);
-    return is_array($data) ? $data : ['days' => [], 'recent_events' => [], 'updated_at' => null];
+    return is_string($raw) ? $raw : '';
+}
+
+
+function gd_admin_empty_analytics(): array
+{
+    return ['days' => [], 'recent_events' => [], 'updated_at' => null];
 }
 
 

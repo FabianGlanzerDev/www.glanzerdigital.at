@@ -5,6 +5,11 @@ Options -Indexes
 <IfModule mod_rewrite.c>
   RewriteEngine On
 
+  # Authorization-Header für PHP/FastCGI erhalten.
+  # Einige Shared-Hosting-Setups reichen den Bearer-Token sonst nicht an PHP weiter.
+  RewriteCond %{HTTP:Authorization} .
+  RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+
   # HTTPS erzwingen und Hauptdomain ohne www verwenden.
   RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/ [NC]
   RewriteCond %{HTTP_HOST} ^www\.glanzerdigital\.at$ [NC]

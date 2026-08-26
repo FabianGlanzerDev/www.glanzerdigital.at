@@ -90,6 +90,7 @@ function renderHealthChecks(checks = {}) {
   renderBooleanHealth('analyticsFile', checks.analyticsFile, 'Analytics-Datei bereit', 'Analytics-Datei prüfen');
   renderBooleanHealth('openssl', checks.openssl, 'OpenSSL verfügbar', 'OpenSSL fehlt');
   renderBooleanHealth('searchConsole', checks.searchConsole, 'Service-Account vorhanden', 'Service-Account fehlt');
+  renderBooleanHealth('ga4', checks.ga4, 'Property und Service-Account vorhanden', 'GA4-Konfiguration fehlt');
   renderBooleanHealth('sitemap', checks.sitemap, 'Datei vorhanden', 'Datei fehlt');
   renderBooleanHealth('robots', checks.robots, 'Datei vorhanden', 'Datei fehlt');
 }
@@ -108,6 +109,7 @@ async function runHealthCheck() {
 /** Handles refresh click. @returns {void} The operation result. */
 function handleRefreshClick() {
   window.GlanzerAdminAnalytics?.refreshDashboard();
+  window.GlanzerAdminGa4?.refresh();
   window.GlanzerAdminMaintenance?.loadMaintenanceState();
   window.GlanzerAdminSearch?.refresh?.();
   runHealthCheck();

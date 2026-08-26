@@ -17,6 +17,7 @@ gd_admin_json([
         'analyticsFile' => is_file(gd_admin_private_path('data/analytics.json')) && is_writable(gd_admin_private_path('data/analytics.json')),
         'openssl' => function_exists('openssl_verify') && function_exists('openssl_sign'),
         'searchConsole' => $serviceFile !== '' && is_file($serviceFile),
+        'ga4' => $serviceFile !== '' && is_file($serviceFile) && !empty($config['ga4_property_id']),
         'sitemap' => is_file(gd_admin_website_path('sitemap.xml')),
         'robots' => is_file(gd_admin_website_path('robots.txt')),
     ],

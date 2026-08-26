@@ -2,6 +2,11 @@
 
 let selectedRange = '30';
 let lastDashboardData = null;
+let analyticsRefreshTimer = null;
+let analyticsRequestController = null;
+
+const ANALYTICS_REFRESH_INTERVAL = 10000;
+const ANALYTICS_REQUEST_TIMEOUT = 8000;
 
 
 
@@ -22,7 +27,10 @@ function isReady() {
 /** Returns token. @returns {Promise<unknown>} The operation result. */
 async function getToken() {
   if (typeof window.GlanzerAdminAuth?.getIdToken !== 'function') return '';
-  return window.GlanzerAdminAuth.getIdToken();
+  const timeout = new Promise((_, reject) => {
+    window.setTimeout(() => reject(new Error('Firebase-Token Timeout.')), 5000);
+  });
+  return Promise.race([window.GlanzerAdminAuth.getIdToken(), timeout]);
 }
 
 
@@ -230,7 +238,10 @@ function renderSeries(series = []) {
 function showEmptyChart(empty = document.querySelector('.admin-chart-empty')) {
   const line = document.querySelector('[data-chart-line]');
   if (line) line.style.opacity = '0.18';
-  if (empty) empty.hidden = false;
+  if (empty) {
+    empty.textContent = 'Noch keine Statistikdaten im gewählten Zeitraum.';
+    empty.hidden = false;
+  }
 }
 
 
@@ -252,11 +263,16 @@ function renderDashboard(data = {}) {
 
 
 /** Runs the fetch dashboard data operation. @returns {Promise<unknown>} The operation result. */
-async function fetchDashboardData() {
+async function fetchDashboardData(signal) {
   const token = await getToken();
   if (!token) throw new Error('Firebase-ID-Token fehlt.');
-  const endpoint = `${getEndpoint()}?range=${encodeURIComponent(selectedRange)}`;
-  const response = await fetch(endpoint, { headers: { Authorization: `Bearer ${token}` }, cache: 'no-store' });
+  const query = `range=${encodeURIComponent(selectedRange)}&_=${Date.now()}`;
+  const response = await fetch(`${getEndpoint()}?${query}`, {
+    headers: { Authorization: `Bearer ${token}` },
+    credentials: 'same-origin',
+    cache: 'no-store',
+    signal,
+  });
   const data = await response.json().catch(() => ({}));
   if (!response.ok) throw new Error(data.message || 'Analytics konnten nicht geladen werden.');
   return data;
@@ -274,14 +290,27 @@ function rangeLabel() {
 /** Runs the refresh dashboard operation. @returns {Promise<unknown>} The operation result. */
 async function refreshDashboard() {
   if (!isReady()) return setText('[data-chart-state]', 'Anmeldung erforderlich');
+
+  analyticsRequestController?.abort();
+  analyticsRequestController = new AbortController();
+  const controller = analyticsRequestController;
+  const timeoutId = window.setTimeout(() => controller.abort(), ANALYTICS_REQUEST_TIMEOUT);
+
   setText('[data-chart-state]', 'wird geladen …');
+
   try {
-    renderDashboard(await fetchDashboardData());
+    const data = await fetchDashboardData(controller.signal);
+    if (controller !== analyticsRequestController) return;
+    renderDashboard(data);
     setText('[data-chart-state]', rangeLabel());
-    window.GlanzerAdminUi?.setSystemState('analyticsApi', 'is-ok', 'Token geprüft / Daten geladen');
+    window.GlanzerAdminUi?.setSystemState('analyticsApi', 'is-ok', 'Daten live verbunden');
   } catch (error) {
+    if (error?.name === 'AbortError') return;
     setText('[data-chart-state]', error.message || 'Fehler');
     window.GlanzerAdminUi?.setSystemState('analyticsApi', 'is-pending', error.message || 'API nicht erreichbar');
+  } finally {
+    window.clearTimeout(timeoutId);
+    if (controller === analyticsRequestController) analyticsRequestController = null;
   }
 }
 
@@ -297,7 +326,30 @@ function setRange(range) {
 
 /** Initializes analytics panel. @returns {void} The operation result. */
 function initializeAnalyticsPanel() {
-  if (isReady()) refreshDashboard();
+  if (!isReady()) return;
+  refreshDashboard();
+  startAnalyticsPolling();
+}
+
+
+function startAnalyticsPolling() {
+  if (analyticsRefreshTimer) return;
+  analyticsRefreshTimer = window.setInterval(() => {
+    if (!document.hidden && isReady()) refreshDashboard();
+  }, ANALYTICS_REFRESH_INTERVAL);
+}
+
+
+function stopAnalyticsPolling() {
+  if (analyticsRefreshTimer) window.clearInterval(analyticsRefreshTimer);
+  analyticsRefreshTimer = null;
+  analyticsRequestController?.abort();
+  analyticsRequestController = null;
+}
+
+
+function handleAnalyticsVisibility() {
+  if (!document.hidden && isReady()) refreshDashboard();
 }
 
 
@@ -316,4 +368,37 @@ function exportAnalytics() {
 }
 
 
+let analyticsBootstrapTimer = null;
+
+
+function bootstrapAnalyticsPanel() {
+  if (isReady()) {
+    if (analyticsBootstrapTimer) window.clearInterval(analyticsBootstrapTimer);
+    analyticsBootstrapTimer = null;
+    initializeAnalyticsPanel();
+    return;
+  }
+
+  if (analyticsBootstrapTimer) return;
+  analyticsBootstrapTimer = window.setInterval(() => {
+    if (!isReady()) return;
+    window.clearInterval(analyticsBootstrapTimer);
+    analyticsBootstrapTimer = null;
+    initializeAnalyticsPanel();
+  }, 500);
+}
+
+
+function handleAnalyticsSignedOut() {
+  stopAnalyticsPolling();
+  if (analyticsBootstrapTimer) window.clearInterval(analyticsBootstrapTimer);
+  analyticsBootstrapTimer = null;
+}
+
+
+document.addEventListener('glanzer:auth-ready', bootstrapAnalyticsPanel);
+document.addEventListener('glanzer:auth-signed-out', handleAnalyticsSignedOut);
+document.addEventListener('visibilitychange', handleAnalyticsVisibility);
+
 window.GlanzerAdminAnalytics = { exportAnalytics, initializeAnalyticsPanel, refreshDashboard, setRange };
+bootstrapAnalyticsPanel();
