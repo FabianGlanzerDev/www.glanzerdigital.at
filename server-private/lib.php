@@ -3,122 +3,93 @@ declare(strict_types=1);
 
 date_default_timezone_set('Europe/Vienna');
 
-const GD_ANALYTICS_RETENTION_DAYS = 365;
-const GD_ALLOWED_EVENTS = ['page_view', 'demo_click', 'contact_click', 'github_click', 'portfolio_click', 'cta_click'];
+const GD_ANALYTICS_EVENTS = [
+    'page_view', 'demo_click', 'contact_click', 'github_click', 'portfolio_click', 'cta_click'
+];
 
 
-function gd_track_event(array $payload): bool
+function gd_private_config(): array
 {
-    $event = gd_clean_event((string) ($payload['event'] ?? ''));
-    if ($event === '') return false;
-    $data = gd_read_analytics_locked($handle);
-    gd_apply_event($data, $payload, $event);
-    gd_prune_analytics($data);
-    return gd_write_analytics_locked($handle, $data);
-}
-
-
-function gd_clean_event(string $event): string
-{
-    return in_array($event, GD_ALLOWED_EVENTS, true) ? $event : '';
+    static $config;
+    if (is_array($config)) return $config;
+    $loaded = require __DIR__ . '/config.php';
+    $config = is_array($loaded) ? $loaded : [];
+    return $config;
 }
 
 
 function gd_analytics_path(): string
 {
-    $dir = __DIR__ . DIRECTORY_SEPARATOR . 'data';
-    if (!is_dir($dir)) @mkdir($dir, 0750, true);
-    return $dir . DIRECTORY_SEPARATOR . 'analytics.json';
+    return __DIR__ . '/data/analytics.json';
 }
 
 
-function gd_read_analytics_locked(&$handle): array
-{
-    $path = gd_analytics_path();
-    $handle = fopen($path, 'c+');
-    if (!$handle) return gd_empty_analytics();
-    if (!flock($handle, LOCK_EX)) { fclose($handle); $handle = null; return gd_empty_analytics(); }
-    rewind($handle);
-    $raw = stream_get_contents($handle);
-    $data = json_decode(is_string($raw) ? $raw : '', true);
-    return is_array($data) ? $data : gd_empty_analytics();
-}
-
-
-function gd_empty_analytics(): array
+function gd_default_analytics(): array
 {
     return ['days' => [], 'recent_events' => [], 'updated_at' => null];
 }
 
 
-function gd_write_analytics_locked($handle, array $data): bool
+function gd_sanitize_path(mixed $value): string
 {
-    if (!is_resource($handle)) return false;
-    rewind($handle);
-    ftruncate($handle, 0);
-    $written = fwrite($handle, json_encode($data, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES));
-    fflush($handle);
-    flock($handle, LOCK_UN);
-    fclose($handle);
-    return $written !== false;
+    $path = '/' . ltrim((string) $value, '/');
+    $path = preg_replace('~/{2,}~', '/', $path) ?: '/';
+    if (strlen($path) > 180) $path = substr($path, 0, 180);
+    return preg_match('~^[A-Za-z0-9/_\-.%]+$~', $path) ? $path : '/';
 }
 
 
-function gd_apply_event(array &$data, array $payload, string $event): void
+function gd_sanitize_label(mixed $value): string
 {
-    $date = date('Y-m-d');
-    $day = is_array($data['days'][$date] ?? null) ? $data['days'][$date] : gd_empty_day();
-    gd_increment($day['events'], $event);
-    if ($event === 'page_view') $day['page_views']++;
-    gd_apply_dimensions($day, $payload, $event);
-    $data['days'][$date] = $day;
-    $data['updated_at'] = date('c');
-    gd_add_recent_event($data);
+    $label = trim(preg_replace('/\s+/u', ' ', (string) $value) ?: '');
+    $label = preg_replace('/[^\p{L}\p{N}\s._+&\-\/]/u', '', $label) ?: '';
+    return function_exists('mb_substr') ? mb_substr($label, 0, 60, 'UTF-8') : substr($label, 0, 60);
 }
 
 
-function gd_empty_day(): array
+function gd_sanitize_referrer(mixed $value): string
 {
-    return [
-        'page_views' => 0, 'events' => [], 'pages' => [], 'devices' => [],
-        'browsers' => [], 'operating_systems' => [], 'screens' => [], 'hours' => [],
-        'landing_pages' => [], 'referrers' => [], 'sources' => [], 'demos' => [],
-        'portfolio' => [], 'ctas' => [], 'contacts' => [],
-    ];
+    $host = strtolower(trim((string) $value));
+    $host = preg_replace('/^www\./', '', $host) ?: '';
+    if ($host === '' || strlen($host) > 120) return '';
+    return preg_match('/^[a-z0-9.-]+$/', $host) ? $host : '';
 }
 
 
-function gd_apply_dimensions(array &$day, array $payload, string $event): void
+function gd_is_internal_referrer(string $host): bool
 {
-    $page = gd_clean_path((string) ($payload['page'] ?? '/'));
-    $device = gd_allowed_value((string) ($payload['device'] ?? ''), ['desktop', 'tablet', 'mobile']);
-    $screen = gd_allowed_value((string) ($payload['screen'] ?? ''), ['<400 px', '400–767 px', '768–1023 px', '1024–1439 px', '1440+ px']);
-    $referrer = gd_clean_host((string) ($payload['referrer'] ?? ''));
-    $label = gd_clean_label((string) ($payload['label'] ?? ''));
-    gd_increment($day['pages'], $page);
-    if ($device !== '') gd_increment($day['devices'], $device);
-    if ($screen !== '') gd_increment($day['screens'], $screen);
-    gd_increment($day['browsers'], gd_browser_family());
-    gd_increment($day['operating_systems'], gd_os_family());
-    gd_increment($day['hours'], date('H'));
-    if ($event === 'page_view') gd_apply_entry_dimensions($day, $page, $referrer);
-    gd_apply_event_label($day, $event, $label);
+    return $host === 'glanzerdigital.at' || str_ends_with($host, '.glanzerdigital.at');
 }
 
 
-function gd_apply_entry_dimensions(array &$day, string $page, string $referrer): void
+function gd_source_for_referrer(string $host): string
 {
-    gd_increment($day['landing_pages'], $page);
-    if ($referrer !== '' && !gd_is_internal_host($referrer)) gd_increment($day['referrers'], $referrer);
-    gd_increment($day['sources'], gd_source_from_referrer($referrer));
+    if ($host === '') return 'Direkt';
+    if (preg_match('/(^|\.)google\./', $host)) return 'Google';
+    if (preg_match('/(^|\.)(instagram|facebook|fb|linkedin|tiktok|x|twitter)\./', $host)) return 'Social';
+    return 'Sonstige';
 }
 
 
-function gd_apply_event_label(array &$day, string $event, string $label): void
+function gd_browser_family(string $agent): string
 {
-    if ($label === '') return;
-    $map = ['demo_click' => 'demos', 'portfolio_click' => 'portfolio', 'cta_click' => 'ctas', 'contact_click' => 'contacts'];
-    if (isset($map[$event])) gd_increment($day[$map[$event]], $label);
+    if (stripos($agent, 'Edg/') !== false) return 'Edge';
+    if (stripos($agent, 'OPR/') !== false || stripos($agent, 'Opera') !== false) return 'Opera';
+    if (stripos($agent, 'Firefox/') !== false) return 'Firefox';
+    if (stripos($agent, 'Chrome/') !== false || stripos($agent, 'CriOS/') !== false) return 'Chrome';
+    if (stripos($agent, 'Safari/') !== false) return 'Safari';
+    return 'Sonstige';
+}
+
+
+function gd_os_family(string $agent): string
+{
+    if (stripos($agent, 'Windows') !== false) return 'Windows';
+    if (stripos($agent, 'Android') !== false) return 'Android';
+    if (preg_match('/iPhone|iPad|iPod/i', $agent)) return 'iOS / iPadOS';
+    if (stripos($agent, 'Mac OS X') !== false) return 'macOS';
+    if (stripos($agent, 'Linux') !== false) return 'Linux';
+    return 'Sonstige';
 }
 
 
@@ -129,95 +100,160 @@ function gd_increment(array &$bucket, string $key): void
 }
 
 
-function gd_clean_path(string $path): string
+function gd_day_template(): array
 {
-    $path = (string) (parse_url($path, PHP_URL_PATH) ?: '/');
-    if (!str_starts_with($path, '/')) $path = '/' . $path;
-    return gd_limit_text(preg_replace('~[^a-zA-Z0-9/_\-.]~', '', $path) ?: '/', 180);
+    $keys = ['events', 'pages', 'devices', 'browsers', 'operating_systems', 'screens', 'hours'];
+    $keys = array_merge($keys, ['landing_pages', 'referrers', 'sources', 'demos', 'portfolio', 'ctas', 'contacts']);
+    $day = ['page_views' => 0];
+    foreach ($keys as $key) $day[$key] = [];
+    return $day;
 }
 
 
-function gd_clean_host(string $host): string
+function gd_prepare_day(array $day): array
 {
-    $host = strtolower(trim($host));
-    if (!preg_match('/^(?:[a-z0-9-]+\.)*[a-z0-9-]+$/', $host)) return '';
-    return gd_limit_text($host, 120);
-}
-
-
-function gd_clean_label(string $label): string
-{
-    $label = trim(preg_replace('/\s+/u', ' ', strip_tags($label)) ?? '');
-    return gd_limit_text($label, 60);
-}
-
-
-function gd_limit_text(string $value, int $length): string
-{
-    return function_exists('mb_substr') ? mb_substr($value, 0, $length) : substr($value, 0, $length);
-}
-
-
-function gd_allowed_value(string $value, array $allowed): string
-{
-    return in_array($value, $allowed, true) ? $value : '';
-}
-
-
-function gd_is_internal_host(string $host): bool
-{
-    return $host === 'glanzerdigital.at' || str_ends_with($host, '.glanzerdigital.at');
-}
-
-
-function gd_source_from_referrer(string $host): string
-{
-    if ($host === '' || gd_is_internal_host($host)) return 'Direkt';
-    if (str_contains($host, 'google.')) return 'Google';
-    foreach (['linkedin.com', 'instagram.com', 'facebook.com', 'tiktok.com', 'x.com', 'twitter.com'] as $social) {
-        if ($host === $social || str_ends_with($host, '.' . $social)) return 'Social';
+    $template = gd_day_template();
+    foreach ($template as $key => $value) {
+        if (!array_key_exists($key, $day) || !is_array($day[$key]) && is_array($value)) $day[$key] = $value;
     }
-    return 'Sonstige';
+    $day['page_views'] = (int) ($day['page_views'] ?? 0);
+    return $day;
 }
 
 
-function gd_browser_family(): string
+function gd_record_page_view(array &$day, array $event): void
 {
-    $ua = strtolower((string) ($_SERVER['HTTP_USER_AGENT'] ?? ''));
-    if (str_contains($ua, 'edg/')) return 'Edge';
-    if (str_contains($ua, 'firefox/')) return 'Firefox';
-    if (str_contains($ua, 'chrome/') || str_contains($ua, 'crios/')) return 'Chrome';
-    if (str_contains($ua, 'safari/') && !str_contains($ua, 'chrome/')) return 'Safari';
-    return 'Sonstige';
+    $day['page_views']++;
+    gd_increment($day['pages'], $event['page']);
+    gd_increment($day['devices'], $event['device']);
+    gd_increment($day['browsers'], $event['browser']);
+    gd_increment($day['operating_systems'], $event['os']);
+    gd_increment($day['screens'], $event['screen']);
+    gd_increment($day['hours'], $event['hour']);
+    gd_record_entry($day, $event);
 }
 
 
-function gd_os_family(): string
+function gd_record_entry(array &$day, array $event): void
 {
-    $ua = strtolower((string) ($_SERVER['HTTP_USER_AGENT'] ?? ''));
-    if (str_contains($ua, 'windows')) return 'Windows';
-    if (str_contains($ua, 'android')) return 'Android';
-    if (str_contains($ua, 'iphone') || str_contains($ua, 'ipad')) return 'iOS / iPadOS';
-    if (str_contains($ua, 'mac os') || str_contains($ua, 'macintosh')) return 'macOS';
-    if (str_contains($ua, 'linux')) return 'Linux';
-    return 'Sonstige';
+    if (gd_is_internal_referrer($event['referrer'])) return;
+    gd_increment($day['landing_pages'], $event['page']);
+    gd_increment($day['sources'], gd_source_for_referrer($event['referrer']));
+    if ($event['referrer'] !== '') gd_increment($day['referrers'], $event['referrer']);
 }
 
 
-function gd_add_recent_event(array &$data): void
+function gd_record_labeled_event(array &$day, array $event): void
 {
-    $recent = is_array($data['recent_events'] ?? null) ? $data['recent_events'] : [];
-    $recent[] = time();
-    $cutoff = time() - 600;
-    $data['recent_events'] = array_values(array_filter($recent, static fn($stamp): bool => (int) $stamp >= $cutoff));
+    $map = ['demo_click' => 'demos', 'portfolio_click' => 'portfolio', 'cta_click' => 'ctas', 'contact_click' => 'contacts'];
+    $bucket = $map[$event['name']] ?? '';
+    if ($bucket !== '') gd_increment($day[$bucket], $event['label'] ?: 'Unbekannt');
+}
+
+
+function gd_build_event(array $payload): ?array
+{
+    $name = strtolower(trim((string) ($payload['event'] ?? '')));
+    if (!in_array($name, GD_ANALYTICS_EVENTS, true)) return null;
+    return gd_complete_event($payload, $name);
+}
+
+
+function gd_complete_event(array $payload, string $name): array
+{
+    $agent = (string) ($_SERVER['HTTP_USER_AGENT'] ?? '');
+    return [
+        'name' => $name, 'page' => gd_sanitize_path($payload['page'] ?? '/'),
+        'device' => gd_device_value($payload['device'] ?? ''), 'screen' => gd_screen_value($payload['screen'] ?? ''),
+        'referrer' => gd_sanitize_referrer($payload['referrer'] ?? ''), 'label' => gd_sanitize_label($payload['label'] ?? ''),
+        'browser' => gd_browser_family($agent), 'os' => gd_os_family($agent), 'hour' => date('H'),
+    ];
+}
+
+
+function gd_device_value(mixed $value): string
+{
+    $value = strtolower((string) $value);
+    return in_array($value, ['desktop', 'tablet', 'mobile'], true) ? $value : 'unknown';
+}
+
+
+function gd_screen_value(mixed $value): string
+{
+    $allowed = ['<400 px', '400–767 px', '768–1023 px', '1024–1439 px', '1440+ px'];
+    $value = (string) $value;
+    return in_array($value, $allowed, true) ? $value : 'Unbekannt';
 }
 
 
 function gd_prune_analytics(array &$data): void
 {
-    $cutoff = strtotime('-' . GD_ANALYTICS_RETENTION_DAYS . ' days');
-    foreach ((array) ($data['days'] ?? []) as $date => $_day) {
-        $stamp = strtotime((string) $date);
-        if ($stamp && $stamp < $cutoff) unset($data['days'][$date]);
-    }
+    $retention = max(1, (int) (gd_private_config()['analytics_retention_days'] ?? 365));
+    $cutoff = date('Y-m-d', strtotime('-' . ($retention - 1) . ' days'));
+    foreach (array_keys((array) ($data['days'] ?? [])) as $date) if ($date < $cutoff) unset($data['days'][$date]);
+    $recentCutoff = time() - 3600;
+    $data['recent_events'] = array_values(array_filter((array) ($data['recent_events'] ?? []), static fn($stamp): bool => (int) $stamp >= $recentCutoff));
+}
+
+
+function gd_apply_event(array &$data, array $event): void
+{
+    $date = date('Y-m-d');
+    $day = gd_prepare_day((array) ($data['days'][$date] ?? []));
+    gd_increment($day['events'], $event['name']);
+    if ($event['name'] === 'page_view') gd_record_page_view($day, $event);
+    else gd_record_labeled_event($day, $event);
+    $data['days'][$date] = $day;
+    $data['recent_events'][] = time();
+    $data['updated_at'] = date(DATE_ATOM);
+}
+
+
+function gd_read_locked_file($handle): array
+{
+    rewind($handle);
+    $raw = stream_get_contents($handle);
+    $decoded = is_string($raw) && $raw !== '' ? json_decode($raw, true) : null;
+    return is_array($decoded) ? $decoded : gd_default_analytics();
+}
+
+
+function gd_write_locked_file($handle, array $data): bool
+{
+    $json = json_encode($data, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT);
+    if (!is_string($json)) return false;
+    rewind($handle);
+    if (!ftruncate($handle, 0)) return false;
+    return fwrite($handle, $json . PHP_EOL) !== false && fflush($handle);
+}
+
+
+function gd_track_event(array $payload): bool
+{
+    $event = gd_build_event($payload);
+    if ($event === null || !gd_ensure_analytics_storage()) return false;
+    $handle = @fopen(gd_analytics_path(), 'c+');
+    if (!$handle || !flock($handle, LOCK_EX)) return false;
+    return gd_store_event($handle, $event);
+}
+
+
+function gd_store_event($handle, array $event): bool
+{
+    $data = gd_read_locked_file($handle);
+    gd_apply_event($data, $event);
+    gd_prune_analytics($data);
+    $ok = gd_write_locked_file($handle, $data);
+    flock($handle, LOCK_UN);
+    fclose($handle);
+    return $ok;
+}
+
+
+function gd_ensure_analytics_storage(): bool
+{
+    $dir = dirname(gd_analytics_path());
+    if (!is_dir($dir) && !@mkdir($dir, 0750, true)) return false;
+    if (is_file(gd_analytics_path())) return is_writable(gd_analytics_path());
+    return @file_put_contents(gd_analytics_path(), json_encode(gd_default_analytics()), LOCK_EX) !== false;
 }
