@@ -39,6 +39,14 @@ function escapeSearchHtml(value) {
 }
 
 
+function createSearchQueryRow(row = {}) {
+  const query = escapeSearchHtml(row.query || '–');
+  const ctr = formatSearchPercent(row.ctr);
+  const position = Number(row.position)?.toFixed?.(1)?.replace('.', ',') || '–';
+  return `<tr><td>${query}</td><td>${formatSearchNumber(row.clicks)}</td><td>${formatSearchNumber(row.impressions)}</td><td>${ctr}</td><td>${position}</td></tr>`;
+}
+
+
 function renderSearchQueries(rows = []) {
   const body = document.querySelector('[data-search-queries]');
   if (!body) return;
@@ -46,13 +54,9 @@ function renderSearchQueries(rows = []) {
 }
 
 
-function createSearchQueryRow(row = {}) {
-  const query = escapeSearchHtml(row.query || '–');
-  const clicks = formatSearchNumber(row.clicks);
-  const impressions = formatSearchNumber(row.impressions);
-  const ctr = formatSearchPercent(row.ctr);
-  const position = Number(row.position)?.toFixed?.(1)?.replace('.', ',') || '–';
-  return `<tr><td>${query}</td><td>${clicks}</td><td>${impressions}</td><td>${ctr}</td><td>${position}</td></tr>`;
+function createSearchRankingItem(row = {}) {
+  const label = escapeSearchHtml(row.label || row.name || '–');
+  return `<li><span>${label}</span><strong>${formatSearchNumber(row.clicks ?? row.value)}</strong></li>`;
 }
 
 
@@ -63,9 +67,10 @@ function renderSearchRanking(name, rows = []) {
 }
 
 
-function createSearchRankingItem(row = {}) {
-  const label = escapeSearchHtml(row.label || row.name || '–');
-  return `<li><span>${label}</span><strong>${formatSearchNumber(row.clicks ?? row.value)}</strong></li>`;
+function renderSearchOpportunity(item = {}) {
+  setSearchText('[data-search-opportunity]', item.query || '–');
+  const fallback = 'Noch keine Suchanfrage mit ausreichend Daten für eine klare SEO-Chance.';
+  setSearchText('[data-search-opportunity-copy]', item.description || fallback);
 }
 
 
@@ -79,17 +84,12 @@ function renderSearchConsole(data = {}) {
 }
 
 
-function renderSearchOpportunity(item = {}) {
-  setSearchText('[data-search-opportunity]', item.query || '–');
-  const copy = item.description || 'Später erscheint hier automatisch eine Suchanfrage mit vielen Impressionen und Verbesserungspotenzial.';
-  setSearchText('[data-search-opportunity-copy]', copy);
-}
-
-
-function renderSearchPending() {
-  const config = getSearchConfig();
-  setSearchText('[data-search-console-property]', config.searchConsoleProperty || 'noch offen');
-  setSearchText('[data-search-console-state]', 'Domain noch nicht verbunden');
+function setSearchState(text, ok = false) {
+  const state = document.querySelector('[data-search-console-state]');
+  if (!state) return;
+  state.textContent = text;
+  state.classList.toggle('is-pending', !ok);
+  state.classList.toggle('is-ok', ok);
 }
 
 
@@ -102,20 +102,33 @@ async function getSearchToken() {
 async function fetchSearchConsoleData() {
   const token = await getSearchToken();
   const endpoint = getSearchConfig().searchConsoleEndpoint;
-  const headers = token ? { Authorization: `Bearer ${token}` } : {};
-  const response = await fetch(endpoint, { headers, cache: 'no-store' });
-  if (!response.ok) throw new Error('Search Console noch nicht verbunden.');
-  return response.json();
+  const response = await fetch(endpoint, { headers: { Authorization: `Bearer ${token}` }, cache: 'no-store' });
+  const data = await response.json().catch(() => ({}));
+  if (!response.ok) throw new Error(data.message || 'Search Console konnte nicht geladen werden.');
+  return data;
+}
+
+
+function renderSearchError(message) {
+  setSearchState(message || 'Nicht verbunden');
+  window.GlanzerAdminUi?.setSystemState('searchConsole', 'is-pending', message || 'Nicht verbunden');
 }
 
 
 async function initializeSearchConsole() {
   const config = getSearchConfig();
-  if (!config.searchConsoleConfigured) return renderSearchPending();
-  try { renderSearchConsole(await fetchSearchConsoleData()); setSearchText('[data-search-console-state]', 'Verbunden'); }
-  catch { renderSearchPending(); }
+  setSearchText('[data-search-console-property]', config.searchConsoleProperty || 'nicht konfiguriert');
+  if (!config.searchConsoleConfigured) return renderSearchError('Property nicht konfiguriert');
+  setSearchState('wird geladen …');
+  try {
+    renderSearchConsole(await fetchSearchConsoleData());
+    setSearchState('Verbunden', true);
+    window.GlanzerAdminUi?.setSystemState('searchConsole', 'is-ok', 'Google-Daten geladen');
+  } catch (error) { renderSearchError(error.message); }
 }
 
+
+window.GlanzerAdminSearch = { refresh: initializeSearchConsole };
 
 document.addEventListener('glanzer:auth-ready', initializeSearchConsole);
 if (window.GlanzerAdminAuth?.isAuthenticated()) initializeSearchConsole();

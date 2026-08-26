@@ -128,17 +128,19 @@ function dispatchAuthEvent(name, detail = {}) {
 }
 
 
+async function rejectUnauthorizedAdmin() {
+  setAuthMessage('Dieser Firebase-Nutzer besitzt keinen Adminzugang.', 'error');
+  await signOut(auth);
+}
+
+
 async function handleAuthState(user) {
   if (!user) {
     currentAdmin = null;
     showLogin();
     return dispatchAuthEvent('glanzer:auth-signed-out');
   }
-  if (!isAllowedAdmin(user)) {
-    setAuthMessage('Dieser Firebase-Nutzer besitzt keinen Adminzugang.', 'error');
-    await signOut(auth);
-    return;
-  }
+  if (!isAllowedAdmin(user)) return rejectUnauthorizedAdmin();
   currentAdmin = user;
   showDashboard(user);
   dispatchAuthEvent('glanzer:auth-ready', { uid: user.uid, email: user.email || '' });

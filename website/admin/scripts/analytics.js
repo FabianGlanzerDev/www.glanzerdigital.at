@@ -45,12 +45,29 @@ function formatPercent(value) {
 }
 
 
+function formatDelta(value) {
+  const number = Number(value);
+  if (!Number.isFinite(number)) return 'kein Vergleich';
+  const prefix = number > 0 ? '+' : '';
+  return `${prefix}${number.toFixed(1).replace('.', ',')} %`;
+}
+
+
+function renderComparisons(summary = {}) {
+  const map = { today: 'todayDelta', yesterday: 'yesterdayDelta', week: 'weekDelta', month: 'monthDelta' };
+  Object.entries(map).forEach(([name, key]) => setText(`[data-delta="${name}"]`, formatDelta(summary[key])));
+  setText('[data-ratio="demos"]', `${formatPercent(summary.demosRate)} der Aufrufe`);
+  setText('[data-ratio="contact"]', `${formatPercent(summary.contactRate)} der Aufrufe`);
+}
+
+
 function renderSummary(summary = {}) {
   ['today', 'yesterday', 'week', 'month', 'total', 'demos', 'contact', 'github', 'activeNow'].forEach((key) => {
     setStat(key, formatNumber(summary[key]));
   });
   setStat('conversion', formatPercent(summary.conversion));
   setStat('contactRate', formatPercent(summary.contactRate));
+  renderComparisons(summary);
 }
 
 

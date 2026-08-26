@@ -14,10 +14,11 @@ export const ADMIN_ENDPOINTS = {
   analytics: './api/analytics.php',
   maintenance: './api/maintenance.php',
   searchConsole: './api/search-console.php',
+  health: './api/health.php',
 };
 
 export const SEARCH_CONSOLE_CONFIG = {
-  configured: false,
+  configured: true,
   property: 'sc-domain:glanzerdigital.at',
 };
 

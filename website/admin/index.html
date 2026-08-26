@@ -218,18 +218,18 @@
 <span class="admin-kicker">Google Search Console</span>
 <h2 id="search-console-title">So wirst du bei Google gefunden</h2>
 </div>
-<span class="admin-integration-state is-pending" data-search-console-state="">Domain noch nicht verbunden</span>
+<span class="admin-integration-state is-pending" data-search-console-state="">Verbindung wird geprüft</span>
 </div>
 <article class="admin-integration-banner">
 <div aria-hidden="true" class="admin-integration-icon">G</div>
 <div>
-<span class="admin-eyebrow">Vorbereitet</span>
-<h3>Search-Console-Auswertung wartet auf deine Domain</h3>
-<p>Sobald glanzerdigital.at in der Google Search Console eingerichtet ist, können hier echte Suchanfragen, Klicks, Impressionen, CTR, Positionen, Länder, Geräte und Zielseiten angezeigt werden.</p>
+<span class="admin-eyebrow">Google-Daten</span>
+<h3>Search Console direkt im Control Center</h3>
+<p>Die serverseitige API-Anbindung ist eingerichtet. Sobald der Google-Service-Account Zugriff auf die Property hat, werden hier echte Suchanfragen, Klicks, Impressionen, CTR, Positionen, Länder, Geräte und Zielseiten geladen.</p>
 </div>
 <div class="admin-integration-meta">
 <span>Property</span>
-<strong data-search-console-property="">noch offen</strong>
+<strong data-search-console-property="">sc-domain:glanzerdigital.at</strong>
 </div>
 </article>
 <div class="admin-kpi-grid admin-search-kpis">
@@ -262,17 +262,17 @@
 <article class="admin-panel admin-search-opportunity"><span class="admin-eyebrow">SEO-Spielerei</span><h3>Beste Chance</h3><strong data-search-opportunity="">–</strong><p data-search-opportunity-copy="">Später erscheint hier automatisch eine Suchanfrage mit vielen Impressionen und Verbesserungspotenzial.</p></article>
 </div>
 <div class="admin-search-note">
-<strong>Noch nichts einzurichten.</strong> Die Oberfläche und Datenplätze sind bereits vorbereitet. Später tragen wir nur die Search-Console-Property ein und verbinden die API serverseitig – der Adminbereich muss dafür nicht neu aufgebaut werden.
+<strong>API fertig eingebaut.</strong> Fehlt der Service-Account oder dessen Search-Console-Berechtigung, zeigt der Status oben die konkrete Ursache an.
       </div>
 </section>
 <section aria-labelledby="maintenance-title" class="admin-section" id="maintenance">
 <div class="admin-section-heading"><div><span class="admin-kicker">Website-Steuerung</span><h2 id="maintenance-title">Wartungsmodus</h2></div></div>
-<article class="admin-maintenance-card is-locked">
+<article class="admin-maintenance-card">
 <div class="admin-maintenance-visual"><span></span><span></span><span></span></div>
 <div>
-<span class="admin-maintenance-label">Vorbereitet</span>
+<span class="admin-maintenance-label">Live-Steuerung</span>
 <h3>Website kontrolliert offline schalten</h3>
-<p>Nach der Anmeldung lässt sich die öffentliche Website hier per geschützter API auf HTTP 503 setzen. Admin und notwendige APIs bleiben erreichbar.</p>
+<p>Die öffentliche Website lässt sich hier über die geschützte Admin-API auf HTTP 503 setzen. Adminbereich und notwendige Tracking-API bleiben weiterhin erreichbar.</p>
 </div>
 <div class="admin-maintenance-actions">
 <span class="admin-maintenance-state">Aktueller Status: <strong data-maintenance-state="">nicht verfügbar</strong></span>
@@ -289,9 +289,12 @@
 <article class="admin-status-card is-pending" data-system="token"><span aria-hidden="true" class="admin-status-dot"></span><div><strong>ID-Token</strong><small>Anmeldung erforderlich</small></div></article>
 <article class="admin-status-card is-pending" data-system="analyticsApi"><span aria-hidden="true" class="admin-status-dot"></span><div><strong>Analytics API</strong><small>Geschützt / gesperrt</small></div></article>
 <article class="admin-status-card is-pending" data-system="maintenanceApi"><span aria-hidden="true" class="admin-status-dot"></span><div><strong>Wartungsmodus</strong><small>Gesperrt</small></div></article>
-<article class="admin-status-card is-pending"><span aria-hidden="true" class="admin-status-dot"></span><div><strong>Search Console</strong><small>Vorbereitet / Domain fehlt</small></div></article>
-<article class="admin-status-card"><span aria-hidden="true" class="admin-status-dot is-info"></span><div><strong>Sitemap</strong><small data-health="sitemap">prüfen …</small></div></article>
-<article class="admin-status-card"><span aria-hidden="true" class="admin-status-dot is-info"></span><div><strong>robots.txt</strong><small data-health="robots">prüfen …</small></div></article>
+<article class="admin-status-card is-pending" data-system="privateStorage"><span aria-hidden="true" class="admin-status-dot"></span><div><strong>Privater Speicher</strong><small>wird geprüft</small></div></article>
+<article class="admin-status-card is-pending" data-system="analyticsFile"><span aria-hidden="true" class="admin-status-dot"></span><div><strong>Analytics-Speicher</strong><small>wird geprüft</small></div></article>
+<article class="admin-status-card is-pending" data-system="openssl"><span aria-hidden="true" class="admin-status-dot"></span><div><strong>OpenSSL</strong><small>wird geprüft</small></div></article>
+<article class="admin-status-card is-pending" data-system="searchConsole"><span aria-hidden="true" class="admin-status-dot"></span><div><strong>Search Console</strong><small>wird geprüft</small></div></article>
+<article class="admin-status-card is-pending" data-system="sitemap"><span aria-hidden="true" class="admin-status-dot"></span><div><strong>Sitemap</strong><small>wird geprüft</small></div></article>
+<article class="admin-status-card is-pending" data-system="robots"><span aria-hidden="true" class="admin-status-dot"></span><div><strong>robots.txt</strong><small>wird geprüft</small></div></article>
 </div>
 <div class="admin-system-actions">
 <button class="admin-secondary-button" data-action="check-health" type="button">Systemcheck starten</button>
