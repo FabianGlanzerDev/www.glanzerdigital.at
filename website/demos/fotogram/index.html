@@ -1,64 +1,50 @@
 <!DOCTYPE html>
+
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="robots" content="noindex,nofollow">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fotogram</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="styles/style.css">
-    <link rel="icon" type="image/x-icon" href="./assets/images/favicon.png">
-</head>
-
-<body onload="render()">
-    <header class="header">
-        <img class="fotogram_logo" src="./assets/images/fotogram_logo.png" alt="Logo DA">
-    </header>
-
-    <main class="main">
-        <h1>Your personal photo album</h1>
-
-        <section class="gallery" id="gallery"></section>
-
-        <div class="lightbox" id="lightbox">
-            <div class="lightbox-modal" role="dialog" aria-modal="true" aria-labelledby="lightbox-title"
-                aria-describedby="lightbox-counter" tabindex="-1">
-                <div class="lightbox-header">
-                    <span class="lightbox-title" id="lightbox-title">Bildname</span>
-
-                    <button id="close-btn" class="close" type="button" aria-label="Lightbox schließen">
-                        &times;
+<meta charset="utf-8"/>
+<meta content="noindex,nofollow" name="robots"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Fotogram</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&amp;display=swap" rel="stylesheet"/>
+<link href="styles/style.css" rel="stylesheet"/>
+<link href="./assets/images/favicon.png" rel="icon" type="image/x-icon"/>
+<link href="../_shared/portfolio-back.css" rel="stylesheet"/></head>
+<body onload="render()"><a aria-label="Zurück zum Portfolio" class="gd-back-to-portfolio" href="../../subpages/portfolio.html">← Zurück zum Portfolio</a>
+<header class="header">
+<img alt="Logo DA" class="fotogram_logo" src="./assets/images/fotogram_logo.png"/>
+</header>
+<main class="main">
+<h1>Your personal photo album</h1>
+<section class="gallery" id="gallery"></section>
+<div class="lightbox" id="lightbox">
+<div aria-describedby="lightbox-counter" aria-labelledby="lightbox-title" aria-modal="true" class="lightbox-modal" role="dialog" tabindex="-1">
+<div class="lightbox-header">
+<span class="lightbox-title" id="lightbox-title">Bildname</span>
+<button aria-label="Lightbox schließen" class="close" id="close-btn" type="button">
+                        ×
                     </button>
-
-
-                </div>
-
-                <img class="lightbox-img" id="lightbox-img" alt="Alle Bilder" />
-
-                <div class="lightbox-footer" aria-label="Bildnavigation">
-                    <button class="prev" type="button" aria-label="Vorheriges Bild">
-                        <img src="./assets/images/pfeil_links_zurueck.png" alt="Bild Weiterschalten nach Links" />
-                    </button>
-
-                    <span class="lightbox-counter" id="lightbox-counter" aria-live="polite">
+</div>
+<img alt="Alle Bilder" class="lightbox-img" id="lightbox-img">
+<div aria-label="Bildnavigation" class="lightbox-footer">
+<button aria-label="Vorheriges Bild" class="prev" type="button">
+<img alt="Bild Weiterschalten nach Links" src="./assets/images/pfeil_links_zurueck.png"/>
+</button>
+<span aria-live="polite" class="lightbox-counter" id="lightbox-counter">
                         1/12
                     </span>
-
-                    <button class="next" type="button" aria-label="Nächstes Bild">
-                        <img src="./assets/images/pfeil_rechts_weiter.png" alt="Bild Weiterschalten nach Rechts" />
-                    </button>
-                </div>
-            </div>
-        </div>
-</body>
+<button aria-label="Nächstes Bild" class="next" type="button">
+<img alt="Bild Weiterschalten nach Rechts" src="./assets/images/pfeil_rechts_weiter.png"/>
+</button>
+</div>
+</img></div>
+</div>
+</main></body>
 <script src="scripts/main.js"></script>
-</main>
 
 <footer class="footer">
-    <img class="footer_logo" src="./assets/images/footer.png" alt="footer_logo">
-    <img class="footer_da_logo" src="./assets/images/developerakademie_logo.png" alt="DA Logo">
-</footer>
+<img alt="footer_logo" class="footer_logo" src="./assets/images/footer.png"/>
+<img alt="DA Logo" class="footer_da_logo" src="./assets/images/developerakademie_logo.png"/>
+</footer></html>
