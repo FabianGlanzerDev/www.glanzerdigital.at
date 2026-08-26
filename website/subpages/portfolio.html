@@ -257,15 +257,66 @@
         <div class="section-heading">
           <span class="kicker">Technologien</span>
           <h2>Werkzeuge hinter den Projekten</h2>
-          <p>Technologien sind für mich Mittel zum Zweck. Entscheidend ist, welche Kombination für die jeweilige Aufgabe sinnvoll und wartbar ist.</p>
+          <p>Mit Maus, Tastatur oder Touch öffnen: Jede Karte zeigt ein kleines Codebeispiel aus der jeweiligen
+            Technologie.</p>
         </div>
-        <div class="tech-grid tech-grid--static">
-          <article class="tech-item"><img src="../assets/images/technologies/html5.png" alt="" aria-hidden="true"><strong>HTML5</strong><span>Semantische Struktur</span></article>
-          <article class="tech-item"><img src="../assets/images/technologies/css3.png" alt="" aria-hidden="true"><strong>CSS3</strong><span>Responsive Layouts</span></article>
-          <article class="tech-item"><img src="../assets/images/technologies/javascript.png" alt="" aria-hidden="true"><strong>JavaScript</strong><span>Interaktive Funktionen</span></article>
-          <article class="tech-item"><img src="../assets/images/technologies/typescript.webp" alt="" aria-hidden="true"><strong>TypeScript</strong><span>Strukturierte Web-Apps</span></article>
-          <article class="tech-item"><img src="../assets/images/technologies/firebase.webp" alt="" aria-hidden="true"><strong>Firebase</strong><span>Authentifizierung &amp; Daten</span></article>
-          <article class="tech-item"><span class="api-logo" aria-hidden="true">API</span><strong>REST APIs</strong><span>Datenaustausch</span></article>
+        <div class="tech-grid" data-tech-grid="">
+          <button aria-expanded="false" aria-label="HTML Codebeispiel anzeigen" class="tech-card" type="button">
+            <img alt="" aria-hidden="true" decoding="async" loading="lazy"
+              src="../assets/images/technologies/html5.png" /><span>HTML5</span><small>Struktur &amp;
+              Semantik</small><code aria-hidden="true">&lt;main&gt;
+  &lt;section&gt;Portfolio&lt;/section&gt;
+&lt;/main&gt;</code>
+          </button>
+          <button aria-expanded="false" aria-label="CSS Codebeispiel anzeigen" class="tech-card" type="button">
+            <img alt="" aria-hidden="true" decoding="async" loading="lazy"
+              src="../assets/images/technologies/css3.png" /><span>CSS3</span><small>Layout
+              &amp; Responsive</small><code aria-hidden="true">.grid {
+  display: grid;
+  gap: 1rem;
+}</code>
+          </button>
+          <button aria-expanded="false" aria-label="JavaScript Codebeispiel anzeigen" class="tech-card" type="button">
+            <img alt="" aria-hidden="true" decoding="async" loading="lazy"
+              src="../assets/images/technologies/javascript.png" /><span>JavaScript</span><small>Interaktivität</small><code
+              aria-hidden="true">button.addEventListener(
+  'click', openDemo
+);</code>
+          </button>
+          <button aria-expanded="false" aria-label="TypeScript Codebeispiel anzeigen" class="tech-card" type="button">
+            <img alt="" aria-hidden="true" decoding="async" loading="lazy"
+              src="../assets/images/technologies/typescript.webp" /><span>TypeScript</span><small>Typisierung</small><code
+              aria-hidden="true">type Project = {
+  name: string;
+  live: boolean;
+};</code>
+          </button>
+          <button aria-expanded="false" aria-label="Angular Codebeispiel anzeigen" class="tech-card" type="button">
+            <img alt="" aria-hidden="true" decoding="async" loading="lazy"
+              src="../assets/images/technologies/angular.png" /><span>Angular</span><small>Framework</small><code
+              aria-hidden="true">@Component({
+  selector: 'app-card'
+})</code>
+          </button>
+          <button aria-expanded="false" aria-label="Firebase Codebeispiel anzeigen" class="tech-card" type="button">
+            <img alt="" aria-hidden="true" decoding="async" loading="lazy"
+              src="../assets/images/technologies/firebase.webp" /><span>Firebase</span><small>Backend
+              Services</small><code aria-hidden="true">const db =
+  getFirestore(app);</code>
+          </button>
+          <button aria-expanded="false" aria-label="REST API Codebeispiel anzeigen" class="tech-card tech-card--api"
+            type="button">
+            <span aria-hidden="true" class="api-logo">API</span><span>REST API</span><small>Datenaustausch</small><code
+              aria-hidden="true">fetch('/api/data')
+  .then(r =&gt; r.json());</code>
+          </button>
+          <button aria-expanded="false" aria-label="GitHub Codebeispiel anzeigen" class="tech-card" type="button">
+            <img alt="" aria-hidden="true" decoding="async" loading="lazy"
+              src="../assets/images/technologies/github.png" /><span>GitHub</span><small>Versionierung</small><code
+              aria-hidden="true">git add .
+git commit -m "update"
+git push</code>
+          </button>
         </div>
       </div>
     </section>
