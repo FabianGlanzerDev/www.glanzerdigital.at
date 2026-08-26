@@ -1,11 +1,71 @@
-.error-page { min-height: 70vh; }
-.error-section { padding: clamp(5rem, 12vw, 9rem) 0; background: radial-gradient(circle at 80% 20%, var(--alpha-primary-12), transparent 30%); }
-.error-layout { display: grid; grid-template-columns: 1.05fr 0.95fr; align-items: center; gap: clamp(2rem, 6vw, 5rem); }
-.error-code { display: block; color: var(--color-primary); font: 900 clamp(3rem, 8vw, 6rem)/0.9 "Courier New", monospace; opacity: 0.18; }
-.error-layout h1 { max-width: 720px; margin: 0.7rem 0 1rem; }
-.error-layout p { max-width: 620px; color: var(--color-muted); line-height: 1.7; }
-.error-terminal { display: grid; min-height: 270px; padding: 1.5rem; align-content: center; gap: 1rem; background: #070c13; border: 1px solid var(--color-border); border-radius: var(--radius-lg); box-shadow: var(--shadow-card); }
-.error-terminal span, .error-terminal code, .error-terminal small { color: #8da4bf; font-family: "Courier New", monospace; }
-.error-terminal strong { color: var(--color-primary); font: 900 4rem/1 "Courier New", monospace; }
-.error-terminal code { color: #8ce8ac; }
-@media (max-width: 760px) { .error-layout { grid-template-columns: 1fr; } .error-terminal { min-height: 210px; } }
+.error-page {
+    min-height: 70vh;
+}
+
+.error-section {
+    padding: clamp(5rem, 12vw, 9rem) 0;
+    background: radial-gradient(circle at 80% 20%, var(--alpha-primary-12), transparent 30%);
+}
+
+.error-layout {
+    display: grid;
+    grid-template-columns: 1.05fr 0.95fr;
+    align-items: center;
+    gap: clamp(2rem, 6vw, 5rem);
+}
+
+.error-code {
+    display: block;
+    color: var(--color-primary);
+    font: 900 clamp(3rem, 8vw, 6rem)/0.9 "Courier New", monospace;
+    opacity: 0.18;
+}
+
+.error-layout h1 {
+    max-width: 720px;
+    margin: 0.7rem 0 1rem;
+}
+
+.error-layout p {
+    max-width: 620px;
+    color: var(--color-muted);
+    line-height: 1.7;
+}
+
+.error-terminal {
+    display: grid;
+    min-height: 270px;
+    padding: 1.5rem;
+    align-content: center;
+    gap: 1rem;
+    background: #070c13;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-card);
+}
+
+.error-terminal span,
+.error-terminal code,
+.error-terminal small {
+    color: #8da4bf;
+    font-family: "Courier New", monospace;
+}
+
+.error-terminal strong {
+    color: var(--color-primary);
+    font: 900 4rem/1 "Courier New", monospace;
+}
+
+.error-terminal code {
+    color: #8ce8ac;
+}
+
+@media (max-width: 760px) {
+    .error-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .error-terminal {
+        min-height: 210px;
+    }
+}
