@@ -1,5 +1,6 @@
 DirectoryIndex index.html
+Options -Indexes
 
-<FilesMatch "^(?:index|login|logout|setup)\.php$">
+<Files "bootstrap.php">
   Require all denied
-</FilesMatch>
+</Files>

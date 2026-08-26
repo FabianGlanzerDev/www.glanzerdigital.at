@@ -45,23 +45,47 @@ function initializeRangeButtons() {
 }
 
 
-async function checkResource(path, selector) {
-  const target = document.querySelector(selector);
-  if (!target) return;
-  try { target.textContent = (await fetch(path, { method: 'HEAD', cache: 'no-store' })).ok ? 'erreichbar' : 'Fehler'; }
-  catch { target.textContent = 'nicht erreichbar'; }
+async function getAdminToken() {
+  return window.GlanzerAdminAuth?.getIdToken?.() || '';
 }
 
 
-function runHealthCheck() {
-  checkResource('../sitemap.xml', '[data-health="sitemap"]');
-  checkResource('../robots.txt', '[data-health="robots"]');
+async function fetchHealthData() {
+  const token = await getAdminToken();
+  const endpoint = window.GlanzerAdminConfig?.endpoints?.health || './api/health.php';
+  const response = await fetch(endpoint, { headers: { Authorization: `Bearer ${token}` }, cache: 'no-store' });
+  const data = await response.json().catch(() => ({}));
+  if (!response.ok) throw new Error(data.message || 'Systemcheck fehlgeschlagen.');
+  return data.checks || {};
+}
+
+
+function renderBooleanHealth(name, ok, readyText, errorText) {
+  setSystemState(name, ok ? 'is-ok' : 'is-pending', ok ? readyText : errorText);
+}
+
+
+function renderHealthChecks(checks = {}) {
+  renderBooleanHealth('privateStorage', checks.privateStorage, 'Privater Speicher schreibbar', 'Speicher nicht schreibbar');
+  renderBooleanHealth('analyticsFile', checks.analyticsFile, 'Analytics-Datei bereit', 'Analytics-Datei prüfen');
+  renderBooleanHealth('openssl', checks.openssl, 'OpenSSL verfügbar', 'OpenSSL fehlt');
+  renderBooleanHealth('searchConsole', checks.searchConsole, 'Service-Account vorhanden', 'Service-Account fehlt');
+  renderBooleanHealth('sitemap', checks.sitemap, 'Datei vorhanden', 'Datei fehlt');
+  renderBooleanHealth('robots', checks.robots, 'Datei vorhanden', 'Datei fehlt');
+}
+
+
+async function runHealthCheck() {
+  if (!window.GlanzerAdminAuth?.isAuthenticated()) return;
+  try { renderHealthChecks(await fetchHealthData()); }
+  catch { setSystemState('privateStorage', 'is-pending', 'Systemcheck nicht erreichbar'); }
 }
 
 
 function handleRefreshClick() {
   window.GlanzerAdminAnalytics?.refreshDashboard();
   window.GlanzerAdminMaintenance?.loadMaintenanceState();
+  window.GlanzerAdminSearch?.refresh?.();
   runHealthCheck();
 }
 
@@ -81,7 +105,7 @@ function initializeSystemActions() {
 function setSystemState(name, state, text) {
   const card = document.querySelector(`[data-system="${name}"]`);
   if (!card) return;
-  card.classList.remove('is-pending', 'is-ok');
+  card.classList.remove('is-pending', 'is-ok', 'is-error');
   if (state) card.classList.add(state);
   const label = card.querySelector('small');
   if (label) label.textContent = text;

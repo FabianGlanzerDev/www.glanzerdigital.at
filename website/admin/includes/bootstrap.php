@@ -162,7 +162,12 @@ function gd_admin_read_analytics(): array
 {
     $path = gd_admin_private_path('data/analytics.json');
     if (!is_file($path)) return ['days' => [], 'recent_events' => [], 'updated_at' => null];
-    $data = json_decode((string) file_get_contents($path), true);
+    $handle = @fopen($path, 'r');
+    if (!$handle || !flock($handle, LOCK_SH)) return ['days' => [], 'recent_events' => [], 'updated_at' => null];
+    $raw = stream_get_contents($handle);
+    flock($handle, LOCK_UN);
+    fclose($handle);
+    $data = json_decode(is_string($raw) ? $raw : '', true);
     return is_array($data) ? $data : ['days' => [], 'recent_events' => [], 'updated_at' => null];
 }
 
@@ -306,14 +311,29 @@ function gd_admin_build_payload(array $days, array $stored, array $aggregate, ar
 }
 
 
+function gd_admin_percent_change(int $current, int $previous): ?float
+{
+    if ($previous === 0) return $current === 0 ? 0.0 : null;
+    return ($current - $previous) / $previous * 100;
+}
+
+
 function gd_admin_summary(array $days, array $stored, array $events, int $contact, int $views, int $totalViews): array
 {
+    $today = gd_admin_views_for_days($days, 1);
+    $yesterday = gd_admin_views_for_days($days, 1, 1);
+    $week = gd_admin_views_for_days($days, 7);
+    $month = gd_admin_views_for_days($days, 30);
+    $demos = (int) ($events['demo_click'] ?? 0);
     $rate = $views > 0 ? $contact / $views * 100 : null;
     return [
-        'today' => gd_admin_views_for_days($days, 1), 'yesterday' => gd_admin_views_for_days($days, 1, 1),
-        'week' => gd_admin_views_for_days($days, 7), 'month' => gd_admin_views_for_days($days, 30), 'total' => $totalViews,
-        'demos' => (int) ($events['demo_click'] ?? 0), 'contact' => $contact, 'github' => (int) ($events['github_click'] ?? 0),
+        'today' => $today, 'yesterday' => $yesterday, 'week' => $week, 'month' => $month, 'total' => $totalViews,
+        'demos' => $demos, 'contact' => $contact, 'github' => (int) ($events['github_click'] ?? 0),
         'activeNow' => gd_admin_active_events((array) ($stored['recent_events'] ?? [])), 'conversion' => $rate, 'contactRate' => $rate,
+        'demosRate' => $views > 0 ? $demos / $views * 100 : null, 'todayDelta' => gd_admin_percent_change($today, $yesterday),
+        'yesterdayDelta' => gd_admin_percent_change($yesterday, gd_admin_views_for_days($days, 1, 2)),
+        'weekDelta' => gd_admin_percent_change($week, gd_admin_views_for_days($days, 7, 7)),
+        'monthDelta' => gd_admin_percent_change($month, gd_admin_views_for_days($days, 30, 30)),
     ];
 }
 
