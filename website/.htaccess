@@ -5,8 +5,7 @@ Options -Indexes
 <IfModule mod_rewrite.c>
   RewriteEngine On
 
-  # HTTPS erzwingen und die Hauptdomain ohne www kanonisieren.
-  # ACME-Challenges bleiben erreichbar, damit Let's Encrypt Zertifikate erneuern kann.
+  # HTTPS erzwingen und Hauptdomain ohne www verwenden.
   RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/ [NC]
   RewriteCond %{HTTP_HOST} ^www\.glanzerdigital\.at$ [NC]
   RewriteRule ^ https://glanzerdigital.at%{REQUEST_URI} [R=301,L]
@@ -15,7 +14,28 @@ Options -Indexes
   RewriteCond %{HTTPS} !=on
   RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
 
-  # Wartungsmodus: Die versteckte Datei wird ausschließlich vom Adminbereich gesetzt.
+
+  # Alte /subpages/*.html URLs dauerhaft auf saubere URLs weiterleiten.
+  RewriteCond %{THE_REQUEST} \s/+subpages/leistungen\.html[\s?] [NC]
+  RewriteRule ^subpages/leistungen\.html$ /leistungen [R=301,L]
+
+  RewriteCond %{THE_REQUEST} \s/+subpages/portfolio\.html[\s?] [NC]
+  RewriteRule ^subpages/portfolio\.html$ /portfolio [R=301,L]
+
+  RewriteCond %{THE_REQUEST} \s/+subpages/ueber-mich\.html[\s?] [NC]
+  RewriteRule ^subpages/ueber-mich\.html$ /ueber-mich [R=301,L]
+
+  RewriteCond %{THE_REQUEST} \s/+subpages/kontakt\.html[\s?] [NC]
+  RewriteRule ^subpages/kontakt\.html$ /kontakt [R=301,L]
+
+  RewriteCond %{THE_REQUEST} \s/+subpages/impressum\.html[\s?] [NC]
+  RewriteRule ^subpages/impressum\.html$ /impressum [R=301,L]
+
+  RewriteCond %{THE_REQUEST} \s/+subpages/datenschutz\.html[\s?] [NC]
+  RewriteRule ^subpages/datenschutz\.html$ /datenschutz [R=301,L]
+
+
+  # Wartungsmodus.
   RewriteCond %{DOCUMENT_ROOT}/.maintenance -f
   RewriteCond %{REQUEST_URI} !^/maintenance\.php$ [NC]
   RewriteCond %{REQUEST_URI} !^/admin(?:/|$) [NC]
@@ -23,7 +43,17 @@ Options -Indexes
   RewriteCond %{REQUEST_URI} !^/api/analytics-track\.php$ [NC]
   RewriteCond %{REQUEST_URI} !^/\.well-known(?:/|$) [NC]
   RewriteRule ^ maintenance.php [L]
+
+
+  # Saubere öffentliche URLs intern auf die HTML-Dateien abbilden.
+  RewriteRule ^leistungen/?$ subpages/leistungen.html [L]
+  RewriteRule ^portfolio/?$ subpages/portfolio.html [L]
+  RewriteRule ^ueber-mich/?$ subpages/ueber-mich.html [L]
+  RewriteRule ^kontakt/?$ subpages/kontakt.html [L]
+  RewriteRule ^impressum/?$ subpages/impressum.html [L]
+  RewriteRule ^datenschutz/?$ subpages/datenschutz.html [L]
 </IfModule>
+
 
 <IfModule mod_headers.c>
   Header always set Strict-Transport-Security "max-age=31536000"
@@ -32,6 +62,7 @@ Options -Indexes
   Header always set Permissions-Policy "camera=(), microphone=(), geolocation=()"
   Header always set X-Frame-Options "SAMEORIGIN"
 </IfModule>
+
 
 <FilesMatch "(^\.|\.(?:bak|backup|log|map|md|sql|env|zip)$)">
   Require all denied
@@ -47,6 +78,7 @@ Options -Indexes
   ExpiresByType image/svg+xml "access plus 30 days"
   ExpiresByType font/woff2 "access plus 30 days"
 </IfModule>
+
 
 <IfModule mod_deflate.c>
   AddOutputFilterByType DEFLATE text/html text/plain text/css application/javascript application/json image/svg+xml
