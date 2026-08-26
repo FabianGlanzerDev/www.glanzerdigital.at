@@ -1,118 +1,103 @@
-<!doctype html>
+<!DOCTYPE html>
+
 <html lang="de">
-
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Board</title>
-
-    <link rel="shortcut icon" href="../assets/icons/favicon.webp" type="image/x-icon" />
-
-    <link rel="stylesheet" href="../styles/variables.css" />
-    <link rel="stylesheet" href="../styles/assets.css" />
-    <link rel="stylesheet" href="../styles/fonts.css" />
-    <link rel="stylesheet" href="../styles/sidebar.css" />
-    <link rel="stylesheet" href="../styles/header.css" />
-    <link rel="stylesheet" href="../styles/board.css" />
-    <link rel="stylesheet" href="../styles/boardDialogs.css" />
-    <link rel="stylesheet" href="../styles/boardAddTaskDialog.css" />
-    <link rel="stylesheet" href="../styles/boardOpenTaskDialog.css" />
-    <link rel="stylesheet" href="../styles/boardEditTaskDialog.css" />
-    <link rel="stylesheet" href="../styles/style.css" />
-    <link rel="stylesheet" href="../styles/compactDesktop.css" />
-
-    <script src="../scripts/main.js" defer></script>
-    <script src="../scripts/taskInteractionHelper.js" defer></script>
-    <script src="../templates/barsTemplates.js" defer></script>
-    <script src="../scripts/bars.js" defer></script>
-    <script src="../scripts/taskDataAccess.js" defer></script>
-    <script src="../scripts/dialogManager.js" defer></script>
-    <script src="../templates/boardAddTaskTemplates.js" defer></script>
-    <script src="../templates/boardOpenTaskTemplates.js" defer></script>
-    <script src="../templates/boardEditTaskTemplates.js" defer></script>
-    <script src="../scripts/board.js" defer></script>
-    <script src="../scripts/boardTaskMovement.js" defer></script>
-    <script src="../scripts/boardDialogs.js" defer></script>
-    <script src="../scripts/boardAddTaskDialogHelpers.js" defer></script>
-    <script src="../scripts/taskDropdownHelper.js" defer></script>
-    <script src="../scripts/boardTaskDialogContacts.js" defer></script>
-    <script src="../scripts/boardAddTaskDialogDate.js" defer></script>
-    <script src="../scripts/boardAddTaskDialog.js" defer></script>
-    <script src="../scripts/boardOpenTaskDialog.js" defer></script>
-    <script src="../scripts/boardEditTaskDialog.js" defer></script>
-</head>
-
-<body data-page="board">
-    <aside id="sidebar" class="sidebar"></aside>
-
-    <section class="page-content" aria-label="Seiteninhalt">
-        <header id="topbar" class="topbar"></header>
-
-        <main class="main-content board-main">
-            <section class="board">
-                <article class="board-header">
-                    <h1>Board</h1>
-                    <div class="board-actions">
-                        <label class="task-search" for="taskSearch">
-                            <input id="taskSearch" type="search" placeholder="Find Task" />
-                            <span class="search-divider" aria-hidden="true"></span>
-                            <span class="search-icon-button">
-                                <img class="search-icon" src="../assets/icons/searchIcon.webp" alt="" />
-                            </span>
-                        </label>
-                        <button class="add-task-button" type="button" data-task-column="todo">
-                            <span class="add-task-label">Add task</span>
-                            <span class="add-task-plus" aria-hidden="true">+</span>
-                        </button>
-                    </div>
-                </article>
-
-                <article class="board-columns">
-                    <div class="board-column">
-                        <div class="column-header">
-                            <h2>To do</h2>
-                            <button class="add-column-task" type="button" data-task-column="todo"
-                                aria-label="Add task to To do">
-                                <img src="../assets/icons/addColumnTask.webp" alt="" />
-                            </button>
-                        </div>
-                        <div class="task-list" id="toDoTasks"></div>
-                    </div>
-
-                    <div class="board-column">
-                        <div class="column-header">
-                            <h2>In progress</h2>
-                            <button class="add-column-task" type="button" data-task-column="inprogress"
-                                aria-label="Add task to In progress">
-                                <img src="../assets/icons/addColumnTask.webp" alt="" />
-                            </button>
-                        </div>
-                        <div class="task-list" id="inProgressTasks"></div>
-                    </div>
-
-                    <div class="board-column">
-                        <div class="column-header">
-                            <h2>Await feedback</h2>
-                            <button class="add-column-task" type="button" data-task-column="awaitfeedback"
-                                aria-label="Add task to Await feedback">
-                                <img src="../assets/icons/addColumnTask.webp" alt="" />
-                            </button>
-                        </div>
-                        <div class="task-list" id="awaitFeedbackTasks"></div>
-                    </div>
-
-                    <div class="board-column">
-                        <div class="column-header">
-                            <h2>Done</h2>
-                        </div>
-                        <div class="task-list" id="doneTasks"></div>
-                    </div>
-                </article>
-
-                <p id="boardStatusMessage" class="visually-hidden" aria-live="polite"></p>
-            </section>
-        </main>
-    </section>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Board</title>
+<link href="../assets/icons/favicon.webp" rel="shortcut icon" type="image/x-icon"/>
+<link href="../styles/variables.css" rel="stylesheet"/>
+<link href="../styles/assets.css" rel="stylesheet"/>
+<link href="../styles/fonts.css" rel="stylesheet"/>
+<link href="../styles/sidebar.css" rel="stylesheet"/>
+<link href="../styles/header.css" rel="stylesheet"/>
+<link href="../styles/board.css" rel="stylesheet"/>
+<link href="../styles/boardDialogs.css" rel="stylesheet"/>
+<link href="../styles/boardAddTaskDialog.css" rel="stylesheet"/>
+<link href="../styles/boardOpenTaskDialog.css" rel="stylesheet"/>
+<link href="../styles/boardEditTaskDialog.css" rel="stylesheet"/>
+<link href="../styles/style.css" rel="stylesheet"/>
+<link href="../styles/compactDesktop.css" rel="stylesheet"/>
+<script defer="" src="../scripts/main.js"></script>
+<script defer="" src="../scripts/taskInteractionHelper.js"></script>
+<script defer="" src="../templates/barsTemplates.js"></script>
+<script defer="" src="../scripts/bars.js"></script>
+<script defer="" src="../scripts/taskDataAccess.js"></script>
+<script defer="" src="../scripts/dialogManager.js"></script>
+<script defer="" src="../templates/boardAddTaskTemplates.js"></script>
+<script defer="" src="../templates/boardOpenTaskTemplates.js"></script>
+<script defer="" src="../templates/boardEditTaskTemplates.js"></script>
+<script defer="" src="../scripts/board.js"></script>
+<script defer="" src="../scripts/boardTaskMovement.js"></script>
+<script defer="" src="../scripts/boardDialogs.js"></script>
+<script defer="" src="../scripts/boardAddTaskDialogHelpers.js"></script>
+<script defer="" src="../scripts/taskDropdownHelper.js"></script>
+<script defer="" src="../scripts/boardTaskDialogContacts.js"></script>
+<script defer="" src="../scripts/boardAddTaskDialogDate.js"></script>
+<script defer="" src="../scripts/boardAddTaskDialog.js"></script>
+<script defer="" src="../scripts/boardOpenTaskDialog.js"></script>
+<script defer="" src="../scripts/boardEditTaskDialog.js"></script>
+<link href="../../_shared/portfolio-back.css" rel="stylesheet"/></head>
+<body data-page="board"><a aria-label="Zurück zum Portfolio" class="gd-back-to-portfolio" href="../../../subpages/portfolio.html">← Zurück zum Portfolio</a>
+<aside class="sidebar" id="sidebar"></aside>
+<section aria-label="Seiteninhalt" class="page-content">
+<header class="topbar" id="topbar"></header>
+<main class="main-content board-main">
+<section class="board">
+<article class="board-header">
+<h1>Board</h1>
+<div class="board-actions">
+<label class="task-search" for="taskSearch">
+<input id="taskSearch" placeholder="Find Task" type="search"/>
+<span aria-hidden="true" class="search-divider"></span>
+<span class="search-icon-button">
+<img alt="" class="search-icon" src="../assets/icons/searchIcon.webp"/>
+</span>
+</label>
+<button class="add-task-button" data-task-column="todo" type="button">
+<span class="add-task-label">Add task</span>
+<span aria-hidden="true" class="add-task-plus">+</span>
+</button>
+</div>
+</article>
+<article class="board-columns">
+<div class="board-column">
+<div class="column-header">
+<h2>To do</h2>
+<button aria-label="Add task to To do" class="add-column-task" data-task-column="todo" type="button">
+<img alt="" src="../assets/icons/addColumnTask.webp"/>
+</button>
+</div>
+<div class="task-list" id="toDoTasks"></div>
+</div>
+<div class="board-column">
+<div class="column-header">
+<h2>In progress</h2>
+<button aria-label="Add task to In progress" class="add-column-task" data-task-column="inprogress" type="button">
+<img alt="" src="../assets/icons/addColumnTask.webp"/>
+</button>
+</div>
+<div class="task-list" id="inProgressTasks"></div>
+</div>
+<div class="board-column">
+<div class="column-header">
+<h2>Await feedback</h2>
+<button aria-label="Add task to Await feedback" class="add-column-task" data-task-column="awaitfeedback" type="button">
+<img alt="" src="../assets/icons/addColumnTask.webp"/>
+</button>
+</div>
+<div class="task-list" id="awaitFeedbackTasks"></div>
+</div>
+<div class="board-column">
+<div class="column-header">
+<h2>Done</h2>
+</div>
+<div class="task-list" id="doneTasks"></div>
+</div>
+</article>
+<p aria-live="polite" class="visually-hidden" id="boardStatusMessage"></p>
+</section>
+</main>
+</section>
 </body>
-
 </html>

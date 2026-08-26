@@ -1,108 +1,89 @@
-<!doctype html>
+<!DOCTYPE html>
+
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sign up</title>
-
-  <link rel="shortcut icon" href="../assets/icons/favicon.webp" type="image/x-icon" />
-
-  <link rel="stylesheet" href="../styles/assets.css" />
-  <link rel="stylesheet" href="../styles/variables.css" />
-  <link rel="stylesheet" href="../styles/fonts.css" />
-  <link rel="stylesheet" href="../styles/signUp.css" />
-  <link rel="stylesheet" href="../styles/compactDesktop.css" />
-
-  <script src="../scripts/firebaseConfig.js" defer></script>
-  <script type="module" src="../scripts/firebaseInit.js"></script>
-  <script src="../scripts/main.js" defer></script>
-  <script src="../scripts/signUp.js" defer></script>
-</head>
-
-<body class="sign-up-page">
-  <div class="sign-up-content">
-    <header class="sign-up-header">
-      <img class="sign-up-logo" src="../assets/icons/joinLogoDark.webp" alt="Join logo" />
-    </header>
-
-    <main class="signup-main">
-      <div class="textbox">
-        <div class="text-box">
-          <a class="back-to-login back-arrow-button" href="../index.html" aria-label="Back to login">
-            <img src="../assets/icons/backArrowDarkBlue.webp" alt="" aria-hidden="true" />
-          </a>
-
-          <div class="textbox-signup">
-            <h1>Sign up</h1>
-          </div>
-
-          <div class="textbox-inputfield-wrapper">
-            <form id="signupForm" class="textbox-inputfield" novalidate>
-              <div class="signup-input-field">
-                <label class="visually-hidden" for="username">Name</label>
-                <input type="text" placeholder="Name" id="username" name="name" autocomplete="name" />
-                <img src="../assets/icons/person.webp" alt="" aria-hidden="true" />
-              </div>
-              <p id="usernameError" class="error-msg" aria-live="polite"></p>
-
-              <div class="signup-input-field">
-                <label class="visually-hidden" for="email">Email</label>
-                <input type="email" placeholder="Email" id="email" name="email" autocomplete="email" />
-                <img src="../assets/icons/mail.webp" alt="" aria-hidden="true" />
-              </div>
-              <p id="emailError" class="error-msg" aria-live="polite"></p>
-
-              <div class="signup-input-field">
-                <label class="visually-hidden" for="password">Password</label>
-                <input type="password" placeholder="Password" id="password" name="password"
-                  autocomplete="new-password" />
-                <button id="passwordToggle" class="password-toggle" type="button" aria-label="Show password" disabled>
-                  <img src="../assets/icons/lock.webp" alt="" id="passwordIcon" />
-                </button>
-              </div>
-              <p id="passwordError" class="error-msg" aria-live="polite"></p>
-
-              <div class="signup-input-field">
-                <label class="visually-hidden" for="confirmPassword">Confirm password</label>
-                <input type="password" placeholder="Confirm Password" id="confirmPassword" name="confirmPassword"
-                  autocomplete="new-password" />
-                <button id="confirmPasswordToggle" class="password-toggle" type="button"
-                  aria-label="Show confirm password" disabled>
-                  <img src="../assets/icons/lock.webp" alt="" id="confirmPasswordIcon" />
-                </button>
-              </div>
-              <p id="confirmPasswordError" class="error-msg" aria-live="polite"></p>
-
-              <p id="errorMessage" class="error-msg" aria-live="polite"></p>
-
-              <div class="textbox-checkbox">
-                <span class="custom-checkbox-wrapper">
-                  <input type="checkbox" id="termsCheckbox" name="termsAccepted" />
-                  <span class="custom-checkbox" aria-hidden="true"></span>
-                </span>
-                <label for="termsCheckbox">I accept the</label>
-                <a href="./privacyPolicy.html">Privacy policy</a>
-              </div>
-
-              <div class="btn">
-                <button id="signupBtn" class="signup-btn" type="submit" disabled>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Sign up</title>
+<link href="../assets/icons/favicon.webp" rel="shortcut icon" type="image/x-icon"/>
+<link href="../styles/assets.css" rel="stylesheet"/>
+<link href="../styles/variables.css" rel="stylesheet"/>
+<link href="../styles/fonts.css" rel="stylesheet"/>
+<link href="../styles/signUp.css" rel="stylesheet"/>
+<link href="../styles/compactDesktop.css" rel="stylesheet"/>
+<script defer="" src="../scripts/firebaseConfig.js"></script>
+<script src="../scripts/firebaseInit.js" type="module"></script>
+<script defer="" src="../scripts/main.js"></script>
+<script defer="" src="../scripts/signUp.js"></script>
+<link href="../../_shared/portfolio-back.css" rel="stylesheet"/></head>
+<body class="sign-up-page"><a aria-label="Zurück zum Portfolio" class="gd-back-to-portfolio" href="../../../subpages/portfolio.html">← Zurück zum Portfolio</a>
+<div class="sign-up-content">
+<header class="sign-up-header">
+<img alt="Join logo" class="sign-up-logo" src="../assets/icons/joinLogoDark.webp"/>
+</header>
+<main class="signup-main">
+<div class="textbox">
+<div class="text-box">
+<a aria-label="Back to login" class="back-to-login back-arrow-button" href="../index.html">
+<img alt="" aria-hidden="true" src="../assets/icons/backArrowDarkBlue.webp"/>
+</a>
+<div class="textbox-signup">
+<h1>Sign up</h1>
+</div>
+<div class="textbox-inputfield-wrapper">
+<form class="textbox-inputfield" id="signupForm" novalidate="">
+<div class="signup-input-field">
+<label class="visually-hidden" for="username">Name</label>
+<input autocomplete="name" id="username" name="name" placeholder="Name" type="text"/>
+<img alt="" aria-hidden="true" src="../assets/icons/person.webp"/>
+</div>
+<p aria-live="polite" class="error-msg" id="usernameError"></p>
+<div class="signup-input-field">
+<label class="visually-hidden" for="email">Email</label>
+<input autocomplete="email" id="email" name="email" placeholder="Email" type="email"/>
+<img alt="" aria-hidden="true" src="../assets/icons/mail.webp"/>
+</div>
+<p aria-live="polite" class="error-msg" id="emailError"></p>
+<div class="signup-input-field">
+<label class="visually-hidden" for="password">Password</label>
+<input autocomplete="new-password" id="password" name="password" placeholder="Password" type="password"/>
+<button aria-label="Show password" class="password-toggle" disabled="" id="passwordToggle" type="button">
+<img alt="" id="passwordIcon" src="../assets/icons/lock.webp"/>
+</button>
+</div>
+<p aria-live="polite" class="error-msg" id="passwordError"></p>
+<div class="signup-input-field">
+<label class="visually-hidden" for="confirmPassword">Confirm password</label>
+<input autocomplete="new-password" id="confirmPassword" name="confirmPassword" placeholder="Confirm Password" type="password"/>
+<button aria-label="Show confirm password" class="password-toggle" disabled="" id="confirmPasswordToggle" type="button">
+<img alt="" id="confirmPasswordIcon" src="../assets/icons/lock.webp"/>
+</button>
+</div>
+<p aria-live="polite" class="error-msg" id="confirmPasswordError"></p>
+<p aria-live="polite" class="error-msg" id="errorMessage"></p>
+<div class="textbox-checkbox">
+<span class="custom-checkbox-wrapper">
+<input id="termsCheckbox" name="termsAccepted" type="checkbox"/>
+<span aria-hidden="true" class="custom-checkbox"></span>
+</span>
+<label for="termsCheckbox">I accept the</label>
+<a href="./privacyPolicy.html">Privacy policy</a>
+</div>
+<div class="btn">
+<button class="signup-btn" disabled="" id="signupBtn" type="submit">
                   Sign up
                 </button>
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>
-    </main>
-
-    <footer>
-      <a href="./privacyPolicy.html">Privacy Policy</a>
-      <a href="./legalNotice.html">Legal notice</a>
-    </footer>
-  </div>
-
-  <div class="signup-toast" role="status" aria-live="polite" aria-atomic="true"></div>
+</div>
+</form>
+</div>
+</div>
+</div>
+</main>
+<footer>
+<a href="./privacyPolicy.html">Privacy Policy</a>
+<a href="./legalNotice.html">Legal notice</a>
+</footer>
+</div>
+<div aria-atomic="true" aria-live="polite" class="signup-toast" role="status"></div>
 </body>
-
 </html>

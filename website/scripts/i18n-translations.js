@@ -333,6 +333,7 @@ window.GD_I18N_DATA = (() => {
     'Eine eigene STL lokal im Browser öffnen, umbenennen, kategorisieren, einfärben, die Ansicht wechseln und als Favorit markieren.': 'Open your own STL locally in the browser, rename it, categorise it, change colours and views, and mark it as a favourite.',
     'Eigenes Projekt · Windows-App': 'Own project · Windows app',
     'Web-Demo testen': 'Test web demo',
+    'Interesse? Projekt anfragen': 'Interested? Request a project',
     'Developer Akademie': 'Developer Akademie',
     'Ausbildungsprojekte': 'Training projects',
     'Diese Projekte entstanden im Rahmen meiner Ausbildung und zeigen unterschiedliche Schwerpunkte aus Frontend- und Webentwicklung.': 'These projects were created during my training and show different areas of frontend and web development.',

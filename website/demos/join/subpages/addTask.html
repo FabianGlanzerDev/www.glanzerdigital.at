@@ -1,166 +1,130 @@
-<!doctype html>
+<!DOCTYPE html>
+
 <html lang="de">
-
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Add Task</title>
-
-    <link rel="shortcut icon" href="../assets/icons/favicon.webp" type="image/x-icon" />
-
-    <link rel="stylesheet" href="../styles/variables.css" />
-    <link rel="stylesheet" href="../styles/assets.css" />
-    <link rel="stylesheet" href="../styles/fonts.css" />
-    <link rel="stylesheet" href="../styles/sidebar.css" />
-    <link rel="stylesheet" href="../styles/header.css" />
-    <link rel="stylesheet" href="../styles/style.css" />
-    <link rel="stylesheet" href="../styles/addTask.css" />
-    <link rel="stylesheet" href="../styles/compactDesktop.css" />
-
-    <script src="../scripts/main.js" defer></script>
-    <script src="../scripts/taskInteractionHelper.js" defer></script>
-    <script src="../templates/barsTemplates.js" defer></script>
-    <script src="../templates/addTaskTemplates.js" defer></script>
-    <script src="../scripts/bars.js" defer></script>
-    <script src="../scripts/taskDropdownHelper.js" defer></script>
-    <script src="../scripts/addTaskHelper.js" defer></script>
-    <script src="../scripts/addTaskData.js" defer></script>
-    <script src="../scripts/addTaskDate.js" defer></script>
-    <script src="../scripts/addTask.js" defer></script>
-</head>
-
-<body data-page="add-task">
-    <aside id="sidebar" class="sidebar"></aside>
-
-    <section class="page-content" aria-label="Seiteninhalt">
-        <header id="topbar" class="topbar"></header>
-
-        <main class="main-content add-task-content">
-            <h1 class="site-header">Add Task</h1>
-
-            <form class="add-task-form">
-                <div class="add-task-fields-left">
-                    <label class="label" for="title">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Add Task</title>
+<link href="../assets/icons/favicon.webp" rel="shortcut icon" type="image/x-icon"/>
+<link href="../styles/variables.css" rel="stylesheet"/>
+<link href="../styles/assets.css" rel="stylesheet"/>
+<link href="../styles/fonts.css" rel="stylesheet"/>
+<link href="../styles/sidebar.css" rel="stylesheet"/>
+<link href="../styles/header.css" rel="stylesheet"/>
+<link href="../styles/style.css" rel="stylesheet"/>
+<link href="../styles/addTask.css" rel="stylesheet"/>
+<link href="../styles/compactDesktop.css" rel="stylesheet"/>
+<script defer="" src="../scripts/main.js"></script>
+<script defer="" src="../scripts/taskInteractionHelper.js"></script>
+<script defer="" src="../templates/barsTemplates.js"></script>
+<script defer="" src="../templates/addTaskTemplates.js"></script>
+<script defer="" src="../scripts/bars.js"></script>
+<script defer="" src="../scripts/taskDropdownHelper.js"></script>
+<script defer="" src="../scripts/addTaskHelper.js"></script>
+<script defer="" src="../scripts/addTaskData.js"></script>
+<script defer="" src="../scripts/addTaskDate.js"></script>
+<script defer="" src="../scripts/addTask.js"></script>
+<link href="../../_shared/portfolio-back.css" rel="stylesheet"/></head>
+<body data-page="add-task"><a aria-label="Zurück zum Portfolio" class="gd-back-to-portfolio" href="../../../subpages/portfolio.html">← Zurück zum Portfolio</a>
+<aside class="sidebar" id="sidebar"></aside>
+<section aria-label="Seiteninhalt" class="page-content">
+<header class="topbar" id="topbar"></header>
+<main class="main-content add-task-content">
+<h1 class="site-header">Add Task</h1>
+<form class="add-task-form">
+<div class="add-task-fields-left">
+<label class="label" for="title">
                         Title<span class="required-marker">*</span>
-                    </label>
-                    <input class="input-field" id="title" type="text" placeholder="Enter a title" />
-                    <div class="error-message" id="titleError"></div>
-
-                    <label class="labelTextarea" for="description">Description</label>
-                    <textarea class="textarea" id="description" placeholder="Enter a Description"></textarea>
-
-                    <label class="label" for="dueDate">
+</label>
+<input class="input-field" id="title" placeholder="Enter a title" type="text"/>
+<div class="error-message" id="titleError"></div>
+<label class="labelTextarea" for="description">Description</label>
+<textarea class="textarea" id="description" placeholder="Enter a Description"></textarea>
+<label class="label" for="dueDate">
                         Due date<span class="required-marker">*</span>
-                    </label>
-                    <input class="input-field" id="dueDate" type="text" placeholder="dd/mm/yyyy" />
-                    <div class="error-message" id="dueDateError"></div>
-                </div>
-
-                <div class="horizontal-divider"></div>
-
-                <div class="add-task-fields-right">
-                    <div class="field-label" id="priorityLabel">Priority</div>
-
-                    <div class="priority-group" role="radiogroup" aria-labelledby="priorityLabel">
-                        <input type="radio" name="priority" id="urgent" value="urgent" />
-                        <label for="urgent" tabindex="0" role="radio">
+</label>
+<input class="input-field" id="dueDate" placeholder="dd/mm/yyyy" type="text"/>
+<div class="error-message" id="dueDateError"></div>
+</div>
+<div class="horizontal-divider"></div>
+<div class="add-task-fields-right">
+<div class="field-label" id="priorityLabel">Priority</div>
+<div aria-labelledby="priorityLabel" class="priority-group" role="radiogroup">
+<input id="urgent" name="priority" type="radio" value="urgent"/>
+<label for="urgent" role="radio" tabindex="0">
                             Urgent
-                            <img src="../assets/icons/urgentPriority.webp" alt="Urgent priority icon" />
-                        </label>
-
-                        <input type="radio" name="priority" id="medium" value="medium" checked />
-                        <label for="medium" class="medium" tabindex="0" role="radio">
+                            <img alt="Urgent priority icon" src="../assets/icons/urgentPriority.webp"/>
+</label>
+<input checked="" id="medium" name="priority" type="radio" value="medium"/>
+<label class="medium" for="medium" role="radio" tabindex="0">
                             Medium
-                            <img src="../assets/icons/mediumPriority.webp" alt="Medium priority icon" />
-                        </label>
-
-                        <input type="radio" name="priority" id="low" value="low" />
-                        <label for="low" tabindex="0" role="radio">
+                            <img alt="Medium priority icon" src="../assets/icons/mediumPriority.webp"/>
+</label>
+<input id="low" name="priority" type="radio" value="low"/>
+<label for="low" role="radio" tabindex="0">
                             Low
-                            <img src="../assets/icons/lowPriority.webp" alt="Low priority icon" />
-                        </label>
-                    </div>
-
-                    <div class="dropdown-list">
-                    <label for="assignedTo" class="assigned-to">Assigned to</label>
-
-                        <div class="input-wrapper">
-                            <input type="text" class="assigned-to" id="assignedTo"
-                                placeholder="Select contacts to assign" />
-                            <img class="input-icon" src="../assets/icons/arrowDropdown.webp"
-                                alt="Toggle contacts dropdown" />
-                            <div class="dropdown-content"></div>
-                        </div>
-
-                        <div class="selected-contacts"></div>
-                    </div>
-
-                    <div class="dropdown-list">
-                        <label for="category" class="category">
+                            <img alt="Low priority icon" src="../assets/icons/lowPriority.webp"/>
+</label>
+</div>
+<div class="dropdown-list">
+<label class="assigned-to" for="assignedTo">Assigned to</label>
+<div class="input-wrapper">
+<input class="assigned-to" id="assignedTo" placeholder="Select contacts to assign" type="text"/>
+<img alt="Toggle contacts dropdown" class="input-icon" src="../assets/icons/arrowDropdown.webp"/>
+<div class="dropdown-content"></div>
+</div>
+<div class="selected-contacts"></div>
+</div>
+<div class="dropdown-list">
+<label class="category" for="category">
                             Category<span class="required-marker">*</span>
-                        </label>
-
-                        <div class="input-wrapper">
-                            <input type="text" class="category" id="category" placeholder="Select task category"
-                                readonly />
-                            <img class="input-icon" src="../assets/icons/arrowDropdown.webp"
-                                alt="Toggle category dropdown" />
-
-                            <div class="dropdown-content">
-                                <a href="">Technical Task</a>
-                                <a href="">User Story</a>
-                            </div>
-                        </div>
-
-                        <div class="error-message" id="categoryError"></div>
-
-                        <label class="label" for="subtasks">Subtasks</label>
-
-                        <div class="subtask-input-wrapper">
-                            <input class="input-field" id="subtasks" type="text" placeholder="Add new subtasks" />
-
-                            <div class="subtask-actions">
-                                <button class="subtask-cancel" type="button" tabindex="0"
-                                    aria-label="Discard subtask input" disabled>
-                                    <img src="../assets/icons/cancel.webp" alt="" />
-                                </button>
-                                <span class="subtask-divider"></span>
-                                <button class="subtask-check" type="button" tabindex="0" aria-label="Add subtask"
-                                    disabled>
-                                    <img src="../assets/icons/check.webp" alt="" />
-                                </button>
-                            </div>
-                        </div>
-
-                        <ul class="subtask-list"></ul>
-                    </div>
-                </div>
-            </form>
-
-            <footer>
-                <p class="required-fields-notice">
-                    <span class="required-marker">*</span>This field is required
+</label>
+<div class="input-wrapper">
+<input class="category" id="category" placeholder="Select task category" readonly="" type="text"/>
+<img alt="Toggle category dropdown" class="input-icon" src="../assets/icons/arrowDropdown.webp"/>
+<div class="dropdown-content">
+<a href="">Technical Task</a>
+<a href="">User Story</a>
+</div>
+</div>
+<div class="error-message" id="categoryError"></div>
+<label class="label" for="subtasks">Subtasks</label>
+<div class="subtask-input-wrapper">
+<input class="input-field" id="subtasks" placeholder="Add new subtasks" type="text"/>
+<div class="subtask-actions">
+<button aria-label="Discard subtask input" class="subtask-cancel" disabled="" tabindex="0" type="button">
+<img alt="" src="../assets/icons/cancel.webp"/>
+</button>
+<span class="subtask-divider"></span>
+<button aria-label="Add subtask" class="subtask-check" disabled="" tabindex="0" type="button">
+<img alt="" src="../assets/icons/check.webp"/>
+</button>
+</div>
+</div>
+<ul class="subtask-list"></ul>
+</div>
+</div>
+</form>
+<footer>
+<p class="required-fields-notice">
+<span class="required-marker">*</span>This field is required
                 </p>
-
-                <div class="footer-buttons">
-                    <button class="clear" type="button" onclick="clearForm()">
+<div class="footer-buttons">
+<button class="clear" onclick="clearForm()" type="button">
                         Clear
-                        <img src="../assets/icons/cancel.webp" alt="Cancel icon" />
-                    </button>
-
-                    <button class="create-task" type="button">
+                        <img alt="Cancel icon" src="../assets/icons/cancel.webp"/>
+</button>
+<button class="create-task" type="button">
                         Create Task
-                        <img src="../assets/icons/check.webp" alt="Check icon" />
-                    </button>
-                </div>
-            </footer>
-        </main>
-    </section>
-
-    <div class="task-added-toast">
-        <span>Task added to board</span>
-        <img src="../assets/icons/board.webp" alt="Board icon" />
-    </div>
+                        <img alt="Check icon" src="../assets/icons/check.webp"/>
+</button>
+</div>
+</footer>
+</main>
+</section>
+<div class="task-added-toast">
+<span>Task added to board</span>
+<img alt="Board icon" src="../assets/icons/board.webp"/>
+</div>
 </body>
-
 </html>
