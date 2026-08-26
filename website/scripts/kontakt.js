@@ -43,22 +43,30 @@ const PROJECT_VALUE_EN = {
 };
 
 
+
+/** Returns language. @returns {string} The operation result. */
 function getLanguage() {
   return document.documentElement.lang === 'en' ? 'en' : 'de';
 }
 
 
+
+/** Returns text. @returns {string} The operation result. */
 function getText() {
   return UI_TEXT[getLanguage()];
 }
 
 
+
+/** Returns form value. @param {string} name - The name value. @returns {string} The operation result. */
 function getFormValue(name) {
   const formData = new FormData(contactForm);
   return String(formData.get(name) || '').trim();
 }
 
 
+
+/** Returns contact data. @returns {Object} The operation result. */
 function getContactData() {
   return {
     name: getFormValue('name'), project: getFormValue('project'),
@@ -68,16 +76,22 @@ function getContactData() {
 }
 
 
+
+/** Returns error element. @param {string} name - The name value. @returns {Element|null} The operation result. */
 function getErrorElement(name) {
   return document.querySelector(`[data-error-for="${name}"]`);
 }
 
 
+
+/** Returns field container. @param {string} name - The name value. @returns {Element|null} The operation result. */
 function getFieldContainer(name) {
   return document.querySelector(`[data-field="${name}"]`);
 }
 
 
+
+/** Updates field error. @param {string} name - The name value. @param {string} message - The message value. @returns {void} The operation result. */
 function setFieldError(name, message) {
   const error = getErrorElement(name);
   const container = getFieldContainer(name);
@@ -86,6 +100,8 @@ function setFieldError(name, message) {
 }
 
 
+
+/** Updates control state. @param {string} name - The name value. @param {boolean} invalid - The invalid value. @returns {void} The operation result. */
 function setControlState(name, invalid) {
   const control = contactForm.elements.namedItem(name);
   if (!control || control instanceof RadioNodeList) return;
@@ -93,6 +109,8 @@ function setControlState(name, invalid) {
 }
 
 
+
+/** Validates name. @param {unknown} value - The value value. @returns {boolean} The operation result. */
 function validateName(value) {
   const text = getText();
   if (!value) return text.nameMissing;
@@ -100,6 +118,8 @@ function validateName(value) {
 }
 
 
+
+/** Validates message. @param {unknown} value - The value value. @returns {boolean} The operation result. */
 function validateMessage(value) {
   const text = getText();
   if (!value) return text.messageMissing;
@@ -108,6 +128,8 @@ function validateMessage(value) {
 }
 
 
+
+/** Validates field. @param {string} name - The name value. @param {unknown} value - The value value. @returns {boolean} The operation result. */
 function validateField(name, value) {
   const text = getText();
   if (name === 'name') return validateName(value);
@@ -119,6 +141,8 @@ function validateField(name, value) {
 }
 
 
+
+/** Updates field validation. @param {string} name - The name value. @returns {void} The operation result. */
 function updateFieldValidation(name) {
   const error = validateField(name, getFormValue(name));
   setFieldError(name, error);
@@ -127,11 +151,15 @@ function updateFieldValidation(name) {
 }
 
 
+
+/** Checks whether form valid. @returns {boolean} The operation result. */
 function isFormValid() {
   return requiredFields.every((name) => !validateField(name, getFormValue(name)));
 }
 
 
+
+/** Updates submit state. @returns {void} The operation result. */
 function updateSubmitState() {
   if (!(submitButton instanceof HTMLButtonElement)) return;
   const valid = isFormValid();
@@ -140,17 +168,23 @@ function updateSubmitState() {
 }
 
 
+
+/** Validates form. @returns {boolean} The operation result. */
 function validateForm() {
   return requiredFields.map(updateFieldValidation).every(Boolean);
 }
 
 
+
+/** Translates project value. @param {unknown} value - The value value. @returns {unknown} The operation result. */
 function translateProjectValue(value) {
   if (getLanguage() !== 'en') return value;
   return PROJECT_VALUE_EN[value] || value;
 }
 
 
+
+/** Builds whats app message. @param {Object} data - The data value. @returns {string} The operation result. */
 function buildWhatsAppMessage(data) {
   const text = getText();
   const details = [`${text.name}: ${data.name}`, `${text.project}: ${translateProjectValue(data.project)}`];
@@ -160,12 +194,16 @@ function buildWhatsAppMessage(data) {
 }
 
 
+
+/** Builds whats app link. @param {Object} data - The data value. @returns {string} The operation result. */
 function buildWhatsAppLink(data) {
   const message = encodeURIComponent(buildWhatsAppMessage(data));
   return `https://wa.me/${whatsappNumber}?text=${message}`;
 }
 
 
+
+/** Shows status. @param {string} message - The message value. @param {string} state - The state value. @returns {void} The operation result. */
 function showStatus(message, state = '') {
   if (!formStatus) return;
   formStatus.textContent = message;
@@ -173,18 +211,24 @@ function showStatus(message, state = '') {
 }
 
 
+
+/** Focuses first invalid field. @returns {void} The operation result. */
 function focusFirstInvalidField() {
   const invalid = contactForm.querySelector('[aria-invalid="true"], [data-invalid="true"] input');
   if (invalid instanceof HTMLElement) invalid.focus();
 }
 
 
+
+/** Shows invalid form status. @returns {void} The operation result. */
 function showInvalidFormStatus() {
   showStatus(getText().invalid, 'error');
   focusFirstInvalidField();
 }
 
 
+
+/** Handles contact submit. @param {Event} event - The event value. @returns {void} The operation result. */
 function handleContactSubmit(event) {
   event.preventDefault();
   if (!validateForm()) return showInvalidFormStatus();
@@ -194,12 +238,16 @@ function handleContactSubmit(event) {
 }
 
 
+
+/** Updates message counter. @returns {void} The operation result. */
 function updateMessageCounter() {
   const message = getFormValue('message');
   if (messageCount) messageCount.textContent = String(message.length);
 }
 
 
+
+/** Handles field activity. @param {Event} event - The event value. @returns {void} The operation result. */
 function handleFieldActivity(event) {
   const target = event.target;
   if (!(target instanceof HTMLInputElement || target instanceof HTMLSelectElement || target instanceof HTMLTextAreaElement)) return;
@@ -208,6 +256,8 @@ function handleFieldActivity(event) {
 }
 
 
+
+/** Handles field blur. @param {Event} event - The event value. @returns {void} The operation result. */
 function handleFieldBlur(event) {
   const target = event.target;
   if (!(target instanceof HTMLInputElement || target instanceof HTMLSelectElement || target instanceof HTMLTextAreaElement)) return;
@@ -215,21 +265,29 @@ function handleFieldBlur(event) {
 }
 
 
+
+/** Opens solution dialog. @returns {void} The operation result. */
 function openSolutionDialog() {
   if (solutionDialog instanceof HTMLDialogElement) solutionDialog.showModal();
 }
 
 
+
+/** Closes solution dialog. @returns {void} The operation result. */
 function closeSolutionDialog() {
   if (solutionDialog instanceof HTMLDialogElement) solutionDialog.close();
 }
 
 
+
+/** Handles solution dialog click. @param {Event} event - The event value. @returns {void} The operation result. */
 function handleSolutionDialogClick(event) {
   if (event.target === solutionDialog) closeSolutionDialog();
 }
 
 
+
+/** Initializes solution dialog. @returns {void} The operation result. */
 function initializeSolutionDialog() {
   solutionDialogOpen?.addEventListener('click', openSolutionDialog);
   solutionDialogClose?.addEventListener('click', closeSolutionDialog);
@@ -237,6 +295,8 @@ function initializeSolutionDialog() {
 }
 
 
+
+/** Selects project from url. @returns {void} The operation result. */
 function selectProjectFromUrl() {
   const requestedProject = String(contactParams.get('project') || '').trim();
   const projectControls = contactForm?.querySelectorAll('input[name="project"]');
@@ -247,6 +307,8 @@ function selectProjectFromUrl() {
 }
 
 
+
+/** Initializes contact prefill. @returns {void} The operation result. */
 function initializeContactPrefill() {
   if (!contactForm) return;
   selectProjectFromUrl();
@@ -254,6 +316,8 @@ function initializeContactPrefill() {
 }
 
 
+
+/** Handles language change. @returns {void} The operation result. */
 function handleLanguageChange() {
   requiredFields.forEach((name) => {
     if (getErrorElement(name)?.textContent) updateFieldValidation(name);
@@ -262,6 +326,8 @@ function handleLanguageChange() {
 }
 
 
+
+/** Initializes contact form. @returns {void} The operation result. */
 function initializeContactForm() {
   if (!contactForm) return;
   contactForm.addEventListener('submit', handleContactSubmit);

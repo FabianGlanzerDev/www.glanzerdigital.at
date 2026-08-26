@@ -1,6 +1,8 @@
 const layoutTemplates = window.LayoutTemplates;
 
 
+
+/** Returns navigation label. @param {boolean} open - The open value. @returns {unknown} The operation result. */
 function getNavigationLabel(open) {
   const english = document.documentElement.lang === 'en';
   if (english) return open ? 'Close navigation' : 'Open navigation';
@@ -8,6 +10,8 @@ function getNavigationLabel(open) {
 }
 
 
+
+/** Renders global layout. @returns {void} The operation result. */
 function renderGlobalLayout() {
   if (!layoutTemplates) return;
   const rootPath = document.body.dataset.root || '.';
@@ -19,6 +23,8 @@ function renderGlobalLayout() {
 }
 
 
+
+/** Closes navigation. @returns {void} The operation result. */
 function closeNavigation() {
   const navToggle = document.querySelector('[data-nav-toggle]');
   const navigation = document.querySelector('[data-nav]');
@@ -30,6 +36,8 @@ function closeNavigation() {
 }
 
 
+
+/** Toggles navigation. @returns {void} The operation result. */
 function toggleNavigation() {
   const navToggle = document.querySelector('[data-nav-toggle]');
   const navigation = document.querySelector('[data-nav]');
@@ -42,21 +50,29 @@ function toggleNavigation() {
 }
 
 
+
+/** Handles navigation click. @param {Event} event - The event value. @returns {void} The operation result. */
 function handleNavigationClick(event) {
   if (event.target instanceof HTMLAnchorElement) closeNavigation();
 }
 
 
+
+/** Handles escape key. @param {Event} event - The event value. @returns {void} The operation result. */
 function handleEscapeKey(event) {
   if (event.key === 'Escape') closeNavigation();
 }
 
 
+
+/** Handles viewport resize. @returns {void} The operation result. */
 function handleViewportResize() {
   if (window.innerWidth > 880) closeNavigation();
 }
 
 
+
+/** Initializes navigation. @returns {void} The operation result. */
 function initializeNavigation() {
   const navToggle = document.querySelector('[data-nav-toggle]');
   const navigation = document.querySelector('[data-nav]');
@@ -68,6 +84,8 @@ function initializeNavigation() {
 }
 
 
+
+/** Updates current year. @returns {void} The operation result. */
 function updateCurrentYear() {
   const currentYear = String(new Date().getFullYear());
   document.querySelectorAll('[data-current-year]').forEach((element) => {
@@ -76,6 +94,8 @@ function updateCurrentYear() {
 }
 
 
+
+/** Initializes site. @returns {void} The operation result. */
 function initializeSite() {
   renderGlobalLayout();
   initializeNavigation();
@@ -86,6 +106,8 @@ function initializeSite() {
 initializeSite();
 
 
+
+/** Returns analytics device. @returns {string} The operation result. */
 function getAnalyticsDevice() {
   if (window.innerWidth <= 620) return 'mobile';
   if (window.innerWidth <= 980) return 'tablet';
@@ -93,6 +115,8 @@ function getAnalyticsDevice() {
 }
 
 
+
+/** Returns analytics screen. @returns {string} The operation result. */
 function getAnalyticsScreen() {
   const width = window.innerWidth;
   if (width < 400) return '<400 px';
@@ -103,6 +127,8 @@ function getAnalyticsScreen() {
 }
 
 
+
+/** Returns analytics referrer. @returns {string} The operation result. */
 function getAnalyticsReferrer() {
   if (!document.referrer) return '';
   try { return new URL(document.referrer).hostname.toLowerCase(); }
@@ -110,17 +136,23 @@ function getAnalyticsReferrer() {
 }
 
 
+
+/** Returns analytics endpoint. @returns {string} The operation result. */
 function getAnalyticsEndpoint() {
   const rootPath = document.body.dataset.root || '.';
   return `${rootPath}/api/analytics-track.php`;
 }
 
 
+
+/** Normalizes analytics label. @param {string} label - The label value. @returns {unknown} The operation result. */
 function normalizeAnalyticsLabel(label) {
   return String(label || '').replace(/\s+/g, ' ').trim().slice(0, 60);
 }
 
 
+
+/** Builds analytics payload. @param {string} eventName - The event name value. @param {string} label - The label value. @returns {Object} The operation result. */
 function buildAnalyticsPayload(eventName, label = '') {
   return {
     event: eventName, page: location.pathname, device: getAnalyticsDevice(),
@@ -130,6 +162,8 @@ function buildAnalyticsPayload(eventName, label = '') {
 }
 
 
+
+/** Sends analytics event. @param {string} eventName - The event name value. @param {string} label - The label value. @returns {unknown} The operation result. */
 function sendAnalyticsEvent(eventName, label = '') {
   const payload = JSON.stringify(buildAnalyticsPayload(eventName, label));
   if (navigator.sendBeacon) return navigator.sendBeacon(getAnalyticsEndpoint(), new Blob([payload], { type: 'application/json' }));
@@ -137,6 +171,8 @@ function sendAnalyticsEvent(eventName, label = '') {
 }
 
 
+
+/** Returns link analytics event. @param {HTMLAnchorElement} link - The link value. @returns {unknown} The operation result. */
 function getLinkAnalyticsEvent(link) {
   const href = link.getAttribute('href') || '';
   if (link.classList.contains('project-demo-button') || href.includes('/demos/')) return 'demo_click';
@@ -148,6 +184,8 @@ function getLinkAnalyticsEvent(link) {
 }
 
 
+
+/** Returns analytics label. @param {HTMLAnchorElement} link - The link value. @param {string} eventName - The event name value. @returns {string} The operation result. */
 function getAnalyticsLabel(link, eventName) {
   if (link.dataset.analyticsLabel) return link.dataset.analyticsLabel;
   if (eventName === 'contact_click') return getContactLinkLabel(link);
@@ -155,6 +193,8 @@ function getAnalyticsLabel(link, eventName) {
 }
 
 
+
+/** Returns contact link label. @param {HTMLAnchorElement} link - The link value. @returns {string} The operation result. */
 function getContactLinkLabel(link) {
   const href = link.getAttribute('href') || '';
   if (href.includes('wa.me/')) return 'WhatsApp';
@@ -164,6 +204,8 @@ function getContactLinkLabel(link) {
 }
 
 
+
+/** Handles analytics click. @param {Event} event - The event value. @returns {void} The operation result. */
 function handleAnalyticsClick(event) {
   const link = event.target instanceof Element ? event.target.closest('a') : null;
   if (!(link instanceof HTMLAnchorElement)) return;
@@ -172,6 +214,8 @@ function handleAnalyticsClick(event) {
 }
 
 
+
+/** Initializes analytics. @returns {void} The operation result. */
 function initializeAnalytics() {
   sendAnalyticsEvent('page_view');
   document.addEventListener('click', handleAnalyticsClick, { passive: true });

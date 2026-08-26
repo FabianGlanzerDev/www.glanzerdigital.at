@@ -1,19 +1,19 @@
 const TERMINAL_SNIPPETS = [
   {
-    de: { code: `const developer = {\n  coffee: true,\n  bugs: 0,\n};\n\nif (developer.bugs === 0) {\n  console.log('Noch nicht getestet.');\n}`, output: 'Der Code funktioniert. Die Frage ist nur: warum?' },
-    en: { code: `const developer = {\n  coffee: true,\n  bugs: 0,\n};\n\nif (developer.bugs === 0) {\n  console.log('Not tested yet.');\n}`, output: 'The code works. The only question is: why?' }
+    de: { code: `const website = {\n  responsive: true,\n  seoReady: true,\n  secure: true,\n};\n\nconst ready = Object.values(website).every(Boolean);`, output: 'Bereit für Desktop, Tablet, Smartphone und den nächsten Schritt.' },
+    en: { code: `const website = {\n  responsive: true,\n  seoReady: true,\n  secure: true,\n};\n\nconst ready = Object.values(website).every(Boolean);`, output: 'Ready for desktop, tablet, smartphone and the next step.' }
   },
   {
-    de: { code: `function fixBug(bug) {\n  if (!bug) return 'feature';\n  return fixBug(null);\n}`, output: '90 % Debugging, 10 % herausfinden, was man eigentlich gebaut hat.' },
-    en: { code: `function fixBug(bug) {\n  if (!bug) return 'feature';\n  return fixBug(null);\n}`, output: '90% debugging, 10% figuring out what you actually built.' }
+    de: { code: `const project = [\n  'Ziel verstehen',\n  'Lösung planen',\n  'sauber umsetzen',\n  'gemeinsam testen',\n];`, output: 'Technik folgt dem Ziel – nicht umgekehrt.' },
+    en: { code: `const project = [\n  'understand the goal',\n  'plan the solution',\n  'build it cleanly',\n  'test it together',\n];`, output: 'Technology follows the goal – not the other way around.' }
   },
   {
-    de: { code: `const coffee = 0;\n\nwhile (coffee === 0) {\n  console.log('Compiler wartet …');\n  break;\n}`, output: 'Kein Kaffee, kein Deployment.' },
-    en: { code: `const coffee = 0;\n\nwhile (coffee === 0) {\n  console.log('Compiler is waiting …');\n  break;\n}`, output: 'No coffee, no deployment.' }
+    de: { code: `async function loadData() {\n  const response = await fetch('/api/data');\n  return response.json();\n}`, output: 'Web-App, API und Datenfluss greifen sauber ineinander.' },
+    en: { code: `async function loadData() {\n  const response = await fetch('/api/data');\n  return response.json();\n}`, output: 'Web app, API and data flow work cleanly together.' }
   },
   {
-    de: { code: `const binaryJoke = 10;\n\nconsole.log(\n  'Es gibt ' + binaryJoke +\n  ' Arten von Menschen.'\n);`, output: 'Die, die Binär verstehen – und die anderen.' },
-    en: { code: `const binaryJoke = 10;\n\nconsole.log(\n  'There are ' + binaryJoke +\n  ' types of people.'\n);`, output: 'Those who understand binary – and those who do not.' }
+    de: { code: `const existingWebsite = {\n  redesign: false,\n  improve: ['content', 'speed', 'features'],\n};`, output: 'Nicht alles neu bauen – gezielt verbessern, was wirklich Nutzen bringt.' },
+    en: { code: `const existingWebsite = {\n  redesign: false,\n  improve: ['content', 'speed', 'features'],\n};`, output: 'Do not rebuild everything – improve what actually adds value.' }
   }
 ];
 
@@ -56,16 +56,22 @@ let terminalTimer = 0;
 let terminalPaused = false;
 
 
+
+/** Returns language. @returns {string} The operation result. */
 function getLanguage() {
   return document.documentElement.lang === 'en' ? 'en' : 'de';
 }
 
 
+
+/** Returns terminal snippet. @returns {Object} The operation result. */
 function getTerminalSnippet() {
   return TERMINAL_SNIPPETS[terminalIndex][getLanguage()];
 }
 
 
+
+/** Returns terminal elements. @returns {Object} The operation result. */
 function getTerminalElements() {
   return {
     code: document.querySelector('[data-terminal-code]'),
@@ -75,11 +81,15 @@ function getTerminalElements() {
 }
 
 
+
+/** Clears terminal timer. @returns {void} The operation result. */
 function clearTerminalTimer() {
   window.clearTimeout(terminalTimer);
 }
 
 
+
+/** Updates pause button. @param {HTMLElement} button - The button value. @returns {void} The operation result. */
 function setPauseButton(button) {
   const label = getLanguage() === 'en' ? ['Resume animation', 'Pause animation'] : ['Animation fortsetzen', 'Animation pausieren'];
   button.setAttribute('aria-pressed', String(terminalPaused));
@@ -87,12 +97,16 @@ function setPauseButton(button) {
 }
 
 
+
+/** Shows terminal output. @param {HTMLElement} output - The output value. @returns {void} The operation result. */
 function showTerminalOutput(output) {
   output.textContent = getTerminalSnippet().output;
   terminalTimer = window.setTimeout(nextTerminalSnippet, 3200);
 }
 
 
+
+/** Processes terminal character. @param {HTMLElement} code - The code value. @param {HTMLElement} output - The output value. @returns {void} The operation result. */
 function typeTerminalCharacter(code, output) {
   if (terminalPaused) return;
   const snippet = getTerminalSnippet();
@@ -102,6 +116,8 @@ function typeTerminalCharacter(code, output) {
 }
 
 
+
+/** Starts terminal snippet. @returns {void} The operation result. */
 function startTerminalSnippet() {
   const elements = getTerminalElements();
   if (!elements.code || !elements.output || terminalPaused) return;
@@ -112,12 +128,16 @@ function startTerminalSnippet() {
 }
 
 
+
+/** Advances terminal snippet. @returns {void} The operation result. */
 function nextTerminalSnippet() {
   terminalIndex = (terminalIndex + 1) % TERMINAL_SNIPPETS.length;
   startTerminalSnippet();
 }
 
 
+
+/** Toggles terminal. @returns {void} The operation result. */
 function toggleTerminal() {
   const { pause } = getTerminalElements();
   if (!pause) return;
@@ -128,6 +148,8 @@ function toggleTerminal() {
 }
 
 
+
+/** Renders reduced motion terminal. @returns {void} The operation result. */
 function renderReducedMotionTerminal() {
   const { code, output, pause } = getTerminalElements();
   if (!code || !output || !pause) return;
@@ -137,6 +159,8 @@ function renderReducedMotionTerminal() {
 }
 
 
+
+/** Initializes terminal. @returns {void} The operation result. */
 function initializeTerminal() {
   const { pause } = getTerminalElements();
   if (!pause) return;
@@ -146,6 +170,8 @@ function initializeTerminal() {
 }
 
 
+
+/** Returns industry elements. @returns {unknown} The operation result. */
 function getIndustryElements() {
   return {
     title: document.querySelector('[data-industry-title]'), text: document.querySelector('[data-industry-text]'),
@@ -155,11 +181,15 @@ function getIndustryElements() {
 }
 
 
+
+/** Returns industry content. @param {Object} data - The data value. @returns {Object} The operation result. */
 function getIndustryContent(data) {
   return data[getLanguage()];
 }
 
 
+
+/** Builds contact link. @param {Object} data - The data value. @param {Object} content - The content value. @returns {string} The operation result. */
 function buildContactLink(data, content) {
   const project = encodeURIComponent(data.project);
   const industry = encodeURIComponent(content.title);
@@ -167,12 +197,16 @@ function buildContactLink(data, content) {
 }
 
 
+
+/** Renders industry features. @param {HTMLElement} list - The list value. @param {Array} features - The features value. @returns {void} The operation result. */
 function renderIndustryFeatures(list, features) {
   if (!list) return;
   list.innerHTML = features.map((feature) => `<li>${feature}</li>`).join('');
 }
 
 
+
+/** Renders industry. @param {string} key - The key value. @returns {void} The operation result. */
 function renderIndustry(key) {
   const data = INDUSTRY_DATA[key];
   const elements = getIndustryElements();
@@ -186,17 +220,23 @@ function renderIndustry(key) {
 }
 
 
+
+/** Returns active industry key. @returns {string} The operation result. */
 function getActiveIndustryKey() {
   const active = document.querySelector('[data-industry][aria-pressed="true"]');
   return active?.dataset.industry || 'friseur';
 }
 
 
+
+/** Updates active industry. @param {HTMLElement} button - The button value. @returns {void} The operation result. */
 function setActiveIndustry(button) {
   document.querySelectorAll('[data-industry]').forEach((item) => item.setAttribute('aria-pressed', String(item === button)));
 }
 
 
+
+/** Handles industry click. @param {Event} event - The event value. @returns {void} The operation result. */
 function handleIndustryClick(event) {
   const button = event.target.closest('[data-industry]');
   if (!(button instanceof HTMLButtonElement)) return;
@@ -205,6 +245,8 @@ function handleIndustryClick(event) {
 }
 
 
+
+/** Initializes industry selector. @returns {void} The operation result. */
 function initializeIndustrySelector() {
   const tabs = document.querySelector('.industry-tabs');
   if (!tabs) return;
@@ -213,6 +255,8 @@ function initializeIndustrySelector() {
 }
 
 
+
+/** Handles language change. @returns {void} The operation result. */
 function handleLanguageChange() {
   clearTerminalTimer();
   const { pause } = getTerminalElements();

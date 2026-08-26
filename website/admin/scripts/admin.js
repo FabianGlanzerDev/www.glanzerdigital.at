@@ -1,6 +1,8 @@
 'use strict';
 
 
+
+/** Updates the dashboard clock and date. @returns {void} The operation result. */
 function updateClock() {
   const now = new Date();
   const time = document.querySelector('[data-clock-time]');
@@ -10,6 +12,8 @@ function updateClock() {
 }
 
 
+
+/** Updates active navigation. @param {unknown} id - The id value. @returns {void} The operation result. */
 function setActiveNavigation(id) {
   document.querySelectorAll('.admin-nav a').forEach((link) => {
     link.toggleAttribute('aria-current', link.getAttribute('href') === `#${id}`);
@@ -17,12 +21,16 @@ function setActiveNavigation(id) {
 }
 
 
+
+/** Handles section entries. @param {Array} entries - The entries value. @returns {void} The operation result. */
 function handleSectionEntries(entries) {
   const visible = entries.find((entry) => entry.isIntersecting);
   if (visible) setActiveNavigation(visible.target.id);
 }
 
 
+
+/** Runs the observe admin sections operation. @returns {unknown} The operation result. */
 function observeAdminSections() {
   const sections = document.querySelectorAll('[id].admin-section, #overview');
   if (!('IntersectionObserver' in window)) return;
@@ -31,6 +39,8 @@ function observeAdminSections() {
 }
 
 
+
+/** Handles range click. @param {Event} event - The event value. @returns {void} The operation result. */
 function handleRangeClick(event) {
   const button = event.target.closest('[data-range]');
   if (!(button instanceof HTMLButtonElement)) return;
@@ -40,16 +50,22 @@ function handleRangeClick(event) {
 }
 
 
+
+/** Initializes range buttons. @returns {void} The operation result. */
 function initializeRangeButtons() {
   document.querySelector('.admin-range')?.addEventListener('click', handleRangeClick);
 }
 
 
+
+/** Returns admin token. @returns {Promise<unknown>} The operation result. */
 async function getAdminToken() {
   return window.GlanzerAdminAuth?.getIdToken?.() || '';
 }
 
 
+
+/** Runs the fetch health data operation. @returns {Promise<unknown>} The operation result. */
 async function fetchHealthData() {
   const token = await getAdminToken();
   const endpoint = window.GlanzerAdminConfig?.endpoints?.health || './api/health.php';
@@ -60,11 +76,15 @@ async function fetchHealthData() {
 }
 
 
+
+/** Renders boolean health. @param {string} name - The name value. @param {boolean} ok - The ok value. @param {string} readyText - The ready text value. @param {string} errorText - The error text value. @returns {void} The operation result. */
 function renderBooleanHealth(name, ok, readyText, errorText) {
   setSystemState(name, ok ? 'is-ok' : 'is-pending', ok ? readyText : errorText);
 }
 
 
+
+/** Renders health checks. @param {Object} checks - The checks value. @returns {void} The operation result. */
 function renderHealthChecks(checks = {}) {
   renderBooleanHealth('privateStorage', checks.privateStorage, 'Privater Speicher schreibbar', 'Speicher nicht schreibbar');
   renderBooleanHealth('analyticsFile', checks.analyticsFile, 'Analytics-Datei bereit', 'Analytics-Datei prüfen');
@@ -75,6 +95,8 @@ function renderHealthChecks(checks = {}) {
 }
 
 
+
+/** Runs the run health check operation. @returns {Promise<unknown>} The operation result. */
 async function runHealthCheck() {
   if (!window.GlanzerAdminAuth?.isAuthenticated()) return;
   try { renderHealthChecks(await fetchHealthData()); }
@@ -82,6 +104,8 @@ async function runHealthCheck() {
 }
 
 
+
+/** Handles refresh click. @returns {void} The operation result. */
 function handleRefreshClick() {
   window.GlanzerAdminAnalytics?.refreshDashboard();
   window.GlanzerAdminMaintenance?.loadMaintenanceState();
@@ -90,11 +114,15 @@ function handleRefreshClick() {
 }
 
 
+
+/** Handles export click. @returns {void} The operation result. */
 function handleExportClick() {
   window.GlanzerAdminAnalytics?.exportAnalytics();
 }
 
 
+
+/** Initializes system actions. @returns {void} The operation result. */
 function initializeSystemActions() {
   document.querySelector('[data-refresh-dashboard]')?.addEventListener('click', handleRefreshClick);
   document.querySelector('[data-action="check-health"]')?.addEventListener('click', runHealthCheck);
@@ -102,6 +130,8 @@ function initializeSystemActions() {
 }
 
 
+
+/** Updates system state. @param {string} name - The name value. @param {string} state - The state value. @param {string} text - The text value. @returns {void} The operation result. */
 function setSystemState(name, state, text) {
   const card = document.querySelector(`[data-system="${name}"]`);
   if (!card) return;
@@ -112,12 +142,16 @@ function setSystemState(name, state, text) {
 }
 
 
+
+/** Marks firebase ready. @returns {void} The operation result. */
 function markFirebaseReady() {
   setSystemState('firebase', 'is-ok', 'Firebase Auth verbunden');
   setSystemState('token', 'is-ok', 'ID-Token verfügbar');
 }
 
 
+
+/** Handles authenticated. @returns {void} The operation result. */
 function handleAuthenticated() {
   markFirebaseReady();
   window.GlanzerAdminAnalytics?.initializeAnalyticsPanel();
@@ -126,6 +160,8 @@ function handleAuthenticated() {
 }
 
 
+
+/** Initializes admin dashboard. @returns {void} The operation result. */
 function initializeAdminDashboard() {
   initializeRangeButtons();
   initializeSystemActions();

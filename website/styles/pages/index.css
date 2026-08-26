@@ -452,6 +452,122 @@
   line-height: 1.65;
 }
 
+
+
+.home-projects-section {
+  color: var(--color-dark-text);
+  background: #f4f7fb;
+}
+
+.home-projects-heading {
+  max-width: 760px;
+}
+
+.home-projects-heading p {
+  color: var(--color-dark-muted);
+}
+
+.home-project-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.25rem;
+}
+
+.home-project-card {
+  display: flex;
+  overflow: hidden;
+  flex-direction: column;
+  background: var(--color-white);
+  border: 1px solid var(--color-dark-border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-light);
+  transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
+}
+
+.home-project-card:hover {
+  border-color: #adc8f4;
+  box-shadow: var(--shadow-project-hover);
+  transform: translateY(-4px);
+}
+
+.home-project-card img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: contain;
+  padding: 0.7rem;
+  background: #eaf0f7;
+  border-bottom: 1px solid var(--color-dark-border);
+}
+
+.home-project-card > div {
+  display: flex;
+  min-height: 250px;
+  padding: 1.25rem;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.home-project-card h3 {
+  margin-top: 0.8rem;
+  color: var(--color-dark-text);
+}
+
+.home-project-card p {
+  color: var(--color-dark-muted);
+  font-size: 0.9rem;
+  line-height: 1.65;
+}
+
+.home-project-card .link-arrow {
+  margin-top: auto;
+}
+
+.home-projects-actions {
+  display: flex;
+  margin-top: 1.6rem;
+  justify-content: center;
+}
+
+@media (max-width: 980px) {
+  .home-project-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .home-project-card {
+    display: grid;
+    grid-template-columns: minmax(220px, 0.8fr) minmax(0, 1.2fr);
+  }
+
+  .home-project-card img {
+    height: 100%;
+    aspect-ratio: auto;
+    border-right: 1px solid var(--color-dark-border);
+    border-bottom: 0;
+  }
+}
+
+@media (max-width: 620px) {
+  .home-project-card {
+    display: flex;
+  }
+
+  .home-project-card img {
+    height: auto;
+    aspect-ratio: 16 / 10;
+    border-right: 0;
+    border-bottom: 1px solid var(--color-dark-border);
+  }
+
+  .home-project-card > div {
+    min-height: 0;
+  }
+
+  .home-projects-actions .button {
+    width: 100%;
+  }
+}
+
 .process-section {
   color: #0b1421;
   background: #f6f9fd;

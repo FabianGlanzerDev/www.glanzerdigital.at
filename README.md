@@ -1,38 +1,27 @@
-# Glanzer Digital – Website & vorbereiteter Adminbereich
+# Glanzer Digital – Website & Adminbereich
 
-## Ordner
+## Struktur
 
-- `website/` – öffentliche Website, Demos und die vorbereitete Adminoberfläche
-- `server-private/` – private Laufzeitdaten; soll außerhalb des öffentlichen Webroots liegen
+- `website/` – öffentliche Website, Portfolio-Demos und geschütztes Admin-Dashboard
+- `server-private/` – private Serverlogik, lokale Analytics-Daten und Search-Console-Anbindung; muss außerhalb des öffentlichen Webroots liegen
 
 ## Adminbereich
 
-Aufruf: `https://www.glanzerdigital.at/admin/`
+Aufruf: `https://glanzerdigital.at/admin/`
 
-Der Adminbereich ist bewusst bereits als `index.html` vorbereitet. Es gibt aktuell **keinen Übergangslogin und keine erfundenen Zugangsdaten**.
+Der Adminbereich verwendet Firebase Authentication. Nur ausdrücklich freigegebene Firebase-UIDs erhalten Zugriff. Das Firebase-ID-Token wird zusätzlich serverseitig geprüft, bevor Analytics-, Search-Console- oder Wartungsfunktionen ausgeführt werden.
 
-Vorbereitet sind:
-- Dashboard-Übersicht
-- Analytics-Bereich
-- Wartungsmodus-Oberfläche
-- Systemstatus
-- getrennte JavaScript-Module für Auth, Analytics und Wartung
+Enthalten sind:
+- lokale cookielose Analytics
+- Google-Search-Console-Auswertung
+- Wartungsmodus
+- Systemcheck
+- JSON-Export der lokalen Analytics
 
-## Firebase später verbinden
+## Search Console
 
-Sobald Firebase eingerichtet ist, werden folgende Punkte ergänzt:
-1. Firebase Authentication im Browser
-2. erlaubte Admin-Benutzer
-3. Firebase ID-Token an die Admin-API senden
-4. serverseitige Prüfung des ID-Tokens
-5. erst danach Analytics-Ausgabe und Wartungsänderungen freischalten
+Die Google Search Console API wird serverseitig über `server-private/google-service-account.json` angesprochen. Diese Datei enthält einen privaten Schlüssel und darf niemals in ein öffentliches Repository gelangen. Sie ist in `.gitignore` ausgeschlossen.
 
-`admin/api/analytics.php` und `admin/api/maintenance.php` antworten bis dahin absichtlich mit HTTP 503. Dadurch kann niemand die vorbereiteten Admin-Funktionen ohne Authentifizierung verwenden.
+## Deployment
 
-## Analytics
-
-Das bestehende cookielose Tracking bleibt vorbereitet. Es speichert nur aggregierte Seitenaufrufe, Geräteklassen und Klick-Zähler. Die private Ausgabe im Dashboard wird erst nach Firebase-Tokenprüfung freigeschaltet.
-
-## Wartungsmodus
-
-Der technische 503-Wartungsmodus und die Wartungsseite bleiben vorhanden. Der Admin-Schalter ist bis zur Firebase-Absicherung deaktiviert.
+`website/` wird als öffentlicher Webroot bereitgestellt. `server-private/` bleibt daneben außerhalb des öffentlichen Webroots. Vor dem finalen Upload sollten HTTPS, PHP-Zugriff auf die privaten Dateien sowie Firebase und Search Console einmal live geprüft werden.

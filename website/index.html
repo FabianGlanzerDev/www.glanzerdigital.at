@@ -27,11 +27,14 @@
     <link rel="stylesheet" href="./styles/fonts.css">
     <link rel="stylesheet" href="./style.css">
     <link rel="stylesheet" href="./styles/pages/index.css">
-    <script src="./templates/layout-templates.js" defer></script>
+    <script src="./templates/layoutTemplates.js" defer></script>
     <script src="./scripts/main.js" defer></script>
-    <script src="./scripts/i18n-translations.js" defer></script>
+    <script src="./scripts/i18nCore.js" defer></script>
+    <script src="./scripts/i18nContent.js" defer></script>
+    <script src="./scripts/i18nLegal.js" defer></script>
+    <script src="./scripts/i18nTranslations.js" defer></script>
     <script src="./scripts/i18n.js" defer></script>
-    <script src="./scripts/home-effects.js" defer></script>
+    <script src="./scripts/homeEffects.js" defer></script>
     <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -65,8 +68,8 @@
                         <span>Websites &amp; Software,</span>
                         <span class="text-primary">die einfach funktionieren.</span>
                     </h1>
-                    <p>Von der kleinen Unternehmenswebsite bis zum individuellen digitalen Werkzeug: sauber entwickelt,
-                        verständlich erklärt und persönlich betreut.</p>
+                    <p>Websites, Web-Apps und Softwarelösungen für Selbstständige, kleine Unternehmen, Vereine und individuelle
+                        Projekte: sauber entwickelt, verständlich erklärt und persönlich betreut.</p>
                     <div class="button-row">
                         <a class="button button--primary" href="subpages/kontakt.html">Projekt besprechen</a>
                         <a class="button button--secondary" href="subpages/leistungen.html">Leistungen ansehen</a>
@@ -91,10 +94,10 @@
                 <div class="hero-visual" aria-labelledby="terminal-title">
                     <div class="code-orbit code-orbit--one" aria-hidden="true">{ }</div>
                     <div class="code-orbit code-orbit--two" aria-hidden="true">&lt;/&gt;</div>
-                    <article class="hero-terminal" aria-label="Animierter Programmiererwitz im Codefenster">
+                    <article class="hero-terminal" aria-label="Animierter Entwicklungsablauf im Codefenster">
                         <div class="terminal-toolbar">
                             <div class="terminal-dots" aria-hidden="true"><span></span><span></span><span></span></div>
-                            <span class="terminal-title" id="terminal-title">programmer-joke.js</span>
+                            <span class="terminal-title" id="terminal-title">project-workflow.js</span>
                             <button class="terminal-pause" data-terminal-pause type="button"
                                 aria-pressed="false">Animation pausieren</button>
                         </div>
@@ -172,7 +175,99 @@
             </div>
         </section>
 
-        <section class="section industry-section" id="branchen-check" aria-labelledby="industry-title">
+        
+
+        <section class="section benefit-section" aria-labelledby="benefit-title">
+            <div class="container">
+                <div class="section-heading section-heading--left benefit-heading">
+                    <span class="kicker">Mehr als nur schön aussehen</span>
+                    <h2 id="benefit-title">Was dir eine gute Website wirklich bringt</h2>
+                    <p>Der Nutzen beginnt dort, wo Besucher schneller Antworten finden und einfacher mit dir in Kontakt
+                        kommen.</p>
+                </div>
+
+                <div class="benefit-grid">
+                    <article class="benefit-card"><span>24/7</span>
+                        <h3>Jederzeit gefunden werden</h3>
+                        <p>Leistungen, Öffnungszeiten und Kontaktinformationen sind auch außerhalb deiner
+                            Geschäftszeiten erreichbar.</p>
+                    </article>
+                    <article class="benefit-card"><span>01</span>
+                        <h3>Professioneller auftreten</h3>
+                        <p>Ein klarer, moderner Internetauftritt schafft Vertrauen, bevor der erste Anruf oder die erste
+                            Nachricht kommt.</p>
+                    </article>
+                    <article class="benefit-card"><span>02</span>
+                        <h3>Weniger Rückfragen</h3>
+                        <p>Häufige Fragen, Preise, Abläufe oder Leistungen können direkt auf der Website beantwortet
+                            werden.</p>
+                    </article>
+                    <article class="benefit-card"><span>03</span>
+                        <h3>Kontakt vereinfachen</h3>
+                        <p>WhatsApp, Telefon, Maps, Terminlinks oder Anfrageformulare sind mit einem Klick erreichbar.
+                        </p>
+                    </article>
+                    <article class="benefit-card"><span>04</span>
+                        <h3>Auf jedem Gerät funktionieren</h3>
+                        <p>Die Inhalte bleiben auf Smartphone, Tablet und Desktop übersichtlich und einfach bedienbar.
+                        </p>
+                    </article>
+                    <article class="benefit-card"><span>05</span>
+                        <h3>Mit dir mitwachsen</h3>
+                        <p>Neue Seiten, Funktionen oder Inhalte können später ergänzt werden, wenn dein Bedarf größer
+                            wird.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="section home-projects-section" aria-labelledby="home-projects-title">
+            <div class="container">
+                <div class="section-heading section-heading--left home-projects-heading">
+                    <span class="kicker">Ausgewählte Projekte</span>
+                    <h2 id="home-projects-title">Ergebnisse statt nur Technik</h2>
+                    <p>Drei Beispiele zeigen, wie aus unterschiedlichen Anforderungen funktionierende Websites und Anwendungen entstehen.</p>
+                </div>
+
+                <div class="home-project-grid">
+                    <article class="home-project-card">
+                        <img src="assets/images/portfolio/allzeit-gut-featured.png" alt="Allzeit Gut – responsive Informationswebsite mit geschütztem Adminbereich." width="900" height="1200" loading="lazy">
+                        <div>
+                            <span class="badge badge--client">Kundenprojekt</span>
+                            <h3>Allzeit Gut</h3>
+                            <p>Mehrseitige Informationswebsite mit responsiver Umsetzung, SEO-Grundlagen, Analytics und geschütztem Adminbereich.</p>
+                            <a class="link-arrow" href="subpages/portfolio.html#allzeit-gut">Projekt ansehen</a>
+                        </div>
+                    </article>
+
+                    <article class="home-project-card">
+                        <img src="assets/images/portfolio/modellbibliothek.png" alt="3D-Modellbibliothek mit Modellübersicht und interaktiver Vorschau." width="1448" height="1086" loading="lazy">
+                        <div>
+                            <span class="badge">Eigenes Softwareprojekt</span>
+                            <h3>3D-Modellbibliothek</h3>
+                            <p>Lokale Windows-Anwendung zur strukturierten Verwaltung, Suche und Vorschau großer STL- und 3MF-Sammlungen.</p>
+                            <a class="link-arrow" href="subpages/portfolio.html#modellbibliothek">Projekt ansehen</a>
+                        </div>
+                    </article>
+
+                    <article class="home-project-card">
+                        <img src="assets/images/portfolio/join.png" alt="Join – Kanban-Web-App mit Aufgabenverwaltung und Kontakten." width="760" height="430" loading="lazy">
+                        <div>
+                            <span class="badge">Developer Akademie · Web-App</span>
+                            <h3>Join</h3>
+                            <p>Kanban-Anwendung mit Taskverwaltung, Kontakten und responsiver Oberfläche als Beispiel für umfangreichere Frontend-Logik.</p>
+                            <a class="link-arrow" href="subpages/portfolio.html#join-project">Projekt ansehen</a>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="home-projects-actions">
+                    <a class="button button--primary" href="subpages/portfolio.html">Alle Projekte ansehen</a>
+                </div>
+            </div>
+        </section>
+
+<section class="section industry-section" id="branchen-check" aria-labelledby="industry-title">
             <div class="container industry-layout">
                 <div class="industry-copy">
                     <span class="kicker">Auch kleine Websites können viel</span>
@@ -219,50 +314,6 @@
                         href="subpages/kontakt.html?project=Neue%20Website&amp;industry=Friseursalon">So etwas brauche
                         ich</a>
                 </article>
-            </div>
-        </section>
-
-        <section class="section benefit-section" aria-labelledby="benefit-title">
-            <div class="container">
-                <div class="section-heading section-heading--left benefit-heading">
-                    <span class="kicker">Mehr als nur schön aussehen</span>
-                    <h2 id="benefit-title">Was dir eine gute Website wirklich bringt</h2>
-                    <p>Der Nutzen beginnt dort, wo Besucher schneller Antworten finden und einfacher mit dir in Kontakt
-                        kommen.</p>
-                </div>
-
-                <div class="benefit-grid">
-                    <article class="benefit-card"><span>24/7</span>
-                        <h3>Jederzeit gefunden werden</h3>
-                        <p>Leistungen, Öffnungszeiten und Kontaktinformationen sind auch außerhalb deiner
-                            Geschäftszeiten erreichbar.</p>
-                    </article>
-                    <article class="benefit-card"><span>01</span>
-                        <h3>Professioneller auftreten</h3>
-                        <p>Ein klarer, moderner Internetauftritt schafft Vertrauen, bevor der erste Anruf oder die erste
-                            Nachricht kommt.</p>
-                    </article>
-                    <article class="benefit-card"><span>02</span>
-                        <h3>Weniger Rückfragen</h3>
-                        <p>Häufige Fragen, Preise, Abläufe oder Leistungen können direkt auf der Website beantwortet
-                            werden.</p>
-                    </article>
-                    <article class="benefit-card"><span>03</span>
-                        <h3>Kontakt vereinfachen</h3>
-                        <p>WhatsApp, Telefon, Maps, Terminlinks oder Anfrageformulare sind mit einem Klick erreichbar.
-                        </p>
-                    </article>
-                    <article class="benefit-card"><span>04</span>
-                        <h3>Auf jedem Gerät funktionieren</h3>
-                        <p>Die Inhalte bleiben auf Smartphone, Tablet und Desktop übersichtlich und einfach bedienbar.
-                        </p>
-                    </article>
-                    <article class="benefit-card"><span>05</span>
-                        <h3>Mit dir mitwachsen</h3>
-                        <p>Neue Seiten, Funktionen oder Inhalte können später ergänzt werden, wenn dein Bedarf größer
-                            wird.</p>
-                    </article>
-                </div>
             </div>
         </section>
 

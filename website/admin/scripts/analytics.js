@@ -4,28 +4,38 @@ let selectedRange = '30';
 let lastDashboardData = null;
 
 
+
+/** Returns endpoint. @returns {string} The operation result. */
 function getEndpoint() {
   return window.GlanzerAdminConfig?.endpoints?.analytics || './api/analytics.php';
 }
 
 
+
+/** Checks whether ready. @returns {boolean} The operation result. */
 function isReady() {
   return window.GlanzerAdminAuth?.isAuthenticated() === true;
 }
 
 
+
+/** Returns token. @returns {Promise<unknown>} The operation result. */
 async function getToken() {
   if (typeof window.GlanzerAdminAuth?.getIdToken !== 'function') return '';
   return window.GlanzerAdminAuth.getIdToken();
 }
 
 
+
+/** Updates text. @param {string} selector - The selector value. @param {unknown} value - The value value. @returns {void} The operation result. */
 function setText(selector, value) {
   const element = document.querySelector(selector);
   if (element) element.textContent = String(value ?? '–');
 }
 
 
+
+/** Updates stat. @param {string} name - The name value. @param {unknown} value - The value value. @returns {void} The operation result. */
 function setStat(name, value) {
   document.querySelectorAll(`[data-stat="${name}"]`).forEach((element) => {
     element.textContent = String(value ?? '–');
@@ -33,18 +43,24 @@ function setStat(name, value) {
 }
 
 
+
+/** Formats number. @param {unknown} value - The value value. @returns {string} The operation result. */
 function formatNumber(value) {
   const number = Number(value);
   return Number.isFinite(number) ? new Intl.NumberFormat('de-AT').format(number) : '–';
 }
 
 
+
+/** Formats percent. @param {unknown} value - The value value. @returns {string} The operation result. */
 function formatPercent(value) {
   const number = Number(value);
   return Number.isFinite(number) ? `${number.toFixed(1).replace('.', ',')} %` : '–';
 }
 
 
+
+/** Formats delta. @param {unknown} value - The value value. @returns {string} The operation result. */
 function formatDelta(value) {
   const number = Number(value);
   if (!Number.isFinite(number)) return 'kein Vergleich';
@@ -53,6 +69,8 @@ function formatDelta(value) {
 }
 
 
+
+/** Renders comparisons. @param {Object} summary - The summary value. @returns {void} The operation result. */
 function renderComparisons(summary = {}) {
   const map = { today: 'todayDelta', yesterday: 'yesterdayDelta', week: 'weekDelta', month: 'monthDelta' };
   Object.entries(map).forEach(([name, key]) => setText(`[data-delta="${name}"]`, formatDelta(summary[key])));
@@ -61,6 +79,8 @@ function renderComparisons(summary = {}) {
 }
 
 
+
+/** Renders summary. @param {Object} summary - The summary value. @returns {void} The operation result. */
 function renderSummary(summary = {}) {
   ['today', 'yesterday', 'week', 'month', 'total', 'demos', 'contact', 'github', 'activeNow'].forEach((key) => {
     setStat(key, formatNumber(summary[key]));
@@ -71,6 +91,8 @@ function renderSummary(summary = {}) {
 }
 
 
+
+/** Escapes html. @param {unknown} value - The value value. @returns {string} The operation result. */
 function escapeHtml(value) {
   const div = document.createElement('div');
   div.textContent = String(value);
@@ -78,6 +100,8 @@ function escapeHtml(value) {
 }
 
 
+
+/** Creates ranking item. @param {Object} item - The item value. @returns {unknown} The operation result. */
 function createRankingItem(item) {
   const label = escapeHtml(item.label ?? item.name ?? '–');
   const value = formatNumber(item.value ?? item.count);
@@ -85,6 +109,8 @@ function createRankingItem(item) {
 }
 
 
+
+/** Renders ranking. @param {string} name - The name value. @param {Array} rows - The rows value. @returns {void} The operation result. */
 function renderRanking(name, rows = []) {
   const list = document.querySelector(`[data-ranking="${name}"]`);
   if (!list) return;
@@ -92,12 +118,16 @@ function renderRanking(name, rows = []) {
 }
 
 
+
+/** Renders rankings. @param {Object} data - The data value. @returns {void} The operation result. */
 function renderRankings(data = {}) {
   const names = ['landingPages', 'referrers', 'pages', 'demos', 'contacts', 'portfolio', 'ctas', 'browsers', 'operatingSystems', 'screens'];
   names.forEach((name) => renderRanking(name, data[name] || []));
 }
 
 
+
+/** Formats timestamp. @param {unknown} value - The value value. @returns {string} The operation result. */
 function formatTimestamp(value) {
   const date = new Date(value || '');
   if (Number.isNaN(date.getTime())) return '–';
@@ -105,6 +135,8 @@ function formatTimestamp(value) {
 }
 
 
+
+/** Renders insights. @param {Object} insights - The insights value. @returns {void} The operation result. */
 function renderInsights(insights = {}) {
   setText('[data-insight="bestHour"]', insights.bestHour || 'noch nicht erfasst');
   setText('[data-insight="bestDay"]', insights.bestDay || '–');
@@ -114,6 +146,8 @@ function renderInsights(insights = {}) {
 }
 
 
+
+/** Renders funnel. @param {Object} funnel - The funnel value. @returns {void} The operation result. */
 function renderFunnel(funnel = {}) {
   ['pageviews', 'portfolio', 'demos', 'contact'].forEach((key) => {
     setText(`[data-funnel="${key}"]`, formatNumber(funnel[key]));
@@ -121,6 +155,8 @@ function renderFunnel(funnel = {}) {
 }
 
 
+
+/** Updates distribution row. @param {unknown} row - The row value. @param {Object} item - The item value. @returns {void} The operation result. */
 function updateDistributionRow(row, item = {}) {
   const percent = Number(item.percent) || 0;
   const label = row.querySelector('span');
@@ -132,12 +168,16 @@ function updateDistributionRow(row, item = {}) {
 }
 
 
+
+/** Renders source distribution. @param {Array} sources - The sources value. @returns {void} The operation result. */
 function renderSourceDistribution(sources = []) {
   const rows = document.querySelectorAll('[data-source-distribution] > div');
   rows.forEach((row, index) => updateDistributionRow(row, sources[index]));
 }
 
 
+
+/** Updates device legend. @param {Array} values - The values value. @returns {void} The operation result. */
 function updateDeviceLegend(values) {
   document.querySelectorAll('[data-legend="devices"] strong').forEach((element, index) => {
     element.textContent = values[index] || '–';
@@ -145,6 +185,8 @@ function updateDeviceLegend(values) {
 }
 
 
+
+/** Renders devices. @param {Object} devices - The devices value. @returns {void} The operation result. */
 function renderDevices(devices = {}) {
   const values = ['desktop', 'tablet', 'mobile'].map((key) => Number(devices[key]) || 0);
   const total = values.reduce((sum, value) => sum + value, 0);
@@ -153,6 +195,8 @@ function renderDevices(devices = {}) {
 }
 
 
+
+/** Renders device donut. @param {Array} values - The values value. @param {unknown} total - The total value. @returns {void} The operation result. */
 function renderDeviceDonut(values, total) {
   const donut = document.querySelector('[data-donut="devices"]');
   if (!donut) return;
@@ -165,6 +209,8 @@ function renderDeviceDonut(values, total) {
 }
 
 
+
+/** Renders series. @param {Array} series - The series value. @returns {void} The operation result. */
 function renderSeries(series = []) {
   const line = document.querySelector('[data-chart-line]');
   const empty = document.querySelector('.admin-chart-empty');
@@ -178,6 +224,9 @@ function renderSeries(series = []) {
 }
 
 
+
+
+/** Shows empty chart. @param {HTMLElement} empty - The empty chart element. @returns {void} The operation result. */
 function showEmptyChart(empty = document.querySelector('.admin-chart-empty')) {
   const line = document.querySelector('[data-chart-line]');
   if (line) line.style.opacity = '0.18';
@@ -185,6 +234,8 @@ function showEmptyChart(empty = document.querySelector('.admin-chart-empty')) {
 }
 
 
+
+/** Renders dashboard. @param {Object} data - The data value. @returns {void} The operation result. */
 function renderDashboard(data = {}) {
   lastDashboardData = data;
   const exportButton = document.querySelector('[data-action="export"]');
@@ -199,6 +250,8 @@ function renderDashboard(data = {}) {
 }
 
 
+
+/** Runs the fetch dashboard data operation. @returns {Promise<unknown>} The operation result. */
 async function fetchDashboardData() {
   const token = await getToken();
   if (!token) throw new Error('Firebase-ID-Token fehlt.');
@@ -210,11 +263,15 @@ async function fetchDashboardData() {
 }
 
 
+
+/** Returns the label for the active analytics range. @returns {string} The operation result. */
 function rangeLabel() {
   return selectedRange === 'all' ? 'gesamter Zeitraum' : `${selectedRange} Tage`;
 }
 
 
+
+/** Runs the refresh dashboard operation. @returns {Promise<unknown>} The operation result. */
 async function refreshDashboard() {
   if (!isReady()) return setText('[data-chart-state]', 'Anmeldung erforderlich');
   setText('[data-chart-state]', 'wird geladen …');
@@ -229,17 +286,23 @@ async function refreshDashboard() {
 }
 
 
+
+/** Updates range. @param {string|number} range - The range value. @returns {void} The operation result. */
 function setRange(range) {
   selectedRange = String(range || '30');
   refreshDashboard();
 }
 
 
+
+/** Initializes analytics panel. @returns {void} The operation result. */
 function initializeAnalyticsPanel() {
   if (isReady()) refreshDashboard();
 }
 
 
+
+/** Exports analytics. @returns {void} The operation result. */
 function exportAnalytics() {
   if (!lastDashboardData) return;
   const content = JSON.stringify(lastDashboardData, null, 2);
