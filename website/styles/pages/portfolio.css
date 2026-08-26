@@ -664,3 +664,44 @@
     grid-template-columns: 1fr;
   }
 }
+
+/* Mobile GitHub profile card */
+@media (max-width: 760px) {
+  .github-profile-card {
+    grid-template-columns: 1fr;
+  }
+
+  .github-profile-content {
+    min-width: 0;
+    padding: 1.5rem;
+  }
+
+  .github-profile-content h2,
+  .github-profile-content p {
+    max-width: none;
+    overflow-wrap: normal;
+    word-break: normal;
+  }
+
+  .github-profile-button {
+    width: 100%;
+    min-width: 0;
+    justify-content: center;
+    white-space: normal;
+  }
+
+  .github-profile-logo {
+    display: none;
+  }
+}
+
+@media (max-width: 420px) {
+  .github-profile-content {
+    padding: 1.25rem;
+  }
+
+  .github-profile-content h2 {
+    font-size: clamp(2rem, 10vw, 2.7rem);
+  }
+}
+
