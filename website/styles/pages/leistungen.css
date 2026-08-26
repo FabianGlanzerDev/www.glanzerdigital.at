@@ -97,7 +97,7 @@
   font-size: clamp(1.8rem, 3vw, 2.6rem);
 }
 
-.service-detail__copy > p {
+.service-detail__copy>p {
   max-width: 780px;
   color: #5a687a;
   line-height: 1.75;
@@ -221,7 +221,7 @@
   line-height: 1.35;
 }
 
-.service-insight-card > p {
+.service-insight-card>p {
   position: relative;
   z-index: 1;
   margin-bottom: 0;
@@ -392,7 +392,7 @@
   box-shadow: 0 14px 34px rgba(30, 49, 75, 0.07);
 }
 
-.audience-grid article > span {
+.audience-grid article>span {
   display: grid;
   width: 58px;
   height: 58px;
@@ -437,7 +437,7 @@
   margin-bottom: 0;
 }
 
-.solution-compare-heading > p {
+.solution-compare-heading>p {
   margin-bottom: 0;
   color: #9eabbc;
   line-height: 1.7;
@@ -457,7 +457,7 @@
   border-radius: 16px;
 }
 
-.solution-compare-grid article > span {
+.solution-compare-grid article>span {
   display: inline-flex;
   margin-bottom: 1.25rem;
   color: #75aaff;
@@ -480,6 +480,7 @@
 }
 
 @media (max-width: 1100px) {
+
   .service-jump-grid,
   .solution-compare-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -489,7 +490,7 @@
     grid-template-columns: 50px minmax(0, 1fr);
   }
 
-  .service-detail > :last-child {
+  .service-detail> :last-child {
     grid-column: 2;
   }
 
@@ -499,6 +500,7 @@
 }
 
 @media (max-width: 880px) {
+
   .service-content-layout,
   .solution-compare-heading {
     grid-template-columns: 1fr;
@@ -514,6 +516,7 @@
 }
 
 @media (max-width: 620px) {
+
   .service-jump-grid,
   .audience-grid,
   .solution-compare-grid {
@@ -524,7 +527,7 @@
     grid-template-columns: 1fr;
   }
 
-  .service-detail > :last-child {
+  .service-detail> :last-child {
     grid-column: auto;
   }
 
@@ -557,7 +560,7 @@
   border-radius: var(--radius-md);
 }
 
-.technical-scope-grid article > span {
+.technical-scope-grid article>span {
   color: var(--color-primary);
   font: 800 0.72rem/1 "Courier New", monospace;
 }

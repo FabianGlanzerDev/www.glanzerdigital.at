@@ -25,7 +25,7 @@
   font-size: clamp(2.85rem, 5vw, 4.7rem);
 }
 
-.hero-copy > p {
+.hero-copy>p {
   max-width: 620px;
   margin-bottom: 1.7rem;
   color: var(--color-muted);
@@ -289,7 +289,7 @@
     font-size: clamp(2.45rem, 12vw, 3.35rem);
   }
 
-  .hero-copy > p {
+  .hero-copy>p {
     font-size: 1rem;
   }
 
@@ -524,7 +524,7 @@
   border-radius: 14px;
 }
 
-.model-demo-copy > p {
+.model-demo-copy>p {
   color: var(--color-muted);
 }
 
@@ -554,7 +554,9 @@
 }
 
 @keyframes terminal-blink {
-  50% { opacity: 0; }
+  50% {
+    opacity: 0;
+  }
 }
 
 @media (max-width: 1050px) {
@@ -852,7 +854,7 @@
   line-height: 1.04;
 }
 
-.about-copy > p {
+.about-copy>p {
   max-width: 760px;
   font-size: 1rem;
   line-height: 1.75;
