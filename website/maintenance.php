@@ -11,9 +11,15 @@ header('Cache-Control: no-store, no-cache, must-revalidate');
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Glanzer Digital befindet sich vorübergehend im Wartungsmodus.">
+  <meta name="author" content="Fabian Glanzer">
   <meta name="robots" content="noindex,nofollow">
   <meta name="theme-color" content="#07101d">
   <title>Wartungsmodus | Glanzer Digital</title>
+<link rel="icon" href="assets/favicons/favicon.ico" sizes="any">
+  <link rel="icon" href="assets/favicons/favicon-32x32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="assets/favicons/apple-touch-icon.png" sizes="180x180">
+
   <style>
     :root {
       color-scheme: dark;

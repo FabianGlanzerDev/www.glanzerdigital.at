@@ -4,25 +4,35 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description"
-        content="Glanzer Digital entwickelt moderne Websites, Landingpages, Web-Apps und digitale Lösungen mit persönlicher Betreuung.">
+    <meta name="description" content="Glanzer Digital entwickelt moderne Websites, Web-Apps und individuelle Softwarelösungen – verständlich umgesetzt und persönlich betreut.">
+    <meta name="robots" content="index,follow,max-image-preview:large">
+    <meta name="author" content="Fabian Glanzer">
     <meta name="theme-color" content="#080b10">
 
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Glanzer Digital">
-    <meta property="og:title" content="Glanzer Digital | Webentwicklung und Softwarelösungen">
-    <meta property="og:description"
-        content="Glanzer Digital entwickelt moderne Websites, Landingpages, Web-Apps und digitale Lösungen mit persönlicher Betreuung.">
+    <meta property="og:locale" content="de_AT">
+    <meta property="og:locale:alternate" content="en_US">
+    <meta property="og:title" content="Glanzer Digital | Webentwicklung &amp; Softwarelösungen">
+    <meta property="og:description" content="Glanzer Digital entwickelt moderne Websites, Web-Apps und individuelle Softwarelösungen – verständlich umgesetzt und persönlich betreut.">
     <meta property="og:url" content="https://glanzerdigital.at/">
-    <meta property="og:image" content="https://glanzerdigital.at/assets/images/general/hero-workspace.webp">
+    <meta property="og:image" content="https://glanzerdigital.at/assets/images/general/social-preview.webp">
+    <meta property="og:image:type" content="image/webp">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Glanzer Digital Logo mit Code- und Server-Symbol">
+
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Glanzer Digital | Webentwicklung und Softwarelösungen">
-    <meta name="twitter:description"
-        content="Glanzer Digital entwickelt moderne Websites, Landingpages, Web-Apps und digitale Lösungen mit persönlicher Betreuung.">
-    <meta name="twitter:image" content="https://glanzerdigital.at/assets/images/general/hero-workspace.webp">
-    <title>Glanzer Digital | Webentwicklung und Softwarelösungen</title>
+    <meta name="twitter:title" content="Glanzer Digital | Webentwicklung &amp; Softwarelösungen">
+    <meta name="twitter:description" content="Glanzer Digital entwickelt moderne Websites, Web-Apps und individuelle Softwarelösungen – verständlich umgesetzt und persönlich betreut.">
+    <meta name="twitter:image" content="https://glanzerdigital.at/assets/images/general/social-preview.webp">
+    <meta name="twitter:image:alt" content="Glanzer Digital Logo mit Code- und Server-Symbol">
+
+    <title>Glanzer Digital | Webentwicklung &amp; Softwarelösungen</title>
     <link rel="canonical" href="https://glanzerdigital.at/">
-    <link rel="icon" href="assets/favicons/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="assets/favicons/favicon.ico" sizes="any">
+    <link rel="icon" href="assets/favicons/favicon-32x32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="assets/favicons/apple-touch-icon.png" sizes="180x180">
     <link rel="stylesheet" href="./styles/variables.css">
     <link rel="stylesheet" href="./styles/fonts.css">
     <link rel="stylesheet" href="./style.css">
@@ -38,21 +48,40 @@
     <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Organization",
-  "name": "Glanzer Digital",
-  "url": "https://glanzerdigital.at/",
-  "logo": "https://glanzerdigital.at/assets/images/logos/glanzerdigital-neon-logo.webp",
-  "email": "mailto:fabsdev@gmx.at",
-  "telephone": "+43 676 7875304",
-  "founder": {
-    "@type": "Person",
-    "name": "Fabian Glanzer"
-  },
-  "sameAs": [
-    "https://github.com/FabianGlanzerDev"
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://glanzerdigital.at/#organization",
+      "name": "Glanzer Digital",
+      "url": "https://glanzerdigital.at/",
+      "logo": "https://glanzerdigital.at/assets/favicons/favicon-512x512.png",
+      "image": "https://glanzerdigital.at/assets/images/general/social-preview.webp",
+      "email": "mailto:fabsdev@gmx.at",
+      "telephone": "+43 676 7875304",
+      "founder": {
+        "@type": "Person",
+        "name": "Fabian Glanzer"
+      },
+      "sameAs": [
+        "https://github.com/FabianGlanzerDev"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://glanzerdigital.at/#website",
+      "url": "https://glanzerdigital.at/",
+      "name": "Glanzer Digital",
+      "publisher": {
+        "@id": "https://glanzerdigital.at/#organization"
+      },
+      "inLanguage": [
+        "de-AT",
+        "en"
+      ]
+    }
   ]
 }
-  </script>
+    </script>
 </head>
 
 <body data-page="home" data-root=".">
