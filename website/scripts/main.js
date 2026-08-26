@@ -1,6 +1,38 @@
 const layoutTemplates = window.LayoutTemplates;
 
 
+const LOCAL_ROUTE_FILES = {
+  '/': 'index.html',
+  '/leistungen': 'subpages/leistungen.html',
+  '/portfolio': 'subpages/portfolio.html',
+  '/ueber-mich': 'subpages/ueber-mich.html',
+  '/kontakt': 'subpages/kontakt.html',
+  '/impressum': 'subpages/impressum.html',
+  '/datenschutz': 'subpages/datenschutz.html',
+};
+
+
+
+/** Checks whether the website runs on a local development host. @returns {boolean} Whether local routing is required. */
+function isLocalDevelopment() {
+  return ['localhost', '127.0.0.1'].includes(window.location.hostname);
+}
+
+
+
+/** Converts clean production routes to local HTML files for Live Server. @returns {void} */
+function adaptCleanRoutesForLocalDevelopment() {
+  if (!isLocalDevelopment()) return;
+  const rootPath = document.body.dataset.root || '.';
+  document.querySelectorAll('a[href^="/"]').forEach((link) => {
+    const url = new URL(link.href);
+    const file = LOCAL_ROUTE_FILES[url.pathname];
+    if (file) link.href = `${rootPath}/${file}${url.search}${url.hash}`;
+  });
+}
+
+
+
 
 /** Returns navigation label. @param {boolean} open - The open value. @returns {unknown} The operation result. */
 function getNavigationLabel(open) {
@@ -98,6 +130,7 @@ function updateCurrentYear() {
 /** Initializes site. @returns {void} The operation result. */
 function initializeSite() {
   renderGlobalLayout();
+  adaptCleanRoutesForLocalDevelopment();
   initializeNavigation();
   updateCurrentYear();
 }
@@ -178,7 +211,7 @@ function getLinkAnalyticsEvent(link) {
   if (link.classList.contains('project-demo-button') || href.includes('/demos/')) return 'demo_click';
   if (href.includes('wa.me/') || href.startsWith('mailto:') || href.startsWith('tel:')) return 'contact_click';
   if (href.includes('github.com/')) return 'github_click';
-  if (href.includes('portfolio.html')) return 'portfolio_click';
+  if (href.includes('/portfolio')) return 'portfolio_click';
   if (link.classList.contains('button')) return 'cta_click';
   return null;
 }

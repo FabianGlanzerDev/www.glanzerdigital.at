@@ -193,7 +193,9 @@ function getIndustryContent(data) {
 function buildContactLink(data, content) {
   const project = encodeURIComponent(data.project);
   const industry = encodeURIComponent(content.title);
-  return `subpages/kontakt.html?project=${project}&industry=${industry}`;
+  const local = ['localhost', '127.0.0.1'].includes(window.location.hostname);
+  const route = local ? 'subpages/kontakt.html' : '/kontakt';
+  return `${route}?project=${project}&industry=${industry}`;
 }
 
 

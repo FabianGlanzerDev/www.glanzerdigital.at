@@ -16,9 +16,9 @@ header('Cache-Control: no-store, no-cache, must-revalidate');
   <meta name="robots" content="noindex,nofollow">
   <meta name="theme-color" content="#07101d">
   <title>Wartungsmodus | Glanzer Digital</title>
-<link rel="icon" href="assets/favicons/favicon.ico" sizes="any">
-  <link rel="icon" href="assets/favicons/favicon-32x32.png" type="image/png" sizes="32x32">
-<link rel="apple-touch-icon" href="assets/favicons/apple-touch-icon.png" sizes="180x180">
+<link rel="icon" href="/assets/favicons/favicon.ico" sizes="any">
+  <link rel="icon" href="/assets/favicons/favicon-32x32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="/assets/favicons/apple-touch-icon.png" sizes="180x180">
 
   <style>
     :root {

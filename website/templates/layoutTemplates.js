@@ -1,6 +1,6 @@
 const HEADER_TEMPLATE = `
   <div class="container header-inner">
-    <a class="brand" href="{{ROOT}}/index.html" aria-label="Glanzer Digital Startseite">
+    <a class="brand" href="/" aria-label="Glanzer Digital Startseite">
       <img src="{{ROOT}}/assets/images/logos/glanzerdigital-neon-logo.webp" alt="Glanzer Digital">
     </a>
 
@@ -12,13 +12,13 @@ const HEADER_TEMPLATE = `
 
     <nav class="site-nav" id="main-navigation" aria-label="Hauptnavigation" data-nav data-open="false">
       <ul>
-        <li><a href="{{ROOT}}/index.html" {{HOME_CURRENT}}>Home</a></li>
-        <li><a href="{{ROOT}}/subpages/leistungen.html" {{SERVICES_CURRENT}}>Leistungen</a></li>
-        <li><a href="{{ROOT}}/subpages/portfolio.html" {{PORTFOLIO_CURRENT}}>Portfolio</a></li>
-        <li><a href="{{ROOT}}/subpages/ueber-mich.html" {{ABOUT_CURRENT}}>Über mich</a></li>
+        <li><a href="/" {{HOME_CURRENT}}>Home</a></li>
+        <li><a href="/leistungen" {{SERVICES_CURRENT}}>Leistungen</a></li>
+        <li><a href="/portfolio" {{PORTFOLIO_CURRENT}}>Portfolio</a></li>
+        <li><a href="/ueber-mich" {{ABOUT_CURRENT}}>Über mich</a></li>
       </ul>
       <button class="language-toggle" type="button" data-language-toggle aria-label="Sprache auf Englisch wechseln" title="English">EN</button>
-      <a class="button button--primary button--small" href="{{ROOT}}/subpages/kontakt.html">Projekt anfragen</a>
+      <a class="button button--primary button--small" href="/kontakt">Projekt anfragen</a>
     </nav>
   </div>
 `;
@@ -27,7 +27,7 @@ const FOOTER_TEMPLATE = `
   <div class="container">
     <div class="footer-grid">
       <div>
-        <a class="footer-brand" href="{{ROOT}}/index.html">
+        <a class="footer-brand" href="/">
           <img src="{{ROOT}}/assets/images/logos/glanzerdigital-neon-logo.webp" alt="Glanzer Digital">
         </a>
         <p class="footer-copy">Webentwicklung, Softwarelösungen und digitale Werkzeuge mit persönlicher Betreuung.</p>
@@ -36,10 +36,10 @@ const FOOTER_TEMPLATE = `
       <div>
         <div class="footer-title">Navigation</div>
         <div class="footer-links">
-          <a href="{{ROOT}}/subpages/leistungen.html">Leistungen</a>
-          <a href="{{ROOT}}/subpages/portfolio.html">Portfolio</a>
-          <a href="{{ROOT}}/subpages/ueber-mich.html">Über mich</a>
-          <a href="{{ROOT}}/subpages/kontakt.html">Kontakt</a>
+          <a href="/leistungen">Leistungen</a>
+          <a href="/portfolio">Portfolio</a>
+          <a href="/ueber-mich">Über mich</a>
+          <a href="/kontakt">Kontakt</a>
         </div>
       </div>
 
@@ -49,8 +49,8 @@ const FOOTER_TEMPLATE = `
           <a href="tel:+436767875304">+43 676 7875304</a>
           <a href="mailto:fabsdev@gmx.at">fabsdev@gmx.at</a>
           <a href="https://github.com/FabianGlanzerDev" target="_blank" rel="noopener noreferrer">GitHub</a>
-          <a href="{{ROOT}}/subpages/impressum.html">Impressum</a>
-          <a href="{{ROOT}}/subpages/datenschutz.html">Datenschutz</a>
+          <a href="/impressum">Impressum</a>
+          <a href="/datenschutz">Datenschutz</a>
         </div>
       </div>
     </div>
