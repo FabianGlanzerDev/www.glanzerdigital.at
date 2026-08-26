@@ -13,6 +13,7 @@
 <link rel="icon" href="../assets/favicons/favicon.ico" sizes="any">
   <link rel="icon" href="../assets/favicons/favicon-32x32.png" type="image/png" sizes="32x32">
 <link rel="apple-touch-icon" href="../assets/favicons/apple-touch-icon.png" sizes="180x180">
+    <link rel="manifest" href="/site.webmanifest">
   <link rel="stylesheet" href="../styles/variables.css">
   <link rel="stylesheet" href="../styles/fonts.css">
   <link rel="stylesheet" href="../style.css">
@@ -68,39 +69,24 @@
             rel="noopener noreferrer">Datenschutzinformationen von WhatsApp</a>. Die Nutzung von WhatsApp ist
           freiwillig; Telefonnummer und E-Mail-Adresse stehen zusätzlich als direkte Kontaktwege zur Verfügung.</p>
 
-        <h2>4. Einwilligungsbasierte Reichweitenmessung</h2>
-        <p>Statistische Auswertungen sind standardmäßig deaktiviert. Sie werden erst aktiviert, wenn im
+        <h2>4. Einwilligungsbasierte, cookielose Reichweitenmessung</h2>
+        <p>Die selbst betriebene Reichweitenmessung ist standardmäßig deaktiviert. Sie wird erst aktiviert, wenn im
           Datenschutz-Banner ausdrücklich „Statistik erlauben“ ausgewählt wird. Bei Ablehnung oder solange noch keine
-          Auswahl getroffen wurde, wird Google Analytics 4 nicht geladen und die öffentliche Website sendet keine
-          Statistikereignisse an die eigene Analytics-Schnittstelle.</p>
-
-        <h3>4.1 Eigene Reichweitenmessung</h3>
+          Auswahl getroffen wurde, sendet die öffentliche Website keine Statistikereignisse an die Analytics-Schnittstelle.</p>
         <p>Nach einer Einwilligung werden Seitenaufrufe und ausgewählte Interaktionen wie Demo-, Portfolio-, GitHub-,
           CTA- und Kontaktklicks erfasst. Zusätzlich werden grobe technische Kategorien verarbeitet: Geräteklasse,
           Viewport-Größenklasse, Browserfamilie und Betriebssystemfamilie. Bei Seitenaufrufen können außerdem die reine
           Referrer-Domain, die Einstiegsseite sowie der Zeitpunkt beziehungsweise die Stunde des Ereignisses gezählt werden.</p>
-        <p>Für diese eigene Auswertung werden keine Tracking-Cookies und keine dauerhafte Besucher-ID verwendet. Die
+        <p>Für diese Auswertung werden keine Tracking-Cookies gesetzt und keine dauerhafte Besucher-ID erzeugt. Die
           Bildschirmgröße wird nur als Größenklasse übertragen. Referrer werden auf den Hostnamen beschränkt; Pfade und
-          Suchparameter werden nicht als Statistikmerkmal gespeichert. Die aggregierten Statistikdaten werden für maximal
-          365 Tage vorgehalten und sind nur über den geschützten Adminbereich auswertbar.</p>
-
-        <h3>4.2 Google Analytics 4</h3>
-        <p>Nach ausdrücklicher Einwilligung wird zusätzlich Google Analytics 4 (GA4), ein Webanalysedienst von Google
-          Ireland Limited, Gordon House, Barrow Street, Dublin 4, Irland, geladen. Verwendet wird die Mess-ID
-          <code>G-KNVBS6MJY7</code>. GA4 hilft dabei, Reichweite und Nutzung der Website einschließlich aktueller
-          Realtime-Werte auszuwerten.</p>
-        <p>Dabei können insbesondere Seitenaufrufe, Ereignisse, Geräte- und Browserinformationen, Referrer sowie
-          ungefähre Standortinformationen verarbeitet werden. Beim Abruf des Google-Dienstes fallen außerdem technisch
-          erforderliche Verbindungsdaten an. Google kann Daten im Rahmen der eigenen Dienste auch außerhalb der EU
-          beziehungsweise des EWR verarbeiten. Weitere Informationen enthält die
-          <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Datenschutzerklärung von Google</a>.</p>
-        <p>GA4 kann nach der Einwilligung Analyse-Cookies wie <code>_ga</code> und weitere mit <code>_ga</code>
-          beginnende Cookies setzen. Google-Signale und Funktionen zur Anzeigenpersonalisierung werden von dieser Website
-          nicht aktiviert. Ohne Einwilligung wird das GA4-Skript nicht geladen.</p>
-        <p>Rechtsgrundlage für beide Statistiksysteme ist die Einwilligung gemäß Art. 6 Abs. 1 lit. a DSGVO in Verbindung
+          Suchparameter werden nicht als Statistikmerkmal gespeichert. Browser- und Betriebssystemfamilie werden aus dem
+          beim Serveraufruf technisch übermittelten User-Agent abgeleitet. Technisch anfallende Verbindungsdaten beim
+          Aufruf der Statistik-Schnittstelle fallen unter die in Abschnitt 2 beschriebenen Server-Logfiles.</p>
+        <p>Rechtsgrundlage für die Reichweitenmessung ist die Einwilligung gemäß Art. 6 Abs. 1 lit. a DSGVO in Verbindung
           mit § 165 Abs. 3 TKG 2021. Die Einwilligung ist freiwillig und kann jederzeit mit Wirkung für die Zukunft über
-          „Datenschutz-Einstellungen“ im Footer widerrufen werden. Bei einem Widerruf wird die weitere GA4-Messung
-          deaktiviert und von der Website erreichbare GA-Analyse-Cookies werden gelöscht.</p>
+          „Datenschutz-Einstellungen“ im Footer widerrufen werden. Bereits bis zum Widerruf rechtmäßig verarbeitete Daten
+          bleiben davon unberührt. Die aggregierten Statistikdaten werden für maximal 365 Tage vorgehalten und sind nur
+          über den geschützten Adminbereich auswertbar.</p>
 
         <h2>5. Datenschutz- und Spracheinstellungen im Browser</h2>
         <p>Die Auswahl zur Reichweitenmessung wird unter dem Schlüssel <code>gd-consent</code> im LocalStorage des Browsers
@@ -113,10 +99,11 @@
           erforderlich, enthalten keine Besucher-ID und werden nicht zu Werbezwecken verwendet.</p>
 
         <h2>6. Cookies, Webfonts und externe Inhalte</h2>
-        <p>Notwendige Sprache- und Datenschutzeinstellungen werden ohne Cookie im LocalStorage gespeichert. Analyse-Cookies
-          werden ausschließlich nach Einwilligung durch Google Analytics 4 eingesetzt. Die verwendeten Schriftarten werden
-          lokal bereitgestellt. Es sind keine Social-Media-Feeds eingebettet. Externe Ziele wie GitHub oder WhatsApp werden
-          erst nach einem bewussten Klick des Nutzers aufgerufen.</p>
+        <p>Die öffentliche Website verwendet keine Analyse- oder Werbe-Cookies. Auch die Einwilligungsverwaltung nutzt
+          keinen Cookie, sondern ausschließlich die in Abschnitt 5 beschriebene lokale Speicherung der Entscheidung. Die
+          verwendeten Schriftarten werden lokal bereitgestellt. Es sind keine Social-Media-Feeds oder externen
+          Analyseplattformen in die öffentliche Website eingebettet. Externe Ziele wie GitHub oder WhatsApp werden erst
+          nach einem bewussten Klick des Nutzers aufgerufen.</p>
 
         <h2>7. Rechte betroffener Personen</h2>
         <p>Nach Maßgabe der DSGVO bestehen insbesondere Rechte auf Auskunft, Berichtigung, Löschung, Einschränkung der

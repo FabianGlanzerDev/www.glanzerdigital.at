@@ -1,1 +1,0 @@
-function closeBoardDialogOnBackdrop(event, closeCallback) {if (event.target === event.currentTarget)closeCallback();}function closeBoardDialogOnEscape(event, closeCallback) {if (event.key === "Escape")closeCallback();}function removeBoardDialog(dialogId) {document.getElementById(dialogId)?.remove();}
