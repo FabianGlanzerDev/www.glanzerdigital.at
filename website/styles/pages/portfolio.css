@@ -228,6 +228,22 @@
   transform: translateY(-2px);
 }
 
+.project-contact-button {
+  color: var(--color-dark-text);
+  background: #ffffff;
+  border: 1px solid var(--color-dark-border);
+  box-shadow: 0 6px 16px rgba(17, 23, 34, 0.08);
+}
+
+.project-contact-button:hover,
+.project-contact-button:focus-visible {
+  color: var(--color-dark-text);
+  background: #f3f6fa;
+  border-color: var(--color-primary);
+  box-shadow: 0 8px 20px rgba(17, 23, 34, 0.12);
+  transform: translateY(-2px);
+}
+
 @media (max-width: 880px) {
   .portfolio-grid--two {
     grid-template-columns: 1fr;
