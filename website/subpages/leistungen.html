@@ -9,7 +9,6 @@
   <meta name="robots" content="index,follow,max-image-preview:large">
   <meta name="author" content="Fabian Glanzer">
   <meta name="theme-color" content="#080b10">
-
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Glanzer Digital">
   <meta property="og:locale" content="de_AT">
@@ -23,7 +22,6 @@
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:image:alt" content="Glanzer Digital Logo mit Code- und Server-Symbol">
-
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Webentwicklung &amp; Softwarelösungen | Glanzer Digital">
   <meta name="twitter:description"
@@ -48,6 +46,101 @@
   <script src="../scripts/i18nLegal.js" defer></script>
   <script src="../scripts/i18nTranslations.js" defer></script>
   <script src="../scripts/i18n.js" defer></script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://glanzerdigital.at/leistungen#webpage",
+      "url": "https://glanzerdigital.at/leistungen",
+      "name": "Webentwicklung & Softwarelösungen | Glanzer Digital",
+      "description": "Websites, Landingpages, Web-Apps, Windows-Anwendungen sowie Betreuung bestehender Websites – Leistungen von Glanzer Digital im Überblick.",
+      "isPartOf": {
+        "@id": "https://glanzerdigital.at/#website"
+      },
+      "about": {
+        "@id": "https://glanzerdigital.at/#organization"
+      },
+      "inLanguage": "de-AT"
+    },
+    {
+      "@type": "Service",
+      "@id": "https://glanzerdigital.at/leistungen#services",
+      "name": "Webentwicklung und Softwarelösungen",
+      "provider": {
+        "@id": "https://glanzerdigital.at/#organization"
+      },
+      "url": "https://glanzerdigital.at/leistungen",
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Leistungen von Glanzer Digital",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Websites"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Landingpages"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Web-Apps und digitale Tools"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Windows-Anwendungen"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Weiterentwicklung bestehender Websites"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Betreuung und technische Unterstützung"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://glanzerdigital.at/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Leistungen",
+          "item": "https://glanzerdigital.at/leistungen"
+        }
+      ]
+    }
+  ]
+}
+</script>
 </head>
 
 <body data-root=".." data-page="services">
@@ -111,13 +204,10 @@
               <li>Responsive Darstellung für Smartphone, Tablet und Desktop</li>
             </ul>
           </div>
-          <aside class="service-insight-card service-insight-card--website">
+          <aside class="service-insight-card">
             <div class="service-insight-card__top">
               <span class="service-insight-card__icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" focusable="false">
-                  <rect x="3" y="4" width="18" height="16" rx="2"></rect>
-                  <path d="M3 9h18M7 6.5h.01M10 6.5h.01"></path>
-                </svg>
+                <img src="../assets/images/icons/service-details/websites.webp" alt="" width="64" height="64">
               </span>
               <span class="service-insight-card__eyebrow">Klar &amp; kompakt</span>
             </div>
@@ -149,11 +239,7 @@
           <aside class="service-insight-card service-insight-card--landing">
             <div class="service-insight-card__top">
               <span class="service-insight-card__icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" focusable="false">
-                  <circle cx="12" cy="12" r="8"></circle>
-                  <circle cx="12" cy="12" r="4"></circle>
-                  <path d="M12 2v2M22 12h-2M12 22v-2M2 12h2"></path>
-                </svg>
+                <img src="../assets/images/icons/service-details/landingpages.webp" alt="" width="64" height="64">
               </span>
               <span class="service-insight-card__eyebrow">Ein Ziel im Fokus</span>
             </div>
@@ -171,7 +257,7 @@
           <div class="service-detail__copy">
             <span class="kicker">Web-Apps &amp; digitale Tools</span>
             <h2>Wenn eine Website mehr können soll als Informationen anzeigen.</h2>
-            <p>Web-Anwendungen laufen direkt im Browser und können Daten verarbeiten, Benutzeraktionen auswerten oder
+            <p>Web-Anwendungen laufen direkt im Browser und können Eingaben verarbeiten, Daten verwalten oder
               komplette Arbeitsabläufe abbilden.</p>
             <ul class="service-check-list">
               <li>Rechner und Konfiguratoren</li>
@@ -182,13 +268,10 @@
               <li>Individuelle Formulare und Abläufe</li>
             </ul>
           </div>
-          <aside class="service-insight-card service-insight-card--webapp"
-            aria-label="Mögliche Funktionen einer Web-App">
+          <aside class="service-insight-card" aria-label="Mögliche Funktionen einer Web-App">
             <div class="service-insight-card__top">
               <span class="service-insight-card__icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" focusable="false">
-                  <path d="m8 9-3 3 3 3M16 9l3 3-3 3M14 5l-4 14"></path>
-                </svg>
+                <img src="../assets/images/icons/service-details/web-apps.webp" alt="" width="64" height="64">
               </span>
               <span class="service-insight-card__eyebrow">Interaktiv &amp; individuell</span>
             </div>
@@ -219,10 +302,7 @@
           <aside class="service-insight-card service-insight-card--desktop">
             <div class="service-insight-card__top">
               <span class="service-insight-card__icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" focusable="false">
-                  <rect x="3" y="4" width="18" height="13" rx="2"></rect>
-                  <path d="M8 21h8M12 17v4"></path>
-                </svg>
+                <img src="../assets/images/icons/service-details/windows-apps.webp" alt="" width="64" height="64">
               </span>
               <span class="service-insight-card__eyebrow">Direkt am Computer</span>
             </div>
@@ -239,8 +319,8 @@
           <div class="service-detail__copy">
             <span class="kicker">Bestehende Website verbessern</span>
             <h2>Es muss nicht immer alles neu gebaut werden.</h2>
-            <p>Wenn bereits eine Website vorhanden ist, können gezielte Änderungen oft sinnvoller sein als ein
-              kompletter Neustart.</p>
+            <p>Wenn bereits eine Website vorhanden ist, können gezielte Verbesserungen oder neue Funktionen oft
+              sinnvoller sein als ein kompletter Neustart.</p>
             <ul class="service-check-list">
               <li>Neue Inhalte oder Unterseiten ergänzen</li>
               <li>Darstellung auf Smartphone und Tablet verbessern</li>
@@ -253,10 +333,7 @@
           <aside class="service-insight-card service-insight-card--upgrade">
             <div class="service-insight-card__top">
               <span class="service-insight-card__icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" focusable="false">
-                  <path d="M20 7h-6V1"></path>
-                  <path d="M20 7a9 9 0 1 0 1 8"></path>
-                </svg>
+                <img src="../assets/images/icons/service-details/weiterentwicklung.webp" alt="" width="64" height="64">
               </span>
               <span class="service-insight-card__eyebrow">Weiterentwickeln statt ersetzen</span>
             </div>
@@ -271,10 +348,10 @@
         <article class="service-detail" id="betreuung">
           <div class="service-detail__number">06</div>
           <div class="service-detail__copy">
-            <span class="kicker">Betreuung &amp; Erweiterung</span>
-            <h2>Auch nach dem Onlinegang weiter ansprechbar.</h2>
-            <p>Websites und Anwendungen verändern sich mit der Zeit. Inhalte, Funktionen und technische Anforderungen
-              können später angepasst werden, ohne jedes Mal von vorne anzufangen.</p>
+            <span class="kicker">Betreuung &amp; technische Unterstützung</span>
+            <h2>Auch nach der Fertigstellung weiter ansprechbar.</h2>
+            <p>Auch nach der Fertigstellung bleibe ich für Änderungen, technische Fragen und kleinere Anpassungen
+              ansprechbar.</p>
             <ul class="service-check-list">
               <li>Texte, Bilder und Inhalte ändern</li>
               <li>Neue Funktionen oder Bereiche ergänzen</li>
@@ -286,17 +363,13 @@
           <aside class="service-insight-card service-insight-card--care">
             <div class="service-insight-card__top">
               <span class="service-insight-card__icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" focusable="false">
-                  <path d="M12 3v3M12 18v3M3 12h3M18 12h3"></path>
-                  <circle cx="12" cy="12" r="5"></circle>
-                  <path d="m5.6 5.6 2.1 2.1M16.3 16.3l2.1 2.1M18.4 5.6l-2.1 2.1M7.7 16.3l-2.1 2.1"></path>
-                </svg>
+                <img src="../assets/images/icons/service-details/betreuung.webp" alt="" width="64" height="64">
               </span>
               <span class="service-insight-card__eyebrow">Flexibel für später</span>
             </div>
-            <h3>Deine Lösung kann mitwachsen</h3>
-            <p>Wenn sich Anforderungen ändern, lassen sich Inhalte und Funktionen gezielt ergänzen, ohne jedes Mal
-              wieder bei null zu beginnen.</p>
+            <h3>Unterstützung auch nach dem Projekt</h3>
+            <p>Wenn später Fragen, kleine Änderungen oder technische Anpassungen anstehen, muss nicht jedes Mal wieder
+              bei null begonnen werden.</p>
             <div class="service-insight-card__chips"><span>Inhalte</span><span>Funktionen</span><span>Technische
                 Hilfe</span></div>
           </aside>
@@ -312,12 +385,62 @@
           <p>Nicht jede Website braucht alles davon. Gemeinsam werden nur die Inhalte und Funktionen ausgewählt, die für
             dein Ziel einen echten Nutzen haben.</p>
         </div>
-        <div class="service-chip-grid" aria-label="Mögliche Website-Inhalte">
-          <span>Texte</span><span>Bilder &amp; Galerien</span><span>Videos</span><span>Leistungen</span>
-          <span>Preise</span><span>Öffnungszeiten</span><span>Google Maps</span><span>WhatsApp</span>
-          <span>Kontaktformulare</span><span>Downloads</span><span>FAQ</span><span>Bewertungen</span>
-          <span>Social Media</span><span>Terminlinks</span><span>News</span><span>Animationen</span>
-          <span>Loginbereiche</span><span>APIs</span><span>Dashboards</span><span>Individuelle Funktionen</span>
+        <div class="service-feature-groups" role="group" aria-label="Mögliche Website-Inhalte">
+          <section class="service-feature-group" aria-labelledby="feature-content-title">
+            <div class="service-feature-group__head">
+              <span aria-hidden="true">01</span>
+              <h3 id="feature-content-title">Inhalte</h3>
+            </div>
+            <div class="service-feature-chips">
+              <span>Texte</span>
+              <span>Bilder &amp; Galerien</span>
+              <span>Videos</span>
+              <span>News</span>
+              <span>Downloads</span>
+            </div>
+          </section>
+
+          <section class="service-feature-group" aria-labelledby="feature-contact-title">
+            <div class="service-feature-group__head">
+              <span aria-hidden="true">02</span>
+              <h3 id="feature-contact-title">Kontakt &amp; Vertrauen</h3>
+            </div>
+            <div class="service-feature-chips">
+              <span>Kontaktformulare</span>
+              <span>WhatsApp</span>
+              <span>Google Maps</span>
+              <span>Bewertungen</span>
+              <span>Social Media</span>
+            </div>
+          </section>
+
+          <section class="service-feature-group" aria-labelledby="feature-service-title">
+            <div class="service-feature-group__head">
+              <span aria-hidden="true">03</span>
+              <h3 id="feature-service-title">Information &amp; Service</h3>
+            </div>
+            <div class="service-feature-chips">
+              <span>Leistungen</span>
+              <span>Preise</span>
+              <span>Öffnungszeiten</span>
+              <span>FAQ</span>
+              <span>Terminlinks</span>
+            </div>
+          </section>
+
+          <section class="service-feature-group" aria-labelledby="feature-functions-title">
+            <div class="service-feature-group__head">
+              <span aria-hidden="true">04</span>
+              <h3 id="feature-functions-title">Erweiterte Funktionen</h3>
+            </div>
+            <div class="service-feature-chips">
+              <span>Kunden- &amp; Loginbereiche</span>
+              <span>Dashboards</span>
+              <span>Schnittstellen &amp; externe Dienste</span>
+              <span>Animationen</span>
+              <span>Individuelle Funktionen</span>
+            </div>
+          </section>
         </div>
       </div>
     </section>
