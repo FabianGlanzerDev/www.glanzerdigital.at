@@ -11,7 +11,7 @@ let maintenanceReturnFocus = null;
  *
  * @returns {string} Maintenance endpoint.
  */
-function getEndpoint() {
+function getMaintenanceEndpoint() {
   return window.GlanzerAdminConfig?.endpoints?.maintenance || './api/maintenance.php';
 }
 
@@ -22,7 +22,7 @@ function getEndpoint() {
  *
  * @returns {Promise<string>} Firebase ID token.
  */
-async function getToken() {
+async function getMaintenanceToken() {
   return window.GlanzerAdminAuth?.getIdToken?.() || '';
 }
 
@@ -69,9 +69,9 @@ function updateMaintenanceButton(button, enabled) {
  * @returns {Promise<object>} API response.
  */
 async function requestMaintenance(options = {}) {
-  const token = await getToken();
+  const token = await getMaintenanceToken();
   if (!token) throw new Error('Firebase-ID-Token fehlt.');
-  const response = await fetch(getEndpoint(), buildRequestOptions(options, token));
+  const response = await fetch(getMaintenanceEndpoint(), buildRequestOptions(options, token));
   const data = await response.json().catch(() => ({}));
   if (!response.ok) throw new Error(data.message || 'Wartungsstatus konnte nicht geladen werden.');
   return data;
@@ -163,11 +163,11 @@ function configureMaintenanceDialog(enabling) {
  * @returns {void}
  */
 function setDialogText(enabling) {
-  setText('[data-maintenance-dialog-eyebrow]', enabling ? 'Wartungsmodus aktivieren' : 'Website veröffentlichen');
-  setText('[data-maintenance-dialog-title]', enabling ? 'Website wirklich offline schalten?' : 'Website wieder online schalten?');
-  setText('[data-maintenance-dialog-description]', maintenanceDescription(enabling));
-  setText('[data-maintenance-dialog-note]', maintenanceNote(enabling));
-  setText('[data-maintenance-dialog-confirm]', enabling ? 'Wartungsmodus aktivieren' : 'Website online schalten');
+  setMaintenanceText('[data-maintenance-dialog-eyebrow]', enabling ? 'Wartungsmodus aktivieren' : 'Website veröffentlichen');
+  setMaintenanceText('[data-maintenance-dialog-title]', enabling ? 'Website wirklich offline schalten?' : 'Website wieder online schalten?');
+  setMaintenanceText('[data-maintenance-dialog-description]', maintenanceDescription(enabling));
+  setMaintenanceText('[data-maintenance-dialog-note]', maintenanceNote(enabling));
+  setMaintenanceText('[data-maintenance-dialog-confirm]', enabling ? 'Wartungsmodus aktivieren' : 'Website online schalten');
 }
 
 
@@ -207,9 +207,23 @@ function maintenanceNote(enabling) {
  * @param {string} value - New text value.
  * @returns {void}
  */
-function setText(selector, value) {
+function setMaintenanceText(selector, value) {
   const element = document.querySelector(selector);
   if (element) element.textContent = value;
+}
+
+
+
+/**
+ * Verifies the public website response after a maintenance change.
+ *
+ * @param {boolean} expected - Expected maintenance state.
+ * @returns {Promise<void>} Resolves when the public response matches the state.
+ */
+async function verifyPublicMaintenanceState(expected) {
+  const response = await fetch(`/?maintenance-check=${Date.now()}`, { cache: 'no-store' });
+  const active = response.status === 503;
+  if (active !== expected) throw new Error('Wartungsstatus wurde gespeichert, aber die öffentliche Website hat nicht umgeschaltet.');
 }
 
 
@@ -223,7 +237,9 @@ async function confirmMaintenanceChange() {
   if (maintenancePendingState === null) return;
   setDialogBusy(true);
   try {
-    const data = await requestMaintenance(buildMaintenanceRequest(maintenancePendingState));
+    const requestedState = maintenancePendingState;
+    const data = await requestMaintenance(buildMaintenanceRequest(requestedState));
+    await verifyPublicMaintenanceState(requestedState);
     setMaintenanceUi(data.enabled === true);
     closeMaintenanceDialog();
   } catch (error) {

@@ -416,15 +416,45 @@ function gd_admin_funnel(array $events, int $contact, int $views): array
 }
 
 
+function gd_admin_maintenance_paths(): array
+{
+    $paths = [gd_admin_website_path('.maintenance')];
+    $documentRoot = rtrim((string) ($_SERVER['DOCUMENT_ROOT'] ?? ''), '/\\');
+    if ($documentRoot !== '') $paths[] = $documentRoot . DIRECTORY_SEPARATOR . '.maintenance';
+    return array_values(array_unique($paths));
+}
+
+
 function gd_admin_maintenance_enabled(): bool
 {
-    return is_file(gd_admin_website_path('.maintenance'));
+    foreach (gd_admin_maintenance_paths() as $path) {
+        clearstatcache(true, $path);
+        if (is_file($path)) return true;
+    }
+    return false;
 }
 
 
 function gd_admin_set_maintenance(bool $enabled): bool
 {
-    $path = gd_admin_website_path('.maintenance');
-    if ($enabled) return file_put_contents($path, date('c') . PHP_EOL, LOCK_EX) !== false;
-    return !is_file($path) || unlink($path);
+    $paths = gd_admin_maintenance_paths();
+    if ($paths === []) return false;
+
+    $success = true;
+    foreach ($paths as $path) {
+        $directory = dirname($path);
+        if (!is_dir($directory) || !is_writable($directory)) {
+            $success = false;
+            continue;
+        }
+
+        if ($enabled) {
+            if (@file_put_contents($path, date('c') . PHP_EOL, LOCK_EX) === false) $success = false;
+            continue;
+        }
+
+        if (is_file($path) && !@unlink($path)) $success = false;
+    }
+
+    return $success && gd_admin_maintenance_enabled() === $enabled;
 }

@@ -19,6 +19,10 @@ require_once $analytics;
 
 try {
     $force = ($_GET['force'] ?? '') === '1';
+    if (($_GET['history'] ?? '') === '1') {
+        $range = (string) ($_GET['range'] ?? '30');
+        gd_admin_json(gd_ga4_history_dashboard_payload($range, $force));
+    }
     gd_admin_json(gd_ga4_dashboard_payload($force));
 } catch (RuntimeException $error) {
     gd_admin_json(['ok' => false, 'message' => gd_ga4_admin_error($error->getMessage())], 503);
@@ -35,6 +39,7 @@ function gd_ga4_admin_error(string $code): string
         'ga4_quota_exceeded' => 'GA4-API-Limit vorübergehend erreicht.',
         'google_auth_failed' => 'Google-Service-Account konnte nicht authentifiziert werden.',
         'openssl_unavailable' => 'OpenSSL ist auf dem Server nicht verfügbar.',
+        'ga4_history_incomplete' => 'GA4 hat eine unvollständige historische Antwort geliefert.',
     ];
     return $messages[$code] ?? (str_starts_with($code, 'ga4_api_error:') ? $code : 'GA4 Data API nicht erreichbar.');
 }

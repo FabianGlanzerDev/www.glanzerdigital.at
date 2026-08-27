@@ -1,6 +1,6 @@
 DirectoryIndex index.html
 Options -Indexes
 
-<Files "bootstrap.php">
+<FilesMatch "^(bootstrap|ga4-dashboard)\.php$">
   Require all denied
-</Files>
+</FilesMatch>

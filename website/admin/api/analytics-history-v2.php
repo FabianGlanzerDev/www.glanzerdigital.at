@@ -13,7 +13,7 @@ if (!in_array($range, ['7', '30', '90', 'all'], true)) $range = '30';
 $force = ($_GET['force'] ?? '') === '1';
 
 
-const GD_ANALYTICS_API_BUILD = '20260827-audit-fix-1';
+const GD_ANALYTICS_API_BUILD = '20260827-endpoint-reset-2';
 
 
 function gd_admin_analytics_json(array $payload, int $status = 200): never
@@ -28,7 +28,7 @@ $library = gd_admin_private_path('lib.php');
 $analytics = gd_admin_private_path('google-analytics.php');
 
 if (!is_file($library) || !is_file($analytics)) {
-    gd_admin_json(gd_admin_local_fallback($local, 'GA4-Serverintegration fehlt.'));
+    gd_admin_analytics_json(gd_admin_local_fallback($local, 'GA4-Serverintegration fehlt.'));
 }
 
 require_once $library;

@@ -8,7 +8,7 @@ import {
   signInWithEmailAndPassword,
   signOut,
 } from 'https://www.gstatic.com/firebasejs/12.18.0/firebase-auth.js';
-import { ALLOWED_ADMIN_UIDS, FIREBASE_CONFIG } from './config.js?v=20260826-2000';
+import { ALLOWED_ADMIN_UIDS, FIREBASE_CONFIG } from './config.js?v=20260827-endpoint2';
 
 const app = initializeApp(FIREBASE_CONFIG);
 const auth = getAuth(app);

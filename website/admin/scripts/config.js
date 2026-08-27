@@ -11,7 +11,7 @@ export const FIREBASE_CONFIG = {
 export const ALLOWED_ADMIN_UIDS = ['8sXo9V8XkAOPs7kqtx6wQsQsCat1'];
 
 export const ADMIN_ENDPOINTS = {
-  analytics: './api/analytics.php',
+  analytics: './api/analytics-history-v2.php',
   googleAnalytics: './api/google-analytics.php',
   maintenance: './api/maintenance.php',
   searchConsole: './api/search-console.php',

@@ -1,18 +1,21 @@
 'use strict';
 
+const ANALYTICS_FRONTEND_BUILD = '20260827-endpoint-reset-4';
+window.GLANZER_ANALYTICS_FRONTEND_BUILD = ANALYTICS_FRONTEND_BUILD;
+
 let selectedRange = '30';
 let lastDashboardData = null;
 let analyticsRefreshTimer = null;
 let analyticsRequestController = null;
+let analyticsInitialized = false;
 
-const ANALYTICS_REFRESH_INTERVAL = 10000;
-const ANALYTICS_REQUEST_TIMEOUT = 8000;
+const ANALYTICS_REQUEST_TIMEOUT = 25000;
 
 
 
 /** Returns endpoint. @returns {string} The operation result. */
-function getEndpoint() {
-  return window.GlanzerAdminConfig?.endpoints?.analytics || './api/analytics.php';
+function getAnalyticsEndpoint() {
+  return './api/analytics-history-v2.php';
 }
 
 
@@ -25,7 +28,7 @@ function isReady() {
 
 
 /** Returns token. @returns {Promise<unknown>} The operation result. */
-async function getToken() {
+async function getAnalyticsToken() {
   if (typeof window.GlanzerAdminAuth?.getIdToken !== 'function') return '';
   const timeout = new Promise((_, reject) => {
     window.setTimeout(() => reject(new Error('Firebase-Token Timeout.')), 5000);
@@ -36,9 +39,15 @@ async function getToken() {
 
 
 /** Updates text. @param {string} selector - The selector value. @param {unknown} value - The value value. @returns {void} The operation result. */
-function setText(selector, value) {
+function setAnalyticsText(selector, value) {
   const element = document.querySelector(selector);
   if (element) element.textContent = String(value ?? '–');
+}
+
+
+/** Updates the visible historical GA4 status. @param {string} value - Status text. @returns {void} */
+function setHistoryStatus(value) {
+  setAnalyticsText('[data-history-status]', value);
 }
 
 
@@ -81,9 +90,9 @@ function formatDelta(value) {
 /** Renders comparisons. @param {Object} summary - The summary value. @returns {void} The operation result. */
 function renderComparisons(summary = {}) {
   const map = { today: 'todayDelta', yesterday: 'yesterdayDelta', week: 'weekDelta', month: 'monthDelta' };
-  Object.entries(map).forEach(([name, key]) => setText(`[data-delta="${name}"]`, formatDelta(summary[key])));
-  setText('[data-ratio="demos"]', `${formatPercent(summary.demosRate)} der Aufrufe`);
-  setText('[data-ratio="contact"]', `${formatPercent(summary.contactRate)} der Aufrufe`);
+  Object.entries(map).forEach(([name, key]) => setAnalyticsText(`[data-delta="${name}"]`, formatDelta(summary[key])));
+  setAnalyticsText('[data-ratio="demos"]', `${formatPercent(summary.demosRate)} der Aufrufe`);
+  setAnalyticsText('[data-ratio="contact"]', `${formatPercent(summary.contactRate)} der Aufrufe`);
 }
 
 
@@ -146,11 +155,11 @@ function formatTimestamp(value) {
 
 /** Renders insights. @param {Object} insights - The insights value. @returns {void} The operation result. */
 function renderInsights(insights = {}) {
-  setText('[data-insight="bestHour"]', insights.bestHour || 'noch nicht erfasst');
-  setText('[data-insight="bestDay"]', insights.bestDay || '–');
-  setText('[data-insight="topProject"]', insights.topProject || 'Noch offen');
-  setText('[data-insight="topProjectClicks"]', formatNumber(insights.topProjectClicks));
-  setText('[data-live="lastEvent"]', formatTimestamp(insights.lastEvent));
+  setAnalyticsText('[data-insight="bestHour"]', insights.bestHour || 'noch nicht erfasst');
+  setAnalyticsText('[data-insight="bestDay"]', insights.bestDay || '–');
+  setAnalyticsText('[data-insight="topProject"]', insights.topProject || 'Noch offen');
+  setAnalyticsText('[data-insight="topProjectClicks"]', formatNumber(insights.topProjectClicks));
+  setAnalyticsText('[data-live="lastEvent"]', formatTimestamp(insights.lastEvent));
 }
 
 
@@ -158,7 +167,7 @@ function renderInsights(insights = {}) {
 /** Renders funnel. @param {Object} funnel - The funnel value. @returns {void} The operation result. */
 function renderFunnel(funnel = {}) {
   ['pageviews', 'portfolio', 'demos', 'contact'].forEach((key) => {
-    setText(`[data-funnel="${key}"]`, formatNumber(funnel[key]));
+    setAnalyticsText(`[data-funnel="${key}"]`, formatNumber(funnel[key]));
   });
 }
 
@@ -263,18 +272,31 @@ function renderDashboard(data = {}) {
 
 
 /** Runs the fetch dashboard data operation. @returns {Promise<unknown>} The operation result. */
-async function fetchDashboardData(signal) {
-  const token = await getToken();
+async function fetchDashboardData(signal, force = false) {
+  const token = await getAnalyticsToken();
   if (!token) throw new Error('Firebase-ID-Token fehlt.');
-  const query = `range=${encodeURIComponent(selectedRange)}&_=${Date.now()}`;
-  const response = await fetch(`${getEndpoint()}?${query}`, {
+  const query = `range=${encodeURIComponent(selectedRange)}&force=${force ? '1' : '0'}&_=${Date.now()}`;
+  const response = await fetch(`${getAnalyticsEndpoint()}?${query}`, {
     headers: { Authorization: `Bearer ${token}` },
     credentials: 'same-origin',
     cache: 'no-store',
     signal,
   });
-  const data = await response.json().catch(() => ({}));
-  if (!response.ok) throw new Error(data.message || 'Analytics konnten nicht geladen werden.');
+  const build = response.headers.get('X-Glanzer-Analytics-Build') || '';
+  const contentType = response.headers.get('Content-Type') || '';
+  const raw = await response.text();
+  let data;
+  try {
+    data = JSON.parse(raw);
+  } catch {
+    const suffix = build ? ` · Build ${build}` : '';
+    throw new Error(`Analytics API liefert kein gültiges JSON (HTTP ${response.status}, ${contentType || 'Content-Type fehlt'})${suffix}.`);
+  }
+  if (!response.ok) throw new Error(data.message || `Analytics API HTTP ${response.status}.`);
+  if (!data?.summary || !Object.prototype.hasOwnProperty.call(data.summary, 'week')) {
+    const marker = data?.build || build || 'unbekannt';
+    throw new Error(`Analytics API Schema unvollständig · Backend ${marker} · Frontend ${ANALYTICS_FRONTEND_BUILD}.`);
+  }
   return data;
 }
 
@@ -287,27 +309,46 @@ function rangeLabel() {
 
 
 
+/** Returns the status text for the loaded analytics source. @param {Object} data - Dashboard response. @returns {string} Status text. */
+function historyStatusForData(data = {}) {
+  if (data.source === 'local-analytics-fallback') return `Lokale Statistik aktiv · ${data.warning || 'GA4 wird später erneut geladen.'}`;
+  if (data.stale === true || data.source === 'ga4-cache-fallback') return 'GA4-Historie aus sicherem Cache geladen.';
+  return 'GA4-Historie geladen.';
+}
+
+
+
 /** Runs the refresh dashboard operation. @returns {Promise<unknown>} The operation result. */
-async function refreshDashboard() {
-  if (!isReady()) return setText('[data-chart-state]', 'Anmeldung erforderlich');
+async function refreshDashboard(force = false) {
+  if (!isReady()) {
+    setHistoryStatus('Firebase-Anmeldung erforderlich.');
+    return setAnalyticsText('[data-chart-state]', 'Anmeldung erforderlich');
+  }
 
   analyticsRequestController?.abort();
   analyticsRequestController = new AbortController();
   const controller = analyticsRequestController;
   const timeoutId = window.setTimeout(() => controller.abort(), ANALYTICS_REQUEST_TIMEOUT);
 
-  setText('[data-chart-state]', 'wird geladen …');
+  setAnalyticsText('[data-chart-state]', 'wird geladen …');
+  setHistoryStatus('Historische GA4-Daten werden geladen …');
 
   try {
-    const data = await fetchDashboardData(controller.signal);
+    const data = await fetchDashboardData(controller.signal, force);
     if (controller !== analyticsRequestController) return;
     renderDashboard(data);
-    setText('[data-chart-state]', rangeLabel());
-    window.GlanzerAdminUi?.setSystemState('analyticsApi', 'is-ok', 'Daten live verbunden');
+    setAnalyticsText('[data-chart-state]', rangeLabel());
+    const status = historyStatusForData(data);
+    setHistoryStatus(status);
+    window.GlanzerAdminUi?.setSystemState('analyticsApi', data.source === 'local-analytics-fallback' ? 'is-pending' : 'is-ok', status);
   } catch (error) {
-    if (error?.name === 'AbortError') return;
-    setText('[data-chart-state]', error.message || 'Fehler');
-    window.GlanzerAdminUi?.setSystemState('analyticsApi', 'is-pending', error.message || 'API nicht erreichbar');
+    if (controller !== analyticsRequestController) return;
+    const message = error?.name === 'AbortError'
+      ? 'GA4-Historie: Zeitüberschreitung beim Serverabruf.'
+      : (error?.message || 'Analytics konnten nicht geladen werden.');
+    setAnalyticsText('[data-chart-state]', message);
+    setHistoryStatus(message);
+    window.GlanzerAdminUi?.setSystemState('analyticsApi', 'is-pending', message);
   } finally {
     window.clearTimeout(timeoutId);
     if (controller === analyticsRequestController) analyticsRequestController = null;
@@ -326,30 +367,16 @@ function setRange(range) {
 
 /** Initializes analytics panel. @returns {void} The operation result. */
 function initializeAnalyticsPanel() {
-  if (!isReady()) return;
+  if (!isReady() || analyticsInitialized) return;
+  analyticsInitialized = true;
   refreshDashboard();
-  startAnalyticsPolling();
-}
-
-
-function startAnalyticsPolling() {
-  if (analyticsRefreshTimer) return;
-  analyticsRefreshTimer = window.setInterval(() => {
-    if (!document.hidden && isReady()) refreshDashboard();
-  }, ANALYTICS_REFRESH_INTERVAL);
 }
 
 
 function stopAnalyticsPolling() {
-  if (analyticsRefreshTimer) window.clearInterval(analyticsRefreshTimer);
-  analyticsRefreshTimer = null;
+  analyticsInitialized = false;
   analyticsRequestController?.abort();
   analyticsRequestController = null;
-}
-
-
-function handleAnalyticsVisibility() {
-  if (!document.hidden && isReady()) refreshDashboard();
 }
 
 
@@ -390,15 +417,16 @@ function bootstrapAnalyticsPanel() {
 
 
 function handleAnalyticsSignedOut() {
+  analyticsInitialized = false;
   stopAnalyticsPolling();
   if (analyticsBootstrapTimer) window.clearInterval(analyticsBootstrapTimer);
   analyticsBootstrapTimer = null;
+  setHistoryStatus('Firebase-Anmeldung erforderlich.');
 }
 
 
 document.addEventListener('glanzer:auth-ready', bootstrapAnalyticsPanel);
 document.addEventListener('glanzer:auth-signed-out', handleAnalyticsSignedOut);
-document.addEventListener('visibilitychange', handleAnalyticsVisibility);
 
 window.GlanzerAdminAnalytics = { exportAnalytics, initializeAnalyticsPanel, refreshDashboard, setRange };
 bootstrapAnalyticsPanel();

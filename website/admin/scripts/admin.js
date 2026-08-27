@@ -87,10 +87,10 @@ function renderBooleanHealth(name, ok, readyText, errorText) {
 /** Renders health checks. @param {Object} checks - The checks value. @returns {void} The operation result. */
 function renderHealthChecks(checks = {}) {
   renderBooleanHealth('privateStorage', checks.privateStorage, 'Privater Speicher schreibbar', 'Speicher nicht schreibbar');
-  renderBooleanHealth('analyticsFile', checks.analyticsFile, 'Analytics-Datei bereit', 'Analytics-Datei prüfen');
+  renderBooleanHealth('analyticsFile', checks.analyticsFile, 'GA4-Servermodul vorhanden', 'GA4-Servermodul fehlt');
   renderBooleanHealth('openssl', checks.openssl, 'OpenSSL verfügbar', 'OpenSSL fehlt');
   renderBooleanHealth('searchConsole', checks.searchConsole, 'Service-Account vorhanden', 'Service-Account fehlt');
-  renderBooleanHealth('ga4', checks.ga4, 'Property und Service-Account vorhanden', 'GA4-Konfiguration fehlt');
+  renderBooleanHealth('ga4', checks.ga4, 'Property und Service-Account konfiguriert', 'GA4-Konfiguration fehlt');
   renderBooleanHealth('sitemap', checks.sitemap, 'Datei vorhanden', 'Datei fehlt');
   renderBooleanHealth('robots', checks.robots, 'Datei vorhanden', 'Datei fehlt');
 }
@@ -108,7 +108,7 @@ async function runHealthCheck() {
 
 /** Handles refresh click. @returns {void} The operation result. */
 function handleRefreshClick() {
-  window.GlanzerAdminAnalytics?.refreshDashboard();
+  window.GlanzerAdminAnalytics?.refreshDashboard(true);
   window.GlanzerAdminGa4?.refresh();
   window.GlanzerAdminMaintenance?.loadMaintenanceState();
   window.GlanzerAdminSearch?.refresh?.();
