@@ -1,5 +1,7 @@
 User-agent: *
 Allow: /
+
+# Nicht für Suchmaschinen bestimmte Bereiche
 Disallow: /admin/
 Disallow: /api/
 Disallow: /demos/

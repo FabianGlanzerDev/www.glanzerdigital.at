@@ -1,3 +1,21 @@
+# Private credentials
 server-private/google-service-account.json
-server-private/data/analytics.json
+
+# Runtime / generated data
+server-private/data/
+
+# Local maintenance flag
 website/.maintenance
+
+# Environment / secret files
+.env
+.env.*
+!.env.example
+
+# Logs and temporary archives
+*.log
+*.zip
+
+# Operating system files
+.DS_Store
+Thumbs.db
