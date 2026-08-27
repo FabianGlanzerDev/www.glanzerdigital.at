@@ -58,21 +58,21 @@ const FOOTER_TEMPLATE = `
 
     <div class="footer-bottom">
       <span>© <span data-current-year></span> Glanzer Digital</span>
-      <span>Entwickelt und betreut von Fabian Glanzer</span>
+      <span>Webentwicklung aus Österreich</span>
     </div>
   </div>
 `;
 
 
 
-/** Returns the aria-current attribute for the active navigation item. @param {string} pageName - The page represented by the navigation item. @param {string} activePage - The currently active page. @returns {string} The aria-current attribute or an empty string. */
+/** Returns the aria-current attribute for the active navigation item. */
 function getCurrentAttribute(pageName, activePage) {
   return pageName === activePage ? 'aria-current="page"' : '';
 }
 
 
 
-/** Builds the global header markup for the current page. @param {string} rootPath - Relative path to the project root. @param {string} activePage - The currently active page. @returns {string} The complete header markup. */
+/** Builds the global header markup for the current page. */
 function getHeaderTemplate(rootPath, activePage) {
   return HEADER_TEMPLATE
     .replaceAll('{{ROOT}}', rootPath)
@@ -84,7 +84,6 @@ function getHeaderTemplate(rootPath, activePage) {
 
 
 
-/** Builds the global footer markup for the current page. @param {string} rootPath - Relative path to the project root. @returns {string} The complete footer markup. */
 function getFooterTemplate(rootPath) {
   return FOOTER_TEMPLATE.replaceAll('{{ROOT}}', rootPath);
 }

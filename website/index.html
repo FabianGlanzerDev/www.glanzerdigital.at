@@ -9,7 +9,6 @@
     <meta name="robots" content="index,follow,max-image-preview:large">
     <meta name="author" content="Fabian Glanzer">
     <meta name="theme-color" content="#080b10">
-
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Glanzer Digital">
     <meta property="og:locale" content="de_AT">
@@ -23,7 +22,6 @@
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta property="og:image:alt" content="Glanzer Digital Logo mit Code- und Server-Symbol">
-
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Glanzer Digital | Webentwicklung &amp; Softwarelösungen">
     <meta name="twitter:description"
@@ -58,7 +56,12 @@
       "@id": "https://glanzerdigital.at/#organization",
       "name": "Glanzer Digital",
       "url": "https://glanzerdigital.at/",
-      "logo": "https://glanzerdigital.at/assets/favicons/favicon-512x512.png",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://glanzerdigital.at/assets/favicons/favicon-512x512.png",
+        "width": 512,
+        "height": 512
+      },
       "image": "https://glanzerdigital.at/assets/images/general/social-preview.webp",
       "email": "mailto:fabsdev@gmx.at",
       "telephone": "+43 676 7875304",
@@ -68,7 +71,49 @@
       },
       "sameAs": [
         "https://github.com/FabianGlanzerDev"
-      ]
+      ],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "IT-Dienstleistungen",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Websites",
+              "description": "Entwicklung moderner und responsiver Websites für Unternehmen, Selbstständige, Vereine und individuelle Projekte.",
+              "url": "https://glanzerdigital.at/leistungen"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Web-Apps und digitale Tools",
+              "description": "Entwicklung interaktiver Web-Anwendungen, Dashboards und digitaler Werkzeuge für konkrete Aufgaben und Abläufe.",
+              "url": "https://glanzerdigital.at/leistungen"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Softwarelösungen",
+              "description": "Entwicklung individueller Softwarelösungen und lokaler Werkzeuge für Dateien, Daten und Arbeitsabläufe.",
+              "url": "https://glanzerdigital.at/leistungen"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Betreuung und Weiterentwicklung",
+              "description": "Weiterentwicklung bestehender Websites und Anwendungen, Funktionsausbau und technische Unterstützung.",
+              "url": "https://glanzerdigital.at/leistungen"
+            }
+          }
+        ]
+      }
     },
     {
       "@type": "WebSite",
@@ -85,7 +130,7 @@
     }
   ]
 }
-    </script>
+</script>
 </head>
 
 <body data-page="home" data-root=".">
@@ -130,7 +175,7 @@
                     <article class="hero-terminal" aria-label="Animierter Programmiererwitz im Codefenster">
                         <div class="terminal-toolbar">
                             <div class="terminal-dots" aria-hidden="true"><span></span><span></span><span></span></div>
-                            <span class="terminal-title" id="terminal-title">programmer-joke.js</span>
+                            <span class="terminal-title" id="terminal-title">programmerJoke.js</span>
                             <button class="terminal-pause" data-terminal-pause type="button"
                                 aria-pressed="false">Animation pausieren</button>
                         </div>
@@ -152,13 +197,12 @@
                         und verständlich umgesetzt.</p>
                 </div>
 
-                <div class="services-grid">
+                <div class="services-grid services-grid--overview">
                     <article class="card service-card">
                         <div class="service-card-header">
-                            <span class="icon" aria-hidden="true"><svg viewBox="0 0 32 32">
-                                    <rect x="3" y="5" width="26" height="19" rx="2"></rect>
-                                    <path d="M11 28h10M16 24v4M3 10h26"></path>
-                                </svg></span>
+                            <span class="service-icon" aria-hidden="true">
+                                <img src="assets/images/icons/services/websites.webp" alt="" width="56" height="56">
+                            </span>
                             <h3>Websites</h3>
                         </div>
                         <p>Professionelle Internetauftritte für Selbstständige, kleine Unternehmen, Vereine und
@@ -167,9 +211,10 @@
 
                     <article class="card service-card">
                         <div class="service-card-header">
-                            <span class="icon" aria-hidden="true"><svg viewBox="0 0 32 32">
-                                    <path d="m11 9-7 7 7 7M21 9l7 7-7 7M19 5l-6 22"></path>
-                                </svg></span>
+                            <span class="service-icon" aria-hidden="true">
+                                <img src="assets/images/icons/services/web-apps-tools.webp" alt="" width="56"
+                                    height="56">
+                            </span>
                             <h3>Web-Apps &amp; Tools</h3>
                         </div>
                         <p>Interaktive Anwendungen, Dashboards und digitale Werkzeuge für konkrete Aufgaben und Abläufe.
@@ -178,10 +223,10 @@
 
                     <article class="card service-card">
                         <div class="service-card-header">
-                            <span class="icon" aria-hidden="true"><svg viewBox="0 0 32 32">
-                                    <rect x="4" y="5" width="24" height="22" rx="3"></rect>
-                                    <path d="M9 11h14M9 16h14M9 21h8M23 21h.01"></path>
-                                </svg></span>
+                            <span class="service-icon" aria-hidden="true">
+                                <img src="assets/images/icons/services/softwareloesungen.webp" alt="" width="56"
+                                    height="56">
+                            </span>
                             <h3>Softwarelösungen</h3>
                         </div>
                         <p>Windows-Anwendungen und lokale Werkzeuge für Dateien, Daten und wiederkehrende
@@ -190,11 +235,10 @@
 
                     <article class="card service-card">
                         <div class="service-card-header">
-                            <span class="icon" aria-hidden="true"><svg viewBox="0 0 32 32">
-                                    <path
-                                        d="M7 18v-4a9 9 0 0 1 18 0v4M7 17H4v7h5v-7zM25 17h3v7h-5v-7zM23 25c-2 3-5 4-8 4">
-                                    </path>
-                                </svg></span>
+                            <span class="service-icon" aria-hidden="true">
+                                <img src="assets/images/icons/services/betreuung-weiterentwicklung.webp" alt=""
+                                    width="56" height="56">
+                            </span>
                             <h3>Betreuung &amp; Weiterentwicklung</h3>
                         </div>
                         <p>Bestehende Websites verbessern, Inhalte ändern, Funktionen ergänzen und technische Probleme

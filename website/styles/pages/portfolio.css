@@ -665,43 +665,52 @@
   }
 }
 
-/* Mobile GitHub profile card */
+/* Mobile GitHub profile card: force a single-column layout. */
 @media (max-width: 760px) {
-  .github-profile-card {
-    grid-template-columns: 1fr;
+  .github-profile-section .github-profile-card {
+    display: block;
+    width: 100%;
   }
 
-  .github-profile-content {
+  .github-profile-section .github-profile-content {
+    width: 100%;
     min-width: 0;
     padding: 1.5rem;
   }
 
-  .github-profile-content h2,
-  .github-profile-content p {
+  .github-profile-section .github-profile-content h2,
+  .github-profile-section .github-profile-content p {
+    width: 100%;
     max-width: none;
-    overflow-wrap: normal;
     word-break: normal;
+    overflow-wrap: normal;
+    hyphens: none;
   }
 
-  .github-profile-button {
-    width: 100%;
+  .github-profile-section .github-profile-logo {
+    display: none;
+  }
+
+  .github-profile-section .github-profile-button {
+    width: auto;
+    max-width: 100%;
     min-width: 0;
     justify-content: center;
     white-space: normal;
   }
-
-  .github-profile-logo {
-    display: none;
-  }
 }
 
 @media (max-width: 420px) {
-  .github-profile-content {
+  .github-profile-section .github-profile-content {
     padding: 1.25rem;
   }
 
-  .github-profile-content h2 {
+  .github-profile-section .github-profile-content h2 {
     font-size: clamp(2rem, 10vw, 2.7rem);
+  }
+
+  .github-profile-section .github-profile-button {
+    width: 100%;
   }
 }
 
