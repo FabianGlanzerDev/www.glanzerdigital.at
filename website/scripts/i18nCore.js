@@ -203,6 +203,9 @@ window.GD_I18N_PARTS.push({
     "Eine Landingpage konzentriert sich auf ein bestimmtes Angebot oder eine einzelne Aktion. Besucher werden nicht durch viele Unterseiten geführt, sondern gezielt zu einer Anfrage, Anmeldung oder Kontaktaufnahme.": "A landing page focuses on one specific offer or action. Instead of sending visitors through many subpages, it guides them directly towards an enquiry, registration or contact.",
     "Einzelne Dienstleistung oder spezielles Angebot": "Individual service or special offer",
     "Aktion, Kampagne oder Veranstaltung": "Promotion, campaign or event",
-    "Produkt- oder Informationsseite": "Product or information page"
+    "Produkt- oder Informationsseite": "Product or information page",
+    "Professionelle Websites für Selbstständige, kleine Unternehmen und Vereine – persönlich umgesetzt und betreut.": "Professional websites for self-employed professionals, small businesses and associations – personally delivered and supported.",
+    "Websites aus der Steiermark": "Websites from Styria",
+    "Website anfragen": "Request a website"
   }
 });

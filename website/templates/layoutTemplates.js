@@ -18,7 +18,7 @@ const HEADER_TEMPLATE = `
         <li><a href="/ueber-mich" {{ABOUT_CURRENT}}>Über mich</a></li>
       </ul>
       <button class="language-toggle" type="button" data-language-toggle aria-label="Sprache auf Englisch wechseln" title="English">EN</button>
-      <a class="button button--primary button--small" href="/kontakt">Projekt anfragen</a>
+      <a class="button button--primary button--small" href="/kontakt">Website anfragen</a>
     </nav>
   </div>
 `;
@@ -30,7 +30,7 @@ const FOOTER_TEMPLATE = `
         <a class="footer-brand" href="/">
           <img src="{{ROOT}}/assets/images/logos/glanzerdigital-neon-logo.webp" alt="Glanzer Digital">
         </a>
-        <p class="footer-copy">Webentwicklung, Softwarelösungen und digitale Werkzeuge mit persönlicher Betreuung.</p>
+        <p class="footer-copy">Professionelle Websites für Selbstständige, kleine Unternehmen und Vereine – persönlich umgesetzt und betreut.</p>
       </div>
 
       <div>
@@ -58,7 +58,7 @@ const FOOTER_TEMPLATE = `
 
     <div class="footer-bottom">
       <span>© <span data-current-year></span> Glanzer Digital</span>
-      <span>Webentwicklung aus Österreich</span>
+      <span>Websites aus der Steiermark</span>
     </div>
   </div>
 `;
