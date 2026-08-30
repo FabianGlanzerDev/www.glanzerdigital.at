@@ -43,9 +43,9 @@
   <script src="../scripts/analytics.js" defer></script>
   <script src="../scripts/privacyConsent.js" defer></script>
   <script src="../scripts/main.js" defer></script>
-  <script src="../scripts/config/contactConfig.js?v=20260830-review" defer></script>
-  <script src="../scripts/services/contactDelivery.js?v=20260830-review" defer></script>
-  <script src="../scripts/pages/contactForm.js?v=20260830-review" defer></script>
+  <script src="../scripts/config/contactConfig.js?v=20260830-mobile-mail-app" defer></script>
+  <script src="../scripts/services/contactDelivery.js?v=20260830-mobile-mail-app" defer></script>
+  <script src="../scripts/pages/contactForm.js?v=20260830-mobile-mail-app" defer></script>
   <script src="../scripts/kontakt.js?v=20260830-review" defer></script>
   <script type="application/ld+json">
 {
@@ -206,14 +206,14 @@
 
           <fieldset class="email-provider" data-email-provider hidden>
             <legend>E-Mail-Anbieter auswählen</legend>
-            <p class="email-provider__intro">Wähle aus, womit du die vorbereitete Anfrage öffnen möchtest.</p>
+            <p class="email-provider__intro">Am Handy öffnet sich deine installierte Mail-App. Am Desktop wird der gewählte Anbieter verwendet.</p>
 
             <div class="email-provider__grid">
               <label class="email-provider-card">
                 <input type="radio" name="emailProvider" value="gmail" checked>
                 <span>
                   <strong>Gmail</strong>
-                  <small>In Gmail öffnen</small>
+                  <small>Handy: Mail-App · Desktop: Gmail</small>
                 </span>
               </label>
 
@@ -221,7 +221,7 @@
                 <input type="radio" name="emailProvider" value="outlook">
                 <span>
                   <strong>Outlook</strong>
-                  <small>In Outlook öffnen</small>
+                  <small>Handy: Mail-App · Desktop: Outlook</small>
                 </span>
               </label>
 
@@ -229,7 +229,7 @@
                 <input type="radio" name="emailProvider" value="gmx">
                 <span>
                   <strong>GMX</strong>
-                  <small>Daten kopieren und GMX öffnen</small>
+                  <small>Handy: Mail-App · Desktop: GMX</small>
                 </span>
               </label>
 
@@ -237,7 +237,7 @@
                 <input type="radio" name="emailProvider" value="other">
                 <span>
                   <strong>Andere</strong>
-                  <small>E-Mail-Daten kopieren</small>
+                  <small>Handy: Mail-App · Desktop: Daten kopieren</small>
                 </span>
               </label>
             </div>

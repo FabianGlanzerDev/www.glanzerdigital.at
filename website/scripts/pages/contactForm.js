@@ -167,6 +167,7 @@ function focusFirstInvalidField(form) {
 /** Returns the submit-button label for the active delivery method. */
 function getSubmitLabel(form) {
   if (getContactMethod(form) === 'whatsapp') return 'Anfrage in WhatsApp öffnen';
+  if (window.GlanzerContactDelivery?.isMobileMailContext()) return 'E-Mail-App öffnen';
   const labels = { gmail: 'E-Mail in Gmail öffnen', outlook: 'E-Mail in Outlook öffnen', gmx: 'E-Mail-Daten kopieren & GMX öffnen' };
   return labels[getEmailProvider(form)] || 'E-Mail-Daten kopieren';
 }

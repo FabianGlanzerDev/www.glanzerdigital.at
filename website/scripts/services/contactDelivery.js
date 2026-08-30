@@ -39,6 +39,30 @@ function getEncodedMailValues(data, industry = '') {
 }
 
 
+/** Returns whether the current browser is running on a mobile/touch device. */
+function isMobileMailContext() {
+  const mobileAgent = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+  const touchTablet = navigator.maxTouchPoints > 1 && window.innerWidth <= 1024;
+  return mobileAgent || touchTablet;
+}
+
+
+/** Builds a mailto URL for the installed mail application. */
+function buildMailtoUrl(data, industry = '') {
+  const subject = encodeURIComponent(buildEmailSubject(data));
+  const body = encodeURIComponent(buildMessageBody(data, industry));
+  return `mailto:${CONTACT_CONFIG.contactEmail}?subject=${subject}&body=${body}`;
+}
+
+
+/** Opens the installed/default mail app with the prepared enquiry. */
+function openMailApp(data, industry = '') {
+  window.location.href = buildMailtoUrl(data, industry);
+  window.GlanzerAnalytics?.track('contact_click', 'E-Mail-App');
+  return { ok: true, message: CONTACT_CONFIG.text.mailAppOpened };
+}
+
+
 /** Builds a Gmail or Outlook compose URL. */
 function buildWebmailComposeUrl(provider, data, industry = '') {
   const mail = getEncodedMailValues(data, industry);
@@ -137,6 +161,7 @@ async function copyOtherEmail(data, industry = '') {
 
 /** Delivers the e-mail enquiry according to the selected provider. */
 async function deliverEmail(provider, data, industry = '') {
+  if (isMobileMailContext()) return openMailApp(data, industry);
   if (provider === 'gmx') return openGmx(data, industry);
   if (provider === 'other') return copyOtherEmail(data, industry);
   return { ok: true, message: openWebmail(provider, data, industry) };
@@ -145,5 +170,6 @@ async function deliverEmail(provider, data, industry = '') {
 
 window.GlanzerContactDelivery = {
   deliverEmail,
+  isMobileMailContext,
   openWhatsApp,
 };

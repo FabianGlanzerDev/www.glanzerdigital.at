@@ -767,10 +767,6 @@
   place-items: center;
 }
 
-.contact-submit__icon[hidden] {
-  display: none;
-}
-
 .contact-submit__icon img,
 .contact-submit__icon svg {
   width: 24px;
@@ -968,4 +964,22 @@
   .contact-hero h1 {
     font-size: clamp(2.8rem, 13vw, 4rem);
   }
+}
+
+
+/* Submit-Icon Fix */
+.contact-submit__icon[hidden] {
+  display: none;
+}
+
+.contact-submit__icon {
+  color: #fff;
+}
+
+.contact-submit__icon svg {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
 }
