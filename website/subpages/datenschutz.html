@@ -4,12 +4,11 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description"
-    content="Datenschutzerklärung von Glanzer Digital mit Informationen zur Verarbeitung personenbezogener Daten.">
+  <meta name="description" content="Datenschutzerklärung von GlanzerDigital mit Informationen zur Verarbeitung personenbezogener Daten.">
   <meta name="author" content="Fabian Glanzer">
   <meta name="robots" content="index,follow,max-image-preview:large">
   <meta name="theme-color" content="#080b10">
-  <title>Datenschutzerklärung | Glanzer Digital</title>
+  <title>Datenschutzerklärung | GlanzerDigital</title>
   <link rel="canonical" href="https://glanzerdigital.at/datenschutz">
   <link rel="icon" href="../assets/favicons/favicon.ico" sizes="any">
   <link rel="icon" href="../assets/favicons/favicon-32x32.png" type="image/png" sizes="32x32">
@@ -19,13 +18,11 @@
   <link rel="stylesheet" href="../styles/fonts.css">
   <link rel="stylesheet" href="../style.css">
   <link rel="stylesheet" href="../styles/pages/legal.css">
-  <script src="../templates/layoutTemplates.js" defer></script>
+  <script src="../scripts/utils/templateLoader.js" defer></script>
+  <script src="../scripts/layout.js" defer></script>
+  <script src="../scripts/analytics.js" defer></script>
+  <script src="../scripts/privacyConsent.js" defer></script>
   <script src="../scripts/main.js" defer></script>
-  <script src="../scripts/i18nCore.js" defer></script>
-  <script src="../scripts/i18nContent.js" defer></script>
-  <script src="../scripts/i18nLegal.js" defer></script>
-  <script src="../scripts/i18nTranslations.js" defer></script>
-  <script src="../scripts/i18n.js" defer></script>
 </head>
 
 <body data-root=".." data-page="legal">
@@ -72,116 +69,101 @@
         <h2>3. Kontaktaufnahme über WhatsApp</h2>
         <p>
           Beim Klick auf „Anfrage in WhatsApp öffnen“ wird die Nachricht ausschließlich lokal im Browser aus den
-          eingegebenen Formulardaten zusammengesetzt. Das Kontaktformular überträgt diese Inhalte nicht an einen
-          eigenen Formularserver von Glanzer Digital.
+          eingegebenen Formulardaten zusammengesetzt. Das Anfrageformular überträgt diese Inhalte nicht an einen
+          eigenen Formularserver von GlanzerDigital.
         </p>
         <p>
           Erst wenn WhatsApp geöffnet und die Nachricht dort tatsächlich gesendet wird, werden die vom Nutzer
           übermittelten Kontaktdaten und Nachrichteninhalte verarbeitet. Soweit die Kontaktaufnahme der Anbahnung oder
           Durchführung eines Vertrags dient, erfolgt die Verarbeitung auf Grundlage von Art. 6 Abs. 1 lit. b DSGVO.
-          Bei sonstigen Anfragen erfolgt sie auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO; das berechtigte Interesse
-          liegt in der Bearbeitung und Beantwortung der Anfrage.
+          Bei sonstigen Anfragen erfolgt sie auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO.
         </p>
         <p>
-          Für WhatsApp wird der Dienst von WhatsApp Ireland Limited genutzt. WhatsApp verarbeitet Informationen im
-          Rahmen seiner globalen Infrastruktur auch außerhalb des Europäischen Wirtschaftsraums, unter anderem in den
-          USA. Nach den Datenschutzinformationen von WhatsApp werden für entsprechende Übermittlungen unter anderem
-          Angemessenheitsbeschlüsse, das EU-U.S. Data Privacy Framework und Standardvertragsklauseln der Europäischen
-          Kommission eingesetzt. Weitere Informationen enthält die
+          Für WhatsApp wird der Dienst von WhatsApp Ireland Limited genutzt. Informationen zur Verarbeitung durch
+          WhatsApp und zu möglichen Datenübermittlungen in Drittländer enthält die
           <a href="https://www.whatsapp.com/legal/privacy-policy-eea" target="_blank" rel="noopener noreferrer">
             Datenschutzrichtlinie von WhatsApp
           </a>.
         </p>
-        <p>
-          Die Nutzung von WhatsApp ist freiwillig. E-Mail und Telefon stehen zusätzlich als direkte Kontaktwege zur
-          Verfügung. Nachrichten und dazugehörige Kontaktdaten werden so lange gespeichert, wie dies für die
-          Bearbeitung der Anfrage und eine mögliche Vertragsabwicklung erforderlich ist. Darüber hinaus erfolgt eine
-          Speicherung nur, soweit gesetzliche Aufbewahrungspflichten bestehen oder die Daten zur Geltendmachung,
-          Ausübung oder Verteidigung von Rechtsansprüchen erforderlich sind.
-        </p>
 
-        <h2>4. Kontaktaufnahme per E-Mail und Telefon</h2>
+        <h2>4. Kontaktaufnahme per E-Mail</h2>
         <p>
-          Bei einer Kontaktaufnahme per E-Mail oder Telefon werden die übermittelten Angaben verarbeitet, soweit dies
-          zur Bearbeitung und Beantwortung der Anfrage erforderlich ist. Dazu können insbesondere Name,
-          Kontaktdaten, Nachrichteninhalte und sonstige freiwillig mitgeteilte Informationen gehören.
+          Wird im Anfrageformular „E-Mail“ gewählt, erstellt die Website aus den eingegebenen Angaben lokal im Browser
+          eine vorbereitete E-Mail. Ein eigener Formularserver von GlanzerDigital erhält diese Nachricht nicht.
         </p>
         <p>
-          Soweit die Kontaktaufnahme der Anbahnung oder Durchführung eines Vertrags dient, ist Art. 6 Abs. 1 lit. b
-          DSGVO die Rechtsgrundlage. Bei sonstigen Anfragen erfolgt die Verarbeitung auf Grundlage von Art. 6 Abs. 1
-          lit. f DSGVO. Das berechtigte Interesse liegt in einer effizienten Bearbeitung und Beantwortung von
-          Anfragen.
+          Bei Gmail und Outlook wird nach dem bewussten Klick des Nutzers die jeweilige Webmail-Seite mit Empfänger,
+          Betreff und vorbereitetem Nachrichtentext geöffnet. Dadurch können diese Angaben an den gewählten
+          Webmail-Anbieter übertragen werden. Bei GMX und „Andere“ werden die vorbereiteten E-Mail-Daten zunächst lokal
+          in die Zwischenablage kopiert; das eigentliche Senden erfolgt anschließend durch den Nutzer in seinem
+          E-Mail-Postfach.
         </p>
         <p>
-          Für die E-Mail-Kommunikation wird ein GMX-Postfach verwendet. GMX ist ein Dienst der
+          Für die weitere E-Mail-Kommunikation wird ein GMX-Postfach verwendet. GMX ist ein Dienst der
           1&amp;1 Mail &amp; Media GmbH, Zweigniederlassung Karlsruhe, Brauerstraße 48, 76135 Karlsruhe, Deutschland.
-          Beim Versand und Empfang von E-Mails verarbeitet dieser Anbieter die für die Bereitstellung des
-          E-Mail-Dienstes erforderlichen Daten. Für telefonische Kontakte können außerdem technisch notwendige
-          Verbindungsdaten durch die jeweils beteiligten Telekommunikationsanbieter verarbeitet werden.
+          Wenn Nutzer Gmail oder Outlook als Webmail-Anbieter auswählen, gelten zusätzlich die Datenschutzbestimmungen
+          des jeweiligen Anbieters.
         </p>
         <p>
-          Die Bereitstellung von Angaben im Rahmen einer Kontaktaufnahme ist freiwillig. Ohne die zur Bearbeitung
-          erforderlichen Kontaktdaten oder Informationen kann eine Anfrage gegebenenfalls nicht beantwortet werden.
-          Die Daten werden grundsätzlich nur so lange gespeichert, wie sie für die Bearbeitung der Anfrage und eine
-          mögliche Vertragsabwicklung erforderlich sind. Gesetzliche Aufbewahrungspflichten bleiben unberührt.
+          Soweit eine gesendete Anfrage der Anbahnung oder Durchführung eines Vertrags dient, erfolgt die Verarbeitung
+          auf Grundlage von Art. 6 Abs. 1 lit. b DSGVO. Bei sonstigen Anfragen erfolgt sie auf Grundlage von Art. 6
+          Abs. 1 lit. f DSGVO. Die Daten werden nur so lange gespeichert, wie dies für die Bearbeitung, eine mögliche
+          Vertragsabwicklung oder gesetzliche Aufbewahrungspflichten erforderlich ist.
         </p>
 
-        <h2>5. Einwilligungsbasierte, cookielose Reichweitenmessung</h2>
+        <h2>5. Einwilligungsbasierte Reichweitenmessung und Google Analytics 4</h2>
         <p>
-          Die selbst betriebene Reichweitenmessung ist standardmäßig deaktiviert. Sie wird erst aktiviert, wenn im
-          Datenschutz-Banner ausdrücklich „Statistik erlauben“ ausgewählt wird. Bei Ablehnung oder solange noch keine
-          Auswahl getroffen wurde, sendet die öffentliche Website keine Statistikereignisse an die
-          Analytics-Schnittstelle.
+          Statistikfunktionen sind standardmäßig deaktiviert. Sie werden erst aktiviert, wenn im Datenschutz-Banner
+          ausdrücklich „Statistik erlauben“ ausgewählt wird. Bei Ablehnung oder solange keine Auswahl getroffen wurde,
+          sendet die öffentliche Website keine selbst erhobenen Statistikereignisse und lädt Google Analytics 4 nicht.
         </p>
         <p>
-          Nach einer Einwilligung werden Seitenaufrufe und ausgewählte Interaktionen wie Demo-, Portfolio-, GitHub-,
-          CTA- und Kontaktklicks erfasst. Zusätzlich werden grobe technische Kategorien verarbeitet: Geräteklasse,
-          Viewport-Größenklasse, Browserfamilie und Betriebssystemfamilie. Bei Seitenaufrufen können außerdem die reine
-          Referrer-Domain, die Einstiegsseite sowie der Zeitpunkt beziehungsweise die Stunde des Ereignisses gezählt
-          werden.
+          Nach einer Einwilligung werden über eine eigene Statistik-Schnittstelle Seitenaufrufe und ausgewählte
+          Interaktionen wie Demo-, Portfolio-, GitHub-, CTA- und Kontaktklicks erfasst. Zusätzlich werden grobe
+          technische Kategorien wie Geräteklasse, Viewport-Größenklasse, Browserfamilie und Betriebssystemfamilie
+          verarbeitet. Referrer werden auf den Hostnamen beschränkt; es wird keine dauerhafte eigene Besucher-ID
+          erzeugt.
         </p>
         <p>
-          Für diese Auswertung werden keine Tracking-Cookies gesetzt und keine dauerhafte Besucher-ID erzeugt. Die
-          Bildschirmgröße wird nur als Größenklasse übertragen. Referrer werden auf den Hostnamen beschränkt; Pfade und
-          Suchparameter werden nicht als Statistikmerkmal gespeichert. Browser- und Betriebssystemfamilie werden aus dem
-          beim Serveraufruf technisch übermittelten User-Agent abgeleitet. Technisch anfallende Verbindungsdaten beim
-          Aufruf der Statistik-Schnittstelle fallen unter die in Abschnitt 2 beschriebenen Server-Logfiles.
+          Zusätzlich wird nach der Einwilligung Google Analytics 4 mit der Measurement-ID
+          <code>G-KNVBS6MJY7</code> geladen. Dabei können Analyse-Cookies, insbesondere Cookies mit dem Präfix
+          <code>_ga</code>, gesetzt und Nutzungsdaten an Google übertragen werden. Werbe- und Personalisierungssignale
+          sind in der technischen Konfiguration deaktiviert. Anbieter ist Google Ireland Limited, Gordon House,
+          Barrow Street, Dublin 4, Irland. Weitere Informationen enthält die
+          <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">
+            Datenschutzerklärung von Google
+          </a>.
         </p>
         <p>
-          Rechtsgrundlage für die Reichweitenmessung ist die Einwilligung gemäß Art. 6 Abs. 1 lit. a DSGVO in
-          Verbindung mit § 165 Abs. 3 TKG 2021. Die Einwilligung ist freiwillig und kann jederzeit mit Wirkung für die
-          Zukunft über „Datenschutz-Einstellungen“ im Footer widerrufen werden. Bereits bis zum Widerruf rechtmäßig
-          verarbeitete Daten bleiben davon unberührt. Die aggregierten Statistikdaten werden für maximal 365 Tage
-          vorgehalten und sind nur über den geschützten Adminbereich auswertbar.
+          Rechtsgrundlage für diese Statistikfunktionen ist die Einwilligung gemäß Art. 6 Abs. 1 lit. a DSGVO in
+          Verbindung mit § 165 Abs. 3 TKG 2021. Die Einwilligung kann jederzeit über „Datenschutz-Einstellungen“ im
+          Footer für die Zukunft widerrufen werden. Beim Widerruf wird Google Analytics für weitere Messungen
+          deaktiviert und zugängliche <code>_ga</code>-Cookies werden entfernt.
         </p>
 
-        <h2>6. Datenschutz- und Spracheinstellungen im Browser</h2>
+        <h2>6. Datenschutzeinstellung im Browser</h2>
         <p>
           Die Auswahl zur Reichweitenmessung wird unter dem Schlüssel <code>gd-consent</code> im LocalStorage des
           Browsers gespeichert. Gespeichert werden die Entscheidung „akzeptiert“ oder „abgelehnt“, eine Versionsnummer
-          der Einwilligung sowie der Zeitpunkt der letzten Änderung. Diese Information bleibt im Browser und dient nur
-          dazu, die getroffene Datenschutzentscheidung bei weiteren Seitenaufrufen zu berücksichtigen.
+          sowie der Zeitpunkt der letzten Änderung. Diese Information dient ausschließlich dazu, die getroffene
+          Datenschutzentscheidung bei weiteren Seitenaufrufen zu berücksichtigen.
         </p>
         <p>
-          Wenn zwischen Deutsch und Englisch gewechselt wird, speichert die Website die Auswahl zusätzlich unter dem
-          Schlüssel <code>gd-language</code> im LocalStorage des Browsers. Dadurch kann die gewählte Sprache beim
-          nächsten Seitenaufruf wiederhergestellt werden.
-        </p>
-        <p>
-          Diese lokalen Speicherungen dienen ausschließlich dazu, vom Nutzer ausdrücklich gewählte Einstellungen
-          bereitzustellen. Soweit der Zugriff auf den Endgerätespeicher hierfür unbedingt erforderlich ist, erfolgt er
-          auf Grundlage von § 165 Abs. 3 TKG 2021. Die Einträge enthalten keine dauerhafte Besucher-ID, werden nicht
-          für Werbung oder Profilbildung verwendet und verbleiben im Browser, bis sie dort gelöscht, durch eine neue
-          Auswahl ersetzt oder technisch zurückgesetzt werden.
+          Diese lokale Speicherung enthält keine eigene dauerhafte Besucher-ID und wird nicht für Werbung oder
+          Profilbildung verwendet. Der Eintrag verbleibt im Browser, bis er dort gelöscht, durch eine neue Auswahl
+          ersetzt oder technisch zurückgesetzt wird.
         </p>
 
         <h2>7. Cookies, Webfonts und externe Inhalte</h2>
         <p>
-          Die öffentliche Website verwendet keine Analyse- oder Werbe-Cookies. Auch die Einwilligungsverwaltung nutzt
-          keinen Cookie, sondern ausschließlich die in Abschnitt 6 beschriebene lokale Speicherung der Entscheidung.
-          Die verwendeten Schriftarten werden lokal bereitgestellt. Es sind keine Social-Media-Feeds oder externen
-          Analyseplattformen in die öffentliche Website eingebettet. Externe Ziele wie GitHub oder WhatsApp werden erst
-          nach einem bewussten Klick des Nutzers aufgerufen.
+          Ohne Statistik-Einwilligung werden von GlanzerDigital keine Analyse- oder Werbe-Cookies gesetzt. Nach einer
+          Einwilligung kann Google Analytics 4 Analyse-Cookies setzen. Die verwendeten Schriftarten werden lokal
+          bereitgestellt; Social-Media-Feeds sind nicht eingebettet.
+        </p>
+        <p>
+          Externe Dienste wie GitHub, WhatsApp, Gmail, Outlook oder GMX werden erst nach einer bewussten Aktion des
+          Nutzers geöffnet. Ab diesem Zeitpunkt gelten zusätzlich die Datenschutzbestimmungen des jeweiligen externen
+          Anbieters.
         </p>
 
         <h2>8. Rechte betroffener Personen</h2>
@@ -217,6 +199,7 @@
     </section>
   </main>
   <footer class="site-footer" data-site-footer></footer>
+  <section class="consent-banner" role="dialog" aria-label="Datenschutz-Einstellungen" data-consent-banner hidden></section>
 </body>
 
 </html>

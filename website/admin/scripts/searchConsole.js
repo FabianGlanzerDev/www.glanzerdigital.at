@@ -43,49 +43,75 @@ function renderSearchSummary(summary = {}) {
 
 
 
-/** Escapes search html. @param {unknown} value - The value value. @returns {string} The operation result. */
-function escapeSearchHtml(value) {
-  const div = document.createElement('div');
-  div.textContent = String(value ?? '');
-  return div.innerHTML;
-}
-
-
-
-/** Creates search query row. @param {unknown} row - The row value. @returns {string} The operation result. */
+/** Creates one Search Console query table row using DOM nodes. */
 function createSearchQueryRow(row = {}) {
-  const query = escapeSearchHtml(row.query || '–');
-  const ctr = formatSearchPercent(row.ctr);
-  const position = Number(row.position)?.toFixed?.(1)?.replace('.', ',') || '–';
-  return `<tr><td>${query}</td><td>${formatSearchNumber(row.clicks)}</td><td>${formatSearchNumber(row.impressions)}</td><td>${ctr}</td><td>${position}</td></tr>`;
+  const cells = [
+    row.query || '–',
+    formatSearchNumber(row.clicks),
+    formatSearchNumber(row.impressions),
+    formatSearchPercent(row.ctr),
+    formatSearchPosition(row.position),
+  ];
+  const tableRow = document.createElement('tr');
+  tableRow.append(...cells.map(createSearchCell));
+  return tableRow;
 }
 
 
+/** Creates one table cell with safe text content. */
+function createSearchCell(value) {
+  const cell = document.createElement('td');
+  cell.textContent = String(value ?? '–');
+  return cell;
+}
 
-/** Renders search queries. @param {Array} rows - The rows value. @returns {void} The operation result. */
+
+/** Formats a Search Console average position. */
+function formatSearchPosition(value) {
+  const number = Number(value);
+  return Number.isFinite(number) ? number.toFixed(1).replace('.', ',') : '–';
+}
+
+
+/** Creates the empty Search Console table row. */
+function createEmptySearchRow() {
+  const row = document.createElement('tr');
+  const cell = createSearchCell('Noch keine Search-Console-Daten.');
+  cell.colSpan = 5;
+  row.append(cell);
+  return row;
+}
+
+
+/** Renders Search Console query rows. */
 function renderSearchQueries(rows = []) {
   const body = document.querySelector('[data-search-queries]');
   if (!body) return;
-  body.innerHTML = rows.length ? rows.slice(0, 12).map(createSearchQueryRow).join('') : '<tr><td colspan="5">Noch keine Search-Console-Daten.</td></tr>';
+  const items = rows.length ? rows.slice(0, 12).map(createSearchQueryRow) : [createEmptySearchRow()];
+  body.replaceChildren(...items);
 }
 
 
-
-/** Creates search ranking item. @param {unknown} row - The row value. @returns {string} The operation result. */
+/** Creates one Search Console ranking list item. */
 function createSearchRankingItem(row = {}) {
-  const label = escapeSearchHtml(row.label || row.name || '–');
-  return `<li><span>${label}</span><strong>${formatSearchNumber(row.clicks ?? row.value)}</strong></li>`;
+  const item = document.createElement('li');
+  const label = document.createElement('span');
+  const value = document.createElement('strong');
+  label.textContent = String(row.label || row.name || '–');
+  value.textContent = formatSearchNumber(row.clicks ?? row.value);
+  item.append(label, value);
+  return item;
 }
 
 
-
-/** Renders search ranking. @param {string} name - The name value. @param {Array} rows - The rows value. @returns {void} The operation result. */
+/** Renders one Search Console ranking list. */
 function renderSearchRanking(name, rows = []) {
   const list = document.querySelector(`[data-search-ranking="${name}"]`);
   if (!list) return;
-  list.innerHTML = rows.length ? rows.slice(0, 8).map(createSearchRankingItem).join('') : '<li><span>Keine Daten</span><strong>–</strong></li>';
+  const empty = { label: 'Keine Daten', value: null };
+  const items = rows.length ? rows.slice(0, 8).map(createSearchRankingItem) : [createSearchRankingItem(empty)];
+  list.replaceChildren(...items);
 }
-
 
 
 /** Renders search opportunity. @param {Object} item - The item value. @returns {void} The operation result. */

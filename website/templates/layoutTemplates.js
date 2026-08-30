@@ -17,7 +17,6 @@ const HEADER_TEMPLATE = `
         <li><a href="/portfolio" {{PORTFOLIO_CURRENT}}>Portfolio</a></li>
         <li><a href="/ueber-mich" {{ABOUT_CURRENT}}>Über mich</a></li>
       </ul>
-      <button class="language-toggle" type="button" data-language-toggle aria-label="Sprache auf Englisch wechseln" title="English">EN</button>
       <a class="button button--primary button--small" href="/kontakt">Website anfragen</a>
     </nav>
   </div>
@@ -25,12 +24,12 @@ const HEADER_TEMPLATE = `
 
 const FOOTER_TEMPLATE = `
   <div class="container">
-    <div class="footer-grid">
-      <div>
+    <div class="footer-grid footer-grid--clean">
+      <div class="footer-intro">
         <a class="footer-brand" href="/">
           <img src="{{ROOT}}/assets/images/logos/glanzerdigital-neon-logo.webp" alt="Glanzer Digital">
         </a>
-        <p class="footer-copy">Professionelle Websites für Selbstständige, kleine Unternehmen und Vereine – persönlich umgesetzt und betreut.</p>
+        <p class="footer-copy">Professionelle Websites aus der Steiermark – klar geplant, sauber umgesetzt und persönlich betreut.</p>
       </div>
 
       <div>
@@ -49,6 +48,12 @@ const FOOTER_TEMPLATE = `
           <a href="tel:+436767875304">+43 676 7875304</a>
           <a href="mailto:fabsdev@gmx.at">fabsdev@gmx.at</a>
           <a href="https://github.com/FabianGlanzerDev" target="_blank" rel="noopener noreferrer">GitHub</a>
+        </div>
+      </div>
+
+      <div>
+        <div class="footer-title">Rechtliches</div>
+        <div class="footer-links">
           <a href="/impressum">Impressum</a>
           <a href="/datenschutz">Datenschutz</a>
           <button class="footer-privacy-settings" type="button" data-consent-settings>Datenschutz-Einstellungen</button>

@@ -6,31 +6,30 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description"
-    content="Kundenprojekte, eigene Anwendungen und ausgewählte Ausbildungsprojekte von Glanzer Digital – mit Live-Demos und technischem Hintergrund.">
+    content="Kundenprojekte, eigene Anwendungen und ausgewählte Webprojekte von GlanzerDigital – mit Live-Demos und technischem Hintergrund.">
   <meta name="robots" content="index,follow,max-image-preview:large">
   <meta name="author" content="Fabian Glanzer">
   <meta name="theme-color" content="#080b10">
   <meta property="og:type" content="website">
-  <meta property="og:site_name" content="Glanzer Digital">
+  <meta property="og:site_name" content="GlanzerDigital">
   <meta property="og:locale" content="de_AT">
-  <meta property="og:locale:alternate" content="en_US">
-  <meta property="og:title" content="Portfolio &amp; Projekte | Glanzer Digital">
+  <meta property="og:title" content="Portfolio &amp; Projekte | GlanzerDigital">
   <meta property="og:description"
-    content="Kundenprojekte, eigene Anwendungen und ausgewählte Ausbildungsprojekte von Glanzer Digital – mit Live-Demos und technischem Hintergrund.">
+    content="Kundenprojekte, eigene Anwendungen und ausgewählte Webprojekte von GlanzerDigital – mit Live-Demos und technischem Hintergrund.">
   <meta property="og:url" content="https://glanzerdigital.at/portfolio">
   <meta property="og:image" content="https://glanzerdigital.at/assets/images/general/social-preview.webp">
   <meta property="og:image:type" content="image/webp">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="Glanzer Digital Logo mit Code- und Server-Symbol">
+  <meta property="og:image:alt" content="GlanzerDigital Logo mit Code- und Server-Symbol">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Portfolio &amp; Projekte | Glanzer Digital">
+  <meta name="twitter:title" content="Portfolio &amp; Projekte | GlanzerDigital">
   <meta name="twitter:description"
-    content="Kundenprojekte, eigene Anwendungen und ausgewählte Ausbildungsprojekte von Glanzer Digital – mit Live-Demos und technischem Hintergrund.">
+    content="Kundenprojekte, eigene Anwendungen und ausgewählte Webprojekte von GlanzerDigital – mit Live-Demos und technischem Hintergrund.">
   <meta name="twitter:image" content="https://glanzerdigital.at/assets/images/general/social-preview.webp">
-  <meta name="twitter:image:alt" content="Glanzer Digital Logo mit Code- und Server-Symbol">
+  <meta name="twitter:image:alt" content="GlanzerDigital Logo mit Code- und Server-Symbol">
 
-  <title>Portfolio &amp; Projekte | Glanzer Digital</title>
+  <title>Portfolio &amp; Projekte | GlanzerDigital</title>
   <link rel="canonical" href="https://glanzerdigital.at/portfolio">
   <link rel="icon" href="../assets/favicons/favicon.ico" sizes="any">
   <link rel="icon" href="../assets/favicons/favicon-32x32.png" type="image/png" sizes="32x32">
@@ -38,15 +37,14 @@
   <link rel="manifest" href="/site.webmanifest">
   <link href="../styles/variables.css" rel="stylesheet" />
   <link href="../styles/fonts.css" rel="stylesheet" />
-  <link href="../style.css" rel="stylesheet" />
-  <link href="../styles/pages/portfolio.css?v=20260827-5" rel="stylesheet">
-  <script defer="" src="../templates/layoutTemplates.js"></script>
-  <script defer="" src="../scripts/main.js"></script>
-  <script src="../scripts/i18nCore.js" defer></script>
-  <script src="../scripts/i18nContent.js" defer></script>
-  <script src="../scripts/i18nLegal.js" defer></script>
-  <script src="../scripts/i18nTranslations.js" defer></script>
-  <script defer="" src="../scripts/i18n.js"></script>
+  <link href="../style.css?v=20260829-clean-1" rel="stylesheet" />
+  <link href="../styles/pages/portfolio.css?v=20260830-tech-marquee-code" rel="stylesheet">
+  <script src="../scripts/utils/templateLoader.js" defer></script>
+  <script src="../scripts/layout.js" defer></script>
+  <script src="../scripts/analytics.js" defer></script>
+  <script src="../scripts/privacyConsent.js" defer></script>
+  <script src="../scripts/main.js" defer></script>
+  <script src="../scripts/portfolioShowcase.js" defer></script>
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -55,8 +53,8 @@
       "@type": "CollectionPage",
       "@id": "https://glanzerdigital.at/portfolio#webpage",
       "url": "https://glanzerdigital.at/portfolio",
-      "name": "Portfolio & Projekte | Glanzer Digital",
-      "description": "Kundenprojekte, eigene Anwendungen und ausgewählte Ausbildungsprojekte von Glanzer Digital – mit Live-Demos und technischem Hintergrund.",
+      "name": "Portfolio | GlanzerDigital",
+      "description": "Kundenprojekte, eigene Anwendungen und ausgewählte Webprojekte von Glanzer Digital – mit Live-Demos und technischem Hintergrund.",
       "isPartOf": {
         "@id": "https://glanzerdigital.at/#website"
       },
@@ -65,6 +63,9 @@
       },
       "mainEntity": {
         "@id": "https://glanzerdigital.at/portfolio#projects"
+      },
+      "breadcrumb": {
+        "@id": "https://glanzerdigital.at/portfolio#breadcrumb"
       },
       "inLanguage": "de-AT"
     },
@@ -144,6 +145,16 @@
             "applicationCategory": "GameApplication",
             "description": "2D-Browsergame mit Tastatursteuerung, Gegnern, Sammelobjekten, Sounds und animierter Unterwasserwelt."
           }
+        },
+        {
+          "@type": "ListItem",
+          "position": 8,
+          "item": {
+            "@type": "SoftwareApplication",
+            "name": "Join Issue Collector",
+            "applicationCategory": "WebApplication",
+            "description": "KI-gestützter n8n-Workflow, der eingehende E-Mails strukturiert, kategorisiert und automatisch als Aufgaben in Join und Firebase anlegt."
+          }
         }
       ]
     },
@@ -154,7 +165,7 @@
         {
           "@type": "ListItem",
           "position": 1,
-          "name": "Home",
+          "name": "Startseite",
           "item": "https://glanzerdigital.at/"
         },
         {
@@ -174,363 +185,561 @@
   <a class="skip-link" href="#main-content">Zum Inhalt springen</a>
   <header class="site-header" data-site-header=""></header>
   <main id="main-content">
-    <section class="page-hero">
-      <div class="container page-hero-inner">
+    <section class="portfolio-hero">
+      <div class="container portfolio-hero__inner">
         <span class="kicker">Portfolio</span>
-        <h1>Projekte &amp; <span class="text-primary">Referenzen</span></h1>
-        <p>Kundenprojekte, eigene Anwendungen und ausgewählte Ausbildungsprojekte aus der Web- und
-          Softwareentwicklung.</p>
+        <h1>Ausgewählte Projekte.<br><span class="text-primary">Sauber umgesetzt.</span></h1>
+        <p>Hier zeige ich ausgewählte Websites und Anwendungen, die einen Eindruck von Gestaltung, technischer Umsetzung
+          und meiner Arbeitsweise geben.</p>
+        <div class="button-row">
+          <a class="button button--primary" href="#praxisprojekte">Projekte ansehen</a>
+          <a class="button button--secondary" href="/kontakt">Website anfragen</a>
+        </div>
       </div>
     </section>
-    <section class="section section--light">
+
+    <section class="section section--light portfolio-clean-section">
       <div class="container">
-        <article class="featured-project featured-project--client" id="allzeit-gut">
-          <div class="featured-project-media featured-project-media--allzeit">
-            <img
-              class="featured-project-image--allzeit"
-              src="../assets/images/portfolio/allzeit-gut-portfolio.webp"
-              alt="Gestaltete Allzeit-Gut-Websitevorschau im grünen Markenstil mit Startseiten- und Informationsbereichen."
-              width="1100"
-              height="1536"
-              decoding="async"
-              loading="lazy">
-          </div>
-
-          <div class="featured-project-content">
-            <div class="featured-project-status" aria-label="Kundenprojekt, Website ist live online">
-              <span class="featured-project-status__type">Kundenprojekt</span>
-              <span class="featured-project-status__live">
-                <span class="featured-project-status__dot" aria-hidden="true"></span>
-                Live online
-              </span>
-            </div>
-
-            <span class="kicker">Website · Allzeit Gut</span>
-            <h2>Mehrseitige Informationswebsite mit geschütztem Adminbereich</h2>
-            <p>Für Allzeit Gut wurde eine responsive Website mit klarer Inhaltsstruktur, technischer Betreuung und
-              integrierter Analytics-Auswertung umgesetzt.</p>
-
-            <ul class="featured-project-list">
-              <li>Responsive Umsetzung für Desktop, Tablet und Smartphone</li>
-              <li>Mehrseitige Struktur mit zentral gepflegten Komponenten</li>
-              <li>Google Analytics mit Auswertung im geschützten Adminbereich</li>
-              <li>SEO-Grundlagen, Sitemap und technische Vorbereitung für Suchmaschinen</li>
-            </ul>
-
-            <div class="project-case-study">
-              <div>
-                <strong>Ausgangslage</strong>
-                <p>Mehrere Themenbereiche sollten auf Desktop und Mobilgeräten übersichtlich erreichbar sein.</p>
-              </div>
-              <div>
-                <strong>Umsetzung</strong>
-                <p>Responsive Seitenstruktur, geschützter Adminbereich, Analytics und SEO-Grundlagen wurden gemeinsam
-                  aufgebaut.</p>
-              </div>
-              <div>
-                <strong>Ergebnis</strong>
-                <p>Inhalte, Auswertung und spätere Anpassungen sind in einer nachvollziehbaren Struktur vorbereitet.</p>
-              </div>
-            </div>
-
-            <div class="featured-project-actions">
-              <a class="button button--primary" data-analytics-label="Allzeit Gut · Live-Website"
-                href="https://allzeitgut.at/" rel="noopener noreferrer" target="_blank">Live-Website ansehen</a>
-              <a class="link-arrow" href="/kontakt">Ähnliches Projekt anfragen</a>
+        <section class="practice-projects" id="praxisprojekte" aria-labelledby="practice-projects-title">
+          <div class="practice-projects__heading">
+            <div class="clean-heading">
+              <span class="kicker">Praxisprojekte</span>
+              <h2 id="practice-projects-title">Ausgewählte Projekte aus der Praxis</h2>
+              <p>Kundenprojekt und eigenes Projekt – groß dargestellt, direkt testbar und mit den wichtigsten Funktionen
+                im Überblick.</p>
             </div>
           </div>
-        </article>
-        <section aria-labelledby="own-projects-title" class="portfolio-group">
-          <div class="portfolio-heading">
-            <span class="kicker">Eigene Arbeiten</span>
-            <h2 id="own-projects-title">Eigene Projekte</h2>
-            <p>Projekte, die aus eigenen Ideen entstanden sind und von mir selbst umgesetzt wurden.</p>
-          </div>
-          <div class="portfolio-grid portfolio-grid--single">
-            <article class="project-card portfolio-card portfolio-card--wide" id="modellbibliothek">
-              <img alt="3D-Modellbibliothek mit Modellübersicht und separater 3D-Vorschau der echten Windows-Anwendung."
-                decoding="async" height="1086" loading="lazy" src="../assets/images/portfolio/modellbibliothek.png"
-                width="1448" />
-              <div class="project-card-body model-library-card-copy">
-                <span class="kicker">Eigenes Softwareprojekt</span>
-                <h3>3D-Modellbibliothek</h3>
-                <p>Die 3D-Modellbibliothek ist eine installierbare Windows-Anwendung für STL- und
-                  3MF-Sammlungen. Sie wird über eine .exe-Datei installiert und läuft anschließend lokal auf dem PC.
-                  Modelle lassen sich durchsuchen, kategorisieren, umbenennen, als Favoriten markieren und direkt in
-                  einer interaktiven 3D-Vorschau prüfen.</p>
 
-                <ul class="project-feature-list">
-                  <li>Hunderte Modelle schnell durchsuchen, filtern und kategorisieren</li>
-                  <li>Dateien direkt umbenennen und wichtige Modelle als Favoriten markieren</li>
-                  <li>STL- und 3MF-Dateien inklusive relevanter Metadaten zentral verwalten</li>
-                  <li>Modelle sofort in einer interaktiven 3D-Vorschau ansehen und prüfen</li>
-                </ul>
-
-                <p class="project-demo-hint"><strong>Windows-App:</strong> Die eigentliche Anwendung wird über eine
-                  .exe-Datei unter Windows installiert und läuft lokal auf dem PC. Die Web-Demo zeigt ausgewählte
-                  Funktionen direkt im Browser.</p>
-                <div class="project-card-footer project-card-footer--action">
-                  <a class="button button--primary button--small project-demo-button"
-                    data-analytics-label="3D-Modellbibliothek" data-local-href="../demos/model-library/"
-                    href="https://modellbibliothek.glanzerdigital.at" rel="noopener noreferrer" target="_blank">Web-Demo
-                    testen</a>
-                  <a class="button button--small project-contact-button" href="/kontakt">Interesse? Projekt
-                    anfragen</a>
-                </div>
+          <div class="practice-showcase" data-practice-showcase>
+            <div class="practice-showcase__track">
+              <div class="practice-showcase__slide">
+                <article class="portfolio-feature" id="allzeit-gut">
+                  <div class="portfolio-feature-media">
+                    <img src="../assets/images/portfolio/allzeit-gut-portfolio.webp"
+                      alt="Vorschau der Website Allzeit Gut" width="1100" height="1536" loading="eager"
+                      fetchpriority="high">
+                  </div>
+                  <div class="portfolio-feature-copy">
+                    <span class="project-eyebrow">Kundenprojekt · Live online</span>
+                    <h2>Allzeit Gut</h2>
+                    <p>Mehrseitige responsive Informationswebsite mit klarer Inhaltsstruktur, geschütztem Adminbereich,
+                      Analytics-Auswertung und technischer SEO-Grundlage.</p>
+                    <ul class="project-clean-list">
+                      <li>Responsive für Smartphone, Tablet und Desktop</li>
+                      <li>Geschützter Adminbereich</li>
+                      <li>Analytics-Auswertung</li>
+                      <li>SEO-Grundlagen und Sitemap</li>
+                    </ul>
+                    <div class="button-row">
+                      <a class="button button--primary" data-analytics-label="Allzeit Gut · Live-Website"
+                        href="https://allzeitgut.at/" rel="noopener noreferrer" target="_blank">Live-Website ansehen</a>
+                      <a class="button button--outline" href="/kontakt">Ähnliches Projekt anfragen</a>
+                    </div>
+                  </div>
+                </article>
               </div>
-            </article>
+
+              <div class="practice-showcase__slide">
+                <article class="portfolio-feature portfolio-feature--reverse" id="modellbibliothek">
+                  <div class="portfolio-feature-media portfolio-feature-media--landscape">
+                    <img src="../assets/images/portfolio/modellbibliothek.webp" alt="Vorschau der 3D-Modellbibliothek"
+                      width="1448" height="1086" loading="lazy" decoding="async">
+                  </div>
+                  <div class="portfolio-feature-copy">
+                    <span class="project-eyebrow">Eigenes Projekt · Windows-App</span>
+                    <h2>3D-Modellbibliothek</h2>
+                    <p>Installierbare Windows-Anwendung zur übersichtlichen Verwaltung größerer STL- und 3MF-Sammlungen.
+                      Modelle lassen sich schneller finden, organisieren, als Favoriten speichern, direkt umbenennen und
+                      in einer interaktiven 3D-Vorschau kontrollieren.</p>
+                    <ul class="project-clean-list">
+                      <li>Suche, Kategorien und Filter für große Modellsammlungen</li>
+                      <li>Favoriten für häufig verwendete Modelle</li>
+                      <li>Dateien direkt aus der Anwendung umbenennen</li>
+                      <li>Interaktive Vorschau für STL- und 3MF-Dateien</li>
+                    </ul>
+                    <div class="button-row">
+                      <a class="button button--primary button--small project-demo-button"
+                        data-analytics-label="3D-Modellbibliothek" data-local-href="../demos/model-library/"
+                        href="https://modellbibliothek.glanzerdigital.at" rel="noopener noreferrer"
+                        target="_blank">Web-Demo
+                        testen</a>
+                      <a class="button button--outline button--small" href="/kontakt">Projekt anfragen</a>
+                    </div>
+                  </div>
+                </article>
+              </div>
+            </div>
+
+            <div class="practice-showcase__controls">
+              <div class="practice-showcase__tabs" aria-label="Praxisprojekt auswählen">
+                <button class="practice-showcase__tab is-active" type="button" data-practice-slide="0"
+                  aria-pressed="true">
+                  <span>01</span>
+                  <strong>Allzeit Gut</strong>
+                </button>
+                <button class="practice-showcase__tab" type="button" data-practice-slide="1" aria-pressed="false">
+                  <span>02</span>
+                  <strong>3D-Modellbibliothek</strong>
+                </button>
+              </div>
+
+              <button class="practice-showcase__toggle" type="button" data-practice-showcase-toggle
+                aria-pressed="false">Animation pausieren</button>
+            </div>
+
+            <div class="practice-showcase__progress" aria-hidden="true">
+              <span data-practice-progress></span>
+            </div>
           </div>
         </section>
-        <section aria-labelledby="training-projects-title" class="portfolio-group portfolio-group--training">
-          <div class="portfolio-heading">
+
+        <div class="portfolio-divider portfolio-divider--compact"></div>
+
+        <section class="training-clean-section" aria-labelledby="training-projects-title">
+          <div class="clean-heading">
             <span class="kicker">Developer Akademie</span>
-            <h2 id="training-projects-title">Ausbildungsprojekte</h2>
-            <p>Eine bewusst ausgewählte Auswahl aus meiner Ausbildung. Weitere Übungsprojekte und Repositories sind über
-              GitHub erreichbar.</p>
+            <h2 id="training-projects-title">Ausgewählte Ausbildungsprojekte</h2>
+            <p>
+              Eine Auswahl meiner Ausbildungsprojekte – von interaktiven Web-Apps bis zu responsiven Websites.
+              Viele Projekte können direkt als Live-Demo getestet oder auf GitHub angesehen werden.
+            </p>
           </div>
-          <div class="portfolio-grid">
-            <article class="project-card portfolio-card" id="join-project">
-              <img alt="Portfolio-Vorschau des Taskmanagement-Projekts Join mit Kanban-Board und blauem UI"
-                decoding="async" height="430" loading="lazy" src="../assets/images/portfolio/join.png" width="760" />
-              <div class="project-card-body">
-                <span class="project-card-type">01 · Web-App</span>
-                <h3>Join</h3>
-                <p>Kanban-Anwendung zur Aufgabenorganisation mit Board, Taskverwaltung, Kontakten und responsiver
-                  Oberfläche.</p>
-                <div class="project-card-footer project-card-footer--action">
-                  <div class="project-card-actions"><a class="project-source-button"
-                      data-analytics-label="Join · GitHub" href="https://github.com/FabianGlanzerDev/Join-"
-                      rel="noopener noreferrer" target="_blank">GitHub</a><a
-                      class="button button--primary button--small project-demo-button" data-analytics-label="Join"
-                      data-local-href="../demos/join/" href="https://join.glanzerdigital.at" rel="noopener noreferrer"
-                      target="_blank">Live-Demo</a></div>
-                </div>
-              </div>
-            </article>
-            <article class="project-card portfolio-card">
-              <img alt="Portfolio-Vorschau der Poll App mit dunklem Dashboard, Poll-Erstellung und Ergebnisanalyse"
-                decoding="async" height="430" loading="lazy" src="../assets/images/portfolio/pollapp.png" width="760" />
-              <div class="project-card-body">
-                <span class="project-card-type">02 · TypeScript</span>
-                <h3>Poll App</h3>
-                <p>TypeScript-Umfrage-App mit Poll-Erstellung, Voting, Dashboard und dynamischer Ergebnisanalyse.</p>
-                <div class="project-card-footer project-card-footer--action">
-                  <div class="project-card-actions"><a class="project-source-button"
-                      data-analytics-label="Poll App · GitHub" href="https://github.com/FabianGlanzerDev/PollApp"
-                      rel="noopener noreferrer" target="_blank">GitHub</a><a
-                      class="button button--primary button--small project-demo-button" data-analytics-label="Poll App"
-                      data-local-href="../demos/poll-app/" href="https://poll.glanzerdigital.at"
-                      rel="noopener noreferrer" target="_blank">Live-Demo</a></div>
-                </div>
-              </div>
-            </article>
-            <article class="project-card portfolio-card">
-              <img alt="Portfolio-Vorschau des Memory Games mit Neon-Interface, Kartenraster und Spielstatistiken"
-                decoding="async" height="430" loading="lazy" src="../assets/images/portfolio/memory-game.png"
-                width="760" />
-              <div class="project-card-body">
-                <span class="project-card-type">03 · TypeScript</span>
-                <h3>Memory Game</h3>
-                <p>Interaktives Memory-Spiel mit mehreren Themes, Settings-Bereich, Spielstatistiken und responsivem
-                  Layout.</p>
-                <div class="project-card-footer project-card-footer--action">
-                  <div class="project-card-actions"><a class="project-source-button"
-                      data-analytics-label="Memory Game · GitHub" href="https://github.com/FabianGlanzerDev/Memory-Game"
-                      rel="noopener noreferrer" target="_blank">GitHub</a><a
-                      class="button button--primary button--small project-demo-button"
-                      data-analytics-label="Memory Game" data-local-href="../demos/memory-game/"
-                      href="https://memory.glanzerdigital.at" rel="noopener noreferrer" target="_blank">Live-Demo</a>
+
+          <div class="training-marquee" aria-label="Ausgewählte Ausbildungsprojekte">
+            <div class="training-marquee__track">
+              <div class="training-marquee__group">
+                <article class="training-project" id="join-project">
+                  <img src="../assets/images/portfolio/join.webp" alt="Vorschau der Kanban-Web-App Join" width="760"
+                    height="430" loading="lazy" decoding="async">
+                  <div>
+                    <span class="project-eyebrow">Web-App</span>
+                    <h3>Join</h3>
+                    <p>Kanban-Anwendung mit Board, Aufgabenverwaltung, Kontakten und responsiver Oberfläche.</p>
+                    <div class="project-links">
+                      <a href="https://join.glanzerdigital.at" target="_blank" rel="noopener noreferrer">Live-Demo</a>
+                      <a href="https://github.com/FabianGlanzerDev/Join-" target="_blank"
+                        rel="noopener noreferrer">GitHub</a>
+                    </div>
                   </div>
-                </div>
-              </div>
-            </article>
-            <article class="project-card portfolio-card">
-              <img alt="Portfolio-Vorschau der Sakura-Ramen-Website mit Hero-Bereich, Ramen-Bowl und Speisekarte"
-                decoding="async" height="430" loading="lazy" src="../assets/images/portfolio/sakura-ramen.png"
-                width="760" />
-              <div class="project-card-body">
-                <span class="project-card-type">04 · Website</span>
-                <h3>Sakura Ramen</h3>
-                <p>Restaurant-Landingpage mit Hero-Bereich, Speisekarte, Standortinfos und japanisch inspiriertem
-                  Design.</p>
-                <div class="project-card-footer project-card-footer--action">
-                  <div class="project-card-actions"><a class="project-source-button"
-                      data-analytics-label="Sakura Ramen · GitHub"
-                      href="https://github.com/FabianGlanzerDev/Sakura_Ramen_Responsive" rel="noopener noreferrer"
-                      target="_blank">GitHub</a><a class="button button--primary button--small project-demo-button"
-                      data-analytics-label="Sakura Ramen" data-local-href="../demos/sakura-ramen/"
-                      href="https://sakura.glanzerdigital.at" rel="noopener noreferrer" target="_blank">Live-Demo</a>
+                </article>
+
+                <article class="training-project">
+                  <img src="../assets/images/portfolio/pollapp.webp" alt="Vorschau der Poll App" width="760"
+                    height="430" loading="lazy" decoding="async">
+                  <div>
+                    <span class="project-eyebrow">TypeScript</span>
+                    <h3>Poll App</h3>
+                    <p>Umfrage-App mit Poll-Erstellung, Voting, Dashboard und dynamischer Ergebnisanalyse.</p>
+                    <div class="project-links">
+                      <a href="https://poll.glanzerdigital.at" target="_blank" rel="noopener noreferrer">Live-Demo</a>
+                      <a href="https://github.com/FabianGlanzerDev/PollApp" target="_blank"
+                        rel="noopener noreferrer">GitHub</a>
+                    </div>
                   </div>
-                </div>
+                </article>
+
+                <article class="training-project">
+                  <img src="../assets/images/portfolio/memory-game.webp" alt="Vorschau des Memory Games" width="760"
+                    height="430" loading="lazy" decoding="async">
+                  <div>
+                    <span class="project-eyebrow">TypeScript</span>
+                    <h3>Memory Game</h3>
+                    <p>Interaktives Memory-Spiel mit mehreren Themes, Einstellungen und Spielstatistiken.</p>
+                    <div class="project-links">
+                      <a href="https://memory.glanzerdigital.at" target="_blank" rel="noopener noreferrer">Live-Demo</a>
+                      <a href="https://github.com/FabianGlanzerDev/Memory-Game" target="_blank"
+                        rel="noopener noreferrer">GitHub</a>
+                    </div>
+                  </div>
+                </article>
+
+                <article class="training-project">
+                  <img src="../assets/images/portfolio/sakura-ramen.webp" alt="Vorschau der Sakura-Ramen-Landingpage"
+                    width="760" height="430" loading="lazy" decoding="async">
+                  <div>
+                    <span class="project-eyebrow">Website</span>
+                    <h3>Sakura Ramen</h3>
+                    <p>Responsive Restaurant-Landingpage mit Hero-Bereich, Speisekarte und Standortinformationen.</p>
+                    <div class="project-links">
+                      <a href="https://sakura.glanzerdigital.at" target="_blank" rel="noopener noreferrer">Live-Demo</a>
+                      <a href="https://github.com/FabianGlanzerDev/Sakura_Ramen_Responsive" target="_blank"
+                        rel="noopener noreferrer">GitHub</a>
+                    </div>
+                  </div>
+                </article>
               </div>
-            </article>
-            <article class="project-card portfolio-card">
-              <img alt="Portfolio-Vorschau des Browsergames Sharkie mit Hai, Münzen und Unterwasserwelt"
-                decoding="async" height="430" loading="lazy" src="../assets/images/portfolio/sharkie.png" width="760" />
-              <div class="project-card-body">
-                <span class="project-card-type">05 · Browsergame</span>
-                <h3>Sharkie</h3>
-                <p>2D-Browsergame mit Tastatursteuerung, Gegnern, Sammelobjekten, Sounds und animierter Unterwasserwelt.
-                </p>
-                <div class="project-card-footer project-card-footer--action">
-                  <div class="project-card-actions"><a class="project-source-button"
-                      data-analytics-label="Sharkie · GitHub" href="https://github.com/FabianGlanzerDev/Sharkie-2D-Game"
-                      rel="noopener noreferrer" target="_blank">GitHub</a><a
-                      class="button button--primary button--small project-demo-button" data-analytics-label="Sharkie"
-                      data-local-href="../demos/sharkie/" href="https://sharkie.glanzerdigital.at"
-                      rel="noopener noreferrer" target="_blank">Live-Demo</a></div>
-                </div>
+
+              <div class="training-marquee__group" aria-hidden="true">
+                <article class="training-project">
+                  <img src="../assets/images/portfolio/join.webp" alt="Vorschau der Kanban-Web-App Join" width="760"
+                    height="430" loading="lazy" decoding="async">
+                  <div>
+                    <span class="project-eyebrow">Web-App</span>
+                    <h3>Join</h3>
+                    <p>Kanban-Anwendung mit Board, Aufgabenverwaltung, Kontakten und responsiver Oberfläche.</p>
+                    <div class="project-links">
+                      <a tabindex="-1" href="https://join.glanzerdigital.at" target="_blank"
+                        rel="noopener noreferrer">Live-Demo</a>
+                      <a tabindex="-1" href="https://github.com/FabianGlanzerDev/Join-" target="_blank"
+                        rel="noopener noreferrer">GitHub</a>
+                    </div>
+                  </div>
+                </article>
+
+                <article class="training-project">
+                  <img src="../assets/images/portfolio/pollapp.webp" alt="Vorschau der Poll App" width="760"
+                    height="430" loading="lazy" decoding="async">
+                  <div>
+                    <span class="project-eyebrow">TypeScript</span>
+                    <h3>Poll App</h3>
+                    <p>Umfrage-App mit Poll-Erstellung, Voting, Dashboard und dynamischer Ergebnisanalyse.</p>
+                    <div class="project-links">
+                      <a tabindex="-1" href="https://poll.glanzerdigital.at" target="_blank"
+                        rel="noopener noreferrer">Live-Demo</a>
+                      <a tabindex="-1" href="https://github.com/FabianGlanzerDev/PollApp" target="_blank"
+                        rel="noopener noreferrer">GitHub</a>
+                    </div>
+                  </div>
+                </article>
+
+                <article class="training-project">
+                  <img src="../assets/images/portfolio/memory-game.webp" alt="Vorschau des Memory Games" width="760"
+                    height="430" loading="lazy" decoding="async">
+                  <div>
+                    <span class="project-eyebrow">TypeScript</span>
+                    <h3>Memory Game</h3>
+                    <p>Interaktives Memory-Spiel mit mehreren Themes, Einstellungen und Spielstatistiken.</p>
+                    <div class="project-links">
+                      <a tabindex="-1" href="https://memory.glanzerdigital.at" target="_blank"
+                        rel="noopener noreferrer">Live-Demo</a>
+                      <a tabindex="-1" href="https://github.com/FabianGlanzerDev/Memory-Game" target="_blank"
+                        rel="noopener noreferrer">GitHub</a>
+                    </div>
+                  </div>
+                </article>
+
+                <article class="training-project">
+                  <img src="../assets/images/portfolio/sakura-ramen.webp" alt="Vorschau der Sakura-Ramen-Landingpage"
+                    width="760" height="430" loading="lazy" decoding="async">
+                  <div>
+                    <span class="project-eyebrow">Website</span>
+                    <h3>Sakura Ramen</h3>
+                    <p>Responsive Restaurant-Landingpage mit Hero-Bereich, Speisekarte und Standortinformationen.</p>
+                    <div class="project-links">
+                      <a tabindex="-1" href="https://sakura.glanzerdigital.at" target="_blank"
+                        rel="noopener noreferrer">Live-Demo</a>
+                      <a tabindex="-1" href="https://github.com/FabianGlanzerDev/Sakura_Ramen_Responsive"
+                        target="_blank" rel="noopener noreferrer">GitHub</a>
+                    </div>
+                  </div>
+                </article>
               </div>
-            </article>
+            </div>
           </div>
         </section>
       </div>
     </section>
-    <section aria-labelledby="github-profile-title" class="section github-profile-section">
+
+    <section class="workflow-demo-section" id="join-issue-collector" aria-labelledby="workflow-demo-title">
       <div class="container">
-        <article class="github-profile-card">
-          <div class="github-profile-content">
-            <span class="kicker">Open Source &amp; Code</span>
-            <h2 id="github-profile-title">Mehr Projekte auf GitHub</h2>
-            <p>Weitere Repositories, Übungsprojekte und Code-Beispiele findest du direkt auf meinem GitHub-Profil.</p>
-            <a class="button button--primary github-profile-button" data-analytics-label="GitHub-Profil"
-              href="https://github.com/FabianGlanzerDev" rel="noopener noreferrer" target="_blank">
-              <img alt="" aria-hidden="true" class="github-button-logo" decoding="async" loading="lazy"
-                src="../assets/images/technologies/github.png" />
-              GitHub-Profil ansehen
-            </a>
+        <div class="workflow-demo-heading">
+          <span class="project-eyebrow project-eyebrow--light">KI-Automatisierung · n8n · Firebase</span>
+          <h2 id="workflow-demo-title">Join Issue Collector</h2>
+          <p>Der Join Issue Collector ist eine Erweiterung meines Join-Projekts. Externe Personen können eine Anfrage
+            vorbereiten und per E-Mail absenden. n8n übernimmt die Nachricht anschließend automatisch, lässt sie von
+            einer KI analysieren und erstellt daraus ein strukturiertes Ticket in Join.</p>
+        </div>
+
+        <div class="workflow-demo-layout">
+          <article class="workflow-demo-project">
+            <div class="workflow-demo-project__media workflow-demo-project__media--collector">
+              <img src="../assets/images/portfolio/join.webp"
+                alt="Willkommensansicht des Join Issue Collector mit Auswahl für Stakeholder und Teammitglieder"
+                width="1280" height="1024" loading="lazy" decoding="async">
+              <div class="workflow-demo-project__badge">
+                <img src="../assets/images/technologies/n8n.webp" alt="n8n" width="1200" height="320" loading="lazy">
+              </div>
+            </div>
+
+            <div class="workflow-demo-project__copy">
+              <span class="workflow-demo-label">Was passiert automatisch?</span>
+              <h3>Aus einer Anfrage wird ein strukturiertes Join-Ticket.</h3>
+              <p>Der Workflow verarbeitet die tatsächlich gesendete E-Mail und übernimmt nur Informationen, die in der
+                Anfrage enthalten sind. Daraus werden die Felder erzeugt, die Join für ein neues Ticket benötigt.</p>
+              <ul class="workflow-feature-list">
+                <li>KI erstellt einen passenden Titel und eine sachliche Beschreibung</li>
+                <li>Kategorie wird als Technical Task, User Story oder Bug Request erkannt</li>
+                <li>Priorität wird aus der Anfrage übernommen oder sinnvoll eingeordnet</li>
+                <li>Eine genannte Deadline und ausdrückliche Unterpunkte werden übernommen</li>
+                <li>Das Ticket wird automatisch in Firebase und der Triage von Join angelegt</li>
+                <li>Nach erfolgreicher Verarbeitung erhält der Absender eine Bestätigung per E-Mail</li>
+              </ul>
+            </div>
+          </article>
+
+          <aside class="workflow-test-card" aria-labelledby="workflow-test-title">
+            <span class="workflow-demo-label">Live ausprobieren</span>
+            <h3 id="workflow-test-title">Teste den echten Issue Collector</h3>
+            <p>Du kannst den Ablauf selbst starten. Dafür brauchst du keinen Zugang zum internen Join-Board.</p>
+
+            <ol class="workflow-test-steps">
+              <li>
+                <span>01</span>
+                <div>
+                  <strong>Issue Collector öffnen</strong>
+                  <p>Wähle auf der Startseite „Create request“, um als Stakeholder eine Testanfrage vorzubereiten.</p>
+                </div>
+              </li>
+              <li>
+                <span>02</span>
+                <div>
+                  <strong>Anfrage beschreiben</strong>
+                  <p>Trage Betreff und Beschreibung ein. Optional kannst du auch eine Deadline angeben.</p>
+                </div>
+              </li>
+              <li>
+                <span>03</span>
+                <div>
+                  <strong>Mit deinem Webmail senden</strong>
+                  <p>Öffne die vorbereitete Nachricht in Gmail, Outlook oder Yahoo Mail und sende sie ab.</p>
+                </div>
+              </li>
+              <li>
+                <span>04</span>
+                <div>
+                  <strong>n8n &amp; KI übernehmen</strong>
+                  <p>Der Workflow verarbeitet die E-Mail, erstellt das Ticket in Join und sendet dir anschließend eine
+                    Bestätigung.</p>
+                </div>
+              </li>
+            </ol>
+
+            <div class="workflow-test-actions">
+              <a class="button button--primary" href="https://issue-collector.glanzerdigital.at/?intro=1"
+                target="_blank" rel="noopener noreferrer">Issue Collector starten</a>
+            </div>
+
+            <p class="workflow-test-note">Pro Tag können maximal 10 erfolgreich erzeugte Test-Tickets verarbeitet
+              werden. Der Eingang wird von n8n regelmäßig geprüft, daher kann die Verarbeitung einen kurzen Moment
+              dauern.</p>
+          </aside>
+        </div>
+
+        <div class="workflow-process-preview">
+          <div class="workflow-process-preview__copy">
+            <span class="workflow-demo-label">Der Workflow dahinter</span>
+            <strong>E-Mail → n8n → KI-Triage → Firebase → Join → Bestätigung</strong>
+            <p>Der eigentliche n8n-Workflow prüft unter anderem das Tageslimit, validiert die KI-Ausgabe und behandelt
+              auch Fehlerfälle automatisch.</p>
           </div>
-          <div aria-hidden="true" class="github-profile-logo">
-            <img alt="" decoding="async" loading="lazy" src="../assets/images/technologies/github.png" />
+          <div class="workflow-process-preview__media">
+            <img src="../assets/images/portfolio/join-issue-collector-workflow.webp"
+              alt="n8n Workflow des Join Issue Collector mit E-Mail-Eingang, KI-Triage, Firebase und Antwort-E-Mail"
+              width="1918" height="1024" loading="lazy" decoding="async">
           </div>
-        </article>
+        </div>
       </div>
     </section>
-    <section class="section services-section" id="technologien">
+
+    <section class="section section--light technology-clean-section" id="technologien">
       <div class="container">
-        <div class="section-heading">
+        <div class="clean-heading technology-clean-heading">
           <span class="kicker">Technologien</span>
-          <h2>Werkzeuge hinter den Projekten</h2>
-          <p>Mit Maus, Tastatur oder Touch öffnen: Jede Karte zeigt ein kleines Codebeispiel aus der jeweiligen
-            Technologie.</p>
+          <h2>Sprachen &amp; Technologien hinter den Projekten</h2>
+          <p>Je nach Projekt kombiniere ich die Werkzeuge, die für eine saubere und wartbare Umsetzung sinnvoll sind –
+            von klassischer Webentwicklung bis zu Daten, Web-Apps und Automatisierungen.</p>
         </div>
-        <div class="tech-grid">
-          <details class="tech-card">
-            <summary>
-              <img alt="" aria-hidden="true" decoding="async" loading="lazy"
-                src="../assets/images/technologies/html5.png">
-              <span>HTML5</span>
-              <small>Struktur &amp; Semantik</small>
-              <span class="tech-card__action" aria-hidden="true">Code anzeigen</span>
-            </summary>
-            <pre><code>&lt;main&gt;
-  &lt;section&gt;Portfolio&lt;/section&gt;
-&lt;/main&gt;</code></pre>
-          </details>
 
-          <details class="tech-card">
-            <summary>
-              <img alt="" aria-hidden="true" decoding="async" loading="lazy"
-                src="../assets/images/technologies/css3.png">
-              <span>CSS3</span>
-              <small>Layout &amp; Responsive</small>
-              <span class="tech-card__action" aria-hidden="true">Code anzeigen</span>
-            </summary>
-            <pre><code>.grid {
-  display: grid;
-  gap: 1rem;
-}</code></pre>
-          </details>
+        <div class="technology-marquee" aria-label="Sprachen und Technologien">
+          <div class="technology-marquee__track">
+            <div class="technology-marquee__group">
+              <article class="technology-marquee__item">
+                <span class="technology-marquee__logo technology-marquee__logo--html">
+                  <img src="../assets/images/technologies/html5.webp" alt="" width="72" height="72" loading="lazy"
+                    decoding="async">
+                </span>
+                <span class="technology-marquee__copy">
+                  <strong>HTML5</strong>
+                  <small>Struktur & Semantik</small>
+                </span>
+              </article>
+              <article class="technology-marquee__item">
+                <span class="technology-marquee__logo technology-marquee__logo--css">
+                  <img src="../assets/images/technologies/css3.webp" alt="" width="72" height="72" loading="lazy"
+                    decoding="async">
+                </span>
+                <span class="technology-marquee__copy">
+                  <strong>CSS3</strong>
+                  <small>Layout & Responsive Design</small>
+                </span>
+              </article>
+              <article class="technology-marquee__item">
+                <span class="technology-marquee__logo technology-marquee__logo--javascript">
+                  <img src="../assets/images/technologies/javascript.webp" alt="" width="72" height="72" loading="lazy"
+                    decoding="async">
+                </span>
+                <span class="technology-marquee__copy">
+                  <strong>JavaScript</strong>
+                  <small>Interaktivität</small>
+                </span>
+              </article>
+              <article class="technology-marquee__item">
+                <span class="technology-marquee__logo technology-marquee__logo--typescript">
+                  <img src="../assets/images/technologies/typescript.webp" alt="" width="72" height="72" loading="lazy"
+                    decoding="async">
+                </span>
+                <span class="technology-marquee__copy">
+                  <strong>TypeScript</strong>
+                  <small>Typisierte Anwendungen</small>
+                </span>
+              </article>
+              <article class="technology-marquee__item">
+                <span class="technology-marquee__logo technology-marquee__logo--angular">
+                  <img src="../assets/images/technologies/angular.webp" alt="" width="72" height="72" loading="lazy"
+                    decoding="async">
+                </span>
+                <span class="technology-marquee__copy">
+                  <strong>Angular</strong>
+                  <small>Komponenten & Web-Apps</small>
+                </span>
+              </article>
+              <article class="technology-marquee__item">
+                <span class="technology-marquee__logo technology-marquee__logo--firebase">
+                  <img src="../assets/images/technologies/firebase.webp" alt="" width="72" height="72" loading="lazy"
+                    decoding="async">
+                </span>
+                <span class="technology-marquee__copy">
+                  <strong>Firebase</strong>
+                  <small>Daten & Authentifizierung</small>
+                </span>
+              </article>
+              <article class="technology-marquee__item">
+                <span class="technology-marquee__logo technology-marquee__logo--n8n">
+                  <img src="../assets/images/technologies/n8n.webp" alt="" width="72" height="72" loading="lazy"
+                    decoding="async">
+                </span>
+                <span class="technology-marquee__copy">
+                  <strong>n8n</strong>
+                  <small>Workflows & Automatisierung</small>
+                </span>
+              </article>
+              <article class="technology-marquee__item">
+                <span class="technology-marquee__logo technology-marquee__logo--github">
+                  <img src="../assets/images/technologies/github.webp" alt="" width="72" height="72" loading="lazy"
+                    decoding="async">
+                </span>
+                <span class="technology-marquee__copy">
+                  <strong>GitHub</strong>
+                  <small>Versionierung & Projekte</small>
+                </span>
+              </article>
+            </div>
+            <div class="technology-marquee__group" aria-hidden="true">
+              <article class="technology-marquee__item" tabindex="-1">
+                <span class="technology-marquee__logo technology-marquee__logo--html">
+                  <img src="../assets/images/technologies/html5.webp" alt="" width="72" height="72" loading="lazy"
+                    decoding="async">
+                </span>
+                <span class="technology-marquee__copy">
+                  <strong>HTML5</strong>
+                  <small>Struktur & Semantik</small>
+                </span>
+              </article>
+              <article class="technology-marquee__item" tabindex="-1">
+                <span class="technology-marquee__logo technology-marquee__logo--css">
+                  <img src="../assets/images/technologies/css3.webp" alt="" width="72" height="72" loading="lazy"
+                    decoding="async">
+                </span>
+                <span class="technology-marquee__copy">
+                  <strong>CSS3</strong>
+                  <small>Layout & Responsive Design</small>
+                </span>
+              </article>
+              <article class="technology-marquee__item" tabindex="-1">
+                <span class="technology-marquee__logo technology-marquee__logo--javascript">
+                  <img src="../assets/images/technologies/javascript.webp" alt="" width="72" height="72" loading="lazy"
+                    decoding="async">
+                </span>
+                <span class="technology-marquee__copy">
+                  <strong>JavaScript</strong>
+                  <small>Interaktivität</small>
+                </span>
+              </article>
+              <article class="technology-marquee__item" tabindex="-1">
+                <span class="technology-marquee__logo technology-marquee__logo--typescript">
+                  <img src="../assets/images/technologies/typescript.webp" alt="" width="72" height="72" loading="lazy"
+                    decoding="async">
+                </span>
+                <span class="technology-marquee__copy">
+                  <strong>TypeScript</strong>
+                  <small>Typisierte Anwendungen</small>
+                </span>
+              </article>
+              <article class="technology-marquee__item" tabindex="-1">
+                <span class="technology-marquee__logo technology-marquee__logo--angular">
+                  <img src="../assets/images/technologies/angular.webp" alt="" width="72" height="72" loading="lazy"
+                    decoding="async">
+                </span>
+                <span class="technology-marquee__copy">
+                  <strong>Angular</strong>
+                  <small>Komponenten & Web-Apps</small>
+                </span>
+              </article>
+              <article class="technology-marquee__item" tabindex="-1">
+                <span class="technology-marquee__logo technology-marquee__logo--firebase">
+                  <img src="../assets/images/technologies/firebase.webp" alt="" width="72" height="72" loading="lazy"
+                    decoding="async">
+                </span>
+                <span class="technology-marquee__copy">
+                  <strong>Firebase</strong>
+                  <small>Daten & Authentifizierung</small>
+                </span>
+              </article>
+              <article class="technology-marquee__item" tabindex="-1">
+                <span class="technology-marquee__logo technology-marquee__logo--n8n">
+                  <img src="../assets/images/technologies/n8n.webp" alt="" width="72" height="72" loading="lazy"
+                    decoding="async">
+                </span>
+                <span class="technology-marquee__copy">
+                  <strong>n8n</strong>
+                  <small>Workflows & Automatisierung</small>
+                </span>
+              </article>
+              <article class="technology-marquee__item" tabindex="-1">
+                <span class="technology-marquee__logo technology-marquee__logo--github">
+                  <img src="../assets/images/technologies/github.webp" alt="" width="72" height="72" loading="lazy"
+                    decoding="async">
+                </span>
+                <span class="technology-marquee__copy">
+                  <strong>GitHub</strong>
+                  <small>Versionierung & Projekte</small>
+                </span>
+              </article>
+            </div>
+          </div>
+        </div>
 
-          <details class="tech-card">
-            <summary>
-              <img alt="" aria-hidden="true" decoding="async" loading="lazy"
-                src="../assets/images/technologies/javascript.png">
-              <span>JavaScript</span>
-              <small>Interaktivität</small>
-              <span class="tech-card__action" aria-hidden="true">Code anzeigen</span>
-            </summary>
-            <pre><code>button.addEventListener(
-  'click', openDemo
-);</code></pre>
-          </details>
 
-          <details class="tech-card">
-            <summary>
-              <img alt="" aria-hidden="true" decoding="async" loading="lazy"
-                src="../assets/images/technologies/typescript.webp">
-              <span>TypeScript</span>
-              <small>Typisierung</small>
-              <span class="tech-card__action" aria-hidden="true">Code anzeigen</span>
-            </summary>
-            <pre><code>type Project = {
-  name: string;
-  live: boolean;
-};</code></pre>
-          </details>
-
-          <details class="tech-card">
-            <summary>
-              <img alt="" aria-hidden="true" decoding="async" loading="lazy"
-                src="../assets/images/technologies/angular.png">
-              <span>Angular</span>
-              <small>Framework</small>
-              <span class="tech-card__action" aria-hidden="true">Code anzeigen</span>
-            </summary>
-            <pre><code>@Component({
-  selector: 'app-card'
-})</code></pre>
-          </details>
-
-          <details class="tech-card">
-            <summary>
-              <img alt="" aria-hidden="true" decoding="async" loading="lazy"
-                src="../assets/images/technologies/firebase.webp">
-              <span>Firebase</span>
-              <small>Backend Services</small>
-              <span class="tech-card__action" aria-hidden="true">Code anzeigen</span>
-            </summary>
-            <pre><code>const db =
-  getFirestore(app);</code></pre>
-          </details>
-
-          <details class="tech-card tech-card--api">
-            <summary>
-              <span aria-hidden="true" class="api-logo">API</span>
-              <span>REST API</span>
-              <small>Datenaustausch</small>
-              <span class="tech-card__action" aria-hidden="true">Code anzeigen</span>
-            </summary>
-            <pre><code>fetch('/api/data')
-  .then(r =&gt; r.json());</code></pre>
-          </details>
-
-          <details class="tech-card">
-            <summary>
-              <img alt="" aria-hidden="true" decoding="async" loading="lazy"
-                src="../assets/images/technologies/github.png">
-              <span>GitHub</span>
-              <small>Versionierung</small>
-              <span class="tech-card__action" aria-hidden="true">Code anzeigen</span>
-            </summary>
-            <pre><code>git add .
-git commit -m "update"
-git push</code></pre>
-          </details>
+        <div class="center-action technology-github-action">
+          <a class="button button--outline" href="https://github.com/FabianGlanzerDev" target="_blank"
+            rel="noopener noreferrer">GitHub-Profil ansehen</a>
         </div>
       </div>
     </section>
-    <section class="cta-section">
+    <section class="cta-section cta-section--clean portfolio-final-cta">
       <div class="container cta-row">
         <div>
-          <h2>Ähnliches Projekt geplant?</h2>
-          <p>Schreib kurz, welche Lösung du brauchst und welche Funktionen wichtig sind.</p>
+          <span class="kicker">Eigenes Projekt</span>
+          <h2>Du möchtest deine eigene Website professionell umsetzen?</h2>
+          <p>Schick mir kurz dein Vorhaben. Ich melde mich persönlich bei dir.</p>
         </div>
-        <a class="button button--secondary" href="/kontakt">Projekt besprechen</a>
+        <a class="button button--light" href="/kontakt">Website anfragen</a>
       </div>
     </section>
+
   </main>
   <footer class="site-footer" data-site-footer=""></footer>
+  <section class="consent-banner" role="dialog" aria-label="Datenschutz-Einstellungen" data-consent-banner hidden></section>
 </body>
 
 </html>

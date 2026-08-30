@@ -91,21 +91,41 @@ async function fetchGa4Realtime(signal) {
 /** Refreshes GA4 realtime values without affecting local analytics. @returns {Promise<void>} */
 async function refreshGa4() {
   if (!isGa4Ready()) return;
+  const controller = startGa4Request();
+  const timeoutId = window.setTimeout(() => controller.abort(), GA4_REQUEST_TIMEOUT);
+  await runGa4Request(controller, timeoutId);
+}
+
+
+/** Creates a fresh controller for one GA4 realtime request. */
+function startGa4Request() {
   ga4RequestController?.abort();
   ga4RequestController = new AbortController();
-  const controller = ga4RequestController;
-  const timeoutId = window.setTimeout(() => controller.abort(), GA4_REQUEST_TIMEOUT);
+  return ga4RequestController;
+}
 
-  try {
-    renderGa4Realtime(await fetchGa4Realtime(controller.signal));
-  } catch (error) {
-    if (error?.name === 'AbortError') return;
-    setGa4State(error?.message || 'GA4 nicht erreichbar', 'is-error');
-    window.GlanzerAdminUi?.setSystemState('ga4', 'is-pending', error?.message || 'GA4 nicht erreichbar');
-  } finally {
-    window.clearTimeout(timeoutId);
-    if (controller === ga4RequestController) ga4RequestController = null;
-  }
+
+/** Runs one GA4 request and handles its success or failure. */
+async function runGa4Request(controller, timeoutId) {
+  try { renderGa4Realtime(await fetchGa4Realtime(controller.signal)); }
+  catch (error) { handleGa4Error(error); }
+  finally { finishGa4Request(controller, timeoutId); }
+}
+
+
+/** Renders a GA4 request failure unless it was intentionally aborted. */
+function handleGa4Error(error) {
+  if (error?.name === 'AbortError') return;
+  const message = error?.message || 'GA4 nicht erreichbar';
+  setGa4State(message, 'is-error');
+  window.GlanzerAdminUi?.setSystemState('ga4', 'is-pending', message);
+}
+
+
+/** Cleans up the controller and timeout for one GA4 request. */
+function finishGa4Request(controller, timeoutId) {
+  window.clearTimeout(timeoutId);
+  if (controller === ga4RequestController) ga4RequestController = null;
 }
 
 

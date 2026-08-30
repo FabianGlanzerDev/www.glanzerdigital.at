@@ -5,31 +5,30 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description"
-    content="Website bei Glanzer Digital anfragen: Eckdaten auswählen und deine Anfrage direkt per WhatsApp senden – für Projekte in der Steiermark und darüber hinaus.">
+    content="Website bei GlanzerDigital anfragen: Eckdaten auswählen und die Anfrage über WhatsApp oder E-Mail vorbereiten – für Projekte in der Steiermark und darüber hinaus.">
   <meta name="robots" content="index,follow,max-image-preview:large">
   <meta name="author" content="Fabian Glanzer">
   <meta name="theme-color" content="#080b10">
   <meta property="og:type" content="website">
-  <meta property="og:site_name" content="Glanzer Digital">
+  <meta property="og:site_name" content="GlanzerDigital">
   <meta property="og:locale" content="de_AT">
-  <meta property="og:locale:alternate" content="en_US">
-  <meta property="og:title" content="Website anfragen | Glanzer Digital">
+  <meta property="og:title" content="Website anfragen | GlanzerDigital">
   <meta property="og:description"
-    content="Website bei Glanzer Digital anfragen: Eckdaten auswählen und deine Anfrage direkt per WhatsApp senden – für Projekte in der Steiermark und darüber hinaus.">
+    content="Website bei GlanzerDigital anfragen: Eckdaten auswählen und die Anfrage über WhatsApp oder E-Mail vorbereiten – für Projekte in der Steiermark und darüber hinaus.">
   <meta property="og:url" content="https://glanzerdigital.at/kontakt">
   <meta property="og:image" content="https://glanzerdigital.at/assets/images/general/social-preview.webp">
   <meta property="og:image:type" content="image/webp">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="Glanzer Digital Logo mit Code- und Server-Symbol">
+  <meta property="og:image:alt" content="GlanzerDigital Logo mit Code- und Server-Symbol">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Website anfragen | Glanzer Digital">
+  <meta name="twitter:title" content="Website anfragen | GlanzerDigital">
   <meta name="twitter:description"
-    content="Website bei Glanzer Digital anfragen: Eckdaten auswählen und deine Anfrage direkt per WhatsApp senden – für Projekte in der Steiermark und darüber hinaus.">
+    content="Website bei GlanzerDigital anfragen: Eckdaten auswählen und die Anfrage über WhatsApp oder E-Mail vorbereiten – für Projekte in der Steiermark und darüber hinaus.">
   <meta name="twitter:image" content="https://glanzerdigital.at/assets/images/general/social-preview.webp">
-  <meta name="twitter:image:alt" content="Glanzer Digital Logo mit Code- und Server-Symbol">
+  <meta name="twitter:image:alt" content="GlanzerDigital Logo mit Code- und Server-Symbol">
 
-  <title>Website anfragen | Glanzer Digital</title>
+ <title>Website anfragen | GlanzerDigital</title>
   <link rel="canonical" href="https://glanzerdigital.at/kontakt">
   <link rel="icon" href="../assets/favicons/favicon.ico" sizes="any">
   <link rel="icon" href="../assets/favicons/favicon-32x32.png" type="image/png" sizes="32x32">
@@ -37,16 +36,17 @@
   <link rel="manifest" href="/site.webmanifest">
   <link rel="stylesheet" href="../styles/variables.css">
   <link rel="stylesheet" href="../styles/fonts.css">
-  <link rel="stylesheet" href="../style.css">
-  <link rel="stylesheet" href="../styles/pages/kontakt.css?v=20260827-2">
-  <script src="../templates/layoutTemplates.js" defer></script>
+  <link rel="stylesheet" href="../style.css?v=20260829-clean-1">
+  <link rel="stylesheet" href="../styles/pages/kontakt.css?v=20260830-provider-gmx">
+  <script src="../scripts/utils/templateLoader.js" defer></script>
+  <script src="../scripts/layout.js" defer></script>
+  <script src="../scripts/analytics.js" defer></script>
+  <script src="../scripts/privacyConsent.js" defer></script>
   <script src="../scripts/main.js" defer></script>
-  <script src="../scripts/i18nCore.js" defer></script>
-  <script src="../scripts/i18nContent.js" defer></script>
-  <script src="../scripts/i18nLegal.js" defer></script>
-  <script src="../scripts/i18nTranslations.js" defer></script>
-  <script src="../scripts/i18n.js" defer></script>
-  <script src="../scripts/kontakt.js" defer></script>
+  <script src="../scripts/config/contactConfig.js?v=20260830-review" defer></script>
+  <script src="../scripts/services/contactDelivery.js?v=20260830-review" defer></script>
+  <script src="../scripts/pages/contactForm.js?v=20260830-review" defer></script>
+  <script src="../scripts/kontakt.js?v=20260830-review" defer></script>
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -55,8 +55,8 @@
       "@type": "ContactPage",
       "@id": "https://glanzerdigital.at/kontakt#webpage",
       "url": "https://glanzerdigital.at/kontakt",
-      "name": "Website anfragen | Glanzer Digital",
-      "description": "Website bei Glanzer Digital anfragen: Eckdaten auswählen und deine Anfrage direkt per WhatsApp senden – für Projekte in der Steiermark und darüber hinaus.",
+      "name": "Kontakt | GlanzerDigital",
+      "description": "Kontaktiere GlanzerDigital für deine Website: Eckdaten auswählen und deine Anfrage per WhatsApp oder E-Mail vorbereiten – für Projekte in der Steiermark und darüber hinaus.",
       "isPartOf": {
         "@id": "https://glanzerdigital.at/#website"
       },
@@ -75,7 +75,7 @@
         {
           "@type": "ListItem",
           "position": 1,
-          "name": "Home",
+          "name": "Startseite",
           "item": "https://glanzerdigital.at/"
         },
         {
@@ -96,39 +96,51 @@
   <header class="site-header" data-site-header></header>
 
   <main id="main-content">
-    <section class="page-hero contact-hero">
-      <div class="container page-hero-inner">
-        <span class="kicker">Kontakt</span>
-        <h1>Deine Website startet mit einem <span class="text-primary">kurzen direkten Kontakt</span></h1>
-        <p>Nutze den Fragebogen für eine vorbereitete WhatsApp-Anfrage oder melde dich direkt per E-Mail oder Telefon.
-        </p>
+    <section class="contact-hero">
+      <div class="container contact-hero__inner">
+        <span class="kicker">Projektanfrage</span>
+        <h1>Deine Website beginnt.<br><span class="text-primary">Mit einer kurzen Nachricht.</span></h1>
+        <p>Ein paar Eckdaten reichen für den ersten Überblick. Danach entscheidest du selbst, ob du deine Anfrage über WhatsApp oder per E-Mail vorbereiten möchtest.</p>
+        <div class="button-row">
+          <a class="button button--primary" href="#projektanfrage">Projekt anfragen</a>
+          <a class="button button--secondary" href="/leistungen">Leistungen ansehen</a>
+        </div>
       </div>
     </section>
 
-    <section class="section section--light contact-section">
-      <div class="container contact-layout">
-        <aside class="contact-stack" aria-label="Kontaktinformationen">
-          <article class="contact-card contact-card--steps">
-            <span class="contact-label">So funktioniert's</span>
+    <section class="section section--light contact-clean-section" id="projektanfrage">
+      <div class="container contact-request-layout">
+        <aside class="contact-guide" aria-label="So funktioniert die Anfrage">
+          <article class="contact-guide-card">
+            <span class="contact-guide-kicker">So funktioniert's</span>
             <ol class="contact-steps">
-              <li><span>01</span>
-                <div><strong>Eckdaten auswählen</strong><small>Projektart, Stand und Zeitraum angeben.</small></div>
-              </li>
-              <li><span>02</span>
-                <div><strong>Kurz beschreiben</strong><small>Was soll entstehen und was ist besonders wichtig?</small>
+              <li>
+                <span>01</span>
+                <div>
+                  <strong>Eckdaten auswählen</strong>
+                  <p>Projektart, Stand und gewünschten Zeitraum angeben.</p>
                 </div>
               </li>
-              <li><span>03</span>
-                <div><strong>In WhatsApp öffnen</strong><small>Die Nachricht wird vorbereitet – senden entscheidest du
-                    selbst.</small></div>
+              <li>
+                <span>02</span>
+                <div>
+                  <strong>Kurz beschreiben</strong>
+                  <p>Was soll entstehen und was ist dir besonders wichtig?</p>
+                </div>
+              </li>
+              <li>
+                <span>03</span>
+                <div>
+                  <strong>Versandart wählen</strong>
+                  <p>WhatsApp öffnen oder die Anfrage per E-Mail vorbereiten.</p>
+                </div>
               </li>
             </ol>
           </article>
 
-
-          <article class="contact-card contact-card--dark">
+          <article class="contact-guide-card contact-guide-card--dark">
             <h2>Hilfreich für eine gute Einschätzung</h2>
-            <ul class="contact-checklist">
+            <ul>
               <li>Ziel der Website</li>
               <li>gewünschte Funktionen oder Besonderheiten</li>
               <li>bestehende Inhalte, Designs oder Projekte</li>
@@ -137,18 +149,101 @@
           </article>
         </aside>
 
-        <article class="contact-form-card">
+        <article class="contact-request-card">
           <div class="contact-form-head">
             <div>
-              <span class="kicker">WhatsApp-Anfrage</span>
+              <span class="kicker">Projektanfrage</span>
               <h2>Projekt kurz vorbereiten</h2>
             </div>
-            <span class="whatsapp-status"><span aria-hidden="true"></span>Direkter Kontakt</span>
+            <span class="contact-direct-badge">
+              <span aria-hidden="true"></span>
+              Direkter Kontakt
+            </span>
           </div>
-          <p class="contact-form-intro">Wenn WhatsApp für dich am einfachsten ist, reichen ein paar sinnvolle Angaben
-            für den ersten Überblick. E-Mail und Telefon stehen alternativ direkt daneben zur Verfügung.</p>
 
-          <form class="form-grid" data-contact-form novalidate>
+          <p class="contact-form-intro">
+            Fülle die Eckdaten einmal aus und entscheide anschließend, ob du deine Anfrage über WhatsApp öffnen oder
+            per E-Mail in deinem Webmail-Anbieter öffnen möchtest.
+          </p>
+
+          <form class="form-grid" data-contact-form id="contact-request-form" novalidate>
+          <fieldset class="contact-method" data-contact-method>
+            <legend>Wie möchtest du deine Anfrage senden?</legend>
+
+            <div class="contact-method__grid">
+              <label class="contact-method-card">
+                <input type="radio" name="contactMethod" value="whatsapp" checked>
+                <span class="contact-method-card__surface">
+                  <span class="contact-method-card__icon contact-method-card__icon--whatsapp" aria-hidden="true">
+                    <img src="../assets/images/icons/whatsapp.webp" alt="" width="32" height="32">
+                  </span>
+                  <span class="contact-method-card__copy">
+                    <strong>WhatsApp</strong>
+                    <small>Nachricht vorbereiten und selbst senden</small>
+                  </span>
+                  <span class="contact-method-card__check" aria-hidden="true">✓</span>
+                </span>
+              </label>
+
+              <label class="contact-method-card">
+                <input type="radio" name="contactMethod" value="email">
+                <span class="contact-method-card__surface">
+                  <span class="contact-method-card__icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" focusable="false">
+                      <rect x="3" y="5" width="18" height="14" rx="2"></rect>
+                      <path d="m4 7 8 6 8-6"></path>
+                    </svg>
+                  </span>
+                  <span class="contact-method-card__copy">
+                    <strong>E-Mail</strong>
+                    <small>Nachricht vorbereiten und im Webmail öffnen</small>
+                  </span>
+                  <span class="contact-method-card__check" aria-hidden="true">✓</span>
+                </span>
+              </label>
+            </div>
+          </fieldset>
+
+          <fieldset class="email-provider" data-email-provider hidden>
+            <legend>E-Mail-Anbieter auswählen</legend>
+            <p class="email-provider__intro">Wähle aus, womit du die vorbereitete Anfrage öffnen möchtest.</p>
+
+            <div class="email-provider__grid">
+              <label class="email-provider-card">
+                <input type="radio" name="emailProvider" value="gmail" checked>
+                <span>
+                  <strong>Gmail</strong>
+                  <small>In Gmail öffnen</small>
+                </span>
+              </label>
+
+              <label class="email-provider-card">
+                <input type="radio" name="emailProvider" value="outlook">
+                <span>
+                  <strong>Outlook</strong>
+                  <small>In Outlook öffnen</small>
+                </span>
+              </label>
+
+              <label class="email-provider-card">
+                <input type="radio" name="emailProvider" value="gmx">
+                <span>
+                  <strong>GMX</strong>
+                  <small>Daten kopieren und GMX öffnen</small>
+                </span>
+              </label>
+
+              <label class="email-provider-card">
+                <input type="radio" name="emailProvider" value="other">
+                <span>
+                  <strong>Andere</strong>
+                  <small>E-Mail-Daten kopieren</small>
+                </span>
+              </label>
+            </div>
+          </fieldset>
+
+
             <div class="form-group" data-field="name">
               <label for="name">Dein Name <span aria-hidden="true">*</span></label>
               <input id="name" name="name" autocomplete="name" placeholder="Vor- und Nachname"
@@ -157,48 +252,66 @@
             </div>
 
             <fieldset class="form-group project-choice" data-field="project" aria-describedby="project-error">
-              <legend>Was möchtest du umsetzen? <span aria-hidden="true">*</span></legend>
-              <div class="project-choice-help">
-                <span>Du musst die technische Bezeichnung nicht selbst kennen.</span>
-                <button type="button" class="solution-info-button" data-solution-dialog-open>
+              <div class="project-choice-head">
+                <legend>Was möchtest du umsetzen? <span aria-hidden="true">*</span></legend>
+                <button class="solution-help-button" type="button" data-solution-dialog-open>
                   Was ist der Unterschied?
                 </button>
               </div>
-              <div class="project-choice-grid">
+              <p class="field-hint">Du musst die technische Bezeichnung nicht selbst kennen.</p>
+
+              <div class="project-choice-grid project-choice-grid--clean">
                 <label class="choice-card">
                   <input type="radio" name="project" value="Neue Website oder Landingpage" required>
                   <span class="choice-card__surface">
                     <span class="choice-card__icon" aria-hidden="true">
-                      <img src="../assets/images/icons/contact-project-types/website-landingpage.webp" alt="" width="32"
-                        height="32">
+                      <svg viewBox="0 0 24 24" focusable="false">
+                        <rect x="3" y="4" width="18" height="16" rx="2"></rect>
+                        <path d="M3 8h18"></path>
+                        <path d="M7 6h.01"></path>
+                      </svg>
                     </span>
-                    <span class="choice-card__copy"><strong>Website / Landingpage</strong><small>Mehrseitige Website,
-                        Portfolio oder
-                        gezielte Einzelseite</small></span>
+                    <span class="choice-card__copy">
+                      <strong>Website / Landingpage</strong>
+                      <small>Mehrseitige Website, Portfolio oder gezielte Einzelseite</small>
+                    </span>
                     <span class="choice-card__check" aria-hidden="true">✓</span>
                   </span>
                 </label>
+
                 <label class="choice-card">
                   <input type="radio" name="project" value="Bestehende Website verbessern">
                   <span class="choice-card__surface">
                     <span class="choice-card__icon" aria-hidden="true">
-                      <img src="../assets/images/icons/contact-project-types/website-verbessern.webp" alt="" width="32"
-                        height="32">
+                      <svg viewBox="0 0 24 24" focusable="false">
+                        <path d="M20 6v5h-5"></path>
+                        <path d="M4 18v-5h5"></path>
+                        <path d="M18.5 9a7 7 0 0 0-11.7-2.3L4 9"></path>
+                        <path d="M5.5 15a7 7 0 0 0 11.7 2.3L20 15"></path>
+                      </svg>
                     </span>
-                    <span class="choice-card__copy"><strong>Bestehende Website verbessern</strong><small>Änderungen,
-                        Erweiterungen oder laufende Betreuung</small></span>
+                    <span class="choice-card__copy">
+                      <strong>Bestehende Website verbessern</strong>
+                      <small>Änderungen, Erweiterungen oder laufende Betreuung</small>
+                    </span>
                     <span class="choice-card__check" aria-hidden="true">✓</span>
                   </span>
                 </label>
+
                 <label class="choice-card choice-card--wide">
                   <input type="radio" name="project" value="Noch unsicher – Beratung gewünscht">
                   <span class="choice-card__surface">
                     <span class="choice-card__icon" aria-hidden="true">
-                      <img src="../assets/images/icons/contact-project-types/noch-unsicher.webp" alt="" width="32"
-                        height="32">
+                      <svg viewBox="0 0 24 24" focusable="false">
+                        <circle cx="12" cy="12" r="9"></circle>
+                        <path d="M9.8 9a2.4 2.4 0 1 1 3.9 1.9c-1 .7-1.7 1.2-1.7 2.6"></path>
+                        <path d="M12 17h.01"></path>
+                      </svg>
                     </span>
-                    <span class="choice-card__copy"><strong>Noch unsicher</strong><small>Gemeinsam herausfinden, welche
-                        Lösung für dein Vorhaben sinnvoll ist</small></span>
+                    <span class="choice-card__copy">
+                      <strong>Noch unsicher</strong>
+                      <small>Gemeinsam herausfinden, welche Lösung für dein Vorhaben sinnvoll ist</small>
+                    </span>
                     <span class="choice-card__check" aria-hidden="true">✓</span>
                   </span>
                 </label>
@@ -221,13 +334,15 @@
               </div>
 
               <div class="form-group" data-field="timeframe">
-                <label for="timeframe">Gewünschter Zeitraum <span aria-hidden="true">*</span></label>
+                <label for="timeframe">Wann soll deine Website ungefähr fertig sein? <span
+                    aria-hidden="true">*</span></label>
                 <select id="timeframe" name="timeframe" aria-describedby="timeframe-error" required>
                   <option value="">Bitte auswählen</option>
-                  <option>Kein fixer Termin</option>
                   <option>So bald wie möglich</option>
-                  <option>Innerhalb von 1–2 Monaten</option>
-                  <option>Innerhalb von 3–6 Monaten</option>
+                  <option>Innerhalb der nächsten 2–4 Wochen</option>
+                  <option>In 1–2 Monaten</option>
+                  <option>In 3–6 Monaten</option>
+                  <option>Ich bin zeitlich flexibel</option>
                 </select>
                 <small class="field-error" id="timeframe-error" data-error-for="timeframe" aria-live="polite"></small>
               </div>
@@ -238,8 +353,10 @@
               <textarea id="message" name="message" rows="6"
                 placeholder="Zum Beispiel: Ich brauche eine neue Website für … Wichtig sind mir … Bereits vorhanden sind …"
                 aria-describedby="message-error message-limit" maxlength="1200" required></textarea>
-              <div class="textarea-meta"><small class="field-error" id="message-error" data-error-for="message"
-                  aria-live="polite"></small><small id="message-limit"><span data-message-count>0</span>/1200 Zeichen</small></div>
+              <div class="textarea-meta">
+                <small class="field-error" id="message-error" data-error-for="message" aria-live="polite"></small>
+                <small id="message-limit"><span data-message-count>0</span>/1200 Zeichen</small>
+              </div>
             </div>
 
             <div class="form-group privacy-consent" data-field="privacy">
@@ -253,56 +370,59 @@
 
             <div class="form-submit-area">
               <p class="form-status" data-form-status aria-live="polite"></p>
-              <button class="button button--primary whatsapp-submit" type="submit" disabled aria-disabled="true">
-                <img src="../assets/images/icons/whatsapp.webp" alt="" aria-hidden="true" width="40" height="40">
-                Anfrage in WhatsApp öffnen
-              </button>
+              <button class="button button--primary contact-submit" type="submit" disabled aria-disabled="true">
+              <span class="contact-submit__icon" data-submit-icon="whatsapp" aria-hidden="true">
+                <img src="../assets/images/icons/whatsapp.webp" alt="" width="32" height="32">
+              </span>
+              <span class="contact-submit__icon" data-submit-icon="email" aria-hidden="true" hidden>
+                <svg viewBox="0 0 24 24" focusable="false">
+                  <rect x="3" y="5" width="18" height="14" rx="2"></rect>
+                  <path d="m4 7 8 6 8-6"></path>
+                </svg>
+              </span>
+              <span data-submit-label>Anfrage in WhatsApp öffnen</span>
+            </button>
             </div>
-
-            <p class="privacy-note">Die Angaben werden nicht über diese Website versendet oder gespeichert. Erst nach
-              Klick öffnet sich WhatsApp mit deiner vorbereiteten Nachricht.</p>
           </form>
         </article>
       </div>
     </section>
 
     <dialog class="solution-dialog" data-solution-dialog aria-labelledby="solution-dialog-title">
-      <div class="solution-dialog__panel">
-        <div class="solution-dialog__header">
+      <div class="solution-dialog__inner">
+        <div class="solution-dialog__head">
           <div>
-            <span class="kicker">Kurz erklärt</span>
-            <h2 id="solution-dialog-title">Welche Lösung ist die richtige?</h2>
+            <span class="kicker">Kurze Orientierung</span>
+            <h2 id="solution-dialog-title">Welche Auswahl passt zu dir?</h2>
           </div>
-          <button class="solution-dialog__close" type="button" data-solution-dialog-close
-            aria-label="Erklärung schließen">×</button>
+          <button type="button" class="solution-dialog__close" data-solution-dialog-close
+            aria-label="Dialog schließen">×</button>
         </div>
-
-        <p class="solution-dialog__intro">Du musst das nicht selbst technisch einordnen. Die Auswahl hilft nur dabei,
-          dein Vorhaben grob zu verstehen.</p>
 
         <div class="solution-dialog__grid">
           <article>
-            <span>Website</span>
-            <strong>Mehrere Seiten für Informationen und Vertrauen</strong>
-            <p>Zum Beispiel Startseite, Leistungen, Über mich, Referenzen, FAQ und Kontakt.</p>
+            <strong>Website / Landingpage</strong>
+            <p>Wenn eine neue Website, Unternehmensseite, Portfolioseite oder einzelne Kampagnenseite entstehen soll.
+            </p>
           </article>
           <article>
-            <span>Landingpage</span>
-            <strong>Eine fokussierte Seite mit einem klaren Ziel</strong>
-            <p>Ideal für ein Angebot, eine Kampagne, Anmeldung oder gezielte Kontaktanfrage.</p>
+            <strong>Bestehende Website verbessern</strong>
+            <p>Wenn bereits eine Website vorhanden ist und Design, Inhalte, Mobilansicht, Technik oder Funktionen
+              verbessert werden sollen.</p>
           </article>
-        </div>
-
-        <div class="solution-dialog__footer">
-          <span>Noch unsicher? Wähle einfach „Noch unsicher“ – gemeinsam klären wir, ob eine Website oder
-            Landingpage besser zu deinem Ziel passt.</span>
-          <a href="/leistungen">Leistungen ansehen</a>
+          <article>
+            <strong>Noch unsicher</strong>
+            <p>Wenn du dein Ziel kennst, aber noch nicht weißt, welche technische Lösung oder welcher Umfang sinnvoll
+              ist.</p>
+          </article>
         </div>
       </div>
     </dialog>
+
   </main>
 
   <footer class="site-footer" data-site-footer></footer>
+  <section class="consent-banner" role="dialog" aria-label="Datenschutz-Einstellungen" data-consent-banner hidden></section>
 </body>
 
 </html>

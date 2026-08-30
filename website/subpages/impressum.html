@@ -4,11 +4,11 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Impressum und Anbieterinformationen von Glanzer Digital.">
+  <meta name="description" content="Impressum und Anbieterinformationen von GlanzerDigital.">
   <meta name="author" content="Fabian Glanzer">
   <meta name="robots" content="index,follow,max-image-preview:large">
   <meta name="theme-color" content="#080b10">
-  <title>Impressum | Glanzer Digital</title>
+  <title>Impressum | GlanzerDigital</title>
   <link rel="canonical" href="https://glanzerdigital.at/impressum">
   <link rel="icon" href="../assets/favicons/favicon.ico" sizes="any">
   <link rel="icon" href="../assets/favicons/favicon-32x32.png" type="image/png" sizes="32x32">
@@ -18,13 +18,11 @@
   <link rel="stylesheet" href="../styles/fonts.css">
   <link rel="stylesheet" href="../style.css">
   <link rel="stylesheet" href="../styles/pages/legal.css">
-  <script src="../templates/layoutTemplates.js" defer></script>
+  <script src="../scripts/utils/templateLoader.js" defer></script>
+  <script src="../scripts/layout.js" defer></script>
+  <script src="../scripts/analytics.js" defer></script>
+  <script src="../scripts/privacyConsent.js" defer></script>
   <script src="../scripts/main.js" defer></script>
-  <script src="../scripts/i18nCore.js" defer></script>
-  <script src="../scripts/i18nContent.js" defer></script>
-  <script src="../scripts/i18nLegal.js" defer></script>
-  <script src="../scripts/i18nTranslations.js" defer></script>
-  <script src="../scripts/i18n.js" defer></script>
 </head>
 
 <body data-root=".." data-page="legal">
@@ -101,6 +99,7 @@
     </section>
   </main>
   <footer class="site-footer" data-site-footer></footer>
+  <section class="consent-banner" role="dialog" aria-label="Datenschutz-Einstellungen" data-consent-banner hidden></section>
 </body>
 
 </html>

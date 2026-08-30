@@ -66,7 +66,7 @@ function renderAdminIdentity(user) {
   const status = getElement('[data-auth-status]');
   const label = getElement('[data-auth-user]');
   const logout = getElement('[data-auth-action="logout"]');
-  if (status) status.innerHTML = '<span aria-hidden="true"></span> Firebase geschützt';
+  if (status) renderProtectedStatus(status);
   if (status) status.className = 'admin-site-state is-online';
   if (label) label.textContent = user.email || 'Admin angemeldet';
   const sidebar = getElement('[data-auth-sidebar]');
@@ -76,6 +76,14 @@ function renderAdminIdentity(user) {
   if (logout) logout.disabled = false;
 }
 
+
+
+/** Renders the protected Firebase status without HTML strings. */
+function renderProtectedStatus(status) {
+  const dot = document.createElement('span');
+  dot.setAttribute('aria-hidden', 'true');
+  status.replaceChildren(dot, document.createTextNode(' Firebase geschützt'));
+}
 
 
 /** Checks whether allowed admin. @param {Object} user - The user value. @returns {boolean} The operation result. */

@@ -1,28 +1,31 @@
 {
-  "id": "/",
-  "name": "Glanzer Digital",
-  "short_name": "Glanzer Digital",
-  "description": "Webentwicklung, Web-Apps und individuelle Softwarelösungen von Glanzer Digital.",
+  "name": "GlanzerDigital",
+  "short_name": "GlanzerDigital",
+  "description": "Professionelle Websites und persönliche Webentwicklung aus der Steiermark.",
   "lang": "de-AT",
-  "dir": "ltr",
   "start_url": "/",
   "scope": "/",
   "display": "standalone",
-  "orientation": "any",
-  "background_color": "#080b10",
+  "background_color": "#04070c",
   "theme_color": "#080b10",
   "icons": [
     {
-      "src": "/assets/favicons/favicon-192x192.png",
+      "src": "/assets/images/icons/pwa-icon-192.png",
       "sizes": "192x192",
       "type": "image/png",
       "purpose": "any"
     },
     {
-      "src": "/assets/favicons/favicon-512x512.png",
+      "src": "/assets/images/icons/pwa-icon-512.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any"
+    },
+    {
+      "src": "/assets/images/icons/pwa-icon-512-maskable.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
     }
   ]
 }

@@ -10,10 +10,9 @@
   <meta name="author" content="Fabian Glanzer">
   <meta name="theme-color" content="#080b10">
   <meta property="og:type" content="website">
-  <meta property="og:site_name" content="Glanzer Digital">
+  <meta property="og:site_name" content="GlanzerDigital">
   <meta property="og:locale" content="de_AT">
-  <meta property="og:locale:alternate" content="en_US">
-  <meta property="og:title" content="Webdesign &amp; Websites aus der Steiermark | Glanzer Digital">
+  <meta property="og:title" content="Webdesign &amp; Websites aus der Steiermark | GlanzerDigital">
   <meta property="og:description"
     content="Moderne, responsive Websites und Landingpages für Selbstständige, kleine Unternehmen und Vereine in der Steiermark – inklusive Betreuung und Weiterentwicklung.">
   <meta property="og:url" content="https://glanzerdigital.at/leistungen">
@@ -21,15 +20,15 @@
   <meta property="og:image:type" content="image/webp">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="Glanzer Digital Logo mit Code- und Server-Symbol">
+  <meta property="og:image:alt" content="GlanzerDigital Logo mit Code- und Server-Symbol">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Webdesign &amp; Websites aus der Steiermark | Glanzer Digital">
+  <meta name="twitter:title" content="Webdesign &amp; Websites aus der Steiermark | GlanzerDigital">
   <meta name="twitter:description"
     content="Moderne, responsive Websites und Landingpages für Selbstständige, kleine Unternehmen und Vereine in der Steiermark – inklusive Betreuung und Weiterentwicklung.">
   <meta name="twitter:image" content="https://glanzerdigital.at/assets/images/general/social-preview.webp">
-  <meta name="twitter:image:alt" content="Glanzer Digital Logo mit Code- und Server-Symbol">
+  <meta name="twitter:image:alt" content="GlanzerDigital Logo mit Code- und Server-Symbol">
 
-  <title>Webdesign &amp; Websites aus der Steiermark | Glanzer Digital</title>
+  <title>Webdesign &amp; Websites aus der Steiermark | GlanzerDigital</title>
   <link rel="canonical" href="https://glanzerdigital.at/leistungen">
   <link rel="icon" href="../assets/favicons/favicon.ico" sizes="any">
   <link rel="icon" href="../assets/favicons/favicon-32x32.png" type="image/png" sizes="32x32">
@@ -37,15 +36,13 @@
   <link rel="manifest" href="/site.webmanifest">
   <link rel="stylesheet" href="../styles/variables.css">
   <link rel="stylesheet" href="../styles/fonts.css">
-  <link rel="stylesheet" href="../style.css">
-  <link rel="stylesheet" href="../styles/pages/leistungen.css">
-  <script src="../templates/layoutTemplates.js" defer></script>
+  <link rel="stylesheet" href="../style.css?v=20260829-clean-1">
+  <link rel="stylesheet" href="../styles/pages/leistungen.css?v=20260830-services-clean-2">
+  <script src="../scripts/utils/templateLoader.js" defer></script>
+  <script src="../scripts/layout.js" defer></script>
+  <script src="../scripts/analytics.js" defer></script>
+  <script src="../scripts/privacyConsent.js" defer></script>
   <script src="../scripts/main.js" defer></script>
-  <script src="../scripts/i18nCore.js" defer></script>
-  <script src="../scripts/i18nContent.js" defer></script>
-  <script src="../scripts/i18nLegal.js" defer></script>
-  <script src="../scripts/i18nTranslations.js" defer></script>
-  <script src="../scripts/i18n.js" defer></script>
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -54,7 +51,7 @@
       "@type": "WebPage",
       "@id": "https://glanzerdigital.at/leistungen#webpage",
       "url": "https://glanzerdigital.at/leistungen",
-      "name": "Webdesign & Websites aus der Steiermark | Glanzer Digital",
+      "name": "Leistungen | GlanzerDigital",
       "description": "Moderne, responsive Websites und Landingpages für Selbstständige, kleine Unternehmen und Vereine in der Steiermark – inklusive Betreuung und Weiterentwicklung.",
       "isPartOf": {
         "@id": "https://glanzerdigital.at/#website"
@@ -62,14 +59,26 @@
       "about": {
         "@id": "https://glanzerdigital.at/#organization"
       },
+      "mainEntity": {
+        "@id": "https://glanzerdigital.at/leistungen#services"
+      },
+      "breadcrumb": {
+        "@id": "https://glanzerdigital.at/leistungen#breadcrumb"
+      },
       "inLanguage": "de-AT"
     },
     {
       "@type": "Service",
       "@id": "https://glanzerdigital.at/leistungen#services",
       "name": "Webdesign und Websites",
+      "serviceType": "Webdesign und Webentwicklung",
+      "description": "Planung, Gestaltung und technische Umsetzung moderner Websites und Landingpages sowie Optimierung und Weiterentwicklung bestehender Websites.",
       "provider": {
         "@id": "https://glanzerdigital.at/#organization"
+      },
+      "areaServed": {
+        "@type": "AdministrativeArea",
+        "name": "Steiermark"
       },
       "url": "https://glanzerdigital.at/leistungen",
       "hasOfferCatalog": {
@@ -80,28 +89,32 @@
             "@type": "Offer",
             "itemOffered": {
               "@type": "Service",
-              "name": "Websites"
+              "name": "Websites",
+              "description": "Individuelle und responsive Websites für Selbstständige, kleine Unternehmen und Vereine."
             }
           },
           {
             "@type": "Offer",
             "itemOffered": {
               "@type": "Service",
-              "name": "Landingpages"
+              "name": "Landingpages",
+              "description": "Fokussierte Einzelseiten für Angebote, Aktionen und gezielte Kontaktanfragen."
             }
           },
           {
             "@type": "Offer",
             "itemOffered": {
               "@type": "Service",
-              "name": "Website-Optimierung"
+              "name": "Website-Optimierung",
+              "description": "Modernisierung und Verbesserung bestehender Websites bei Design, Struktur, mobiler Darstellung und Technik."
             }
           },
           {
             "@type": "Offer",
             "itemOffered": {
               "@type": "Service",
-              "name": "Website-Betreuung"
+              "name": "Website-Betreuung",
+              "description": "Laufende Änderungen, technische Unterstützung und Weiterentwicklung bestehender Websites."
             }
           }
         ]
@@ -109,11 +122,12 @@
     },
     {
       "@type": "BreadcrumbList",
+      "@id": "https://glanzerdigital.at/leistungen#breadcrumb",
       "itemListElement": [
         {
           "@type": "ListItem",
           "position": 1,
-          "name": "Home",
+          "name": "Startseite",
           "item": "https://glanzerdigital.at/"
         },
         {
@@ -134,284 +148,263 @@
   <header class="site-header" data-site-header></header>
 
   <main id="main-content">
-    <section class="page-hero services-hero">
-      <div class="container page-hero-inner services-hero__inner">
-        <span class="kicker">Leistungen</span>
-        <h1>Professionelle Websites, <span class="text-primary">passend zu deinem Betrieb.</span></h1>
-        <p>Mein Schwerpunkt liegt auf klassischen Unternehmenswebsites, Landingpages und der Weiterentwicklung
-          bestehender Websites – klar, responsive und persönlich betreut.</p>
-        <div class="button-row services-hero__actions">
+    <section class="services-hero">
+      <div class="container services-hero__inner">
+        <span class="kicker">Webdesign aus der Steiermark</span>
+        <h1>Professionelle Websites.<br><span class="text-primary">Klar umgesetzt für deinen Betrieb.</span></h1>
+        <p>Von der ersten Struktur bis zum Onlinegang: Ich plane und entwickle Websites, die professionell wirken, auf
+          jedem Gerät funktionieren und für deine Kunden verständlich bleiben.</p>
+        <div class="button-row">
           <a class="button button--primary" href="/kontakt">Website anfragen</a>
-          <a class="button button--secondary" href="#leistungen-uebersicht">Leistungen entdecken</a>
+          <a class="button button--secondary" href="#website-erstellen">Leistungen ansehen</a>
         </div>
       </div>
     </section>
 
-    <section class="section services-intro" id="leistungen-uebersicht" aria-labelledby="services-intro-title">
+    <section class="services-trust" aria-label="Leistungsgrundlagen">
+      <div class="container services-trust__grid">
+        <div><strong>Individuell</strong><span>Passend zu deinem Betrieb</span></div>
+        <div><strong>Responsive</strong><span>Smartphone bis Desktop</span></div>
+        <div><strong>SEO-Basis</strong><span>Für Google sauber vorbereitet</span></div>
+        <div><strong>Persönlich</strong><span>Direkte Abstimmung mit mir</span></div>
+      </div>
+    </section>
+
+    <section class="section section--light services-detail" id="website-erstellen">
       <div class="container">
-        <div class="section-heading">
-          <span class="kicker">Was ich umsetze</span>
-          <h2 id="services-intro-title">Websites, Landingpages und Betreuung aus einer Hand</h2>
-          <p>Der Umfang richtet sich danach, welche Informationen deine Besucher brauchen und welches Ziel die Website
-            für deinen Betrieb erfüllen soll.</p>
+        <div class="clean-heading">
+          <span class="kicker">Website erstellen</span>
+          <h2>Was bei deiner Website umgesetzt wird</h2>
+          <p>Der genaue Umfang hängt vom Projekt ab. Die technische und gestalterische Grundlage bleibt dabei immer
+            sauber, verständlich und erweiterbar.</p>
         </div>
 
-        <nav class="service-jump-grid" aria-label="Leistungsbereiche">
-          <a href="#websites"><span>01</span><strong>Websites</strong><small>Unternehmen &amp;
-              Selbstständige</small></a>
-          <a href="#landingpages"><span>02</span><strong>Landingpages</strong><small>Ein Angebot, ein klares
-              Ziel</small></a>
-          <a href="#weiterentwicklung"><span>03</span><strong>Website verbessern</strong><small>Bestehenden Auftritt
-              optimieren</small></a>
-          <a href="#betreuung"><span>04</span><strong>Betreuung</strong><small>Änderungen &amp; technische
-              Hilfe</small></a>
-        </nav>
-      </div>
-    </section>
-
-    <section class="section service-details-section">
-      <div class="container service-details">
-        <article class="service-detail" id="websites">
-          <div class="service-detail__number">01</div>
-          <div class="service-detail__copy">
-            <span class="kicker">Websites</span>
-            <h2>Professionell online auftreten – ohne unnötigen Ballast.</h2>
-            <p>Eine gute Website zeigt deinen Besuchern schnell, wer du bist, was du anbietest und wie sie dich
-              erreichen. Gerade für kleinere Betriebe reichen oft wenige, sauber aufgebaute Seiten.</p>
-            <ul class="service-check-list">
-              <li>Startseite und Leistungsübersicht</li>
-              <li>Preise, Öffnungszeiten oder häufige Fragen</li>
-              <li>Galerie, Referenzen oder Team</li>
-              <li>Google Maps, Telefon und WhatsApp</li>
-              <li>Kontaktformular oder direkte Anfrage</li>
-              <li>Responsive Darstellung für Smartphone, Tablet und Desktop</li>
+        <div class="services-detail__list">
+          <article class="services-detail__row">
+            <span class="services-detail__number">01</span>
+            <div>
+              <h3>Planung &amp; Struktur</h3>
+              <p>Wir legen fest, welche Seiten und Inhalte deine Besucher wirklich brauchen. Daraus entsteht eine klare
+                Navigation und ein sinnvoller Seitenaufbau.</p>
+            </div>
+            <ul>
+              <li>Seitenumfang festlegen</li>
+              <li>Navigation &amp; Inhalte strukturieren</li>
+              <li>Klare Nutzerführung planen</li>
             </ul>
-          </div>
-          <aside class="service-insight-card">
-            <div class="service-insight-card__top">
-              <span class="service-insight-card__icon" aria-hidden="true">
-                <img src="../assets/images/icons/service-details/websites.webp" alt="" width="64" height="64">
-              </span>
-              <span class="service-insight-card__eyebrow">Klar &amp; kompakt</span>
-            </div>
-            <h3>Alles Wichtige auf einen Blick</h3>
-            <p>Eine gute Unternehmenswebsite führt Besucher ohne Umwege zu den Informationen, die für eine Entscheidung
-              wirklich zählen.</p>
-            <div class="service-insight-card__chips">
-              <span>Leistungen</span><span>Öffnungszeiten</span><span>Kontakt</span><span>WhatsApp</span>
-            </div>
-          </aside>
-        </article>
+          </article>
 
-        <article class="service-detail" id="landingpages">
-          <div class="service-detail__number">02</div>
-          <div class="service-detail__copy">
-            <span class="kicker">Landingpages</span>
-            <h2>Eine Seite. Ein klares Ziel.</h2>
-            <p>Eine Landingpage konzentriert sich auf ein bestimmtes Angebot oder eine einzelne Aktion. Besucher werden
-              nicht durch viele Unterseiten geführt, sondern gezielt zu einer Anfrage, Anmeldung oder Kontaktaufnahme.
-            </p>
-            <ul class="service-check-list">
-              <li>Einzelne Dienstleistung oder spezielles Angebot</li>
-              <li>Aktion, Kampagne oder Veranstaltung</li>
-              <li>Produkt- oder Informationsseite</li>
-              <li>Klare Call-to-Actions</li>
-              <li>Kontakt, WhatsApp oder Anmeldung</li>
+          <article class="services-detail__row">
+            <span class="services-detail__number">02</span>
+            <div>
+              <h3>Design &amp; responsive Umsetzung</h3>
+              <p>Die Website wird passend zu deinem Unternehmen gestaltet und für Smartphone, Tablet und Desktop sauber
+                umgesetzt.</p>
+            </div>
+            <ul>
+              <li>Individuelle Gestaltung</li>
+              <li>Responsive Design</li>
+              <li>Klare Kontaktmöglichkeiten</li>
             </ul>
-          </div>
-          <aside class="service-insight-card service-insight-card--landing">
-            <div class="service-insight-card__top">
-              <span class="service-insight-card__icon" aria-hidden="true">
-                <img src="../assets/images/icons/service-details/landingpages.webp" alt="" width="64" height="64">
-              </span>
-              <span class="service-insight-card__eyebrow">Ein Ziel im Fokus</span>
-            </div>
-            <h3>Vom ersten Blick zur Anfrage</h3>
-            <p>Eine Landingpage reduziert Ablenkung und führt Schritt für Schritt zu genau der Handlung, die für dein
-              Angebot wichtig ist.</p>
-            <div class="service-insight-card__flow" aria-label="Typischer Ablauf einer Landingpage">
-              <span>Aufmerksamkeit</span><b>→</b><span>Nutzen</span><b>→</b><span>Anfrage</span>
-            </div>
-          </aside>
-        </article>
+          </article>
 
-        <article class="service-detail" id="weiterentwicklung">
-          <div class="service-detail__number">03</div>
-          <div class="service-detail__copy">
-            <span class="kicker">Bestehende Website verbessern</span>
-            <h2>Es muss nicht immer alles neu gebaut werden.</h2>
-            <p>Wenn bereits eine Website vorhanden ist, können gezielte Verbesserungen oder neue Funktionen oft
-              sinnvoller sein als ein kompletter Neustart.</p>
-            <ul class="service-check-list">
-              <li>Neue Inhalte oder Unterseiten ergänzen</li>
-              <li>Darstellung auf Smartphone und Tablet verbessern</li>
-              <li>Fehler und technische Probleme beheben</li>
-              <li>Design modernisieren</li>
-              <li>Neue Funktionen integrieren</li>
-              <li>Struktur und Ladeverhalten optimieren</li>
+          <article class="services-detail__row">
+            <span class="services-detail__number">03</span>
+            <div>
+              <h3>Technik &amp; Google-Grundlagen</h3>
+              <p>Auch eine kompakte Website bekommt eine solide technische Basis, damit sie schnell lädt, sauber
+                funktioniert und von Suchmaschinen verstanden werden kann.</p>
+            </div>
+            <ul>
+              <li>SEO-Grundlagen &amp; Meta-Daten</li>
+              <li>Performance-Optimierung</li>
+              <li>Google-Indexierung vorbereitet</li>
             </ul>
-          </div>
-          <aside class="service-insight-card service-insight-card--upgrade">
-            <div class="service-insight-card__top">
-              <span class="service-insight-card__icon" aria-hidden="true">
-                <img src="../assets/images/icons/service-details/weiterentwicklung.webp" alt="" width="64" height="64">
-              </span>
-              <span class="service-insight-card__eyebrow">Weiterentwickeln statt ersetzen</span>
-            </div>
-            <h3>Bestehendes gezielt besser machen</h3>
-            <p>Was bereits funktioniert, kann bleiben. Optimiert wird dort, wo Design, Technik oder Bedienung wirklich
-              davon profitieren.</p>
-            <div class="service-insight-card__chips"><span>Behalten</span><span>Optimieren</span><span>Erweitern</span>
-            </div>
-          </aside>
-        </article>
-
-        <article class="service-detail" id="betreuung">
-          <div class="service-detail__number">04</div>
-          <div class="service-detail__copy">
-            <span class="kicker">Betreuung &amp; technische Unterstützung</span>
-            <h2>Auch nach der Fertigstellung weiter ansprechbar.</h2>
-            <p>Auch nach der Fertigstellung bleibe ich für Änderungen, technische Fragen und kleinere Anpassungen
-              ansprechbar.</p>
-            <ul class="service-check-list">
-              <li>Texte, Bilder und Inhalte ändern</li>
-              <li>Neue Funktionen oder Bereiche ergänzen</li>
-              <li>Technische Fehler beheben</li>
-              <li>Bestehende Lösungen weiterentwickeln</li>
-              <li>Technische Fragen verständlich klären</li>
-            </ul>
-          </div>
-          <aside class="service-insight-card service-insight-card--care">
-            <div class="service-insight-card__top">
-              <span class="service-insight-card__icon" aria-hidden="true">
-                <img src="../assets/images/icons/service-details/betreuung.webp" alt="" width="64" height="64">
-              </span>
-              <span class="service-insight-card__eyebrow">Flexibel für später</span>
-            </div>
-            <h3>Unterstützung auch nach dem Projekt</h3>
-            <p>Wenn später Fragen, kleine Änderungen oder technische Anpassungen anstehen, muss nicht jedes Mal wieder
-              bei null begonnen werden.</p>
-            <div class="service-insight-card__chips"><span>Inhalte</span><span>Funktionen</span><span>Technische
-                Hilfe</span></div>
-          </aside>
-        </article>
-      </div>
-    </section>
-
-    <section class="section service-content-section" aria-labelledby="service-content-title">
-      <div class="container service-content-layout">
-        <div class="service-content-copy">
-          <span class="kicker">Bausteine einer Website</span>
-          <h2 id="service-content-title">Was kann eine Website enthalten?</h2>
-          <p>Nicht jede Website braucht alles davon. Gemeinsam werden nur die Inhalte und Funktionen ausgewählt, die für
-            dein Ziel einen echten Nutzen haben.</p>
-        </div>
-        <div class="service-feature-groups" role="group" aria-label="Mögliche Website-Inhalte">
-          <section class="service-feature-group" aria-labelledby="feature-content-title">
-            <div class="service-feature-group__head">
-              <span aria-hidden="true">01</span>
-              <h3 id="feature-content-title">Inhalte</h3>
-            </div>
-            <div class="service-feature-chips">
-              <span>Texte</span>
-              <span>Bilder &amp; Galerien</span>
-              <span>Videos</span>
-              <span>News</span>
-              <span>Downloads</span>
-            </div>
-          </section>
-
-          <section class="service-feature-group" aria-labelledby="feature-contact-title">
-            <div class="service-feature-group__head">
-              <span aria-hidden="true">02</span>
-              <h3 id="feature-contact-title">Kontakt &amp; Vertrauen</h3>
-            </div>
-            <div class="service-feature-chips">
-              <span>Kontaktformulare</span>
-              <span>WhatsApp</span>
-              <span>Google Maps</span>
-              <span>Bewertungen</span>
-              <span>Social Media</span>
-            </div>
-          </section>
-
-          <section class="service-feature-group" aria-labelledby="feature-service-title">
-            <div class="service-feature-group__head">
-              <span aria-hidden="true">03</span>
-              <h3 id="feature-service-title">Information &amp; Service</h3>
-            </div>
-            <div class="service-feature-chips">
-              <span>Leistungen</span>
-              <span>Preise</span>
-              <span>Öffnungszeiten</span>
-              <span>FAQ</span>
-              <span>Terminlinks</span>
-            </div>
-          </section>
-
-          <section class="service-feature-group" aria-labelledby="feature-functions-title">
-            <div class="service-feature-group__head">
-              <span aria-hidden="true">04</span>
-              <h3 id="feature-functions-title">Technik &amp; Qualität</h3>
-            </div>
-            <div class="service-feature-chips">
-              <span>Responsive Design</span>
-              <span>SEO-Grundlagen</span>
-              <span>Analytics</span>
-              <span>Mehrsprachigkeit</span>
-              <span>Schnelle Ladezeiten</span>
-            </div>
-          </section>
+          </article>
         </div>
       </div>
     </section>
 
-
-    <section class="section technical-scope-section" aria-labelledby="technical-scope-title">
+    <section class="section services-options">
       <div class="container">
-        <div class="section-heading section-heading--center">
-          <span class="section-kicker">Technische Qualität</span>
-          <h2 id="technical-scope-title">Im Hintergrund sauber umgesetzt.</h2>
-          <p>Auch eine kompakte Website braucht eine solide technische Grundlage. Responsive Darstellung, verständliche
-            Struktur, Performance und saubere SEO-Basics werden von Anfang an mitgedacht.</p>
+        <div class="clean-heading clean-heading--dark">
+          <span class="kicker">Weitere Möglichkeiten</span>
+          <h2>Nicht jedes Projekt startet bei null</h2>
+          <p>Je nach Ziel kann eine einzelne Landingpage sinnvoll sein oder eine bestehende Website gezielt modernisiert
+            werden.</p>
         </div>
-        <div class="technical-scope-grid">
+
+        <div class="services-options__grid">
+          <article id="landingpage">
+            <span class="services-options__label">Landingpage</span>
+            <h3>Eine Seite. Ein klares Ziel.</h3>
+            <p>Ideal für eine einzelne Dienstleistung, eine Aktion oder ein konkretes Angebot. Die Inhalte führen
+              Besucher ohne Umwege zu einer Anfrage oder Kontaktaufnahme.</p>
+            <ul>
+              <li>Fokussierter Seitenaufbau</li>
+              <li>Klare Call-to-Action</li>
+              <li>Responsive &amp; SEO-Basis</li>
+            </ul>
+            <a class="link-arrow" href="/kontakt?project=Neue%20Website%20oder%20Landingpage">Landingpage anfragen</a>
+          </article>
+
+          <article id="website-verbessern">
+            <span class="services-options__label">Modernisierung</span>
+            <h3>Bestehende Website verbessern.</h3>
+            <p>Wenn bereits eine Website vorhanden ist, muss nicht automatisch alles neu gebaut werden. Sinnvolle
+              Bestandteile bleiben erhalten und problematische Bereiche werden gezielt verbessert.</p>
+            <ul>
+              <li>Design &amp; Mobilansicht verbessern</li>
+              <li>Inhalte und Seiten ergänzen</li>
+              <li>Technik, SEO &amp; Performance prüfen</li>
+            </ul>
+            <a class="link-arrow" href="/kontakt?project=Bestehende%20Website%20verbessern">Website prüfen lassen</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--light process-service" aria-labelledby="process-title">
+      <div class="container">
+        <div class="clean-heading">
+          <span class="kicker">Ablauf</span>
+          <h2 id="process-title">So entsteht deine Website</h2>
+          <p>Ein klarer Ablauf sorgt dafür, dass du jederzeit weißt, wo dein Projekt steht und was als Nächstes
+            passiert.</p>
+        </div>
+
+        <div class="process-service__grid">
           <article><span>01</span>
-            <h3>Responsive</h3><strong>Für alle Geräte</strong>
-            <p>Die Website wird für Smartphone, Tablet und Desktop sauber aufgebaut und auf typische Bildschirmgrößen
-              abgestimmt.</p>
+            <h3>Anfrage</h3>
+            <p>Du beschreibst kurz dein Vorhaben und den gewünschten Umfang.</p>
           </article>
           <article><span>02</span>
-            <h3>SEO-Grundlagen</h3><strong>Für Google verständlich</strong>
-            <p>Klare Seitentitel, sinnvolle Überschriften, saubere Struktur und technische Grundlagen helfen
-              Suchmaschinen, die Inhalte richtig einzuordnen.</p>
+            <h3>Besprechung</h3>
+            <p>Wir klären Seiten, Inhalte, Designrichtung und offene Fragen.</p>
           </article>
           <article><span>03</span>
-            <h3>Performance</h3><strong>Schnell &amp; stabil</strong>
-            <p>Bilder, Dateien und Seitenaufbau werden so umgesetzt, dass unnötige Ladezeit vermieden und die Website
-              zuverlässig nutzbar bleibt.</p>
+            <h3>Umsetzung</h3>
+            <p>Ich entwickle die Website responsive und technisch sauber.</p>
           </article>
           <article><span>04</span>
-            <h3>Wartbarkeit</h3><strong>Sauber aufgebaut</strong>
-            <p>Klare Strukturen und wiederverwendbare Komponenten erleichtern spätere Änderungen und
-              Weiterentwicklungen.</p>
+            <h3>Korrektur</h3>
+            <p>Du sammelst dein Feedback und sendest die Änderungswünsche gebündelt.</p>
+          </article>
+          <article><span>05</span>
+            <h3>Onlinegang</h3>
+            <p>Nach der finalen Prüfung wird die Website veröffentlicht und für Google vorbereitet.</p>
           </article>
         </div>
       </div>
     </section>
 
-    <section class="cta-section services-cta">
-      <div class="container cta-row">
+    <section class="section preparation-section">
+      <div class="container preparation-grid">
         <div>
-          <h2>Du brauchst eine neue Website oder möchtest eine bestehende verbessern?</h2>
-          <p>Ein paar Eckdaten reichen für eine erste Einschätzung von Umfang, Inhalt und sinnvoller Umsetzung.</p>
+          <span class="kicker">Für einen guten Start</span>
+          <h2>Was du idealerweise bereitstellst</h2>
+          <p>Je mehr Material bereits vorhanden ist, desto schneller können wir mit der eigentlichen Website starten.
+            Falls etwas fehlt, klären wir gemeinsam, was wirklich benötigt wird.</p>
         </div>
-        <a class="button button--secondary" href="/kontakt">Website anfragen</a>
+
+        <div class="preparation-list">
+          <div><strong>Logo &amp; Branding</strong><span>Vorhandenes Logo, Farben oder Gestaltungswünsche.</span></div>
+          <div><strong>Texte &amp; Inhalte</strong><span>Informationen zu deinem Unternehmen, deinen Leistungen und
+              Kontaktdaten.</span></div>
+          <div><strong>Bilder</strong><span>Eigene Fotos oder vorhandenes Bildmaterial in guter Qualität.</span></div>
+          <div><strong>Rechtstexte</strong><span>Impressum und Datenschutz werden von dir bereitgestellt und technisch
+              eingebunden.</span></div>
+        </div>
       </div>
     </section>
+
+    <section class="section section--light extras-section">
+      <div class="container">
+        <div class="clean-heading">
+          <span class="kicker">Optional</span>
+          <h2>Zusätzliche Leistungen, wenn du sie brauchst</h2>
+          <p>Nicht jede Website benötigt alles davon. Zusatzleistungen werden nur dann eingeplant, wenn sie für dein
+            Projekt wirklich sinnvoll sind.</p>
+        </div>
+
+        <div class="extras-grid">
+          <article>
+            <strong>Zusätzliche Seiten</strong>
+            <span>
+              Weitere Inhaltsseiten über den vereinbarten Paketumfang hinaus,
+              zum Beispiel zusätzliche Leistungen, Referenzen, FAQ, Team oder eigene Unterseiten.
+            </span>
+          </article>
+
+          <article>
+            <strong>Weitere Korrekturrunden</strong>
+            <span>
+              Zusätzliche Änderungswünsche nach den bereits enthaltenen Korrekturrunden.
+              Kleine Anpassungen an bestehenden Inhalten können gesammelt umgesetzt werden.
+            </span>
+          </article>
+
+          <article>
+            <strong>Domain &amp; Hosting einrichten</strong>
+            <span>
+              Technische Einrichtung von Domain, Hosting und SSL sowie die Verbindung mit der Website.
+              Vorhandene Anbieter können weiterverwendet oder auf Wunsch gewechselt werden.
+            </span>
+          </article>
+
+          <article>
+            <strong>Laufende Betreuung</strong>
+            <span>
+              Spätere Änderungen an Texten, Bildern, Bereichen oder technischen Details.
+            </span>
+          </article>
+
+          <article>
+            <strong>Zusätzliche Formulare</strong>
+            <span>
+              Weitere Anfrage- oder Kontaktformulare für besondere Anforderungen.
+            </span>
+          </article>
+
+          <article>
+            <strong>Einfache Automatisierungen</strong>
+            <span>
+              Wiederkehrende Abläufe rund um Anfragen oder Benachrichtigungen können auf Wunsch automatisiert werden.
+            </span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="automation-service">
+      <div class="container automation-service__grid">
+        <div>
+          <span class="kicker">Automatisierung</span>
+          <h2>Weniger manuelle Schritte rund um deine Website.</h2>
+        </div>
+        <div>
+          <p>Zum Beispiel kann eine neue Anfrage automatisch weitergeleitet, strukturiert abgelegt oder als
+            Benachrichtigung verarbeitet werden. Solche Abläufe können je nach Projekt mit n8n, APIs und Webhooks
+            umgesetzt werden.</p>
+          <a class="link-arrow" href="/portfolio">Beispiele im Portfolio ansehen</a>
+        </div>
+      </div>
+    </section>
+    <section class="cta-section cta-section--clean services-final-cta">
+      <div class="container cta-row">
+        <div>
+          <span class="kicker">Projekt starten</span>
+          <h2>Welche Website passt zu deinem Vorhaben?</h2>
+          <p>Ein paar Eckdaten reichen. Den genauen Umfang klären wir anschließend gemeinsam.</p>
+        </div>
+        <a class="button button--light" href="/kontakt">Website anfragen</a>
+      </div>
+    </section>
+
   </main>
 
   <footer class="site-footer" data-site-footer></footer>
+  <section class="consent-banner" role="dialog" aria-label="Datenschutz-Einstellungen" data-consent-banner hidden></section>
 </body>
 
 </html>
