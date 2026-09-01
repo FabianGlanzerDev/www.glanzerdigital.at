@@ -63,8 +63,22 @@ function gd_admin_authorization_header(): string
 function gd_admin_bearer_token(): string
 {
     $header = gd_admin_authorization_header();
-    if (!preg_match('/^Bearer\s+(.+)$/i', $header, $matches)) return '';
-    return trim($matches[1]);
+    if (preg_match('/^Bearer\s+(.+)$/i', $header, $matches)) return trim($matches[1]);
+
+    $fallback = trim((string) ($_SERVER['HTTP_X_FIREBASE_ID_TOKEN'] ?? ''));
+    if ($fallback !== '') return $fallback;
+
+    return gd_admin_token_from_headers();
+}
+
+
+function gd_admin_token_from_headers(): string
+{
+    if (!function_exists('getallheaders')) return '';
+    foreach ((array) getallheaders() as $name => $value) {
+        if (strcasecmp((string) $name, 'X-Firebase-ID-Token') === 0) return trim((string) $value);
+    }
+    return '';
 }
 
 

@@ -69,7 +69,8 @@ async function getAdminToken() {
 async function fetchHealthData() {
   const token = await getAdminToken();
   const endpoint = window.GlanzerAdminConfig?.endpoints?.health || './api/health.php';
-  const response = await fetch(endpoint, { headers: { Authorization: `Bearer ${token}` }, cache: 'no-store' });
+  const headers = { Authorization: `Bearer ${token}`, 'X-Firebase-ID-Token': token };
+  const response = await fetch(endpoint, { headers, cache: 'no-store' });
   const data = await response.json().catch(() => ({}));
   if (!response.ok) throw new Error(data.message || 'Systemcheck fehlgeschlagen.');
   return data.checks || {};

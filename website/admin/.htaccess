@@ -1,6 +1,21 @@
 DirectoryIndex index.html
 Options -Indexes
 
-<FilesMatch "^(bootstrap|ga4-dashboard)\.php$">
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+
+  # Bearer-Token auch bei PHP/FastCGI an PHP weiterreichen.
+  RewriteCond %{HTTP:Authorization} .
+  RewriteRule ^ - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+
+  # Interne PHP-Includes dürfen niemals direkt per Browser aufgerufen werden.
+  RewriteRule ^includes(?:/|$) - [F,L,NC]
+</IfModule>
+
+<FilesMatch "^(bootstrap|ga4-dashboard|ga4-history)\.php$">
   Require all denied
 </FilesMatch>
+
+<IfModule mod_headers.c>
+  Header always set X-Robots-Tag "noindex, nofollow, noarchive, nosnippet"
+</IfModule>

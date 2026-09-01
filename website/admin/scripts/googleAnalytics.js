@@ -66,7 +66,7 @@ function renderGa4Realtime(data = {}) {
   setGa4Value('activeUsers', formatGa4Number(realtime.activeUsers));
   setGa4Value('screenPageViews', formatGa4Number(realtime.screenPageViews));
   setGa4Value('eventCount', formatGa4Number(realtime.eventCount));
-  setGa4Value('topPage', realtime.topPage || '–');
+  setGa4Value('topPage', window.GlanzerPageLabels?.label(realtime.topPage) || realtime.topPage || '–');
   setGa4State('GA4 live', 'is-ok');
   window.GlanzerAdminUi?.setSystemState('ga4', 'is-ok', 'Realtime verbunden');
 }
@@ -78,7 +78,7 @@ async function fetchGa4Realtime(signal) {
   const token = await getGa4AdminToken();
   if (!token) throw new Error('Firebase-ID-Token fehlt.');
   const response = await fetch(`${getGa4Endpoint()}?_=${Date.now()}`, {
-    headers: { Authorization: `Bearer ${token}` },
+    headers: { Authorization: `Bearer ${token}`, 'X-Firebase-ID-Token': token },
     credentials: 'same-origin', cache: 'no-store', signal,
   });
   const data = await response.json().catch(() => ({}));

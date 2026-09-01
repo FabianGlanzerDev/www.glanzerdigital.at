@@ -89,7 +89,7 @@ async function requestMaintenance(options = {}) {
 function buildRequestOptions(options, token) {
   return {
     ...options,
-    headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${token}`, ...(options.headers || {}) },
+    headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${token}`, 'X-Firebase-ID-Token': token, ...(options.headers || {}) },
     cache: 'no-store',
   };
 }

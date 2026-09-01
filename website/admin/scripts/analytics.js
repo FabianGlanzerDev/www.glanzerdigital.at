@@ -1,6 +1,6 @@
 'use strict';
 
-const ANALYTICS_FRONTEND_BUILD = '20260830-code-review';
+const ANALYTICS_FRONTEND_BUILD = '20260831-dashboard';
 const ANALYTICS_REQUEST_TIMEOUT = 25000;
 let selectedRange = '30';
 let analyticsRequestController = null;
@@ -50,7 +50,7 @@ async function fetchAnalyticsResponse(signal, force) {
   const token = await getAnalyticsToken();
   if (!token) throw new Error('Firebase-ID-Token fehlt.');
   return fetch(buildAnalyticsRequestUrl(force), {
-    headers: { Authorization: `Bearer ${token}` },
+    headers: { Authorization: `Bearer ${token}`, 'X-Firebase-ID-Token': token },
     credentials: 'same-origin', cache: 'no-store', signal,
   });
 }
@@ -124,6 +124,7 @@ function showAnalyticsLoadingState() {
 
 /** Applies one successful historical analytics response. */
 function handleAnalyticsSuccess(data) {
+  data.range = data.range || selectedRange;
   window.GlanzerAnalyticsRender?.renderDashboard(data);
   window.GlanzerAnalyticsRender?.setAnalyticsText('[data-chart-state]', rangeLabel());
   const status = historyStatusForData(data);
