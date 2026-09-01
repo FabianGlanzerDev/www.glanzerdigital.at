@@ -40,6 +40,39 @@ function formatDelta(value) {
 }
 
 
+/** Returns normalized rows for page-based rankings. */
+function rankingRows(name, rows = []) {
+  if (!['pages', 'landingPages'].includes(name)) return rows;
+  return window.GlanzerPageLabels?.normalizeRows(rows) || rows;
+}
+
+
+/** Formats the visible analytics period label. */
+function formatRangeLabel(range) {
+  if (range === 'all') return 'Gesamter Zeitraum';
+  return `${Number(range) || 30} Tage`;
+}
+
+
+/** Updates one main-page overview card. */
+function renderPageCard(stat = {}) {
+  const value = stat.value === null ? '–' : formatNumber(stat.value);
+  const share = stat.share === null ? '–' : `${formatPercent(stat.share)} Anteil`;
+  setAnalyticsText(`[data-page-stat="${stat.key}"]`, value);
+  setAnalyticsText(`[data-page-share="${stat.key}"]`, share);
+}
+
+
+/** Renders the five main public pages for the selected period. */
+function renderPageOverview(rankings = {}, funnel = {}, range = '30') {
+  const rows = rankings.pages || [];
+  const total = Number(funnel.pageviews) || 0;
+  const stats = window.GlanzerPageLabels?.coreStats(rows, total) || [];
+  stats.forEach(renderPageCard);
+  setAnalyticsText('[data-page-range]', formatRangeLabel(range));
+}
+
+
 /** Renders summary comparison values. */
 function renderComparisons(summary = {}) {
   const map = { today: 'todayDelta', yesterday: 'yesterdayDelta', week: 'weekDelta', month: 'monthDelta' };
@@ -75,8 +108,9 @@ function createRankingItem(item = {}) {
 function renderRanking(name, rows = []) {
   const list = document.querySelector(`[data-ranking="${name}"]`);
   if (!list) return;
-  const items = rows.length ? rows.slice(0, 6).map(createRankingItem) : [createRankingItem({ label: 'Keine Daten', value: null })];
-  list.replaceChildren(...items);
+  const prepared = rankingRows(name, rows);
+  const empty = [createRankingItem({ label: 'Keine Daten', value: null })];
+  list.replaceChildren(...(prepared.length ? prepared.slice(0, 6).map(createRankingItem) : empty));
 }
 
 
@@ -207,6 +241,7 @@ function renderDashboard(data = {}) {
   if (exportButton) exportButton.disabled = false;
   renderSummary(data.summary || {});
   renderRankings(data.rankings || {});
+  renderPageOverview(data.rankings || {}, data.funnel || {}, data.range || '30');
   renderInsights(data.insights || {});
   renderFunnel(data.funnel || {});
   renderSourceDistribution(data.sources || []);

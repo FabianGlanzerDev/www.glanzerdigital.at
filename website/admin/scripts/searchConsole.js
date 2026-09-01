@@ -38,7 +38,7 @@ function renderSearchSummary(summary = {}) {
   setSearchText('[data-search-stat="clicks"]', formatSearchNumber(summary.clicks));
   setSearchText('[data-search-stat="impressions"]', formatSearchNumber(summary.impressions));
   setSearchText('[data-search-stat="ctr"]', formatSearchPercent(summary.ctr));
-  setSearchText('[data-search-stat="position"]', Number(summary.position)?.toFixed?.(1)?.replace('.', ',') || '–');
+  setSearchText('[data-search-stat="position"]', formatSearchPosition(summary.position));
 }
 
 
@@ -68,8 +68,84 @@ function createSearchCell(value) {
 
 /** Formats a Search Console average position. */
 function formatSearchPosition(value) {
+  if (value === null || value === undefined || value === '') return '–';
   const number = Number(value);
   return Number.isFinite(number) ? number.toFixed(1).replace('.', ',') : '–';
+}
+
+
+/** Returns the raw page identifier used by Search Console. */
+function getSearchPageValue(row = {}) {
+  return row.page ?? row.label ?? row.name ?? row.url ?? '';
+}
+
+
+/** Creates an empty metric object for one main public page. */
+function createSearchPageMetric(key) {
+  const path = key === 'home' ? '/' : `/${key}`;
+  const label = window.GlanzerPageLabels?.label(path) || key;
+  return { key, label, clicks: 0, impressions: 0, positionTotal: 0, positionWeight: 0 };
+}
+
+
+/** Adds one Search Console page row to its matching main-page metric. */
+function mergeSearchPageMetric(metric, row = {}) {
+  const impressions = Number(row.impressions) || 0;
+  const position = Number(row.position);
+  metric.clicks += Number(row.clicks) || 0;
+  metric.impressions += impressions;
+  if (!Number.isFinite(position) || impressions <= 0) return;
+  metric.positionTotal += position * impressions;
+  metric.positionWeight += impressions;
+}
+
+
+/** Builds stable Search Console metrics for the five main public pages. */
+function buildSearchPageMetrics(rows = []) {
+  const keys = window.GlanzerPageLabels?.coreKeys || [];
+  const metrics = new Map(keys.map((key) => [key, createSearchPageMetric(key)]));
+  rows.forEach((row) => mergeSearchPageRow(metrics, row));
+  return [...metrics.values()].map(finalizeSearchPageMetric);
+}
+
+
+/** Routes one Search Console row to a known main page. */
+function mergeSearchPageRow(metrics, row = {}) {
+  const key = window.GlanzerPageLabels?.key(getSearchPageValue(row)) || '';
+  const metric = metrics.get(key);
+  if (metric) mergeSearchPageMetric(metric, row);
+}
+
+
+/** Calculates derived CTR and average position for one page. */
+function finalizeSearchPageMetric(metric) {
+  const ctr = metric.impressions ? metric.clicks / metric.impressions : 0;
+  const position = metric.positionWeight ? metric.positionTotal / metric.positionWeight : null;
+  return { ...metric, ctr, position };
+}
+
+
+/** Updates one value inside a Search Console page card. */
+function setSearchPageMetric(card, selector, value) {
+  const target = card?.querySelector(selector);
+  if (target) target.textContent = value;
+}
+
+
+/** Renders one main-page Search Console performance card. */
+function renderSearchPageCard(metric = {}) {
+  const card = document.querySelector(`[data-search-page="${metric.key}"]`);
+  if (!card) return;
+  setSearchPageMetric(card, '[data-search-page-clicks]', formatSearchNumber(metric.clicks));
+  setSearchPageMetric(card, '[data-search-page-impressions]', formatSearchNumber(metric.impressions));
+  setSearchPageMetric(card, '[data-search-page-ctr]', formatSearchPercent(metric.ctr));
+  setSearchPageMetric(card, '[data-search-page-position]', formatSearchPosition(metric.position));
+}
+
+
+/** Renders Search Console metrics for Home, Leistungen, Portfolio, Über mich and Kontakt. */
+function renderSearchPagePerformance(rows = []) {
+  buildSearchPageMetrics(rows).forEach(renderSearchPageCard);
 }
 
 
@@ -108,9 +184,16 @@ function createSearchRankingItem(row = {}) {
 function renderSearchRanking(name, rows = []) {
   const list = document.querySelector(`[data-search-ranking="${name}"]`);
   if (!list) return;
-  const empty = { label: 'Keine Daten', value: null };
-  const items = rows.length ? rows.slice(0, 8).map(createSearchRankingItem) : [createSearchRankingItem(empty)];
-  list.replaceChildren(...items);
+  const prepared = searchRankingRows(name, rows);
+  const empty = [createSearchRankingItem({ label: 'Keine Daten', value: null })];
+  list.replaceChildren(...(prepared.length ? prepared.slice(0, 8).map(createSearchRankingItem) : empty));
+}
+
+
+/** Applies friendly labels to Search Console page URLs. */
+function searchRankingRows(name, rows = []) {
+  if (name !== 'pages') return rows;
+  return window.GlanzerPageLabels?.normalizeRows(rows) || rows;
 }
 
 
@@ -127,8 +210,8 @@ function renderSearchOpportunity(item = {}) {
 function renderSearchConsole(data = {}) {
   renderSearchSummary(data.summary || {});
   renderSearchQueries(data.queries || []);
+  renderSearchPagePerformance(data.pages || []);
   renderSearchRanking('countries', data.countries || []);
-  renderSearchRanking('pages', data.pages || []);
   renderSearchRanking('devices', data.devices || []);
   renderSearchOpportunity(data.opportunity || {});
 }
@@ -158,7 +241,8 @@ async function getSearchToken() {
 async function fetchSearchConsoleData() {
   const token = await getSearchToken();
   const endpoint = getSearchConfig().searchConsoleEndpoint;
-  const response = await fetch(endpoint, { headers: { Authorization: `Bearer ${token}` }, cache: 'no-store' });
+  const headers = { Authorization: `Bearer ${token}`, 'X-Firebase-ID-Token': token };
+  const response = await fetch(endpoint, { headers, cache: 'no-store' });
   const data = await response.json().catch(() => ({}));
   if (!response.ok) throw new Error(data.message || 'Search Console konnte nicht geladen werden.');
   return data;

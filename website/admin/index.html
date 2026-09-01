@@ -5,30 +5,31 @@
 <head>
   <meta charset="utf-8" />
   <meta content="width=device-width, initial-scale=1" name="viewport" />
-  <meta content="Geschützter Administrationsbereich von Glanzer Digital." name="description" />
+  <meta content="Geschützter Administrationsbereich von GlanzerDigital." name="description" />
   <meta content="Fabian Glanzer" name="author" />
   <meta content="noindex,nofollow,noarchive" name="robots" />
   <meta content="#06101b" name="theme-color" />
-  <title>Control Center | Glanzer Digital</title>
+  <title>Control Center | GlanzerDigital</title>
   <link rel="icon" href="assets/favicons/admin-favicon.svg" type="image/svg+xml">
   <link rel="icon" href="assets/favicons/admin-favicon.ico" sizes="any">
   <link rel="icon" href="assets/favicons/admin-favicon-32x32.png" type="image/png" sizes="32x32">
   <link rel="apple-touch-icon" href="assets/favicons/admin-apple-touch-icon.png" sizes="180x180">
-  <link href="styles/admin.css?v=20260826-2030" rel="stylesheet" />
-  <script src="scripts/auth.js?v=20260827-endpoint2" type="module"></script>
-  <script defer src="scripts/analyticsRender.js?v=20260830-review"></script>
-  <script defer src="scripts/analytics.js?v=20260830-review"></script>
-  <script defer="" src="scripts/googleAnalytics.js?v=20260827-1205"></script>
-  <script defer="" src="scripts/maintenance.js?v=20260827-1520"></script>
-  <script defer="" src="scripts/searchConsole.js?v=20260826-1900"></script>
-  <script defer="" src="scripts/admin.js?v=20260827-1415"></script>
+  <link href="styles/admin.css?v=20260901-searchpages" rel="stylesheet" />
+  <script src="scripts/auth.js?v=20260831-dashboard" type="module"></script>
+  <script defer src="scripts/pageLabels.js?v=20260901-searchpages"></script>
+  <script defer src="scripts/analyticsRender.js?v=20260831-dashboard"></script>
+  <script defer src="scripts/analytics.js?v=20260831-tokenfix"></script>
+  <script defer="" src="scripts/googleAnalytics.js?v=20260831-tokenfix"></script>
+  <script defer="" src="scripts/maintenance.js?v=20260831-tokenfix"></script>
+  <script defer="" src="scripts/searchConsole.js?v=20260901-searchpages"></script>
+  <script defer="" src="scripts/admin.js?v=20260831-tokenfix"></script>
 </head>
 
 <body class="admin-body">
   <a class="admin-skip" href="#admin-main">Zum Inhalt springen</a>
   <section class="admin-auth-gate" data-auth-gate="">
     <div class="admin-auth-card">
-      <img alt="Glanzer Digital" src="../assets/images/logos/glanzerdigital-neon-logo.webp" />
+      <img alt="GlanzerDigital" src="../assets/images/logos/glanzerdigital-neon-logo.webp" />
       <span class="admin-kicker">Geschützter Adminbereich</span>
       <h1>Admin anmelden</h1>
       <p>Melde dich mit deinem freigegebenen Firebase-Adminzugang an. Das Passwort wird nicht in dieser Website
@@ -47,7 +48,7 @@
   <div class="admin-app" data-admin-app="" hidden="">
     <aside aria-label="Admin-Navigation" class="admin-sidebar">
       <a aria-label="Glanzer Digital Admin Startseite" class="admin-brand" href="./">
-        <img alt="Glanzer Digital" src="../assets/images/logos/glanzerdigital-neon-logo.webp" />
+        <img alt="GlanzerDigital" src="../assets/images/logos/glanzerdigital-neon-logo.webp" />
         <span>Control Center</span>
       </a>
       <nav aria-label="Dashboard-Bereiche" class="admin-nav">
@@ -72,9 +73,9 @@
     <main class="admin-main" id="admin-main">
       <header class="admin-topbar">
         <div>
-          <span class="admin-kicker">Glanzer Digital</span>
+          <span class="admin-kicker">GlanzerDigital</span>
           <h1>Website Control Center</h1>
-          <p>Reichweite, Projekte, Interaktionen und Systemstatus auf einen Blick.</p>
+          <p>Aufrufe, Google-Klicks, Anfragen und Systemstatus auf einen Blick.</p>
         </div>
         <div class="admin-topbar-actions">
           <div aria-label="Aktuelle Uhrzeit" class="admin-clock">
@@ -92,8 +93,8 @@
       <section aria-labelledby="overview-title" class="admin-hero" id="overview">
         <div class="admin-hero-copy">
           <div class="admin-live-pill"><span aria-hidden="true"></span> Dashboard bereit</div>
-          <h2 id="overview-title">Alles Wichtige. Ohne Suchen.</h2>
-          <p>Nach der Firebase-Anmeldung werden historische GA4-Daten und GA4-Realtime-Werte geladen. Spezielle Klick-Events erscheinen, sobald sie in GA4 oder im lokalen Fallback erfasst wurden.</p>
+          <h2 id="overview-title">Deine Website auf einen Blick.</h2>
+          <p>GA4, Search Console, Kontaktaktionen und der technische Zustand deiner Website werden hier zentral zusammengeführt.</p>
         </div>
         <div aria-hidden="true" class="admin-hero-pulse">
           <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
@@ -106,23 +107,33 @@
           </div>
           <span class="admin-muted" data-history-status>Historische GA4-Daten werden nach der Anmeldung geladen.</span>
         </div>
-        <div class="admin-kpi-grid">
+        <div class="admin-kpi-grid admin-kpi-grid--summary">
           <article class="admin-kpi-card is-primary"><span>Heute</span><strong
               data-stat="today">–</strong><small>Seitenaufrufe</small><em data-delta="today">–</em></article>
-          <article class="admin-kpi-card"><span>Gestern</span><strong
-              data-stat="yesterday">–</strong><small>Seitenaufrufe</small><em data-delta="yesterday">–</em></article>
           <article class="admin-kpi-card"><span>7 Tage</span><strong
               data-stat="week">–</strong><small>Seitenaufrufe</small><em data-delta="week">–</em></article>
           <article class="admin-kpi-card"><span>30 Tage</span><strong
               data-stat="month">–</strong><small>Seitenaufrufe</small><em data-delta="month">–</em></article>
-          <article class="admin-kpi-card"><span>Gesamt</span><strong data-stat="total">–</strong><small>gemessene
-              Aufrufe</small><em>seit Tracking-Start</em></article>
-          <article class="admin-kpi-card"><span>Demos</span><strong
-              data-stat="demos">–</strong><small>Demo-Starts</small><em data-ratio="demos">–</em></article>
-          <article class="admin-kpi-card"><span>WhatsApp</span><strong
+          <article class="admin-kpi-card"><span>Gesamt</span><strong
+              data-stat="total">–</strong><small>gemessene Aufrufe</small><em>seit Tracking-Start</em></article>
+          <article class="admin-kpi-card"><span>Kontakt</span><strong
               data-stat="contact">–</strong><small>Kontaktaktionen</small><em data-ratio="contact">–</em></article>
-          <article class="admin-kpi-card"><span>Conversion</span><strong data-stat="conversion">–</strong><small>Kontakt
-              / Aufrufe</small><em>30 Tage</em></article>
+          <article class="admin-kpi-card"><span>Conversion</span><strong
+              data-stat="conversion">–</strong><small>Kontakt / Aufrufe</small><em>gewählter Zeitraum</em></article>
+        </div>
+        <div class="admin-subsection-heading">
+          <div>
+            <span class="admin-eyebrow">GA4</span>
+            <h3>Seitenaufrufe nach Seite</h3>
+          </div>
+          <span class="admin-panel-state" data-page-range>30 Tage</span>
+        </div>
+        <div class="admin-page-grid" data-page-overview>
+          <article class="admin-page-card" data-page-card="home"><span>Home</span><strong data-page-stat="home">–</strong><small>GA4-Aufrufe</small><em data-page-share="home">–</em></article>
+          <article class="admin-page-card" data-page-card="leistungen"><span>Leistungen</span><strong data-page-stat="leistungen">–</strong><small>GA4-Aufrufe</small><em data-page-share="leistungen">–</em></article>
+          <article class="admin-page-card" data-page-card="portfolio"><span>Portfolio</span><strong data-page-stat="portfolio">–</strong><small>GA4-Aufrufe</small><em data-page-share="portfolio">–</em></article>
+          <article class="admin-page-card" data-page-card="ueber-mich"><span>Über mich</span><strong data-page-stat="ueber-mich">–</strong><small>GA4-Aufrufe</small><em data-page-share="ueber-mich">–</em></article>
+          <article class="admin-page-card" data-page-card="kontakt"><span>Kontakt</span><strong data-page-stat="kontakt">–</strong><small>GA4-Aufrufe</small><em data-page-share="kontakt">–</em></article>
         </div>
       </section>
       <section aria-labelledby="traffic-title" class="admin-section" id="traffic">
@@ -226,6 +237,7 @@
             <div class="admin-panel-heading">
               <div><span class="admin-eyebrow">Seiten</span>
                 <h3>Meistbesuchte Seiten</h3>
+                <small class="admin-heading-note">Kurze Seitennamen statt SEO-Titel</small>
               </div>
             </div>
             <ol class="admin-ranking admin-ranking--large" data-ranking="pages">
@@ -233,16 +245,16 @@
             </ol>
           </article>
           <article class="admin-panel admin-panel--spotlight">
-            <span class="admin-eyebrow">Top-Projekt</span>
+            <span class="admin-eyebrow">Top-Demo</span>
             <div class="admin-project-spotlight">
               <div class="admin-project-orb">#1</div>
               <div>
                 <h3 data-insight="topProject">Noch offen</h3>
-                <p>Das meistgeklickte Portfolio-Projekt erscheint hier automatisch.</p>
+                <p>Die am häufigsten gestartete Demo erscheint hier automatisch.</p>
               </div>
             </div>
             <div class="admin-spotlight-value"><strong
-                data-insight="topProjectClicks">–</strong><span>Interaktionen</span></div>
+                data-insight="topProjectClicks">–</strong><span>Demo-Starts</span></div>
           </article>
         </div>
         <div class="admin-dashboard-grid admin-dashboard-grid--three">
@@ -280,8 +292,7 @@
             <i>→</i>
             <div><span>03</span><strong data-funnel="demos">–</strong><small>Demo-Starts</small></div>
             <i>→</i>
-            <div class="is-goal"><span>04</span><strong data-funnel="contact">–</strong><small>WhatsApp /
-                Kontakt</small></div>
+            <div class="is-goal"><span>04</span><strong data-funnel="contact">–</strong><small>Kontaktaktionen</small></div>
           </div>
         </article>
         <div class="admin-dashboard-grid admin-dashboard-grid--three">
@@ -296,8 +307,8 @@
             <div class="admin-big-metric"><strong data-stat="github">–</strong><span>Klicks</span></div>
           </article>
           <article class="admin-panel"><span class="admin-eyebrow">Kontakt</span>
-            <h3>WhatsApp-Quote</h3>
-            <div class="admin-big-metric"><strong data-stat="contactRate">–</strong><span>der Besuche</span></div>
+            <h3>Kontaktquote</h3>
+            <div class="admin-big-metric"><strong data-stat="contactRate">–</strong><span>der Seitenaufrufe</span></div>
           </article>
         </div>
       </section>
@@ -350,9 +361,8 @@
           <div>
             <span class="admin-eyebrow">Google-Daten</span>
             <h3>Search Console direkt im Control Center</h3>
-            <p>Die serverseitige API-Anbindung ist eingerichtet. Sobald der Google-Service-Account Zugriff auf die
-              Property hat, werden hier echte Suchanfragen, Klicks, Impressionen, CTR, Positionen, Länder, Geräte und
-              Zielseiten geladen.</p>
+            <p>Hier werden echte Daten aus der Google Search Console angezeigt. Google-Klicks und Impressionen
+              stammen ausschließlich aus der organischen Suche und bleiben bewusst von den GA4-Seitenaufrufen getrennt.</p>
           </div>
           <div class="admin-integration-meta">
             <span>Property</span>
@@ -369,6 +379,60 @@
               data-search-stat="ctr">–</strong><small>Klickrate</small><em>Search Console</em></article>
           <article class="admin-kpi-card"><span>Ø Position</span><strong
               data-search-stat="position">–</strong><small>durchschnittliches Ranking</small><em>Search Console</em>
+          </article>
+        </div>
+        <div class="admin-subsection-heading admin-subsection-heading--search">
+          <div>
+            <span class="admin-eyebrow">Zielseiten</span>
+            <h3>Google-Leistung nach Seite</h3>
+          </div>
+          <span class="admin-panel-state">Search Console</span>
+        </div>
+        <div class="admin-search-page-grid" data-search-page-overview>
+          <article class="admin-search-page-card" data-search-page="home">
+            <div class="admin-search-page-title"><span>Home</span><small>Google-Suche</small></div>
+            <div class="admin-search-page-clicks"><strong data-search-page-clicks>–</strong><span>Klicks</span></div>
+            <dl class="admin-search-page-metrics">
+              <div><dt>Impressionen</dt><dd data-search-page-impressions>–</dd></div>
+              <div><dt>CTR</dt><dd data-search-page-ctr>–</dd></div>
+              <div><dt>Ø Position</dt><dd data-search-page-position>–</dd></div>
+            </dl>
+          </article>
+          <article class="admin-search-page-card" data-search-page="leistungen">
+            <div class="admin-search-page-title"><span>Leistungen</span><small>Google-Suche</small></div>
+            <div class="admin-search-page-clicks"><strong data-search-page-clicks>–</strong><span>Klicks</span></div>
+            <dl class="admin-search-page-metrics">
+              <div><dt>Impressionen</dt><dd data-search-page-impressions>–</dd></div>
+              <div><dt>CTR</dt><dd data-search-page-ctr>–</dd></div>
+              <div><dt>Ø Position</dt><dd data-search-page-position>–</dd></div>
+            </dl>
+          </article>
+          <article class="admin-search-page-card" data-search-page="portfolio">
+            <div class="admin-search-page-title"><span>Portfolio</span><small>Google-Suche</small></div>
+            <div class="admin-search-page-clicks"><strong data-search-page-clicks>–</strong><span>Klicks</span></div>
+            <dl class="admin-search-page-metrics">
+              <div><dt>Impressionen</dt><dd data-search-page-impressions>–</dd></div>
+              <div><dt>CTR</dt><dd data-search-page-ctr>–</dd></div>
+              <div><dt>Ø Position</dt><dd data-search-page-position>–</dd></div>
+            </dl>
+          </article>
+          <article class="admin-search-page-card" data-search-page="ueber-mich">
+            <div class="admin-search-page-title"><span>Über mich</span><small>Google-Suche</small></div>
+            <div class="admin-search-page-clicks"><strong data-search-page-clicks>–</strong><span>Klicks</span></div>
+            <dl class="admin-search-page-metrics">
+              <div><dt>Impressionen</dt><dd data-search-page-impressions>–</dd></div>
+              <div><dt>CTR</dt><dd data-search-page-ctr>–</dd></div>
+              <div><dt>Ø Position</dt><dd data-search-page-position>–</dd></div>
+            </dl>
+          </article>
+          <article class="admin-search-page-card" data-search-page="kontakt">
+            <div class="admin-search-page-title"><span>Kontakt</span><small>Google-Suche</small></div>
+            <div class="admin-search-page-clicks"><strong data-search-page-clicks>–</strong><span>Klicks</span></div>
+            <dl class="admin-search-page-metrics">
+              <div><dt>Impressionen</dt><dd data-search-page-impressions>–</dd></div>
+              <div><dt>CTR</dt><dd data-search-page-ctr>–</dd></div>
+              <div><dt>Ø Position</dt><dd data-search-page-position>–</dd></div>
+            </dl>
           </article>
         </div>
         <div class="admin-dashboard-grid admin-dashboard-grid--two">
@@ -409,28 +473,20 @@
             </ol>
           </article>
         </div>
-        <div class="admin-dashboard-grid admin-dashboard-grid--three">
-          <article class="admin-panel"><span class="admin-eyebrow">Zielseiten</span>
-            <h3>Seiten aus Google</h3>
-            <ol class="admin-ranking" data-search-ranking="pages">
-              <li><span>–</span><strong>–</strong></li>
-            </ol>
-          </article>
+        <div class="admin-dashboard-grid admin-dashboard-grid--two">
           <article class="admin-panel"><span class="admin-eyebrow">Geräte</span>
             <h3>Google-Suche nach Gerät</h3>
             <ol class="admin-ranking" data-search-ranking="devices">
               <li><span>–</span><strong>–</strong></li>
             </ol>
           </article>
-          <article class="admin-panel admin-search-opportunity"><span class="admin-eyebrow">SEO-Spielerei</span>
+          <article class="admin-panel admin-search-opportunity"><span class="admin-eyebrow">SEO-Chance</span>
             <h3>Beste Chance</h3><strong data-search-opportunity="">–</strong>
-            <p data-search-opportunity-copy="">Später erscheint hier automatisch eine Suchanfrage mit vielen
-              Impressionen und Verbesserungspotenzial.</p>
+            <p data-search-opportunity-copy="">Hier erscheint automatisch eine Suchanfrage mit vielen Impressionen und Verbesserungspotenzial.</p>
           </article>
         </div>
         <div class="admin-search-note">
-          <strong>API fertig eingebaut.</strong> Fehlt der Service-Account oder dessen Search-Console-Berechtigung,
-          zeigt der Status oben die konkrete Ursache an.
+          <strong>Hinweis:</strong> Google-Klicks sind echte Klicks aus der Suche. GA4-Seitenwerte oben sind Seitenaufrufe.
         </div>
       </section>
       <section aria-labelledby="maintenance-title" class="admin-section" id="maintenance">
