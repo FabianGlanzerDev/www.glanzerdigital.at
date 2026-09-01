@@ -1,7 +1,7 @@
 .services-hero {
   position: relative;
   display: flex;
-  min-height: calc(100vh - var(--header-height));
+  min-height: auto;
   align-items: center;
   overflow: hidden;
   background:
@@ -12,14 +12,14 @@
 
 .services-hero__inner {
   max-width: 1120px;
-  padding-block: clamp(6.5rem, 11vw, 10rem);
+  padding-block: clamp(4.25rem, 7vw, 6.25rem);
   text-align: center;
 }
 
 .services-hero h1 {
   max-width: 1080px;
   margin: 0 auto 1.5rem;
-  font-size: clamp(3.6rem, 7.2vw, 7rem);
+  font-size: clamp(2.85rem, 5.5vw, 5.25rem);
   line-height: .98;
 }
 

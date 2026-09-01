@@ -35,6 +35,8 @@ function adaptLocalLink(link, rootPath) {
 
 /** Returns the German navigation label for the current state. */
 function getNavigationLabel(open) {
+  const english = window.GlanzerI18n?.getLanguage() === 'en';
+  if (english) return open ? 'Close navigation' : 'Open navigation';
   return open ? 'Navigation schließen' : 'Navigation öffnen';
 }
 
@@ -118,6 +120,7 @@ function updateCurrentYear() {
 /** Initializes shared layout, navigation, consent and analytics. */
 async function initializeSite() {
   await window.GlanzerLayout?.render();
+  window.GlanzerI18n?.initialize();
   adaptCleanRoutesForLocalDevelopment();
   initializeNavigation();
   updateCurrentYear();
