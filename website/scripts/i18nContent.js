@@ -125,6 +125,8 @@ window.GD_I18N_PARTS.push({
     "Web-Demo testen": "Test web demo",
     "Interesse? Projekt anfragen": "Interested? Request a project",
     "Developer Akademie": "Developer Akademie",
+    "Teamprojekt": "Team project",
+    "Einzelprojekt": "Individual project",
     "Ausbildungsprojekte": "Training projects",
     "Diese Projekte entstanden im Rahmen meiner Ausbildung und zeigen unterschiedliche Schwerpunkte aus Frontend- und Webentwicklung.": "These projects were created during my training and show different areas of frontend and web development.",
     "Gruppenprojekt mit responsiver Rezept-Website, Rezept des Tages, mehreren Rezeptseiten und Kontaktbereich.": "Group project with a responsive recipe website, recipe of the day, several recipe pages and a contact section.",
@@ -563,3 +565,28 @@ window.GD_I18N_PARTS.push({ translations: {
   "Deine Website beginnt": "Your website starts",
   "mit einer kurzen Nachricht.": "with a short message."
 }});
+
+window.GD_I18N_PARTS.push({ translations: {
+  "Sprache auswählen": "Select language",
+  "Beschreibe kurz, was du vorhast. Die Anfrage ist unverbindlich und dient nur dazu, dein Projekt zuerst gemeinsam einzuschätzen.": "Briefly describe what you have in mind. The enquiry is non-binding and only helps us assess your project together first.",
+  "Kurz & unverbindlich": "Brief & non-binding",
+  "Erst klären, dann entscheiden.": "Clarify first, then decide.",
+  "Mit dem Formular sendest du noch keinen Auftrag und tätigst keine Zahlung. Du gibst mir nur die wichtigsten Eckdaten für eine erste Einschätzung.": "Submitting the form does not place an order or make a payment. You only provide the key details for an initial assessment.",
+  "Keine Buchung oder Zahlung": "No booking or payment",
+  "WhatsApp oder E-Mail frei wählbar": "Choose WhatsApp or email",
+  "Details können wir danach gemeinsam klären": "We can clarify the details together afterwards",
+  "Unverbindliche Projektanfrage": "Non-binding project enquiry",
+  "Unverbindlich": "Non-binding",
+  "Ein paar Angaben reichen. Danach wird deine Nachricht nur vorbereitet – du entscheidest selbst, ob und wie du sie absendest.": "A few details are enough. Your message is only prepared afterwards – you decide whether and how to send it.",
+  "Wichtig:": "Important:",
+  "Das ist eine unverbindliche Anfrage, keine Bestellung, kein Auftrag und keine Zahlung.": "This is a non-binding enquiry, not an order, contract or payment.",
+  "Technologien:": "Technologies:",
+  "Ausbildungsprojekte steuern": "Control training projects",
+  "Vorheriges Projekt": "Previous project",
+  "Nächstes Projekt": "Next project",
+  "Projekt auswählen": "Select project",
+  "Join anzeigen": "Show Join",
+  "Poll App anzeigen": "Show Poll App",
+  "Memory Game anzeigen": "Show Memory Game",
+  "Sakura Ramen anzeigen": "Show Sakura Ramen"
+} });

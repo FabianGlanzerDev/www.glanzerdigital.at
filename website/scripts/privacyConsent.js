@@ -53,6 +53,7 @@ async function renderConsentBanner() {
   if (!consentBanner) return;
   const template = await loadConsentTemplate();
   consentBanner.innerHTML = window.GlanzerTemplates.fillTemplate(template, { PRIVACY_URL: getPrivacyUrl() });
+  window.GlanzerI18n?.refresh();
 }
 
 

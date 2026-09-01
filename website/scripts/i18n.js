@@ -78,14 +78,13 @@ function translateMetadata(language) {
 
 
 
-/** Updates language toggle. @param {string} language - The language value. @returns {void} The operation result. */
+/** Updates the visible DE/EN language selector. */
 function updateLanguageToggle(language) {
-  const toggle = document.querySelector('[data-language-toggle]');
-  if (!(toggle instanceof HTMLButtonElement)) return;
-  const isGerman = language === 'de';
-  toggle.textContent = isGerman ? 'EN' : 'DE';
-  toggle.setAttribute('aria-label', isGerman ? 'Sprache auf Englisch wechseln' : 'Switch language to German');
-  toggle.setAttribute('title', isGerman ? 'English' : 'Deutsch');
+  document.querySelectorAll('[data-language-option]').forEach((button) => {
+    const isActive = button.dataset.languageOption === language;
+    button.classList.toggle('is-active', isActive);
+    button.setAttribute('aria-pressed', String(isActive));
+  });
 }
 
 
@@ -111,23 +110,47 @@ function getStoredLanguage() {
 
 
 
-/** Toggles language. @returns {void} The operation result. */
-function toggleLanguage() {
-  setLanguage(document.documentElement.lang === 'en' ? 'de' : 'en');
+/** Handles one explicit language selection. */
+function handleLanguageSelection(event) {
+  const language = event.currentTarget.dataset.languageOption;
+  setLanguage(language);
 }
 
 
 
-/** Initializes language switch. @returns {void} The operation result. */
+/** Initializes language switch after the shared header exists. */
 function initializeLanguageSwitch() {
-  const toggle = document.querySelector('[data-language-toggle]');
-  if (toggle) toggle.addEventListener('click', toggleLanguage);
+  document.querySelectorAll('[data-language-option]').forEach((button) => {
+    button.addEventListener('click', handleLanguageSelection);
+  });
   setLanguage(getStoredLanguage(), false);
 }
 
-window.GlanzerI18n = {
-  getLanguage: () => document.documentElement.lang === 'en' ? 'en' : 'de',
-  setLanguage
-};
+/** Returns the currently active language. */
+function getCurrentLanguage() {
+  return document.documentElement.lang === 'en' ? 'en' : 'de';
+}
 
-initializeLanguageSwitch();
+
+/** Translates one runtime value to the active language. */
+function translateRuntimeValue(value) {
+  return translateValue(value, getCurrentLanguage());
+}
+
+
+/** Reapplies the active language after dynamic markup was inserted. */
+function refreshLanguage() {
+  const language = getCurrentLanguage();
+  translateDocumentText(language);
+  translateMetadata(language);
+  updateLanguageToggle(language);
+}
+
+
+window.GlanzerI18n = {
+  getLanguage: getCurrentLanguage,
+  translate: translateRuntimeValue,
+  refresh: refreshLanguage,
+  setLanguage,
+  initialize: initializeLanguageSwitch
+};
