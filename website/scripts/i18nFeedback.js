@@ -57,7 +57,7 @@ window.GD_I18N_PARTS.push({ translations: {
   "Website anfragen | GlanzerDigital": "Request a website | GlanzerDigital",
   "Deine Website beginnt.": "Your website starts.",
   "Mit einer kurzen Nachricht.": "With a short message.",
-  "Wann soll deine Website ungefähr fertig sein?": "When should your website be roughly completed?",
+  "Wann soll deine Website ungefähr fertig sein?": "When should your website be roughly completed",
   "Innerhalb der nächsten 2–4 Wochen": "Within the next 2–4 weeks",
   "Ich bin zeitlich flexibel": "I am flexible on timing",
   "Wie möchtest du deine Anfrage senden?": "How would you like to send your enquiry?",
