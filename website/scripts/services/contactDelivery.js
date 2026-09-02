@@ -3,16 +3,21 @@
 const CONTACT_CONFIG = window.GlanzerContactConfig;
 
 
+/** Translates generated enquiry copy to the active language. */
+function translateDeliveryText(value) {
+  return window.GlanzerI18n?.translate(value) || value;
+}
+
+
 /** Builds the shared enquiry text for WhatsApp and e-mail. */
 function buildMessageBody(data, industry = '') {
+  const t = translateDeliveryText;
   const details = [
-    `Name: ${data.name}`,
-    `Projektart: ${data.project}`,
-    `Projektstand: ${data.projectStatus}`,
-    `Zeitraum: ${data.timeframe}`,
+    `Name: ${data.name}`, `${t('Projektart:')} ${t(data.project)}`,
+    `${t('Projektstand:')} ${t(data.projectStatus)}`, `${t('Zeitraum:')} ${t(data.timeframe)}`,
   ];
-  if (industry) details.splice(2, 0, `Branche / Beispiel: ${industry}`);
-  return [CONTACT_CONFIG.text.greeting, '', ...details, '', 'Projektbeschreibung:', data.message].join('\n');
+  if (industry) details.splice(2, 0, `${t('Branche / Beispiel:')} ${t(industry)}`);
+  return [t(CONTACT_CONFIG.text.greeting), '', ...details, '', t('Projektbeschreibung:'), data.message].join('\n');
 }
 
 
@@ -25,7 +30,7 @@ function buildWhatsAppLink(data, industry = '') {
 
 /** Builds an e-mail subject for one project enquiry. */
 function buildEmailSubject(data) {
-  return `Website-Anfrage von ${data.name}`;
+  return `${translateDeliveryText('Website-Anfrage von')} ${data.name}`;
 }
 
 
@@ -85,9 +90,9 @@ function buildOutlookUrl(mail) {
 
 /** Builds text that can be pasted into GMX or another mail client. */
 function buildCopyableEmail(data, industry = '') {
+  const t = translateDeliveryText;
   return [
-    `An: ${CONTACT_CONFIG.contactEmail}`,
-    `Betreff: ${buildEmailSubject(data)}`,
+    `${t('An:')} ${CONTACT_CONFIG.contactEmail}`, `${t('Betreff:')} ${buildEmailSubject(data)}`,
     '', buildMessageBody(data, industry),
   ].join('\n');
 }

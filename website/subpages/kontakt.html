@@ -36,16 +36,22 @@
   <link rel="manifest" href="/site.webmanifest">
   <link rel="stylesheet" href="../styles/variables.css">
   <link rel="stylesheet" href="../styles/fonts.css">
-  <link rel="stylesheet" href="../style.css?v=20260829-clean-1">
-  <link rel="stylesheet" href="../styles/pages/kontakt.css?v=20260830-provider-gmx">
+  <link rel="stylesheet" href="../style.css?v=20260901-designer-feedback">
+  <link rel="stylesheet" href="../styles/pages/kontakt.css?v=20260901-designer-feedback">
   <script src="../scripts/utils/templateLoader.js" defer></script>
   <script src="../scripts/layout.js" defer></script>
   <script src="../scripts/analytics.js" defer></script>
-  <script src="../scripts/privacyConsent.js" defer></script>
-  <script src="../scripts/main.js" defer></script>
+  <script src="../scripts/privacyConsent.js?v=20260901-i18n" defer></script>
+  <script src="../scripts/i18nCore.js" defer></script>
+  <script src="../scripts/i18nContent.js" defer></script>
+  <script src="../scripts/i18nLegal.js" defer></script>
+  <script src="../scripts/i18nFeedback.js" defer></script>
+  <script src="../scripts/i18nTranslations.js" defer></script>
+  <script src="../scripts/i18n.js?v=20260901-designer-feedback" defer></script>
+  <script src="../scripts/main.js?v=20260901-i18n" defer></script>
   <script src="../scripts/config/contactConfig.js?v=20260830-mobile-mail-app" defer></script>
-  <script src="../scripts/services/contactDelivery.js?v=20260830-mobile-mail-app" defer></script>
-  <script src="../scripts/pages/contactForm.js?v=20260830-mobile-mail-app" defer></script>
+  <script src="../scripts/services/contactDelivery.js?v=20260901-i18n" defer></script>
+  <script src="../scripts/pages/contactForm.js?v=20260901-i18n" defer></script>
   <script src="../scripts/kontakt.js?v=20260830-review" defer></script>
   <script type="application/ld+json">
 {
@@ -100,7 +106,7 @@
       <div class="container contact-hero__inner">
         <span class="kicker">Projektanfrage</span>
         <h1>Deine Website beginnt.<br><span class="text-primary">Mit einer kurzen Nachricht.</span></h1>
-        <p>Ein paar Eckdaten reichen für den ersten Überblick. Danach entscheidest du selbst, ob du deine Anfrage über WhatsApp oder per E-Mail vorbereiten möchtest.</p>
+        <p>Beschreibe kurz, was du vorhast. Die Anfrage ist unverbindlich und dient nur dazu, dein Projekt zuerst gemeinsam einzuschätzen.</p>
         <div class="button-row">
           <a class="button button--primary" href="#projektanfrage">Projekt anfragen</a>
           <a class="button button--secondary" href="/leistungen">Leistungen ansehen</a>
@@ -110,140 +116,35 @@
 
     <section class="section section--light contact-clean-section" id="projektanfrage">
       <div class="container contact-request-layout">
-        <aside class="contact-guide" aria-label="So funktioniert die Anfrage">
-          <article class="contact-guide-card">
-            <span class="contact-guide-kicker">So funktioniert's</span>
-            <ol class="contact-steps">
-              <li>
-                <span>01</span>
-                <div>
-                  <strong>Eckdaten auswählen</strong>
-                  <p>Projektart, Stand und gewünschten Zeitraum angeben.</p>
-                </div>
-              </li>
-              <li>
-                <span>02</span>
-                <div>
-                  <strong>Kurz beschreiben</strong>
-                  <p>Was soll entstehen und was ist dir besonders wichtig?</p>
-                </div>
-              </li>
-              <li>
-                <span>03</span>
-                <div>
-                  <strong>Versandart wählen</strong>
-                  <p>WhatsApp öffnen oder die Anfrage per E-Mail vorbereiten.</p>
-                </div>
-              </li>
-            </ol>
-          </article>
-
-          <article class="contact-guide-card contact-guide-card--dark">
-            <h2>Hilfreich für eine gute Einschätzung</h2>
-            <ul>
-              <li>Ziel der Website</li>
-              <li>gewünschte Funktionen oder Besonderheiten</li>
-              <li>bestehende Inhalte, Designs oder Projekte</li>
-              <li>gewünschter Zeitraum für die Umsetzung</li>
-            </ul>
-          </article>
+        <aside class="contact-guide" aria-label="Hinweise zur Projektanfrage">
+          <span class="contact-guide-kicker">Kurz & unverbindlich</span>
+          <h2>Erst klären, dann entscheiden.</h2>
+          <p>Mit dem Formular sendest du noch keinen Auftrag und tätigst keine Zahlung. Du gibst mir nur die wichtigsten Eckdaten für eine erste Einschätzung.</p>
+          <ul class="contact-guide-points">
+            <li>Keine Buchung oder Zahlung</li>
+            <li>WhatsApp oder E-Mail frei wählbar</li>
+            <li>Details können wir danach gemeinsam klären</li>
+          </ul>
         </aside>
 
         <article class="contact-request-card">
           <div class="contact-form-head">
             <div>
               <span class="kicker">Projektanfrage</span>
-              <h2>Projekt kurz vorbereiten</h2>
+              <h2>Unverbindliche Projektanfrage</h2>
             </div>
             <span class="contact-direct-badge">
               <span aria-hidden="true"></span>
-              Direkter Kontakt
+              Unverbindlich
             </span>
           </div>
 
           <p class="contact-form-intro">
-            Fülle die Eckdaten einmal aus und entscheide anschließend, ob du deine Anfrage über WhatsApp öffnen oder
-            per E-Mail in deinem Webmail-Anbieter öffnen möchtest.
+            Ein paar Angaben reichen. Danach wird deine Nachricht nur vorbereitet – du entscheidest selbst, ob und wie du sie absendest.
           </p>
+          <p class="contact-no-payment"><strong>Wichtig:</strong> Das ist eine unverbindliche Anfrage, keine Bestellung, kein Auftrag und keine Zahlung.</p>
 
           <form class="form-grid" data-contact-form id="contact-request-form" novalidate>
-          <fieldset class="contact-method" data-contact-method>
-            <legend>Wie möchtest du deine Anfrage senden?</legend>
-
-            <div class="contact-method__grid">
-              <label class="contact-method-card">
-                <input type="radio" name="contactMethod" value="whatsapp" checked>
-                <span class="contact-method-card__surface">
-                  <span class="contact-method-card__icon contact-method-card__icon--whatsapp" aria-hidden="true">
-                    <img src="../assets/images/icons/whatsapp.webp" alt="" width="32" height="32">
-                  </span>
-                  <span class="contact-method-card__copy">
-                    <strong>WhatsApp</strong>
-                    <small>Nachricht vorbereiten und selbst senden</small>
-                  </span>
-                  <span class="contact-method-card__check" aria-hidden="true">✓</span>
-                </span>
-              </label>
-
-              <label class="contact-method-card">
-                <input type="radio" name="contactMethod" value="email">
-                <span class="contact-method-card__surface">
-                  <span class="contact-method-card__icon" aria-hidden="true">
-                    <svg viewBox="0 0 24 24" focusable="false">
-                      <rect x="3" y="5" width="18" height="14" rx="2"></rect>
-                      <path d="m4 7 8 6 8-6"></path>
-                    </svg>
-                  </span>
-                  <span class="contact-method-card__copy">
-                    <strong>E-Mail</strong>
-                    <small>Nachricht vorbereiten und im Webmail öffnen</small>
-                  </span>
-                  <span class="contact-method-card__check" aria-hidden="true">✓</span>
-                </span>
-              </label>
-            </div>
-          </fieldset>
-
-          <fieldset class="email-provider" data-email-provider hidden>
-            <legend>E-Mail-Anbieter auswählen</legend>
-            <p class="email-provider__intro">Am Handy öffnet sich deine installierte Mail-App. Am Desktop wird der gewählte Anbieter verwendet.</p>
-
-            <div class="email-provider__grid">
-              <label class="email-provider-card">
-                <input type="radio" name="emailProvider" value="gmail" checked>
-                <span>
-                  <strong>Gmail</strong>
-                  <small>Handy: Mail-App · Desktop: Gmail</small>
-                </span>
-              </label>
-
-              <label class="email-provider-card">
-                <input type="radio" name="emailProvider" value="outlook">
-                <span>
-                  <strong>Outlook</strong>
-                  <small>Handy: Mail-App · Desktop: Outlook</small>
-                </span>
-              </label>
-
-              <label class="email-provider-card">
-                <input type="radio" name="emailProvider" value="gmx">
-                <span>
-                  <strong>GMX</strong>
-                  <small>Handy: Mail-App · Desktop: GMX</small>
-                </span>
-              </label>
-
-              <label class="email-provider-card">
-                <input type="radio" name="emailProvider" value="other">
-                <span>
-                  <strong>Andere</strong>
-                  <small>Handy: Mail-App · Desktop: Daten kopieren</small>
-                </span>
-              </label>
-            </div>
-          </fieldset>
-
-
             <div class="form-group" data-field="name">
               <label for="name">Dein Name <span aria-hidden="true">*</span></label>
               <input id="name" name="name" autocomplete="name" placeholder="Vor- und Nachname"
@@ -358,6 +259,82 @@
                 <small id="message-limit"><span data-message-count>0</span>/1200 Zeichen</small>
               </div>
             </div>
+
+          <fieldset class="contact-method" data-contact-method>
+            <legend>Wie möchtest du deine Anfrage senden?</legend>
+
+            <div class="contact-method__grid">
+              <label class="contact-method-card">
+                <input type="radio" name="contactMethod" value="whatsapp" checked>
+                <span class="contact-method-card__surface">
+                  <span class="contact-method-card__icon contact-method-card__icon--whatsapp" aria-hidden="true">
+                    <img src="../assets/images/icons/whatsapp.webp" alt="" width="32" height="32">
+                  </span>
+                  <span class="contact-method-card__copy">
+                    <strong>WhatsApp</strong>
+                    <small>Nachricht vorbereiten und selbst senden</small>
+                  </span>
+                  <span class="contact-method-card__check" aria-hidden="true">✓</span>
+                </span>
+              </label>
+
+              <label class="contact-method-card">
+                <input type="radio" name="contactMethod" value="email">
+                <span class="contact-method-card__surface">
+                  <span class="contact-method-card__icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" focusable="false">
+                      <rect x="3" y="5" width="18" height="14" rx="2"></rect>
+                      <path d="m4 7 8 6 8-6"></path>
+                    </svg>
+                  </span>
+                  <span class="contact-method-card__copy">
+                    <strong>E-Mail</strong>
+                    <small>Nachricht vorbereiten und im Webmail öffnen</small>
+                  </span>
+                  <span class="contact-method-card__check" aria-hidden="true">✓</span>
+                </span>
+              </label>
+            </div>
+          </fieldset>
+
+          <fieldset class="email-provider" data-email-provider hidden>
+            <legend>E-Mail-Anbieter auswählen</legend>
+            <p class="email-provider__intro">Am Handy öffnet sich deine installierte Mail-App. Am Desktop wird der gewählte Anbieter verwendet.</p>
+
+            <div class="email-provider__grid">
+              <label class="email-provider-card">
+                <input type="radio" name="emailProvider" value="gmail" checked>
+                <span>
+                  <strong>Gmail</strong>
+                  <small>Handy: Mail-App · Desktop: Gmail</small>
+                </span>
+              </label>
+
+              <label class="email-provider-card">
+                <input type="radio" name="emailProvider" value="outlook">
+                <span>
+                  <strong>Outlook</strong>
+                  <small>Handy: Mail-App · Desktop: Outlook</small>
+                </span>
+              </label>
+
+              <label class="email-provider-card">
+                <input type="radio" name="emailProvider" value="gmx">
+                <span>
+                  <strong>GMX</strong>
+                  <small>Handy: Mail-App · Desktop: GMX</small>
+                </span>
+              </label>
+
+              <label class="email-provider-card">
+                <input type="radio" name="emailProvider" value="other">
+                <span>
+                  <strong>Andere</strong>
+                  <small>Handy: Mail-App · Desktop: Daten kopieren</small>
+                </span>
+              </label>
+            </div>
+          </fieldset>
 
             <div class="form-group privacy-consent" data-field="privacy">
               <label class="privacy-consent__label" for="privacy-consent">

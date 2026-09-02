@@ -5,6 +5,12 @@ const contactParams = new URLSearchParams(window.location.search);
 const prefillIndustry = String(contactParams.get('industry') || '').trim();
 
 
+/** Translates runtime contact copy to the active language. */
+function translateContactText(value) {
+  return window.GlanzerI18n?.translate(value) || value;
+}
+
+
 /** Returns all contact-form DOM references. */
 function getContactElements() {
   const form = document.querySelector('[data-contact-form]');
@@ -68,7 +74,7 @@ function getFieldContainer(name) {
 function setFieldError(name, message) {
   const error = getErrorElement(name);
   const container = getFieldContainer(name);
-  if (error) error.textContent = message;
+  if (error) error.textContent = translateContactText(message);
   if (container) container.dataset.invalid = message ? 'true' : 'false';
 }
 
@@ -152,7 +158,7 @@ function updateMessageCounter(elements) {
 /** Shows a status message below the form. */
 function showStatus(elements, message, state = '') {
   if (!elements.status) return;
-  elements.status.textContent = message;
+  elements.status.textContent = translateContactText(message);
   elements.status.dataset.state = state;
 }
 
@@ -166,10 +172,10 @@ function focusFirstInvalidField(form) {
 
 /** Returns the submit-button label for the active delivery method. */
 function getSubmitLabel(form) {
-  if (getContactMethod(form) === 'whatsapp') return 'Anfrage in WhatsApp öffnen';
-  if (window.GlanzerContactDelivery?.isMobileMailContext()) return 'E-Mail-App öffnen';
+  if (getContactMethod(form) === 'whatsapp') return translateContactText('Anfrage in WhatsApp öffnen');
+  if (window.GlanzerContactDelivery?.isMobileMailContext()) return translateContactText('E-Mail-App öffnen');
   const labels = { gmail: 'E-Mail in Gmail öffnen', outlook: 'E-Mail in Outlook öffnen', gmx: 'E-Mail-Daten kopieren & GMX öffnen' };
-  return labels[getEmailProvider(form)] || 'E-Mail-Daten kopieren';
+  return translateContactText(labels[getEmailProvider(form)] || 'E-Mail-Daten kopieren');
 }
 
 
