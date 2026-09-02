@@ -51,7 +51,6 @@
 }
 
 
-
 .about-clean-grid {
   display: grid;
   grid-template-columns: minmax(300px, .8fr) minmax(0, 1.2fr);
@@ -60,7 +59,6 @@
 }
 
 
-/* Profil-Card */
 .about-profile-card {
   width: min(100%, 520px);
   overflow: hidden;
@@ -121,7 +119,6 @@
   font-size: .98rem;
   line-height: 1.65;
 }
-
 
 
 .about-clean-copy h2 {
@@ -221,8 +218,6 @@
 }
 
 
-
-
 @media (max-width: 620px) {
   .about-hero {
     min-height: auto;
@@ -268,7 +263,6 @@
 }
 
 
-/* Zusammenarbeit – ruhig, klar und gleichmäßig */
 .about-dark-section {
   padding-block: clamp(5rem, 8vw, 7rem);
   background:

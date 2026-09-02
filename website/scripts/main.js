@@ -118,15 +118,19 @@ function updateCurrentYear() {
 
 
 /** Initializes shared layout, navigation, consent and analytics. */
-async function initializeSite() {
-  await window.GlanzerLayout?.render();
+function initializeSite() {
+  window.GlanzerLayout?.render();
   window.GlanzerI18n?.initialize();
   adaptCleanRoutesForLocalDevelopment();
   initializeNavigation();
   updateCurrentYear();
-  await window.GlanzerConsent?.initialize();
+  window.GlanzerConsent?.initialize();
   window.GlanzerAnalytics?.initialize();
 }
 
 
-initializeSite().catch((error) => console.error('Website konnte nicht vollständig initialisiert werden.', error));
+try {
+  initializeSite();
+} catch (error) {
+  console.error('Website konnte nicht vollständig initialisiert werden.', error);
+}

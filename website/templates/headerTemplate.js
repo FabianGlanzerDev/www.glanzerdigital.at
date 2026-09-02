@@ -1,3 +1,7 @@
+'use strict';
+
+window.GlanzerTemplateLibrary = window.GlanzerTemplateLibrary || {};
+window.GlanzerTemplateLibrary.header = `
 <div class="container header-inner">
   <a class="brand" href="/" aria-label="GlanzerDigital Startseite">
     <img src="{{ROOT}}/assets/images/logos/glanzerdigital-neon-logo.webp" alt="GlanzerDigital" width="720" height="240">
@@ -28,3 +32,4 @@
     </a>
   </nav>
 </div>
+`;

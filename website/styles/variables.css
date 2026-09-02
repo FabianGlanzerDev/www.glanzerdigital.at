@@ -1,21 +1,21 @@
 :root {
-  --color-bg: #080b10;
-  --color-bg-deep: #05070a;
-  --color-surface: #111821;
-  --color-surface-2: #171f2a;
+  --color-bg: #070b11;
+  --color-bg-deep: #03060a;
+  --color-surface: #0d131d;
+  --color-surface-2: #111925;
   --color-surface-3: #1c2531;
   --color-text: #f7f9fc;
-  --color-muted: #aab3bf;
+  --color-muted: #a9b3c2;
   --color-border: rgba(255, 255, 255, 0.11);
   --color-border-strong: rgba(255, 255, 255, 0.18);
-  --color-primary: #176bf3;
-  --color-primary-hover: #2b7cff;
+  --color-primary: #0b6cff;
+  --color-primary-hover: #2784ff;
   --color-primary-soft: rgba(23, 107, 243, 0.14);
-  --color-light-bg: #f2f5f9;
+  --color-light-bg: #f5f7fa;
   --color-light-card: #ffffff;
-  --color-dark-text: #111722;
-  --color-dark-muted: #5b6573;
-  --color-dark-border: #dbe1e8;
+  --color-dark-text: #0a1320;
+  --color-dark-muted: #5f6b7a;
+  --color-dark-border: #dfe5ec;
   --color-white: #fff;
   --color-black: #000;
   --color-footer-bg: #070a0f;
@@ -98,14 +98,14 @@
   --shadow-button-hover: 0 14px 30px rgba(15, 94, 233, 0.34);
   --shadow-project-hover: 0 18px 38px rgba(26, 38, 55, 0.15);
   --shadow-allzeit-feature: 0 18px 46px rgba(0, 0, 0, 0.28);
-  --container-width: 1200px;
+  --container-width: 1180px;
   --header-height: 74px;
   --radius-xs: 8px;
   --radius-sm: 12px;
-  --radius-md: 17px;
-  --radius-lg: 24px;
-  --shadow-card: 0 16px 45px rgba(0, 0, 0, 0.2);
-  --shadow-light: 0 12px 30px rgba(26, 38, 55, 0.1);
+  --radius-md: 16px;
+  --radius-lg: 22px;
+  --shadow-card: 0 22px 60px rgba(0, 0, 0, 0.18);
+  --shadow-light: 0 18px 48px rgba(8, 20, 38, 0.08);
   --transition: 180ms ease;
 }
 

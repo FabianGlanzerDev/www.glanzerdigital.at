@@ -3,7 +3,6 @@
 const CONSENT_STORAGE_KEY = 'gd-consent';
 const CONSENT_VERSION = 2;
 let consentBanner = null;
-let consentTemplate = '';
 
 
 /** Returns the stored statistics-consent choice. */
@@ -39,20 +38,13 @@ function getPrivacyUrl() {
 }
 
 
-/** Loads the shared consent markup once. */
-async function loadConsentTemplate() {
-  if (consentTemplate) return consentTemplate;
-  const rootPath = document.body.dataset.root || '.';
-  consentTemplate = await window.GlanzerTemplates.loadTemplate(rootPath, 'consent');
-  return consentTemplate;
-}
-
-
-/** Renders the consent markup from the shared HTML template. */
-async function renderConsentBanner() {
+/** Renders the consent markup from the shared template. */
+function renderConsentBanner() {
   if (!consentBanner) return;
-  const template = await loadConsentTemplate();
-  consentBanner.innerHTML = window.GlanzerTemplates.fillTemplate(template, { PRIVACY_URL: getPrivacyUrl() });
+  const template = window.GlanzerTemplateLibrary?.consent;
+  const renderer = window.GlanzerTemplateRenderer;
+  if (!template || !renderer) throw new Error('Consent-Template fehlt.');
+  consentBanner.innerHTML = renderer.fill(template, { PRIVACY_URL: getPrivacyUrl() });
   window.GlanzerI18n?.refresh();
 }
 
@@ -64,9 +56,9 @@ function hideConsentBanner() {
 
 
 /** Opens the consent banner and optionally focuses the reject button. */
-async function showConsentBanner(focus = true) {
+function showConsentBanner(focus = true) {
   if (!consentBanner) return;
-  await renderConsentBanner();
+  renderConsentBanner();
   consentBanner.hidden = false;
   if (focus) consentBanner.querySelector('[data-consent-action="reject"]')?.focus();
 }
@@ -91,12 +83,12 @@ function handleConsentClick(event) {
 
 
 /** Initializes the consent controls and opens the banner when needed. */
-async function initializeConsent() {
+function initializeConsent() {
   consentBanner = document.querySelector('[data-consent-banner]');
   if (!consentBanner) return;
   consentBanner.addEventListener('click', handleConsentClick);
   document.querySelector('[data-consent-settings]')?.addEventListener('click', () => showConsentBanner());
-  if (!getConsentChoice()) await showConsentBanner(false);
+  if (!getConsentChoice()) showConsentBanner(false);
 }
 
 

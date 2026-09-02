@@ -1,3 +1,7 @@
+'use strict';
+
+window.GlanzerTemplateLibrary = window.GlanzerTemplateLibrary || {};
+window.GlanzerTemplateLibrary.footer = `
 <div class="container">
   <div class="footer-grid footer-grid--clean">
     <div class="footer-intro">
@@ -40,3 +44,4 @@
     <span>Websites aus der Steiermark</span>
   </div>
 </div>
+`;

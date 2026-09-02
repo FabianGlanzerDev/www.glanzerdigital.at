@@ -4,11 +4,9 @@ Options -Indexes
 <IfModule mod_rewrite.c>
   RewriteEngine On
 
-  # Bearer-Token auch bei PHP/FastCGI an PHP weiterreichen.
   RewriteCond %{HTTP:Authorization} .
   RewriteRule ^ - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
 
-  # Interne PHP-Includes dürfen niemals direkt per Browser aufgerufen werden.
   RewriteRule ^includes(?:/|$) - [F,L,NC]
 </IfModule>
 

@@ -326,8 +326,6 @@
 }
 
 
-
-
 @media (max-width: 980px) {
   .testimonial-item {
     width: clamp(300px, 46vw, 380px);

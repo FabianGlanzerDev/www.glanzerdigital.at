@@ -5,7 +5,6 @@ let maintenancePendingState = null;
 let maintenanceReturnFocus = null;
 
 
-
 /**
  * Returns the maintenance API endpoint.
  *
@@ -16,7 +15,6 @@ function getMaintenanceEndpoint() {
 }
 
 
-
 /**
  * Returns the current Firebase ID token.
  *
@@ -25,7 +23,6 @@ function getMaintenanceEndpoint() {
 async function getMaintenanceToken() {
   return window.GlanzerAdminAuth?.getIdToken?.() || '';
 }
-
 
 
 /**
@@ -229,6 +226,20 @@ async function verifyPublicMaintenanceState(expected) {
 
 
 /**
+ * Applies the pending maintenance state and refreshes the UI.
+ *
+ * @returns {Promise<void>}
+ */
+async function applyMaintenanceChange() {
+  const requestedState = maintenancePendingState;
+  const data = await requestMaintenance(buildMaintenanceRequest(requestedState));
+  await verifyPublicMaintenanceState(requestedState);
+  setMaintenanceUi(data.enabled === true);
+  closeMaintenanceDialog();
+}
+
+
+/**
  * Confirms the selected maintenance state.
  *
  * @returns {Promise<void>}
@@ -237,11 +248,7 @@ async function confirmMaintenanceChange() {
   if (maintenancePendingState === null) return;
   setDialogBusy(true);
   try {
-    const requestedState = maintenancePendingState;
-    const data = await requestMaintenance(buildMaintenanceRequest(requestedState));
-    await verifyPublicMaintenanceState(requestedState);
-    setMaintenanceUi(data.enabled === true);
-    closeMaintenanceDialog();
+    await applyMaintenanceChange();
   } catch (error) {
     showDialogError(error.message);
   } finally {

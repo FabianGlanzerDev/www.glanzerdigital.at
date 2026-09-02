@@ -5,24 +5,16 @@ Options -Indexes
 <IfModule mod_rewrite.c>
   RewriteEngine On
 
-  # Versteckte Dateien und Verzeichnisse sperren.
-  # .well-known bleibt für SSL-/ACME-Challenges erreichbar.
   RewriteRule (^|/)\.(?!well-known(?:/|$)) - [F,L]
 
-  # Authorization-Header für PHP/FastCGI erhalten.
-  # Einige Shared-Hosting-Setups reichen den Bearer-Token sonst nicht an PHP weiter.
   RewriteCond %{HTTP:Authorization} .
   RewriteRule ^ - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
 
-  # HTTPS erzwingen und immer die Hauptdomain ohne www verwenden.
-  # ACME-Challenges für SSL-Zertifikate werden davon ausgenommen.
   RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/ [NC]
   RewriteCond %{HTTPS} !=on [OR]
   RewriteCond %{HTTP_HOST} !^glanzerdigital\.at$ [NC]
   RewriteRule ^ https://glanzerdigital.at%{REQUEST_URI} [R=301,L]
 
-
-  # Alte /subpages/*.html URLs dauerhaft auf saubere URLs weiterleiten.
   RewriteCond %{THE_REQUEST} \s/+subpages/leistungen\.html[\s?] [NC]
   RewriteRule ^subpages/leistungen\.html$ /leistungen [R=301,L]
 
@@ -41,8 +33,6 @@ Options -Indexes
   RewriteCond %{THE_REQUEST} \s/+subpages/datenschutz\.html[\s?] [NC]
   RewriteRule ^subpages/datenschutz\.html$ /datenschutz [R=301,L]
 
-
-  # Wartungsmodus.
   RewriteCond %{DOCUMENT_ROOT}/.maintenance -f
   RewriteCond %{REQUEST_URI} !^/maintenance\.php$ [NC]
   RewriteCond %{REQUEST_URI} !^/admin(?:/|$) [NC]
@@ -51,8 +41,6 @@ Options -Indexes
   RewriteCond %{REQUEST_URI} !^/\.well-known(?:/|$) [NC]
   RewriteRule ^ maintenance.php [L]
 
-
-  # Saubere öffentliche URLs intern auf die HTML-Dateien abbilden.
   RewriteRule ^leistungen/?$ subpages/leistungen.html [L]
   RewriteRule ^portfolio/?$ subpages/portfolio.html [L]
   RewriteRule ^ueber-mich/?$ subpages/ueber-mich.html [L]
@@ -60,7 +48,6 @@ Options -Indexes
   RewriteRule ^impressum/?$ subpages/impressum.html [L]
   RewriteRule ^datenschutz/?$ subpages/datenschutz.html [L]
 </IfModule>
-
 
 <IfModule mod_headers.c>
   Header always set Strict-Transport-Security "max-age=31536000"
@@ -70,12 +57,9 @@ Options -Indexes
   Header always set X-Frame-Options "SAMEORIGIN"
 </IfModule>
 
-
-# Direkten Zugriff auf sensible Dateitypen verhindern.
 <FilesMatch "(^\.|\.(?:bak|backup|log|map|md|sql|env|zip)$)">
   Require all denied
 </FilesMatch>
-
 
 <IfModule mod_expires.c>
   ExpiresActive On
@@ -89,7 +73,6 @@ Options -Indexes
 
   ExpiresByType font/woff2 "access plus 30 days"
 </IfModule>
-
 
 <IfModule mod_deflate.c>
   AddOutputFilterByType DEFLATE \

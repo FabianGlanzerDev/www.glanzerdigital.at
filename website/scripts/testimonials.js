@@ -76,23 +76,27 @@ function renderTestimonialMarquee(list, template, items, language) {
 
 
 
+/** Updates the testimonial section heading for the active language. */
+function renderTestimonialHeading(section, config, language) {
+  setTestimonialText(section, TESTIMONIAL_SELECTORS.kicker, getTestimonialText(config.section.kicker, language));
+  setTestimonialText(section, TESTIMONIAL_SELECTORS.title, getTestimonialText(config.section.title, language));
+  setTestimonialText(section, TESTIMONIAL_SELECTORS.intro, getTestimonialText(config.section.intro, language));
+}
+
+
 /** Renders the currently enabled testimonial entries. */
 function renderTestimonials() {
   const config = window.GD_TESTIMONIALS_CONFIG;
   const section = document.querySelector(TESTIMONIAL_SELECTORS.section);
   const template = document.querySelector(TESTIMONIAL_SELECTORS.template);
   if (!config || !section || !template) return;
-
   const language = getTestimonialLanguage();
   const list = section.querySelector(TESTIMONIAL_SELECTORS.list);
   const items = config.items.filter((item) => item.visible !== false);
   section.hidden = items.length === 0;
   if (!list || items.length === 0) return;
-
   renderTestimonialMarquee(list, template, items, language);
-  setTestimonialText(section, TESTIMONIAL_SELECTORS.kicker, getTestimonialText(config.section.kicker, language));
-  setTestimonialText(section, TESTIMONIAL_SELECTORS.title, getTestimonialText(config.section.title, language));
-  setTestimonialText(section, TESTIMONIAL_SELECTORS.intro, getTestimonialText(config.section.intro, language));
+  renderTestimonialHeading(section, config, language);
 }
 
 

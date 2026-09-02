@@ -1,15 +1,5 @@
 'use strict';
 
-/**
- * Kunden- und Teamstimmen für die Startseite.
- *
- * Pflegehinweise:
- * - Neue Stimme: Ein Objekt in `items` kopieren und anpassen.
- * - Ausblenden: `visible: false` setzen.
- * - `organization` ist für Firmenname, Vereinsname oder Organisation gedacht.
- * - Englische Texte sind optional; fehlt `en`, wird automatisch Deutsch verwendet.
- * - Die Einträge unten sind Platzhalter und müssen vor Veröffentlichung durch echte Aussagen ersetzt werden.
- */
 window.GD_TESTIMONIALS_CONFIG = {
   section: {
     kicker: { de: 'Erfahrungen', en: 'Experiences' },
@@ -34,7 +24,7 @@ window.GD_TESTIMONIALS_CONFIG = {
       },
       person: 'Mario D.',
       organization: 'Akademie für ein g`sundes, besseres Leben',
-      project: { de: 'Vereins Website', en: 'Website project' },
+      project: { de: 'Vereinswebsite', en: 'Association website' },
     },
     {
       id: 'team-1',
@@ -70,7 +60,7 @@ window.GD_TESTIMONIALS_CONFIG = {
       },
       person: 'Anna P.',
       organization: 'Projektteam',
-      project: { de: 'Kochwelt · Teamprojekt', en: 'Join · Team project' },
+      project: { de: 'Kochwelt · Teamprojekt', en: 'Kochwelt · Team project' },
     },
   ],
 };

@@ -129,13 +129,6 @@
 }
 
 
-
-
-
-
-
-
-
 .form-grid {
   display: grid;
   gap: 1.2rem;
@@ -436,11 +429,6 @@
 }
 
 
-
-
-
-
-
 .solution-dialog {
   width: min(760px, calc(100% - 2rem));
   padding: 0;
@@ -576,7 +564,6 @@
 }
 
 
-/* Versandart: WhatsApp oder E-Mail */
 .contact-method {
   margin: 0 0 1.8rem;
   padding: 0;
@@ -697,9 +684,6 @@
 }
 
 
-
-
-
 .contact-submit {
   min-width: 270px;
   justify-content: center;
@@ -744,19 +728,6 @@
   }
 }
 
-/* Erfolgsansicht nach direktem E-Mail-Versand */
-
-
-
-
-
-
-
-
-
-
-
-
 @media (max-width: 700px) {
   .contact-method__grid {
     grid-template-columns: 1fr;
@@ -769,8 +740,6 @@
 }
 
 
-
-/* E-Mail-Anbieter als sichtbare Auswahl */
 .email-provider {
   margin: 0 0 1.7rem;
   padding: 1rem;
@@ -864,7 +833,6 @@
 }
 
 
-/* Kontakt-Hero – exakt im Stil des Leistungen-Heros */
 .contact-hero {
   position: relative;
   display: flex;
@@ -917,7 +885,6 @@
 }
 
 
-/* Submit-Icon Fix */
 .contact-submit__icon[hidden] {
   display: none;
 }
@@ -935,7 +902,6 @@
 }
 
 
-/* Designer-feedback refinements: calmer enquiry flow */
 #projektanfrage {
   scroll-margin-top: calc(var(--header-height) + .5rem);
 }

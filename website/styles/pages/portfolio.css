@@ -632,9 +632,6 @@
 }
 
 
-
-
-
 @media (max-width: 900px) {
   .workflow-demo-layout {
     grid-template-columns: 1fr;
@@ -680,7 +677,6 @@
   .practice-showcase .portfolio-feature--reverse .portfolio-feature-media {
     order: 0;
   }
-
 
 
   .training-project {
@@ -742,7 +738,6 @@
   .practice-showcase #modellbibliothek.portfolio-feature--reverse {
     grid-template-columns: 1fr;
   }
-
 
 
   .training-marquee {
@@ -842,7 +837,6 @@
   }
 
 
-
   .training-marquee {
     overflow-x: auto;
     padding-bottom: .5rem;
@@ -855,7 +849,6 @@
 
 }
 
-/* Praxisprojekt 3D-Modellbibliothek: Screenshot vollständig zeigen und Titel sauber halten. */
 .practice-showcase #modellbibliothek.portfolio-feature--reverse {
   grid-template-columns: minmax(440px, .95fr) minmax(0, 1.05fr);
 }
@@ -929,7 +922,6 @@
   }
 }
 
-/* Praxisprojekte – stabile Desktop- und Mobile-Darstellung */
 .practice-projects {
   scroll-margin-top: calc(var(--header-height) + 1.5rem);
 }
@@ -1189,7 +1181,6 @@
 }
 
 
-/* Join Issue Collector: echtes Welcome-Foto schöner präsentieren */
 .workflow-demo-project__media--collector {
   position: relative;
   padding: clamp(1rem, 2vw, 1.6rem);
@@ -1242,7 +1233,6 @@
 }
 
 
-/* Join Issue Collector – Testkarte kompakt und CTA zentriert */
 .workflow-demo-layout {
   align-items: start;
 }
@@ -1268,7 +1258,6 @@
 }
 
 
-/* Join Issue Collector – Join-Bild ohne Letterboxing */
 .workflow-demo-project__media--collector {
   position: relative;
   padding: 0;
@@ -1318,7 +1307,6 @@
   }
 }
 
-/* Technologien – Endlosband mit Logos und feste Codebeispiele */
 .technology-clean-heading {
   max-width: 860px;
 }
@@ -1409,27 +1397,6 @@
     transform: translateX(0);
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 .technology-github-action {

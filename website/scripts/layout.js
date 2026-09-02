@@ -19,26 +19,23 @@ function getHeaderValues(rootPath, activePage) {
 }
 
 
-/** Loads and renders the shared header and footer templates. */
-async function renderLayout() {
+/** Renders the shared header and footer templates. */
+function renderLayout() {
   const rootPath = document.body.dataset.root || '.';
   const activePage = document.body.dataset.page || '';
-  const loader = window.GlanzerTemplates;
-  if (!loader) throw new Error('Template Loader fehlt.');
-  const [headerTemplate, footerTemplate] = await Promise.all([
-    loader.loadTemplate(rootPath, 'header'), loader.loadTemplate(rootPath, 'footer'),
-  ]);
-  renderLayoutTargets(headerTemplate, footerTemplate, rootPath, activePage);
+  const templates = window.GlanzerTemplateLibrary;
+  const renderer = window.GlanzerTemplateRenderer;
+  if (!templates || !renderer) throw new Error('Templates fehlen.');
+  renderLayoutTargets(templates, renderer, rootPath, activePage);
 }
 
 
-/** Inserts the loaded layout templates into their target elements. */
-function renderLayoutTargets(headerTemplate, footerTemplate, rootPath, activePage) {
+/** Inserts the shared templates into their target elements. */
+function renderLayoutTargets(templates, renderer, rootPath, activePage) {
   const header = document.querySelector('[data-site-header]');
   const footer = document.querySelector('[data-site-footer]');
-  const loader = window.GlanzerTemplates;
-  if (header) header.innerHTML = loader.fillTemplate(headerTemplate, getHeaderValues(rootPath, activePage));
-  if (footer) footer.innerHTML = loader.fillTemplate(footerTemplate, { ROOT: rootPath });
+  if (header) header.innerHTML = renderer.fill(templates.header, getHeaderValues(rootPath, activePage));
+  if (footer) footer.innerHTML = renderer.fill(templates.footer, { ROOT: rootPath });
 }
 
 
