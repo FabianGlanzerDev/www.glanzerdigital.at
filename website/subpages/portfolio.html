@@ -37,14 +37,21 @@
   <link rel="manifest" href="/site.webmanifest">
   <link href="../styles/variables.css" rel="stylesheet" />
   <link href="../styles/fonts.css" rel="stylesheet" />
-  <link href="../style.css?v=20260829-clean-1" rel="stylesheet" />
-  <link href="../styles/pages/portfolio.css?v=20260830-tech-marquee-code" rel="stylesheet">
+  <link href="../style.css?v=20260901-designer-feedback" rel="stylesheet" />
+  <link href="../styles/pages/portfolio.css?v=20260901-designer-feedback" rel="stylesheet">
   <script src="../scripts/utils/templateLoader.js" defer></script>
   <script src="../scripts/layout.js" defer></script>
   <script src="../scripts/analytics.js" defer></script>
-  <script src="../scripts/privacyConsent.js" defer></script>
-  <script src="../scripts/main.js" defer></script>
-  <script src="../scripts/portfolioShowcase.js" defer></script>
+  <script src="../scripts/privacyConsent.js?v=20260901-i18n" defer></script>
+  <script src="../scripts/i18nCore.js" defer></script>
+  <script src="../scripts/i18nContent.js" defer></script>
+  <script src="../scripts/i18nLegal.js" defer></script>
+  <script src="../scripts/i18nFeedback.js" defer></script>
+  <script src="../scripts/i18nTranslations.js" defer></script>
+  <script src="../scripts/i18n.js?v=20260901-designer-feedback" defer></script>
+  <script src="../scripts/main.js?v=20260901-i18n" defer></script>
+  <script src="../scripts/portfolioShowcase.js?v=20260901-manual" defer></script>
+  <script src="../scripts/trainingCarousel.js?v=20260901-controls" defer></script>
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -193,7 +200,7 @@
           und meiner Arbeitsweise geben.</p>
         <div class="button-row">
           <a class="button button--primary" href="#praxisprojekte">Projekte ansehen</a>
-          <a class="button button--secondary" href="/kontakt">Website anfragen</a>
+          <a class="button button--secondary" href="/kontakt#projektanfrage">Website anfragen</a>
         </div>
       </div>
     </section>
@@ -233,7 +240,7 @@
                     <div class="button-row">
                       <a class="button button--primary" data-analytics-label="Allzeit Gut · Live-Website"
                         href="https://allzeitgut.at/" rel="noopener noreferrer" target="_blank">Live-Website ansehen</a>
-                      <a class="button button--outline" href="/kontakt">Ähnliches Projekt anfragen</a>
+                      <a class="button button--outline" href="/kontakt#projektanfrage">Ähnliches Projekt anfragen</a>
                     </div>
                   </div>
                 </article>
@@ -263,7 +270,7 @@
                         href="https://modellbibliothek.glanzerdigital.at" rel="noopener noreferrer"
                         target="_blank">Web-Demo
                         testen</a>
-                      <a class="button button--outline button--small" href="/kontakt">Projekt anfragen</a>
+                      <a class="button button--outline button--small" href="/kontakt#projektanfrage">Projekt anfragen</a>
                     </div>
                   </div>
                 </article>
@@ -282,13 +289,6 @@
                   <strong>3D-Modellbibliothek</strong>
                 </button>
               </div>
-
-              <button class="practice-showcase__toggle" type="button" data-practice-showcase-toggle
-                aria-pressed="false">Animation pausieren</button>
-            </div>
-
-            <div class="practice-showcase__progress" aria-hidden="true">
-              <span data-practice-progress></span>
             </div>
           </div>
         </section>
@@ -312,9 +312,13 @@
                   <img src="../assets/images/portfolio/join.webp" alt="Vorschau der Kanban-Web-App Join" width="760"
                     height="430" loading="lazy" decoding="async">
                   <div>
-                    <span class="project-eyebrow">Web-App</span>
+                    <div class="training-project__meta">
+                      <span class="project-eyebrow">Web-App</span>
+                      <span class="training-project__type">Teamprojekt</span>
+                    </div>
                     <h3>Join</h3>
                     <p>Kanban-Anwendung mit Board, Aufgabenverwaltung, Kontakten und responsiver Oberfläche.</p>
+                    <p class="training-project__stack"><strong>Technologien:</strong> HTML, CSS, JavaScript, Firebase</p>
                     <div class="project-links">
                       <a href="https://join.glanzerdigital.at" target="_blank" rel="noopener noreferrer">Live-Demo</a>
                       <a href="https://github.com/FabianGlanzerDev/Join-" target="_blank"
@@ -327,9 +331,13 @@
                   <img src="../assets/images/portfolio/pollapp.webp" alt="Vorschau der Poll App" width="760"
                     height="430" loading="lazy" decoding="async">
                   <div>
-                    <span class="project-eyebrow">TypeScript</span>
+                    <div class="training-project__meta">
+                      <span class="project-eyebrow">TypeScript</span>
+                      <span class="training-project__type">Einzelprojekt</span>
+                    </div>
                     <h3>Poll App</h3>
                     <p>Umfrage-App mit Poll-Erstellung, Voting, Dashboard und dynamischer Ergebnisanalyse.</p>
+                    <p class="training-project__stack"><strong>Technologien:</strong> Angular, TypeScript, SCSS, Supabase</p>
                     <div class="project-links">
                       <a href="https://poll.glanzerdigital.at" target="_blank" rel="noopener noreferrer">Live-Demo</a>
                       <a href="https://github.com/FabianGlanzerDev/PollApp" target="_blank"
@@ -342,9 +350,13 @@
                   <img src="../assets/images/portfolio/memory-game.webp" alt="Vorschau des Memory Games" width="760"
                     height="430" loading="lazy" decoding="async">
                   <div>
-                    <span class="project-eyebrow">TypeScript</span>
+                    <div class="training-project__meta">
+                      <span class="project-eyebrow">TypeScript</span>
+                      <span class="training-project__type">Einzelprojekt</span>
+                    </div>
                     <h3>Memory Game</h3>
                     <p>Interaktives Memory-Spiel mit mehreren Themes, Einstellungen und Spielstatistiken.</p>
+                    <p class="training-project__stack"><strong>Technologien:</strong> HTML, CSS, TypeScript, Vite</p>
                     <div class="project-links">
                       <a href="https://memory.glanzerdigital.at" target="_blank" rel="noopener noreferrer">Live-Demo</a>
                       <a href="https://github.com/FabianGlanzerDev/Memory-Game" target="_blank"
@@ -357,9 +369,13 @@
                   <img src="../assets/images/portfolio/sakura-ramen.webp" alt="Vorschau der Sakura-Ramen-Landingpage"
                     width="760" height="430" loading="lazy" decoding="async">
                   <div>
-                    <span class="project-eyebrow">Website</span>
+                    <div class="training-project__meta">
+                      <span class="project-eyebrow">Website</span>
+                      <span class="training-project__type">Einzelprojekt</span>
+                    </div>
                     <h3>Sakura Ramen</h3>
                     <p>Responsive Restaurant-Landingpage mit Hero-Bereich, Speisekarte und Standortinformationen.</p>
+                    <p class="training-project__stack"><strong>Technologien:</strong> HTML, CSS</p>
                     <div class="project-links">
                       <a href="https://sakura.glanzerdigital.at" target="_blank" rel="noopener noreferrer">Live-Demo</a>
                       <a href="https://github.com/FabianGlanzerDev/Sakura_Ramen_Responsive" target="_blank"
@@ -369,72 +385,18 @@
                 </article>
               </div>
 
-              <div class="training-marquee__group" aria-hidden="true">
-                <article class="training-project">
-                  <img src="../assets/images/portfolio/join.webp" alt="Vorschau der Kanban-Web-App Join" width="760"
-                    height="430" loading="lazy" decoding="async">
-                  <div>
-                    <span class="project-eyebrow">Web-App</span>
-                    <h3>Join</h3>
-                    <p>Kanban-Anwendung mit Board, Aufgabenverwaltung, Kontakten und responsiver Oberfläche.</p>
-                    <div class="project-links">
-                      <a tabindex="-1" href="https://join.glanzerdigital.at" target="_blank"
-                        rel="noopener noreferrer">Live-Demo</a>
-                      <a tabindex="-1" href="https://github.com/FabianGlanzerDev/Join-" target="_blank"
-                        rel="noopener noreferrer">GitHub</a>
-                    </div>
-                  </div>
-                </article>
-
-                <article class="training-project">
-                  <img src="../assets/images/portfolio/pollapp.webp" alt="Vorschau der Poll App" width="760"
-                    height="430" loading="lazy" decoding="async">
-                  <div>
-                    <span class="project-eyebrow">TypeScript</span>
-                    <h3>Poll App</h3>
-                    <p>Umfrage-App mit Poll-Erstellung, Voting, Dashboard und dynamischer Ergebnisanalyse.</p>
-                    <div class="project-links">
-                      <a tabindex="-1" href="https://poll.glanzerdigital.at" target="_blank"
-                        rel="noopener noreferrer">Live-Demo</a>
-                      <a tabindex="-1" href="https://github.com/FabianGlanzerDev/PollApp" target="_blank"
-                        rel="noopener noreferrer">GitHub</a>
-                    </div>
-                  </div>
-                </article>
-
-                <article class="training-project">
-                  <img src="../assets/images/portfolio/memory-game.webp" alt="Vorschau des Memory Games" width="760"
-                    height="430" loading="lazy" decoding="async">
-                  <div>
-                    <span class="project-eyebrow">TypeScript</span>
-                    <h3>Memory Game</h3>
-                    <p>Interaktives Memory-Spiel mit mehreren Themes, Einstellungen und Spielstatistiken.</p>
-                    <div class="project-links">
-                      <a tabindex="-1" href="https://memory.glanzerdigital.at" target="_blank"
-                        rel="noopener noreferrer">Live-Demo</a>
-                      <a tabindex="-1" href="https://github.com/FabianGlanzerDev/Memory-Game" target="_blank"
-                        rel="noopener noreferrer">GitHub</a>
-                    </div>
-                  </div>
-                </article>
-
-                <article class="training-project">
-                  <img src="../assets/images/portfolio/sakura-ramen.webp" alt="Vorschau der Sakura-Ramen-Landingpage"
-                    width="760" height="430" loading="lazy" decoding="async">
-                  <div>
-                    <span class="project-eyebrow">Website</span>
-                    <h3>Sakura Ramen</h3>
-                    <p>Responsive Restaurant-Landingpage mit Hero-Bereich, Speisekarte und Standortinformationen.</p>
-                    <div class="project-links">
-                      <a tabindex="-1" href="https://sakura.glanzerdigital.at" target="_blank"
-                        rel="noopener noreferrer">Live-Demo</a>
-                      <a tabindex="-1" href="https://github.com/FabianGlanzerDev/Sakura_Ramen_Responsive"
-                        target="_blank" rel="noopener noreferrer">GitHub</a>
-                    </div>
-                  </div>
-                </article>
-              </div>
             </div>
+          </div>
+
+          <div class="training-carousel__controls" aria-label="Ausbildungsprojekte steuern">
+            <button class="training-carousel__arrow" type="button" data-training-prev aria-label="Vorheriges Projekt">‹</button>
+            <div class="training-carousel__dots" role="group" aria-label="Projekt auswählen">
+              <button class="is-active" type="button" data-training-slide="0" aria-label="Join anzeigen" aria-pressed="true"></button>
+              <button type="button" data-training-slide="1" aria-label="Poll App anzeigen" aria-pressed="false"></button>
+              <button type="button" data-training-slide="2" aria-label="Memory Game anzeigen" aria-pressed="false"></button>
+              <button type="button" data-training-slide="3" aria-label="Sakura Ramen anzeigen" aria-pressed="false"></button>
+            </div>
+            <button class="training-carousel__arrow" type="button" data-training-next aria-label="Nächstes Projekt">›</button>
           </div>
         </section>
       </div>
@@ -733,7 +695,7 @@
           <h2>Du möchtest deine eigene Website professionell umsetzen?</h2>
           <p>Schick mir kurz dein Vorhaben. Ich melde mich persönlich bei dir.</p>
         </div>
-        <a class="button button--light" href="/kontakt">Website anfragen</a>
+        <a class="button button--light" href="/kontakt#projektanfrage">Website anfragen</a>
       </div>
     </section>
 
