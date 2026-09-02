@@ -36,13 +36,21 @@
   <link rel="manifest" href="/site.webmanifest">
   <link rel="stylesheet" href="./styles/variables.css">
   <link rel="stylesheet" href="./styles/fonts.css">
-  <link rel="stylesheet" href="./style.css?v=20260829-clean-1">
-  <link rel="stylesheet" href="./styles/pages/index.css?v=20260830-mobile-h1-match">
+  <link rel="stylesheet" href="./style.css?v=20260901-designer-feedback">
+  <link rel="stylesheet" href="./styles/pages/index.css?v=20260901-testimonials-marquee">
   <script src="./scripts/utils/templateLoader.js" defer></script>
   <script src="./scripts/layout.js" defer></script>
   <script src="./scripts/analytics.js" defer></script>
-  <script src="./scripts/privacyConsent.js" defer></script>
-  <script src="./scripts/main.js" defer></script>
+  <script src="./scripts/privacyConsent.js?v=20260901-i18n" defer></script>
+  <script src="./scripts/i18nCore.js" defer></script>
+  <script src="./scripts/i18nContent.js" defer></script>
+  <script src="./scripts/i18nLegal.js" defer></script>
+  <script src="./scripts/i18nFeedback.js" defer></script>
+  <script src="./scripts/i18nTranslations.js" defer></script>
+  <script src="./scripts/i18n.js?v=20260901-designer-feedback" defer></script>
+  <script src="./scripts/config/testimonialsConfig.js?v=20260901" defer></script>
+  <script src="./scripts/testimonials.js?v=20260901-marquee" defer></script>
+  <script src="./scripts/main.js?v=20260901-i18n" defer></script>
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -187,7 +195,7 @@
           <p>GlanzerDigital erstellt moderne Websites für Selbstständige, Unternehmen und Vereine – persönlich betreut,
             mobil optimiert und ohne unnötige Komplexität.</p>
           <div class="button-row">
-            <a class="button button--primary" href="/kontakt">Website anfragen</a>
+            <a class="button button--primary" href="/kontakt#projektanfrage">Website anfragen</a>
             <a class="button button--secondary" href="/leistungen">Leistungen ansehen</a>
           </div>
         </div>
@@ -242,6 +250,32 @@
       </div>
     </section>
 
+    <section class="section testimonials-section" aria-labelledby="testimonials-title" data-testimonials-section>
+      <div class="container">
+        <div class="clean-heading">
+          <span class="kicker" data-testimonials-kicker>Erfahrungen</span>
+          <h2 id="testimonials-title" data-testimonials-title>Das sagen Kunden &amp; Projektpartner</h2>
+          <p data-testimonials-intro>Rückmeldungen zu Zusammenarbeit, Kommunikation und gemeinsamen Projekten.</p>
+        </div>
+
+        <div class="testimonials-grid" data-testimonials-list></div>
+      </div>
+    </section>
+
+    <template id="testimonial-card-template">
+      <article class="testimonial-item">
+        <span class="testimonial-type" data-testimonial-type></span>
+        <blockquote class="testimonial-quote">
+          <p data-testimonial-quote></p>
+        </blockquote>
+        <footer class="testimonial-meta">
+          <strong data-testimonial-person></strong>
+          <span data-testimonial-organization></span>
+          <span class="testimonial-project" data-testimonial-project></span>
+        </footer>
+      </article>
+    </template>
+
     <section class="section pricing-section" aria-labelledby="pricing-title">
       <div class="container">
         <div class="clean-heading clean-heading--dark">
@@ -265,7 +299,7 @@
               <li>Google-Indexierung vorbereitet</li>
               <li>1 Korrekturrunde inklusive</li>
             </ul>
-            <a class="button button--secondary" href="/kontakt?project=Neue%20Website%20oder%20Landingpage">Landingpage
+            <a class="button button--secondary" href="/kontakt?project=Neue%20Website%20oder%20Landingpage#projektanfrage">Landingpage
               anfragen</a>
           </article>
 
@@ -284,7 +318,7 @@
               <li>Google-Indexierung vorbereitet</li>
               <li>1 Korrekturrunde inklusive</li>
             </ul>
-            <a class="button button--secondary" href="/kontakt?project=Neue%20Website%20oder%20Landingpage">Website
+            <a class="button button--secondary" href="/kontakt?project=Neue%20Website%20oder%20Landingpage#projektanfrage">Website
               anfragen</a>
           </article>
 
@@ -303,7 +337,7 @@
               <li>Später flexibel erweiterbar</li>
               <li>2 Korrekturrunden inklusive</li>
             </ul>
-            <a class="button button--primary" href="/kontakt?project=Neue%20Website%20oder%20Landingpage">Projekt
+            <a class="button button--primary" href="/kontakt?project=Neue%20Website%20oder%20Landingpage#projektanfrage">Projekt
               besprechen</a>
           </article>
 
@@ -321,7 +355,7 @@
               <li>SEO &amp; Performance überprüfen</li>
               <li>Korrekturen nach vereinbartem Umfang</li>
             </ul>
-            <a class="button button--secondary" href="/kontakt?project=Bestehende%20Website%20verbessern">Website prüfen
+            <a class="button button--secondary" href="/kontakt?project=Bestehende%20Website%20verbessern#projektanfrage">Website prüfen
               lassen</a>
           </article>
         </div>
