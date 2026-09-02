@@ -65,7 +65,6 @@ window.GD_I18N_PARTS.push({ translations: {
   "Nachricht vorbereiten und im Webmail öffnen": "Prepare the message and open it in webmail",
   "E-Mail-Anbieter auswählen": "Select email provider",
   "Am Handy öffnet sich deine installierte Mail-App. Am Desktop wird der gewählte Anbieter verwendet.": "On mobile, your installed mail app opens. On desktop, the selected provider is used.",
-  "Handy: Mail-App · Desktop: Daten kopieren": "Mobile: mail app · Desktop: copy data",
   "Welche Auswahl passt zu dir?": "Which option fits your project?",
   "Wenn eine neue Website, Unternehmensseite, Portfolioseite oder einzelne Kampagnenseite entstehen soll.": "If you need a new website, business site, portfolio site or individual campaign page.",
   "Wenn bereits eine Website vorhanden ist und Design, Inhalte, Mobilansicht, Technik oder Funktionen verbessert werden sollen.": "If you already have a website and want to improve its design, content, mobile layout, technology or functions.",
@@ -143,15 +142,11 @@ window.GD_I18N_PARTS.push({ translations: {
   "WhatsApp wurde mit deiner vorbereiteten Nachricht geöffnet.": "WhatsApp was opened with your prepared message.",
   "Dein Webmail-Anbieter wurde mit der vorbereiteten Nachricht geöffnet.": "Your webmail provider was opened with the prepared message.",
   "Deine Mail-App wurde mit der vorbereiteten Nachricht geöffnet.": "Your mail app was opened with the prepared message.",
-  "E-Mail-Daten wurden kopiert. Füge sie in deinem E-Mail-Postfach ein.": "The email details were copied. Paste them into your email account.",
   "Die E-Mail-Daten konnten nicht kopiert werden.": "The email details could not be copied.",
-  "E-Mail-Daten wurden kopiert und GMX wurde geöffnet.": "The email details were copied and GMX was opened.",
   "Hallo, ich möchte ein Projekt bei GlanzerDigital anfragen.": "Hello, I would like to enquire about a project with GlanzerDigital.",
   "E-Mail-App öffnen": "Open email app",
   "E-Mail in Gmail öffnen": "Open email in Gmail",
   "E-Mail in Outlook öffnen": "Open email in Outlook",
-  "E-Mail-Daten kopieren & GMX öffnen": "Copy email details & open GMX",
-  "E-Mail-Daten kopieren": "Copy email details",
   "Maximal 1200 Zeichen möglich.": "A maximum of 1200 characters is allowed.",
   "Website-Anfrage von": "Website enquiry from",
   "Projektart:": "Project type:",
@@ -169,4 +164,12 @@ window.GD_I18N_PARTS.push({ translations: {
   "Datenschutz ansehen": "View Privacy Policy",
   "Ablehnen": "Decline",
   "Statistik erlauben": "Allow statistics"
+} });
+
+window.GD_I18N_PARTS.push({ translations: {
+  "Nachricht vorbereiten und per Gmail, Outlook oder Mail-App öffnen": "Prepare the message and open it in Gmail, Outlook or your mail app",
+  "Wähle Gmail, Outlook oder deine installierte Standard-Mail-App.": "Choose Gmail, Outlook or your installed default mail app.",
+  "Im Browser öffnen": "Open in browser",
+  "Mail-App": "Mail app",
+  "Installierte Standard-Mail-App öffnen": "Open installed default mail app"
 } });

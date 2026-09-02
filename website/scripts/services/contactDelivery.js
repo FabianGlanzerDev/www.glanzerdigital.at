@@ -88,47 +88,6 @@ function buildOutlookUrl(mail) {
 }
 
 
-/** Builds text that can be pasted into GMX or another mail client. */
-function buildCopyableEmail(data, industry = '') {
-  const t = translateDeliveryText;
-  return [
-    `${t('An:')} ${CONTACT_CONFIG.contactEmail}`, `${t('Betreff:')} ${buildEmailSubject(data)}`,
-    '', buildMessageBody(data, industry),
-  ].join('\n');
-}
-
-
-/** Copies text to the clipboard using the modern API or a fallback. */
-async function copyTextToClipboard(value) {
-  try {
-    await navigator.clipboard.writeText(String(value || ''));
-    return true;
-  } catch {
-    return copyTextWithFallback(value);
-  }
-}
-
-
-/** Copies text with a temporary textarea for older browsers. */
-function copyTextWithFallback(value) {
-  const textarea = createClipboardTextarea(value);
-  document.body.append(textarea);
-  textarea.select();
-  const copied = document.execCommand('copy');
-  textarea.remove();
-  return copied;
-}
-
-
-/** Creates the hidden textarea used by the clipboard fallback. */
-function createClipboardTextarea(value) {
-  const textarea = document.createElement('textarea');
-  textarea.value = String(value || '');
-  textarea.setAttribute('readonly', '');
-  textarea.style.cssText = 'position:fixed;opacity:0;pointer-events:none';
-  return textarea;
-}
-
 
 /** Opens WhatsApp with the prepared enquiry. */
 function openWhatsApp(data, industry = '') {
@@ -147,28 +106,10 @@ function openWebmail(provider, data, industry = '') {
 }
 
 
-/** Copies the prepared e-mail and opens GMX. */
-async function openGmx(data, industry = '') {
-  const copied = await copyTextToClipboard(buildCopyableEmail(data, industry));
-  if (!copied) return { ok: false, message: CONTACT_CONFIG.text.copyFailed };
-  window.open('https://www.gmx.net/mail/', '_blank', 'noopener,noreferrer');
-  return { ok: true, message: CONTACT_CONFIG.text.gmxOpened };
-}
-
-
-/** Copies prepared e-mail data for another provider. */
-async function copyOtherEmail(data, industry = '') {
-  const copied = await copyTextToClipboard(buildCopyableEmail(data, industry));
-  const message = copied ? CONTACT_CONFIG.text.copied : CONTACT_CONFIG.text.copyFailed;
-  return { ok: copied, message };
-}
-
 
 /** Delivers the e-mail enquiry according to the selected provider. */
 async function deliverEmail(provider, data, industry = '') {
-  if (isMobileMailContext()) return openMailApp(data, industry);
-  if (provider === 'gmx') return openGmx(data, industry);
-  if (provider === 'other') return copyOtherEmail(data, industry);
+  if (isMobileMailContext() || provider === 'mailapp') return openMailApp(data, industry);
   return { ok: true, message: openWebmail(provider, data, industry) };
 }
 

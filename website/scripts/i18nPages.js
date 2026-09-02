@@ -286,8 +286,6 @@ window.GD_I18N_PARTS.push({ translations: {
   "E-Mail": "Email",
   "Handy: Mail-App · Desktop: Gmail": "Mobile: mail app · Desktop: Gmail",
   "Handy: Mail-App · Desktop: Outlook": "Mobile: mail app · Desktop: Outlook",
-  "Handy: Mail-App · Desktop: GMX": "Mobile: mail app · Desktop: GMX",
-  "Handy: Mail-App · Desktop: Daten kopieren": "Mobile: mail app · Desktop: copy data",
   "Andere": "Other",
   "Hinweise zur Projektanfrage": "Project enquiry information",
   "Website anfragen | GlanzerDigital": "Request a Website | GlanzerDigital",

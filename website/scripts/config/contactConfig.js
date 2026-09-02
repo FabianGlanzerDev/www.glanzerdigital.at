@@ -17,9 +17,6 @@ window.GlanzerContactConfig = Object.freeze({
     whatsappOpened: 'WhatsApp wurde mit deiner vorbereiteten Nachricht geöffnet.',
     webmailOpened: 'Dein Webmail-Anbieter wurde mit der vorbereiteten Nachricht geöffnet.',
     mailAppOpened: 'Deine Mail-App wurde mit der vorbereiteten Nachricht geöffnet.',
-    copied: 'E-Mail-Daten wurden kopiert. Füge sie in deinem E-Mail-Postfach ein.',
-    copyFailed: 'Die E-Mail-Daten konnten nicht kopiert werden.',
-    gmxOpened: 'E-Mail-Daten wurden kopiert und GMX wurde geöffnet.',
     greeting: 'Hallo, ich möchte ein Projekt bei GlanzerDigital anfragen.',
   }),
 });

@@ -172,8 +172,12 @@ function focusFirstInvalidField(form) {
 function getSubmitLabel(form) {
   if (getContactMethod(form) === 'whatsapp') return translateContactText('Anfrage in WhatsApp öffnen');
   if (window.GlanzerContactDelivery?.isMobileMailContext()) return translateContactText('E-Mail-App öffnen');
-  const labels = { gmail: 'E-Mail in Gmail öffnen', outlook: 'E-Mail in Outlook öffnen', gmx: 'E-Mail-Daten kopieren & GMX öffnen' };
-  return translateContactText(labels[getEmailProvider(form)] || 'E-Mail-Daten kopieren');
+  const labels = {
+    gmail: 'E-Mail in Gmail öffnen',
+    outlook: 'E-Mail in Outlook öffnen',
+    mailapp: 'E-Mail-App öffnen',
+  };
+  return translateContactText(labels[getEmailProvider(form)] || 'E-Mail-App öffnen');
 }
 
 

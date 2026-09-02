@@ -37,7 +37,7 @@
   <link rel="stylesheet" href="../styles/variables.css?v=20260902-cachefix-1">
   <link rel="stylesheet" href="../styles/fonts.css?v=20260902-cachefix-1">
   <link rel="stylesheet" href="../style.css?v=20260902-page-motion">
-  <link rel="stylesheet" href="../styles/pages/kontakt.css?v=20260902-contact-cleanup">
+  <link rel="stylesheet" href="../styles/pages/kontakt.css?v=20260902-mailapp-center">
   <script src="../templates/headerTemplate.js?v=20260902-cachefix-1" defer></script>
   <script src="../templates/footerTemplate.js?v=20260902-cachefix-1" defer></script>
   <script src="../templates/consentTemplate.js?v=20260902-cachefix-1" defer></script>
@@ -47,17 +47,17 @@
   <script src="../scripts/privacyConsent.js?v=20260902-cachefix-1" defer></script>
   <script src="../scripts/i18nCore.js?v=20260902-cachefix-1" defer></script>
   <script src="../scripts/i18nContent.js?v=20260902-cachefix-1" defer></script>
-  <script src="../scripts/i18nPages.js?v=20260902-i18n-fix" defer></script>
+  <script src="../scripts/i18nPages.js?v=20260902-tobias-fix" defer></script>
   <script src="../scripts/i18nLegal.js?v=20260902-cachefix-1" defer></script>
-  <script src="../scripts/i18nFeedback.js?v=20260902-cachefix-1" defer></script>
+  <script src="../scripts/i18nFeedback.js?v=20260902-tobias-fix" defer></script>
   <script src="../scripts/i18nTranslations.js?v=20260902-cachefix-1" defer></script>
   <script src="../scripts/i18n.js?v=20260902-i18n-fix" defer></script>
   <script src="../scripts/pageMotion.js?v=20260902-page-motion" defer></script>
 
   <script src="../scripts/main.js?v=20260902-cachefix-1" defer></script>
-  <script src="../scripts/config/contactConfig.js?v=20260902-contact-cleanup" defer></script>
-  <script src="../scripts/services/contactDelivery.js?v=20260902-contact-cleanup" defer></script>
-  <script src="../scripts/pages/contactForm.js?v=20260902-contact-cleanup" defer></script>
+  <script src="../scripts/config/contactConfig.js?v=20260902-tobias-fix" defer></script>
+  <script src="../scripts/services/contactDelivery.js?v=20260902-tobias-fix" defer></script>
+  <script src="../scripts/pages/contactForm.js?v=20260902-tobias-fix" defer></script>
   <script src="../scripts/kontakt.js?v=20260902-cachefix-1" defer></script>
   <script type="application/ld+json">
 {
@@ -228,7 +228,7 @@
                   </span>
                   <span class="contact-method-card__copy">
                     <strong>E-Mail</strong>
-                    <small>Nachricht vorbereiten und im Webmail öffnen</small>
+                    <small>Nachricht vorbereiten und per Gmail, Outlook oder Mail-App öffnen</small>
                   </span>
                   <span class="contact-method-card__check" aria-hidden="true">✓</span>
                 </span>
@@ -238,14 +238,14 @@
 
           <fieldset class="email-provider" data-email-provider hidden>
             <legend>E-Mail-Anbieter auswählen</legend>
-            <p class="email-provider__intro">Am Handy öffnet sich deine installierte Mail-App. Am Desktop wird der gewählte Anbieter verwendet.</p>
+            <p class="email-provider__intro">Wähle Gmail, Outlook oder deine installierte Standard-Mail-App.</p>
 
             <div class="email-provider__grid">
               <label class="email-provider-card">
                 <input type="radio" name="emailProvider" value="gmail" checked>
                 <span>
                   <strong>Gmail</strong>
-                  <small>Handy: Mail-App · Desktop: Gmail</small>
+                  <small>Im Browser öffnen</small>
                 </span>
               </label>
 
@@ -253,23 +253,15 @@
                 <input type="radio" name="emailProvider" value="outlook">
                 <span>
                   <strong>Outlook</strong>
-                  <small>Handy: Mail-App · Desktop: Outlook</small>
+                  <small>Im Browser öffnen</small>
                 </span>
               </label>
 
               <label class="email-provider-card">
-                <input type="radio" name="emailProvider" value="gmx">
+                <input type="radio" name="emailProvider" value="mailapp">
                 <span>
-                  <strong>GMX</strong>
-                  <small>Handy: Mail-App · Desktop: GMX</small>
-                </span>
-              </label>
-
-              <label class="email-provider-card">
-                <input type="radio" name="emailProvider" value="other">
-                <span>
-                  <strong>Andere</strong>
-                  <small>Handy: Mail-App · Desktop: Daten kopieren</small>
+                  <strong>Mail-App</strong>
+                  <small>Installierte Standard-Mail-App öffnen</small>
                 </span>
               </label>
             </div>

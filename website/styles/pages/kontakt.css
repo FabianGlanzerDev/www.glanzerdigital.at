@@ -685,3 +685,11 @@
   border-color: transparent;
 }
 
+@media (min-width: 561px) {
+  .email-provider-card:nth-child(3) {
+    width: calc(50% - .325rem);
+    grid-column: 1 / -1;
+    justify-self: center;
+  }
+}
+
