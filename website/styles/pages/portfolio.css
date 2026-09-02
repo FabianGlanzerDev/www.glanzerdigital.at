@@ -1452,3 +1452,34 @@
     display: none;
   }
 }
+
+@media (min-width: 621px) and (max-width: 1180px) {
+  .practice-showcase .portfolio-feature,
+  .practice-showcase .portfolio-feature:not(.portfolio-feature--reverse),
+  .practice-showcase .portfolio-feature--reverse,
+  .practice-showcase #modellbibliothek.portfolio-feature--reverse {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1.75rem;
+  }
+
+  .practice-showcase .portfolio-feature--reverse .portfolio-feature-media {
+    order: 0;
+  }
+
+  .practice-showcase .portfolio-feature-media,
+  .practice-showcase #modellbibliothek .portfolio-feature-media {
+    width: 100%;
+    min-height: 0;
+    aspect-ratio: 16 / 9;
+  }
+
+  .practice-showcase .portfolio-feature-copy {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .practice-showcase #modellbibliothek .portfolio-feature-copy h2 {
+    white-space: normal;
+  }
+}
+

@@ -55,6 +55,10 @@ Options -Indexes
   Header always set Referrer-Policy "strict-origin-when-cross-origin"
   Header always set Permissions-Policy "camera=(), microphone=(), geolocation=()"
   Header always set X-Frame-Options "SAMEORIGIN"
+
+  <FilesMatch "\.(?:html?|css|js)$">
+    Header set Cache-Control "no-cache, must-revalidate"
+  </FilesMatch>
 </IfModule>
 
 <FilesMatch "(^\.|\.(?:bak|backup|log|map|md|sql|env|zip)$)">
@@ -63,9 +67,6 @@ Options -Indexes
 
 <IfModule mod_expires.c>
   ExpiresActive On
-
-  ExpiresByType text/css "access plus 7 days"
-  ExpiresByType application/javascript "access plus 7 days"
 
   ExpiresByType image/webp "access plus 30 days"
   ExpiresByType image/png "access plus 30 days"
