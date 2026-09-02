@@ -17,6 +17,14 @@
       <li><a href="/portfolio" {{PORTFOLIO_CURRENT}}>Portfolio</a></li>
       <li><a href="/ueber-mich" {{ABOUT_CURRENT}}>Über mich</a></li>
     </ul>
-    <a class="button button--primary button--small" href="/kontakt">Website anfragen</a>
+    <div class="language-switch" role="group" aria-label="Sprache auswählen">
+      <button class="language-switch__option is-active" type="button" data-language-option="de" aria-pressed="true">DE</button>
+      <span class="language-switch__separator" aria-hidden="true">/</span>
+      <button class="language-switch__option" type="button" data-language-option="en" aria-pressed="false">EN</button>
+    </div>
+    <a class="nav-project-link" href="/kontakt#projektanfrage">
+      <span>Projekt anfragen</span>
+      <span class="nav-project-link__icon" aria-hidden="true">↗</span>
+    </a>
   </nav>
 </div>
