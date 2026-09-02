@@ -13,10 +13,10 @@ function translateDeliveryText(value) {
 function buildMessageBody(data, industry = '') {
   const t = translateDeliveryText;
   const details = [
-    `Name: ${data.name}`, `${t('Projektart:')} ${t(data.project)}`,
-    `${t('Projektstand:')} ${t(data.projectStatus)}`, `${t('Zeitraum:')} ${t(data.timeframe)}`,
+    `Name: ${data.name}`, `${t('Projektstand:')} ${t(data.projectStatus)}`,
+    `${t('Zeitraum:')} ${t(data.timeframe)}`,
   ];
-  if (industry) details.splice(2, 0, `${t('Branche / Beispiel:')} ${t(industry)}`);
+  if (industry) details.splice(1, 0, `${t('Branche / Beispiel:')} ${t(industry)}`);
   return [t(CONTACT_CONFIG.text.greeting), '', ...details, '', t('Projektbeschreibung:'), data.message].join('\n');
 }
 

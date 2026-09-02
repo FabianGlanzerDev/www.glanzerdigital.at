@@ -4,11 +4,10 @@ window.GlanzerContactConfig = Object.freeze({
   whatsappNumber: '436767875304',
   contactEmail: 'fabsdev@gmx.at',
   maxMessageLength: 1200,
-  requiredFields: ['name', 'project', 'projectStatus', 'timeframe', 'message', 'privacy'],
+  requiredFields: ['name', 'projectStatus', 'timeframe', 'message', 'privacy'],
   text: Object.freeze({
     nameMissing: 'Bitte gib deinen Namen ein.',
     nameShort: 'Der Name ist zu kurz.',
-    projectMissing: 'Bitte wähle eine Projektart aus.',
     statusMissing: 'Bitte wähle den Projektstand aus.',
     timeframeMissing: 'Bitte wähle einen ungefähren Zeitraum aus.',
     messageMissing: 'Bitte beschreibe dein Projekt kurz.',

@@ -248,3 +248,10 @@ window.GD_I18N_PARTS.push({ translations: {
   "Memory Game anzeigen": "Show Memory Game",
   "Sakura Ramen anzeigen": "Show Sakura Ramen"
 } });
+
+window.GD_I18N_PARTS.push({ translations: {
+  "Beschreibe dein Vorhaben": "Describe your project",
+  "Du musst noch nicht genau wissen, welche Seiten oder Funktionen du brauchst. Das klären wir gemeinsam.": "You do not need to know exactly which pages or features you need yet. We will work that out together.",
+  "Zum Beispiel: Ich möchte eine neue Website für meinen Verein mit Startseite, Leistungen und Kontakt. Oder: Meine bestehende Website soll moderner und mobil besser werden.": "For example: I want a new website for my association with a home page, services and contact. Or: My existing website should look more modern and work better on mobile.",
+  "Website bei GlanzerDigital anfragen: Projekt kurz beschreiben und die Anfrage über WhatsApp oder E-Mail vorbereiten – für Projekte in der Steiermark und darüber hinaus.": "Request a website from GlanzerDigital: briefly describe your project and prepare your enquiry via WhatsApp or email – for projects in Styria and beyond."
+} });

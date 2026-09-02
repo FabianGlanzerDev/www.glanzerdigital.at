@@ -1138,3 +1138,33 @@ body {
     grid-column: auto;
   }
 }
+
+[data-page-reveal] {
+  opacity: 0;
+  transform: translateY(26px);
+  transition:
+    opacity .62s ease,
+    transform .7s cubic-bezier(.22, .61, .36, 1);
+}
+
+[data-page-reveal].reveal-from-top {
+  transform: translateY(-26px);
+}
+
+[data-page-reveal].reveal-from-bottom {
+  transform: translateY(26px);
+}
+
+[data-page-reveal].is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-page-reveal] {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+

@@ -49,7 +49,6 @@ function getEmailProvider(form) {
 function getContactData(form) {
   return {
     name: getFormValue(form, 'name'),
-    project: getFormValue(form, 'project'),
     projectStatus: getFormValue(form, 'projectStatus'),
     timeframe: getFormValue(form, 'timeframe'),
     message: getFormValue(form, 'message'),
@@ -106,7 +105,6 @@ function validateMessage(value) {
 function validateField(name, value) {
   const text = CONTACT_FORM_CONFIG.text;
   if (name === 'name') return validateName(value);
-  if (name === 'project') return value ? '' : text.projectMissing;
   if (name === 'projectStatus') return value ? '' : text.statusMissing;
   if (name === 'timeframe') return value ? '' : text.timeframeMissing;
   if (name === 'privacy') return value ? '' : text.privacyMissing;
@@ -254,44 +252,6 @@ async function handleSubmit(event, elements) {
 }
 
 
-/** Opens the project-type explanation dialog. */
-function openSolutionDialog() {
-  const dialog = document.querySelector('[data-solution-dialog]');
-  if (dialog instanceof HTMLDialogElement) dialog.showModal();
-}
-
-
-/** Closes the project-type explanation dialog. */
-function closeSolutionDialog() {
-  const dialog = document.querySelector('[data-solution-dialog]');
-  if (dialog instanceof HTMLDialogElement) dialog.close();
-}
-
-
-/** Closes the explanation dialog when its backdrop is clicked. */
-function handleDialogBackdrop(event) {
-  if (event.target === document.querySelector('[data-solution-dialog]')) closeSolutionDialog();
-}
-
-
-/** Registers project-type dialog interactions. */
-function initializeSolutionDialog() {
-  document.querySelector('[data-solution-dialog-open]')?.addEventListener('click', openSolutionDialog);
-  document.querySelector('[data-solution-dialog-close]')?.addEventListener('click', closeSolutionDialog);
-  document.querySelector('[data-solution-dialog]')?.addEventListener('click', handleDialogBackdrop);
-}
-
-
-/** Selects a project type supplied through the contact URL. */
-function selectProjectFromUrl(form) {
-  const requestedProject = String(contactParams.get('project') || '').trim();
-  if (!requestedProject) return;
-  form.querySelectorAll('input[name="project"]').forEach((control) => {
-    control.checked = control.value === requestedProject;
-  });
-}
-
-
 /** Registers all form event listeners. */
 function registerContactEvents(elements) {
   elements.form.addEventListener('submit', (event) => handleSubmit(event, elements));
@@ -305,9 +265,7 @@ function registerContactEvents(elements) {
 function initializeContactForm() {
   const elements = getContactElements();
   if (!elements.form) return;
-  selectProjectFromUrl(elements.form);
   registerContactEvents(elements);
-  initializeSolutionDialog();
   updateMessageCounter(elements);
   updateDeliveryPresentation(elements);
   updateSubmitState(elements);

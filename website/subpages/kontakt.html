@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description"
-    content="Website bei GlanzerDigital anfragen: Eckdaten auswählen und die Anfrage über WhatsApp oder E-Mail vorbereiten – für Projekte in der Steiermark und darüber hinaus.">
+    content="Website bei GlanzerDigital anfragen: Projekt kurz beschreiben und die Anfrage über WhatsApp oder E-Mail vorbereiten – für Projekte in der Steiermark und darüber hinaus.">
   <meta name="robots" content="index,follow,max-image-preview:large">
   <meta name="author" content="Fabian Glanzer">
   <meta name="theme-color" content="#080b10">
@@ -14,7 +14,7 @@
   <meta property="og:locale" content="de_AT">
   <meta property="og:title" content="Website anfragen | GlanzerDigital">
   <meta property="og:description"
-    content="Website bei GlanzerDigital anfragen: Eckdaten auswählen und die Anfrage über WhatsApp oder E-Mail vorbereiten – für Projekte in der Steiermark und darüber hinaus.">
+    content="Website bei GlanzerDigital anfragen: Projekt kurz beschreiben und die Anfrage über WhatsApp oder E-Mail vorbereiten – für Projekte in der Steiermark und darüber hinaus.">
   <meta property="og:url" content="https://glanzerdigital.at/kontakt">
   <meta property="og:image" content="https://glanzerdigital.at/assets/images/general/social-preview.webp">
   <meta property="og:image:type" content="image/webp">
@@ -24,7 +24,7 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Website anfragen | GlanzerDigital">
   <meta name="twitter:description"
-    content="Website bei GlanzerDigital anfragen: Eckdaten auswählen und die Anfrage über WhatsApp oder E-Mail vorbereiten – für Projekte in der Steiermark und darüber hinaus.">
+    content="Website bei GlanzerDigital anfragen: Projekt kurz beschreiben und die Anfrage über WhatsApp oder E-Mail vorbereiten – für Projekte in der Steiermark und darüber hinaus.">
   <meta name="twitter:image" content="https://glanzerdigital.at/assets/images/general/social-preview.webp">
   <meta name="twitter:image:alt" content="GlanzerDigital Logo mit Code- und Server-Symbol">
 
@@ -36,8 +36,8 @@
   <link rel="manifest" href="/site.webmanifest">
   <link rel="stylesheet" href="../styles/variables.css?v=20260902-cachefix-1">
   <link rel="stylesheet" href="../styles/fonts.css?v=20260902-cachefix-1">
-  <link rel="stylesheet" href="../style.css?v=20260902-cachefix-1">
-  <link rel="stylesheet" href="../styles/pages/kontakt.css?v=20260902-cachefix-1">
+  <link rel="stylesheet" href="../style.css?v=20260902-page-motion">
+  <link rel="stylesheet" href="../styles/pages/kontakt.css?v=20260902-contact-cleanup">
   <script src="../templates/headerTemplate.js?v=20260902-cachefix-1" defer></script>
   <script src="../templates/footerTemplate.js?v=20260902-cachefix-1" defer></script>
   <script src="../templates/consentTemplate.js?v=20260902-cachefix-1" defer></script>
@@ -47,15 +47,17 @@
   <script src="../scripts/privacyConsent.js?v=20260902-cachefix-1" defer></script>
   <script src="../scripts/i18nCore.js?v=20260902-cachefix-1" defer></script>
   <script src="../scripts/i18nContent.js?v=20260902-cachefix-1" defer></script>
-  <script src="../scripts/i18nPages.js?v=20260902-cachefix-1" defer></script>
+  <script src="../scripts/i18nPages.js?v=20260902-contact-cleanup" defer></script>
   <script src="../scripts/i18nLegal.js?v=20260902-cachefix-1" defer></script>
   <script src="../scripts/i18nFeedback.js?v=20260902-cachefix-1" defer></script>
   <script src="../scripts/i18nTranslations.js?v=20260902-cachefix-1" defer></script>
   <script src="../scripts/i18n.js?v=20260902-cachefix-1" defer></script>
+  <script src="../scripts/pageMotion.js?v=20260902-page-motion" defer></script>
+
   <script src="../scripts/main.js?v=20260902-cachefix-1" defer></script>
-  <script src="../scripts/config/contactConfig.js?v=20260902-cachefix-1" defer></script>
-  <script src="../scripts/services/contactDelivery.js?v=20260902-cachefix-1" defer></script>
-  <script src="../scripts/pages/contactForm.js?v=20260902-cachefix-1" defer></script>
+  <script src="../scripts/config/contactConfig.js?v=20260902-contact-cleanup" defer></script>
+  <script src="../scripts/services/contactDelivery.js?v=20260902-contact-cleanup" defer></script>
+  <script src="../scripts/pages/contactForm.js?v=20260902-contact-cleanup" defer></script>
   <script src="../scripts/kontakt.js?v=20260902-cachefix-1" defer></script>
   <script type="application/ld+json">
 {
@@ -66,7 +68,7 @@
       "@id": "https://glanzerdigital.at/kontakt#webpage",
       "url": "https://glanzerdigital.at/kontakt",
       "name": "Kontakt | GlanzerDigital",
-      "description": "Kontaktiere GlanzerDigital für deine Website: Eckdaten auswählen und deine Anfrage per WhatsApp oder E-Mail vorbereiten – für Projekte in der Steiermark und darüber hinaus.",
+      "description": "Kontaktiere GlanzerDigital für deine Website: Projekt kurz beschreiben und deine Anfrage per WhatsApp oder E-Mail vorbereiten – für Projekte in der Steiermark und darüber hinaus.",
       "isPartOf": {
         "@id": "https://glanzerdigital.at/#website"
       },
@@ -156,74 +158,6 @@
               <small class="field-error" id="name-error" data-error-for="name" aria-live="polite"></small>
             </div>
 
-            <fieldset class="form-group project-choice" data-field="project" aria-describedby="project-error">
-              <div class="project-choice-head">
-                <legend>Was möchtest du umsetzen? <span aria-hidden="true">*</span></legend>
-                <button class="solution-help-button" type="button" data-solution-dialog-open>
-                  Was ist der Unterschied?
-                </button>
-              </div>
-              <p class="field-hint">Du musst die technische Bezeichnung nicht selbst kennen.</p>
-
-              <div class="project-choice-grid project-choice-grid--clean">
-                <label class="choice-card">
-                  <input type="radio" name="project" value="Neue Website oder Landingpage" required>
-                  <span class="choice-card__surface">
-                    <span class="choice-card__icon" aria-hidden="true">
-                      <svg viewBox="0 0 24 24" focusable="false">
-                        <rect x="3" y="4" width="18" height="16" rx="2"></rect>
-                        <path d="M3 8h18"></path>
-                        <path d="M7 6h.01"></path>
-                      </svg>
-                    </span>
-                    <span class="choice-card__copy">
-                      <strong>Website / Landingpage</strong>
-                      <small>Mehrseitige Website, Portfolio oder gezielte Einzelseite</small>
-                    </span>
-                    <span class="choice-card__check" aria-hidden="true">✓</span>
-                  </span>
-                </label>
-
-                <label class="choice-card">
-                  <input type="radio" name="project" value="Bestehende Website verbessern">
-                  <span class="choice-card__surface">
-                    <span class="choice-card__icon" aria-hidden="true">
-                      <svg viewBox="0 0 24 24" focusable="false">
-                        <path d="M20 6v5h-5"></path>
-                        <path d="M4 18v-5h5"></path>
-                        <path d="M18.5 9a7 7 0 0 0-11.7-2.3L4 9"></path>
-                        <path d="M5.5 15a7 7 0 0 0 11.7 2.3L20 15"></path>
-                      </svg>
-                    </span>
-                    <span class="choice-card__copy">
-                      <strong>Bestehende Website verbessern</strong>
-                      <small>Änderungen, Erweiterungen oder laufende Betreuung</small>
-                    </span>
-                    <span class="choice-card__check" aria-hidden="true">✓</span>
-                  </span>
-                </label>
-
-                <label class="choice-card choice-card--wide">
-                  <input type="radio" name="project" value="Noch unsicher – Beratung gewünscht">
-                  <span class="choice-card__surface">
-                    <span class="choice-card__icon" aria-hidden="true">
-                      <svg viewBox="0 0 24 24" focusable="false">
-                        <circle cx="12" cy="12" r="9"></circle>
-                        <path d="M9.8 9a2.4 2.4 0 1 1 3.9 1.9c-1 .7-1.7 1.2-1.7 2.6"></path>
-                        <path d="M12 17h.01"></path>
-                      </svg>
-                    </span>
-                    <span class="choice-card__copy">
-                      <strong>Noch unsicher</strong>
-                      <small>Gemeinsam herausfinden, welche Lösung für dein Vorhaben sinnvoll ist</small>
-                    </span>
-                    <span class="choice-card__check" aria-hidden="true">✓</span>
-                  </span>
-                </label>
-              </div>
-              <small class="field-error" id="project-error" data-error-for="project" aria-live="polite"></small>
-            </fieldset>
-
             <div class="form-row">
               <div class="form-group" data-field="projectStatus">
                 <label for="project-status">Projektstand <span aria-hidden="true">*</span></label>
@@ -254,9 +188,10 @@
             </div>
 
             <div class="form-group" data-field="message">
-              <label for="message">Worum geht es? <span aria-hidden="true">*</span></label>
+              <label for="message">Beschreibe dein Vorhaben <span aria-hidden="true">*</span></label>
+              <p class="field-hint contact-message-hint">Du musst noch nicht genau wissen, welche Seiten oder Funktionen du brauchst. Das klären wir gemeinsam.</p>
               <textarea id="message" name="message" rows="6"
-                placeholder="Zum Beispiel: Ich brauche eine neue Website für … Wichtig sind mir … Bereits vorhanden sind …"
+                placeholder="Zum Beispiel: Ich möchte eine neue Website für meinen Verein mit Startseite, Leistungen und Kontakt. Oder: Meine bestehende Website soll moderner und mobil besser werden."
                 aria-describedby="message-error message-limit" maxlength="1200" required></textarea>
               <div class="textarea-meta">
                 <small class="field-error" id="message-error" data-error-for="message" aria-live="polite"></small>
@@ -368,37 +303,6 @@
         </article>
       </div>
     </section>
-
-    <dialog class="solution-dialog" data-solution-dialog aria-labelledby="solution-dialog-title">
-      <div class="solution-dialog__inner">
-        <div class="solution-dialog__head">
-          <div>
-            <span class="kicker">Kurze Orientierung</span>
-            <h2 id="solution-dialog-title">Welche Auswahl passt zu dir?</h2>
-          </div>
-          <button type="button" class="solution-dialog__close" data-solution-dialog-close
-            aria-label="Dialog schließen">×</button>
-        </div>
-
-        <div class="solution-dialog__grid">
-          <article>
-            <strong>Website / Landingpage</strong>
-            <p>Wenn eine neue Website, Unternehmensseite, Portfolioseite oder einzelne Kampagnenseite entstehen soll.
-            </p>
-          </article>
-          <article>
-            <strong>Bestehende Website verbessern</strong>
-            <p>Wenn bereits eine Website vorhanden ist und Design, Inhalte, Mobilansicht, Technik oder Funktionen
-              verbessert werden sollen.</p>
-          </article>
-          <article>
-            <strong>Noch unsicher</strong>
-            <p>Wenn du dein Ziel kennst, aber noch nicht weißt, welche technische Lösung oder welcher Umfang sinnvoll
-              ist.</p>
-          </article>
-        </div>
-      </div>
-    </dialog>
 
   </main>
 
