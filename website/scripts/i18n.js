@@ -6,6 +6,16 @@ const META_TRANSLATIONS = window.GD_I18N_DATA?.meta || {};
 
 const ATTRIBUTE_NAMES = ['placeholder', 'aria-label', 'title', 'alt'];
 
+const META_SELECTORS = [
+  'meta[name="description"]',
+  'meta[property="og:title"]',
+  'meta[property="og:description"]',
+  'meta[property="og:image:alt"]',
+  'meta[name="twitter:title"]',
+  'meta[name="twitter:description"]',
+  'meta[name="twitter:image:alt"]'
+];
+
 
 
 /** Normalizes text. @param {unknown} value - The value value. @returns {string} The operation result. */
@@ -68,12 +78,19 @@ function translateDocumentText(language) {
 
 
 
-/** Translates metadata. @param {string} language - The language value. @returns {unknown} The operation result. */
+/** Translates one metadata element. */
+function translateMetaElement(element, language) {
+  if (!element) return;
+  element.content = translateValue(element.content, language);
+}
+
+
+/** Translates page metadata. */
 function translateMetadata(language) {
   document.title = translateValue(document.title, language);
-  const description = document.querySelector('meta[name="description"]');
-  if (!description) return;
-  description.content = translateValue(description.content, language);
+  META_SELECTORS.forEach((selector) => {
+    translateMetaElement(document.querySelector(selector), language);
+  });
 }
 
 
