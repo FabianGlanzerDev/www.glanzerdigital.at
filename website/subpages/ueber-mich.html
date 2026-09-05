@@ -36,8 +36,8 @@
   <link rel="manifest" href="/site.webmanifest">
   <link rel="stylesheet" href="../styles/variables.css?v=20260902-cachefix-1">
   <link rel="stylesheet" href="../styles/fonts.css?v=20260902-cachefix-1">
-  <link rel="stylesheet" href="../style.css?v=20260902-page-motion">
-  <link rel="stylesheet" href="../styles/pages/ueber-mich.css?v=20260902-cachefix-1">
+  <link rel="stylesheet" href="../style.css?v=20260903-footer-font-1">
+  <link rel="stylesheet" href="../styles/pages/ueber-mich.css?v=20260903-about-middle-1">
   <script src="../templates/headerTemplate.js?v=20260902-cachefix-1" defer></script>
   <script src="../templates/footerTemplate.js?v=20260902-cachefix-1" defer></script>
   <script src="../templates/consentTemplate.js?v=20260902-cachefix-1" defer></script>
@@ -50,6 +50,7 @@
   <script src="../scripts/i18nPages.js?v=20260902-cachefix-1" defer></script>
   <script src="../scripts/i18nLegal.js?v=20260902-cachefix-1" defer></script>
   <script src="../scripts/i18nFeedback.js?v=20260902-cachefix-1" defer></script>
+  <script src="../scripts/i18nAbout.js?v=20260903-about-middle-1" defer></script>
   <script src="../scripts/i18nTranslations.js?v=20260902-cachefix-1" defer></script>
   <script src="../scripts/i18n.js?v=20260902-cachefix-1" defer></script>
   <script src="../scripts/pageMotion.js?v=20260902-page-motion" defer></script>
@@ -130,9 +131,10 @@
   <main id="main-content">
     <section class="about-hero">
       <div class="container about-hero__inner">
-        <span class="kicker">Über mich</span>
+        <span class="kicker">Websites aus der Steiermark</span>
         <h1>Persönliche Betreuung.<br><span class="text-primary">Direkt statt anonym.</span></h1>
-        <p>Bei Glanzer Digital sprichst du direkt mit der Person, die dein Projekt plant, entwickelt und später weiter betreut.</p>
+        <p>Bei Glanzer Digital sprichst du direkt mit der Person, die dein Projekt plant, entwickelt und später weiter
+          betreut.</p>
         <div class="button-row">
           <a class="button button--primary" href="#persoenlich">Mehr über mich</a>
           <a class="button button--secondary" href="/kontakt#projektanfrage">Website anfragen</a>
@@ -142,33 +144,31 @@
 
     <section class="section section--light about-clean-section" id="persoenlich">
       <div class="container about-clean-grid">
-        <div class="about-profile-card">
-          <div class="about-profile-card__media">
-            <img src="../assets/images/general/fabian-glanzer-2026.webp"
-              alt="Fabian Glanzer an seinem Entwickler-Arbeitsplatz" width="1122" height="1402" loading="lazy" decoding="async">
-            <p class="about-profile-card__ai-note">Originalfoto · Hintergrund KI-gestützt bearbeitet</p>
-          </div>
+        <figure class="about-photo">
+          <img src="../assets/images/general/fabian-glanzer-2026.webp"
+            alt="Fabian Glanzer an seinem Entwickler-Arbeitsplatz" width="1122" height="1402" loading="lazy"
+            decoding="async">
+          <figcaption>Originalfoto · Hintergrund KI-gestützt bearbeitet</figcaption>
+        </figure>
 
-          <div class="about-profile-card__content">
-            <span>GlanzerDigital</span>
-            <strong>Fabian Glanzer</strong>
-            <p>Webentwicklung, persönliche Betreuung und digitale Lösungen.</p>
-          </div>
-        </div>
         <div class="about-clean-copy">
-          <h2>Websites klar planen und sauber umsetzen.</h2>
-          <p>Mein aktueller Schwerpunkt liegt auf modernen, responsiven Websites für Selbstständige, kleinere
-            Unternehmen und Vereine. Wichtig ist mir dabei, dass Inhalte verständlich aufgebaut sind und die Website
-            nicht komplizierter wird als nötig.</p>
-          <p>Gleichzeitig entwickle ich mich technisch laufend weiter und setze eigene Projekte und praktische
-            Anwendungen um. Dadurch kann ich Websites nicht nur gestalten, sondern auch technisch nachvollziehbar und
-            erweiterbar aufbauen.</p>
+          <span class="kicker">Mein Weg</span>
+          <h2>Webentwicklung ist für mich mehr als nur eine schöne Oberfläche.</h2>
+          <p>Ich bin Fabs und beschäftige mich gerne mit Technik, digitalen Lösungen und der Frage, wie man Dinge
+            verständlicher, sauberer und praktischer umsetzen kann. Genau das reizt mich auch an der Webentwicklung.</p>
+          <p>In meiner Ausbildung an der Developer Akademie vertiefe ich meine Kenntnisse laufend und setze das Gelernte
+            direkt in eigenen Projekten um. Dabei geht es mir nicht nur darum, dass eine Website gut aussieht, sondern
+            auch darum, wie sie aufgebaut ist, auf verschiedenen Geräten funktioniert und später weiterentwickelt werden
+            kann.</p>
+          <p>Neben Websites gehören auch 3D-Druck, Automatisierungen und eigene kleine Tools zu den Themen, mit denen
+            ich
+            mich gerne beschäftige. Mit GlanzerDigital möchte ich diese technische Begeisterung mit persönlicher
+            Betreuung und klarer Kommunikation verbinden.</p>
 
           <div class="about-facts">
+            <div><strong>Standort</strong><span>Steiermark</span></div>
             <div><strong>Direkter Kontakt</strong><span>Du sprichst mit mir – ohne mehrere Zwischenstellen.</span></div>
             <div><strong>Klare Kommunikation</strong><span>Technische Themen werden verständlich erklärt.</span></div>
-            <div><strong>Weiterentwicklung</strong><span>Auch nach dem Onlinegang bleiben Änderungen möglich.</span>
-            </div>
           </div>
         </div>
       </div>
@@ -244,7 +244,8 @@
   </main>
 
   <footer class="site-footer" data-site-footer></footer>
-  <section class="consent-banner" role="dialog" aria-label="Datenschutz-Einstellungen" data-consent-banner hidden></section>
+  <section class="consent-banner" role="dialog" aria-label="Datenschutz-Einstellungen" data-consent-banner hidden>
+  </section>
 </body>
 
 </html>

@@ -329,6 +329,46 @@ function gd_admin_active_events(array $recentEvents): int
 }
 
 
+function gd_admin_contact_count(array $events): int
+{
+    $names = ['contact_click', 'contact_submit', 'whatsapp_click', 'contact_form_submit'];
+    return array_sum(array_map(static fn(string $name): int => (int) ($events[$name] ?? 0), $names));
+}
+
+
+function gd_admin_contact_label(string $label): string
+{
+    $value = strtolower(trim($label));
+    if (str_contains($value, 'whatsapp')) return 'WhatsApp';
+    if (preg_match('/e-?mail|email|gmail|outlook|gmx|mail-app|mail app/', $value)) return 'E-Mail';
+    if (str_contains($value, 'telefon') || $value === 'tel') return 'Telefon';
+    if (str_contains($value, 'formular')) return 'E-Mail';
+    return 'Sonstiger Kontakt';
+}
+
+
+function gd_admin_contact_ranking(array $counts): array
+{
+    $grouped = [];
+    foreach ($counts as $label => $value) {
+        $name = gd_admin_contact_label((string) $label);
+        $grouped[$name] = (int) ($grouped[$name] ?? 0) + (int) $value;
+    }
+    return gd_admin_ranking($grouped);
+}
+
+
+function gd_admin_normalize_contact_rows(array $rows): array
+{
+    $grouped = [];
+    foreach ($rows as $row) {
+        $name = gd_admin_contact_label((string) ($row['label'] ?? ''));
+        $grouped[$name] = (int) ($grouped[$name] ?? 0) + (int) ($row['value'] ?? 0);
+    }
+    return gd_admin_ranking($grouped);
+}
+
+
 function gd_admin_sources(array $counts): array
 {
     $labels = ['Direkt', 'Google', 'Social', 'Sonstige'];
@@ -350,7 +390,7 @@ function gd_admin_analytics_payload(string $range): array
     $events = $aggregate['events'];
     $demoCounts = $aggregate['demos'] ?: gd_admin_fallback_demo_ranking($aggregate['pages']);
     $demos = gd_admin_ranking($demoCounts);
-    $contact = (int) ($events['contact_click'] ?? 0);
+    $contact = gd_admin_contact_count($events);
     $views = (int) $aggregate['views'];
     return gd_admin_build_payload($days, $stored, $aggregate, $events, $demos, $contact, $views);
 }
@@ -405,7 +445,7 @@ function gd_admin_rankings(array $aggregate, array $demos): array
         'pages' => gd_admin_ranking($aggregate['pages']), 'demos' => $demos,
         'landingPages' => gd_admin_ranking($aggregate['landing_pages']), 'referrers' => gd_admin_ranking($aggregate['referrers']),
         'portfolio' => gd_admin_ranking($aggregate['portfolio']), 'ctas' => gd_admin_ranking($aggregate['ctas']),
-        'contacts' => gd_admin_ranking($aggregate['contacts']), 'browsers' => gd_admin_ranking($aggregate['browsers']),
+        'contacts' => gd_admin_contact_ranking($aggregate['contacts']), 'browsers' => gd_admin_ranking($aggregate['browsers']),
         'operatingSystems' => gd_admin_ranking($aggregate['operating_systems']), 'screens' => gd_admin_ranking($aggregate['screens']),
     ];
 }

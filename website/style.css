@@ -1075,7 +1075,7 @@ body {
 
 .footer-links a,
 .footer-privacy-settings {
-  font-size: .9rem;
+  font-size: 1rem;
 }
 
 @media (max-width: 920px) {
@@ -1168,3 +1168,58 @@ body {
   }
 }
 
+
+
+/* Header bleibt auch in schmaleren Desktop-/Notebook-Breiten einzeilig. */
+.site-nav ul a,
+.nav-project-link,
+.nav-project-link > span:first-child {
+  white-space: nowrap;
+}
+
+.kicker,
+.project-eyebrow,
+.footer-title {
+  font-size: .875rem;
+}
+
+@media (min-width: 881px) and (max-width: 1120px) {
+  .container {
+    width: min(calc(100% - 3rem), var(--container-width));
+  }
+
+  .header-inner {
+    gap: 1rem;
+  }
+
+  .brand {
+    width: 180px;
+    min-width: 180px;
+  }
+
+  .site-nav {
+    gap: .75rem;
+  }
+
+  .site-nav ul {
+    gap: .9rem;
+  }
+
+  .site-nav a {
+    font-size: .875rem;
+  }
+
+  .language-switch {
+    padding-inline: .25rem;
+  }
+
+  .language-switch__option {
+    min-width: 32px;
+    padding-inline: .3rem;
+  }
+
+  .nav-project-link {
+    padding-left: .8rem;
+    gap: .45rem;
+  }
+}

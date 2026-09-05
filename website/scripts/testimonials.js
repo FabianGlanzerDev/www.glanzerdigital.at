@@ -54,24 +54,124 @@ function createTestimonialCard(template, item, language) {
 
 
 
-/** Builds one row of testimonial cards for the endless marquee. */
-function createTestimonialGroup(template, items, language, hidden = false) {
-  const group = document.createElement('div');
-  group.className = 'testimonials-marquee__group';
-  if (hidden) group.setAttribute('aria-hidden', 'true');
-  items.forEach((item) => group.append(createTestimonialCard(template, item, language)));
-  return group;
+/** Returns how many testimonial cards are visible at once. */
+function getVisibleTestimonialCount() {
+  return window.matchMedia('(max-width: 900px)').matches ? 1 : 2;
 }
 
 
 
-/** Creates two equal groups so the marquee can loop without a visible jump. */
-function renderTestimonialMarquee(list, template, items, language) {
+/** Returns the width of one slider step. */
+function getTestimonialStep(list) {
+  const card = list.querySelector('.testimonial-item');
+  if (!card) return list.clientWidth;
+  const gap = parseFloat(getComputedStyle(list.querySelector('.testimonials-slider__track')).columnGap) || 0;
+  return card.getBoundingClientRect().width + gap;
+}
+
+
+
+/** Returns the active card index from the current scroll position. */
+function getTestimonialIndex(list) {
+  const step = getTestimonialStep(list);
+  return step > 0 ? Math.round(list.scrollLeft / step) : 0;
+}
+
+
+
+/** Builds the accessible range label below the testimonial slider. */
+function getTestimonialStatus(index, total) {
+  const visible = getVisibleTestimonialCount();
+  const end = Math.min(index + visible, total);
+  return visible > 1 ? `${index + 1}–${end} / ${total}` : `${index + 1} / ${total}`;
+}
+
+
+
+/** Updates counter and arrow states for the current slider position. */
+function updateTestimonialControls(list, controls, total) {
+  const visible = getVisibleTestimonialCount();
+  const index = Math.min(getTestimonialIndex(list), Math.max(0, total - visible));
+  controls.status.textContent = getTestimonialStatus(index, total);
+  controls.previous.disabled = index <= 0;
+  controls.next.disabled = index >= total - visible;
+}
+
+
+
+/** Scrolls the testimonial slider by one card. */
+function moveTestimonials(list, direction) {
+  list.scrollBy({ left: getTestimonialStep(list) * direction, behavior: 'smooth' });
+}
+
+
+
+/** Creates one arrow button for the testimonial navigation. */
+function createTestimonialButton(direction, language) {
+  const button = document.createElement('button');
+  const previous = direction === 'previous';
+  button.type = 'button';
+  button.className = `testimonials-control testimonials-control--${direction}`;
+  button.setAttribute('aria-label', getTestimonialButtonLabel(previous, language));
+  button.textContent = previous ? '←' : '→';
+  return button;
+}
+
+
+
+/** Returns the accessible label for one slider arrow. */
+function getTestimonialButtonLabel(previous, language) {
+  if (language === 'en') return previous ? 'Previous feedback' : 'Next feedback';
+  return previous ? 'Vorheriges Feedback' : 'Nächstes Feedback';
+}
+
+
+
+/** Creates the testimonial navigation shown below the cards. */
+function createTestimonialControls(language) {
+  const wrapper = document.createElement('div');
+  const previous = createTestimonialButton('previous', language);
+  const next = createTestimonialButton('next', language);
+  const status = document.createElement('span');
+  wrapper.className = 'testimonials-controls';
+  status.className = 'testimonials-status';
+  status.setAttribute('aria-live', 'polite');
+  wrapper.append(previous, status, next);
+  return { wrapper, previous, next, status };
+}
+
+
+
+/** Connects arrow and keyboard navigation to the testimonial slider. */
+function bindTestimonialNavigation(list, controls, total) {
+  controls.previous.addEventListener('click', () => moveTestimonials(list, -1));
+  controls.next.addEventListener('click', () => moveTestimonials(list, 1));
+  list.addEventListener('keydown', (event) => handleTestimonialKeydown(event, list));
+  list.addEventListener('scroll', () => updateTestimonialControls(list, controls, total), { passive: true });
+  window.addEventListener('resize', () => updateTestimonialControls(list, controls, total), { passive: true });
+}
+
+
+
+/** Handles left and right arrow keys while the slider is focused. */
+function handleTestimonialKeydown(event, list) {
+  if (!['ArrowLeft', 'ArrowRight'].includes(event.key)) return;
+  event.preventDefault();
+  moveTestimonials(list, event.key === 'ArrowRight' ? 1 : -1);
+}
+
+
+
+/** Renders the manual testimonial slider. */
+function renderTestimonialSlider(list, template, items, language) {
   const track = document.createElement('div');
-  track.className = 'testimonials-marquee__track';
-  track.append(createTestimonialGroup(template, items, language));
-  track.append(createTestimonialGroup(template, items, language, true));
+  const controls = createTestimonialControls(language);
+  track.className = 'testimonials-slider__track';
+  items.forEach((item) => track.append(createTestimonialCard(template, item, language)));
   list.replaceChildren(track);
+  list.after(controls.wrapper);
+  bindTestimonialNavigation(list, controls, items.length);
+  updateTestimonialControls(list, controls, items.length);
 }
 
 
@@ -82,6 +182,14 @@ function renderTestimonialHeading(section, config, language) {
   setTestimonialText(section, TESTIMONIAL_SELECTORS.title, getTestimonialText(config.section.title, language));
   setTestimonialText(section, TESTIMONIAL_SELECTORS.intro, getTestimonialText(config.section.intro, language));
 }
+
+
+
+/** Removes an existing testimonial navigation before rerendering. */
+function removeTestimonialControls(section) {
+  section.querySelector('.testimonials-controls')?.remove();
+}
+
 
 
 /** Renders the currently enabled testimonial entries. */
@@ -95,7 +203,8 @@ function renderTestimonials() {
   const items = config.items.filter((item) => item.visible !== false);
   section.hidden = items.length === 0;
   if (!list || items.length === 0) return;
-  renderTestimonialMarquee(list, template, items, language);
+  removeTestimonialControls(section);
+  renderTestimonialSlider(list, template, items, language);
   renderTestimonialHeading(section, config, language);
 }
 

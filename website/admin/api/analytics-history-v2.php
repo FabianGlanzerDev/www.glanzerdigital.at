@@ -56,17 +56,25 @@ function gd_admin_merge_history_with_local(array $history, array $local): array
     $localRankings = (array) ($local['rankings'] ?? []);
 
     $historySummary['activeNow'] = (int) ($localSummary['activeNow'] ?? 0);
-    foreach (['demos', 'contact', 'github'] as $key) {
+    foreach (['demos', 'github'] as $key) {
         if ((int) ($historySummary[$key] ?? 0) === 0) {
             $historySummary[$key] = (int) ($localSummary[$key] ?? 0);
         }
     }
+    $historySummary['contact'] = max(
+        (int) ($historySummary['contact'] ?? 0),
+        (int) ($localSummary['contact'] ?? 0)
+    );
 
     foreach (['demos', 'contacts', 'portfolio', 'ctas'] as $name) {
         if ((array) ($localRankings[$name] ?? []) !== []) {
             $historyRankings[$name] = (array) $localRankings[$name];
         }
     }
+
+    $historyRankings['contacts'] = gd_admin_normalize_contact_rows(
+        (array) ($historyRankings['contacts'] ?? [])
+    );
 
     $history['ok'] = true;
     $history['summary'] = $historySummary;

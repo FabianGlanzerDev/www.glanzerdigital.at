@@ -1,7 +1,8 @@
 .services-hero {
   position: relative;
   display: flex;
-  min-height: auto;
+  min-height: calc(100svh - var(--header-height));
+  min-height: calc(100dvh - var(--header-height));
   align-items: center;
   overflow: hidden;
   background:
@@ -37,8 +38,8 @@
 
 .services-trust {
   background: #0b111a;
-  border-top: 1px solid rgba(255,255,255,.06);
-  border-bottom: 1px solid rgba(255,255,255,.06);
+  border-top: 1px solid rgba(255, 255, 255, .06);
+  border-bottom: 1px solid rgba(255, 255, 255, .06);
 }
 
 .services-trust__grid {
@@ -46,13 +47,13 @@
   grid-template-columns: repeat(4, 1fr);
 }
 
-.services-trust__grid > div {
+.services-trust__grid>div {
   padding: 1.55rem 1.4rem;
-  border-right: 1px solid rgba(255,255,255,.08);
+  border-right: 1px solid rgba(255, 255, 255, .08);
 }
 
-.services-trust__grid > div:first-child {
-  border-left: 1px solid rgba(255,255,255,.08);
+.services-trust__grid>div:first-child {
+  border-left: 1px solid rgba(255, 255, 255, .08);
 }
 
 .services-trust strong,
@@ -140,15 +141,15 @@
 .services-options__grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  border-top: 1px solid rgba(255,255,255,.13);
-  border-left: 1px solid rgba(255,255,255,.13);
+  border-top: 1px solid rgba(255, 255, 255, .13);
+  border-left: 1px solid rgba(255, 255, 255, .13);
 }
 
 .services-options__grid article {
   min-height: 410px;
   padding: clamp(1.8rem, 3vw, 2.6rem);
-  border-right: 1px solid rgba(255,255,255,.13);
-  border-bottom: 1px solid rgba(255,255,255,.13);
+  border-right: 1px solid rgba(255, 255, 255, .13);
+  border-bottom: 1px solid rgba(255, 255, 255, .13);
 }
 
 .services-options__label {
@@ -232,7 +233,7 @@
   font-size: clamp(2.3rem, 4vw, 4rem);
 }
 
-.preparation-grid > div:first-child > p {
+.preparation-grid>div:first-child>p {
   max-width: 590px;
   color: #9da9b8;
   line-height: 1.8;
@@ -241,14 +242,14 @@
 .preparation-list {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  border-top: 1px solid rgba(255,255,255,.12);
-  border-left: 1px solid rgba(255,255,255,.12);
+  border-top: 1px solid rgba(255, 255, 255, .12);
+  border-left: 1px solid rgba(255, 255, 255, .12);
 }
 
-.preparation-list > div {
+.preparation-list>div {
   padding: 1.45rem;
-  border-right: 1px solid rgba(255,255,255,.12);
-  border-bottom: 1px solid rgba(255,255,255,.12);
+  border-right: 1px solid rgba(255, 255, 255, .12);
+  border-bottom: 1px solid rgba(255, 255, 255, .12);
 }
 
 .preparation-list strong,
@@ -367,26 +368,27 @@
 
 @media (max-width: 620px) {
   .services-hero {
-    min-height: auto;
+    min-height: calc(100svh - var(--header-height));
+    min-height: calc(100dvh - var(--header-height));
   }
 
   .services-hero__inner {
-    padding-block: 4.5rem;
+    padding-block: clamp(2.4rem, 7vh, 4rem);
   }
 
   .services-hero h1 {
-    font-size: clamp(2.8rem, 13vw, 4rem);
+    font-size: clamp(2.45rem, 11.5vw, 3.4rem);
   }
 
   .services-trust__grid {
     grid-template-columns: 1fr;
   }
 
-  .services-trust__grid > div,
-  .services-trust__grid > div:first-child {
+  .services-trust__grid>div,
+  .services-trust__grid>div:first-child {
     border-left: 0;
     border-right: 0;
-    border-bottom: 1px solid rgba(255,255,255,.08);
+    border-bottom: 1px solid rgba(255, 255, 255, .08);
   }
 
   .services-detail__row {
@@ -406,8 +408,48 @@
   }
 
   .extras-grid article,
-  .preparation-list > div {
+  .preparation-list>div {
     padding-inline: 0;
     border-right: 0;
+  }
+}
+
+
+#website-erstellen,
+#landingpage,
+#website-verbessern {
+  scroll-margin-top: calc(var(--header-height) + 1rem);
+}
+
+.services-trust span,
+.services-detail__number,
+.services-options__label,
+.process-service__grid span {
+  font-size: .875rem;
+}
+
+.process-service__grid p {
+  font-size: 1rem;
+}
+
+.preparation-list span,
+.extras-grid span {
+  font-size: 1rem;
+}
+
+@media (min-width: 701px) and (max-height: 700px) {
+  .services-hero__inner {
+    padding-block: 1.75rem;
+  }
+
+  .services-hero h1 {
+    margin-bottom: 1rem;
+    font-size: clamp(2.65rem, 5vw, 3.5rem);
+  }
+
+  .services-hero p {
+    margin-bottom: 1.2rem;
+    font-size: 1rem;
+    line-height: 1.55;
   }
 }

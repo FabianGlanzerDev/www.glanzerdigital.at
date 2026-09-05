@@ -16,7 +16,7 @@
   <link rel="manifest" href="/site.webmanifest">
   <link rel="stylesheet" href="../styles/variables.css?v=20260902-cachefix-1">
   <link rel="stylesheet" href="../styles/fonts.css?v=20260902-cachefix-1">
-  <link rel="stylesheet" href="../style.css?v=20260902-page-motion">
+  <link rel="stylesheet" href="../style.css?v=20260903-footer-font-1">
   <link rel="stylesheet" href="../styles/pages/legal.css?v=20260902-cachefix-1">
   <script src="../templates/headerTemplate.js?v=20260902-cachefix-1" defer></script>
   <script src="../templates/footerTemplate.js?v=20260902-cachefix-1" defer></script>
@@ -100,21 +100,19 @@
 
         <h2>4. Kontaktaufnahme per E-Mail</h2>
         <p>
-          Wird im Anfrageformular „E-Mail“ gewählt, erstellt die Website aus den eingegebenen Angaben lokal im Browser
-          eine vorbereitete E-Mail. Ein eigener Formularserver von GlanzerDigital erhält diese Nachricht nicht.
+          Wird im Anfrageformular „E-Mail“ gewählt, werden die eingegebenen Angaben über eine eigene PHP-Schnittstelle
+          auf glanzerdigital.at an den Webserver übertragen und von dort per E-Mail an GlanzerDigital gesendet. Verarbeitet
+          werden dabei insbesondere Name, E-Mail-Adresse, Projektstand, gewünschter Zeitraum und Projektbeschreibung.
         </p>
         <p>
-          Bei Gmail und Outlook wird nach dem bewussten Klick des Nutzers die jeweilige Webmail-Seite mit Empfänger,
-          Betreff und vorbereitetem Nachrichtentext geöffnet. Dadurch können diese Angaben an den gewählten
-          Webmail-Anbieter übertragen werden. Bei GMX und „Andere“ werden die vorbereiteten E-Mail-Daten zunächst lokal
-          in die Zwischenablage kopiert; das eigentliche Senden erfolgt anschließend durch den Nutzer in seinem
-          E-Mail-Postfach.
+          Die angegebene E-Mail-Adresse wird als Antwortadresse verwendet, damit auf die Anfrage direkt geantwortet
+          werden kann. Zur Missbrauchsabwehr kann ein Hash der IP-Adresse zusammen mit Zeitstempeln vorübergehend im
+          Server-Temp-Verzeichnis gespeichert werden. Für das Rate-Limit werden ausschließlich Anfragen der letzten 15 Minuten berücksichtigt.
         </p>
         <p>
-          Für die weitere E-Mail-Kommunikation wird ein GMX-Postfach verwendet. GMX ist ein Dienst der
-          1&amp;1 Mail &amp; Media GmbH, Zweigniederlassung Karlsruhe, Brauerstraße 48, 76135 Karlsruhe, Deutschland.
-          Wenn Nutzer Gmail oder Outlook als Webmail-Anbieter auswählen, gelten zusätzlich die Datenschutzbestimmungen
-          des jeweiligen Anbieters.
+          Für den Empfang und die weitere E-Mail-Kommunikation wird das GMX-Postfach fabsdev@gmx.at verwendet. GMX ist
+          ein Dienst der 1&amp;1 Mail &amp; Media GmbH, Zweigniederlassung Karlsruhe, Brauerstraße 48, 76135 Karlsruhe,
+          Deutschland. Für die Verarbeitung im Rahmen des Hostings gelten zusätzlich die Angaben zum Hosting in Abschnitt 2.
         </p>
         <p>
           Soweit eine gesendete Anfrage der Anbahnung oder Durchführung eines Vertrags dient, erfolgt die Verarbeitung
@@ -173,9 +171,8 @@
           bereitgestellt; Social-Media-Feeds sind nicht eingebettet.
         </p>
         <p>
-          Externe Dienste wie GitHub, WhatsApp, Gmail, Outlook oder GMX werden erst nach einer bewussten Aktion des
-          Nutzers geöffnet. Ab diesem Zeitpunkt gelten zusätzlich die Datenschutzbestimmungen des jeweiligen externen
-          Anbieters.
+          Externe Dienste wie GitHub oder WhatsApp werden erst nach einer bewussten Aktion des Nutzers geöffnet. Für per
+          Formular gesendete E-Mail-Anfragen gelten die in Abschnitt 4 beschriebenen Verarbeitungen und Empfänger.
         </p>
 
         <h2>8. Rechte betroffener Personen</h2>
@@ -203,7 +200,7 @@
           eingesetzt werden, wird diese Datenschutzerklärung vor deren produktivem Einsatz entsprechend aktualisiert.
         </p>
 
-        <p class="legal-note"><strong>Stand:</strong> 27. August 2026</p>
+        <p class="legal-note"><strong>Stand:</strong> 3. September 2026</p>
 
         <p class="legal-backlinks"><a class="link-arrow" href="/">Zur Startseite</a> <a class="link-arrow"
             href="/impressum">Impressum</a></p>

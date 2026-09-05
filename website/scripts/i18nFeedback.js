@@ -57,7 +57,7 @@ window.GD_I18N_PARTS.push({ translations: {
   "Website anfragen | GlanzerDigital": "Request a website | GlanzerDigital",
   "Deine Website beginnt.": "Your website starts.",
   "Mit einer kurzen Nachricht.": "With a short message.",
-  "Wann soll deine Website ungefähr fertig sein?": "When should your website be roughly completed",
+  "Wann soll deine Website fertig sein?": "When should your website be roughly completed?",
   "Innerhalb der nächsten 2–4 Wochen": "Within the next 2–4 weeks",
   "Ich bin zeitlich flexibel": "I am flexible on timing",
   "Wie möchtest du deine Anfrage senden?": "How would you like to send your enquiry?",
@@ -172,4 +172,43 @@ window.GD_I18N_PARTS.push({ translations: {
   "Im Browser öffnen": "Open in browser",
   "Mail-App": "Mail app",
   "Installierte Standard-Mail-App öffnen": "Open installed default mail app"
+} });
+
+
+window.GD_I18N_PARTS.push({ translations: {
+  "Nachricht vorbereiten und mit deinem E-Mail-Programm öffnen": "Prepare the message and open it with your email app",
+  "Anfrage per E-Mail öffnen": "Open enquiry by email",
+  "Pflichtfeld": "Required field",
+  "Dein E-Mail-Programm wurde mit der vorbereiteten Nachricht geöffnet.": "Your email app was opened with the prepared message.",
+  "Beim Absenden über E-Mail wird ein sogenannter mailto-Link geöffnet. Welches E-Mail-Programm oder welcher E-Mail-Dienst dafür verwendet wird, entscheidet die Einstellung des Geräts beziehungsweise des Browsers. GlanzerDigital übermittelt die Formulardaten dabei nicht selbst an einen E-Mail-Anbieter.": "When sending by email, a mailto link is opened. Which email application or email service is used is determined by the device or browser settings. GlanzerDigital does not itself transmit the form data to an email provider.",
+  "Für die weitere E-Mail-Kommunikation wird ein GMX-Postfach verwendet. GMX ist ein Dienst der 1&1 Mail & Media GmbH, Zweigniederlassung Karlsruhe, Brauerstraße 48, 76135 Karlsruhe, Deutschland. Sobald die vorbereitete E-Mail im vom Nutzer gewählten E-Mail-Programm versendet wird, gelten zusätzlich die Datenschutzbestimmungen des jeweils verwendeten Anbieters.": "A GMX mailbox is used for further email communication. GMX is a service of 1&1 Mail & Media GmbH, Karlsruhe branch, Brauerstraße 48, 76135 Karlsruhe, Germany. Once the prepared email is sent using the email application chosen by the user, the privacy policy of the respective provider also applies.",
+  "Externe Dienste wie GitHub, WhatsApp oder der vom Nutzer verwendete E-Mail-Anbieter werden erst nach einer bewussten Aktion des Nutzers geöffnet. Ab diesem Zeitpunkt gelten zusätzlich die Datenschutzbestimmungen des jeweiligen externen Anbieters.": "External services such as GitHub, WhatsApp or the email provider used by the user are opened only after a deliberate action by the user. From that point on, the privacy policy of the respective external provider also applies."
+} });
+
+window.GD_I18N_PARTS.push({ translations: {
+  "Ein paar Angaben reichen. Bei WhatsApp wird deine Nachricht vorbereitet. Per E-Mail wird deine Anfrage direkt über das Formular an mich gesendet.": "A few details are enough. For WhatsApp, your message is prepared for you. By email, your enquiry is sent directly to me through the form.",
+  "Direkt über das Formular senden": "Send directly through the form",
+  "Deine E-Mail-Adresse": "Your email address",
+  "Bitte gib deine E-Mail-Adresse ein.": "Please enter your email address.",
+  "Bitte gib eine gültige E-Mail-Adresse ein.": "Please enter a valid email address.",
+  "Anfrage per E-Mail senden": "Send enquiry by email",
+  "Anfrage wird gesendet …": "Sending enquiry …",
+  "Deine Anfrage wurde erfolgreich per E-Mail gesendet. Ich melde mich so bald wie möglich bei dir.": "Your enquiry was sent successfully by email. I will get back to you as soon as possible.",
+  "Die E-Mail konnte gerade nicht gesendet werden. Bitte versuche es erneut oder nutze WhatsApp.": "The email could not be sent right now. Please try again or use WhatsApp."
+} });
+
+window.GD_I18N_PARTS.push({ translations: {
+  "Website bei GlanzerDigital anfragen: Projekt kurz beschreiben und die Anfrage über WhatsApp vorbereiten oder direkt per E-Mail senden – für Projekte in der Steiermark und darüber hinaus.": "Enquire about a website with GlanzerDigital: briefly describe your project and prepare the enquiry for WhatsApp or send it directly by email – for projects in Styria and beyond.",
+  "Kontaktiere GlanzerDigital für deine Website: Projekt kurz beschreiben und deine Anfrage per WhatsApp vorbereiten oder direkt per E-Mail senden – für Projekte in der Steiermark und darüber hinaus.": "Contact GlanzerDigital about your website: briefly describe your project and prepare the enquiry for WhatsApp or send it directly by email – for projects in Styria and beyond.",
+  "Wird im Anfrageformular „E-Mail“ gewählt, werden die eingegebenen Angaben über eine eigene PHP-Schnittstelle auf glanzerdigital.at an den Webserver übertragen und von dort per E-Mail an GlanzerDigital gesendet. Verarbeitet werden dabei insbesondere Name, E-Mail-Adresse, Projektstand, gewünschter Zeitraum und Projektbeschreibung.": "If “Email” is selected in the enquiry form, the information entered is transmitted to the web server via a dedicated PHP endpoint on glanzerdigital.at and sent from there by email to GlanzerDigital. The data processed includes, in particular, name, email address, project status, requested timeframe and project description.",
+  "Die angegebene E-Mail-Adresse wird als Antwortadresse verwendet, damit auf die Anfrage direkt geantwortet werden kann. Zur Missbrauchsabwehr kann ein Hash der IP-Adresse zusammen mit Zeitstempeln vorübergehend im Server-Temp-Verzeichnis gespeichert werden. Für das Rate-Limit werden ausschließlich Anfragen der letzten 15 Minuten berücksichtigt.": "The email address provided is used as the reply address so that the enquiry can be answered directly. To prevent misuse, a hash of the IP address together with timestamps may be stored temporarily in the server's temporary directory. Only requests from the last 15 minutes are considered for the rate limit.",
+  "Für den Empfang und die weitere E-Mail-Kommunikation wird das GMX-Postfach fabsdev@gmx.at verwendet. GMX ist ein Dienst der 1&1 Mail & Media GmbH, Zweigniederlassung Karlsruhe, Brauerstraße 48, 76135 Karlsruhe, Deutschland. Für die Verarbeitung im Rahmen des Hostings gelten zusätzlich die Angaben zum Hosting in Abschnitt 2.": "The GMX mailbox fabsdev@gmx.at is used to receive enquiries and for further email communication. GMX is a service of 1&1 Mail & Media GmbH, Karlsruhe branch, Brauerstraße 48, 76135 Karlsruhe, Germany. The hosting information in section 2 also applies to processing carried out as part of hosting.",
+  "Externe Dienste wie GitHub oder WhatsApp werden erst nach einer bewussten Aktion des Nutzers geöffnet. Für per Formular gesendete E-Mail-Anfragen gelten die in Abschnitt 4 beschriebenen Verarbeitungen und Empfänger.": "External services such as GitHub or WhatsApp are opened only after a deliberate action by the user. For email enquiries sent through the form, the processing and recipients described in section 4 apply."
+} });
+
+window.GD_I18N_PARTS.push({ translations: {
+  "Anfrage erfolgreich gesendet": "Enquiry sent successfully",
+  "Anfrage konnte nicht gesendet werden": "Enquiry could not be sent",
+  "Schließen": "Close",
+  "Popup schließen": "Close popup"
 } });

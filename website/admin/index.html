@@ -22,7 +22,7 @@
   <script defer="" src="scripts/googleAnalytics.js?v=20260831-tokenfix"></script>
   <script defer="" src="scripts/maintenance.js?v=20260831-tokenfix"></script>
   <script defer="" src="scripts/searchConsole.js?v=20260901-searchpages"></script>
-  <script defer="" src="scripts/admin.js?v=20260831-tokenfix"></script>
+  <script defer="" src="scripts/admin.js?v=20260903-healthfix-2"></script>
 </head>
 
 <body class="admin-body">
@@ -540,6 +540,10 @@
               class="admin-status-dot"></span>
             <div><strong>Wartungsmodus</strong><small>Gesperrt</small></div>
           </article>
+          <article class="admin-status-card is-pending" data-system="contactMail"><span aria-hidden="true"
+              class="admin-status-dot"></span>
+            <div><strong>Kontakt-Mail</strong><small>wird geprüft</small></div>
+          </article>
           <article class="admin-status-card is-pending" data-system="privateStorage"><span aria-hidden="true"
               class="admin-status-dot"></span>
             <div><strong>Privater Speicher</strong><small>wird geprüft</small></div>
@@ -571,6 +575,7 @@
         </div>
         <div class="admin-system-actions">
           <button class="admin-secondary-button" data-action="check-health" type="button">Systemcheck starten</button>
+          <span class="admin-muted" data-health-status role="status" aria-live="polite">Noch kein manueller Check gestartet.</span>
           <button class="admin-secondary-button" data-action="export" disabled="" type="button">Analytics
             exportieren</button>
           <a class="admin-secondary-button" href="../" rel="noopener noreferrer" target="_blank">Website öffnen ↗</a>

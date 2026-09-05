@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description"
-    content="Website bei GlanzerDigital anfragen: Projekt kurz beschreiben und die Anfrage über WhatsApp oder E-Mail vorbereiten – für Projekte in der Steiermark und darüber hinaus.">
+    content="Website bei GlanzerDigital anfragen: Projekt kurz beschreiben und die Anfrage über WhatsApp vorbereiten oder direkt per E-Mail senden – für Projekte in der Steiermark und darüber hinaus.">
   <meta name="robots" content="index,follow,max-image-preview:large">
   <meta name="author" content="Fabian Glanzer">
   <meta name="theme-color" content="#080b10">
@@ -14,7 +14,7 @@
   <meta property="og:locale" content="de_AT">
   <meta property="og:title" content="Website anfragen | GlanzerDigital">
   <meta property="og:description"
-    content="Website bei GlanzerDigital anfragen: Projekt kurz beschreiben und die Anfrage über WhatsApp oder E-Mail vorbereiten – für Projekte in der Steiermark und darüber hinaus.">
+    content="Website bei GlanzerDigital anfragen: Projekt kurz beschreiben und die Anfrage über WhatsApp vorbereiten oder direkt per E-Mail senden – für Projekte in der Steiermark und darüber hinaus.">
   <meta property="og:url" content="https://glanzerdigital.at/kontakt">
   <meta property="og:image" content="https://glanzerdigital.at/assets/images/general/social-preview.webp">
   <meta property="og:image:type" content="image/webp">
@@ -24,7 +24,7 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Website anfragen | GlanzerDigital">
   <meta name="twitter:description"
-    content="Website bei GlanzerDigital anfragen: Projekt kurz beschreiben und die Anfrage über WhatsApp oder E-Mail vorbereiten – für Projekte in der Steiermark und darüber hinaus.">
+    content="Website bei GlanzerDigital anfragen: Projekt kurz beschreiben und die Anfrage über WhatsApp vorbereiten oder direkt per E-Mail senden – für Projekte in der Steiermark und darüber hinaus.">
   <meta name="twitter:image" content="https://glanzerdigital.at/assets/images/general/social-preview.webp">
   <meta name="twitter:image:alt" content="GlanzerDigital Logo mit Code- und Server-Symbol">
 
@@ -36,8 +36,8 @@
   <link rel="manifest" href="/site.webmanifest">
   <link rel="stylesheet" href="../styles/variables.css?v=20260902-cachefix-1">
   <link rel="stylesheet" href="../styles/fonts.css?v=20260902-cachefix-1">
-  <link rel="stylesheet" href="../style.css?v=20260902-page-motion">
-  <link rel="stylesheet" href="../styles/pages/kontakt.css?v=20260902-mailapp-center">
+  <link rel="stylesheet" href="../style.css?v=20260903-footer-font-1">
+  <link rel="stylesheet" href="../styles/pages/kontakt.css?v=20260903-responsive-final-1">
   <script src="../templates/headerTemplate.js?v=20260902-cachefix-1" defer></script>
   <script src="../templates/footerTemplate.js?v=20260902-cachefix-1" defer></script>
   <script src="../templates/consentTemplate.js?v=20260902-cachefix-1" defer></script>
@@ -49,15 +49,15 @@
   <script src="../scripts/i18nContent.js?v=20260902-cachefix-1" defer></script>
   <script src="../scripts/i18nPages.js?v=20260902-tobias-fix" defer></script>
   <script src="../scripts/i18nLegal.js?v=20260902-cachefix-1" defer></script>
-  <script src="../scripts/i18nFeedback.js?v=20260902-tobias-fix" defer></script>
+  <script src="../scripts/i18nFeedback.js?v=20260903-contact-popup-1" defer></script>
   <script src="../scripts/i18nTranslations.js?v=20260902-cachefix-1" defer></script>
   <script src="../scripts/i18n.js?v=20260902-i18n-fix" defer></script>
   <script src="../scripts/pageMotion.js?v=20260902-page-motion" defer></script>
 
   <script src="../scripts/main.js?v=20260902-cachefix-1" defer></script>
-  <script src="../scripts/config/contactConfig.js?v=20260902-tobias-fix" defer></script>
-  <script src="../scripts/services/contactDelivery.js?v=20260902-tobias-fix" defer></script>
-  <script src="../scripts/pages/contactForm.js?v=20260902-tobias-fix" defer></script>
+  <script src="../scripts/config/contactConfig.js?v=20260903-php-mail-1" defer></script>
+  <script src="../scripts/services/contactDelivery.js?v=20260903-php-mail-1" defer></script>
+  <script src="../scripts/pages/contactForm.js?v=20260903-contact-popup-1" defer></script>
   <script src="../scripts/kontakt.js?v=20260902-cachefix-1" defer></script>
   <script type="application/ld+json">
 {
@@ -68,7 +68,7 @@
       "@id": "https://glanzerdigital.at/kontakt#webpage",
       "url": "https://glanzerdigital.at/kontakt",
       "name": "Kontakt | GlanzerDigital",
-      "description": "Kontaktiere GlanzerDigital für deine Website: Projekt kurz beschreiben und deine Anfrage per WhatsApp oder E-Mail vorbereiten – für Projekte in der Steiermark und darüber hinaus.",
+      "description": "Kontaktiere GlanzerDigital für deine Website: Projekt kurz beschreiben und deine Anfrage per WhatsApp vorbereiten oder direkt per E-Mail senden – für Projekte in der Steiermark und darüber hinaus.",
       "isPartOf": {
         "@id": "https://glanzerdigital.at/#website"
       },
@@ -115,7 +115,7 @@
         <p>Beschreibe kurz, was du vorhast. Die Anfrage ist unverbindlich und dient nur dazu, dein Projekt zuerst gemeinsam einzuschätzen.</p>
         <div class="button-row">
           <a class="button button--primary" href="#projektanfrage">Projekt anfragen</a>
-          <a class="button button--secondary" href="/leistungen">Leistungen ansehen</a>
+          <a class="button button--secondary" href="/leistungen#website-erstellen">Leistungen ansehen</a>
         </div>
       </div>
     </section>
@@ -146,9 +146,10 @@
           </div>
 
           <p class="contact-form-intro">
-            Ein paar Angaben reichen. Danach wird deine Nachricht nur vorbereitet – du entscheidest selbst, ob und wie du sie absendest.
+            Ein paar Angaben reichen. Bei WhatsApp wird deine Nachricht vorbereitet. Per E-Mail wird deine Anfrage direkt über das Formular an mich gesendet.
           </p>
           <p class="contact-no-payment"><strong>Wichtig:</strong> Das ist eine unverbindliche Anfrage, keine Bestellung, kein Auftrag und keine Zahlung.</p>
+          <p class="contact-required-note"><span aria-hidden="true">*</span> Pflichtfeld</p>
 
           <form class="form-grid" data-contact-form id="contact-request-form" novalidate>
             <div class="form-group" data-field="name">
@@ -173,7 +174,7 @@
               </div>
 
               <div class="form-group" data-field="timeframe">
-                <label for="timeframe">Wann soll deine Website ungefähr fertig sein? <span
+                <label for="timeframe">Wann soll deine Website fertig sein? <span
                     aria-hidden="true">*</span></label>
                 <select id="timeframe" name="timeframe" aria-describedby="timeframe-error" required>
                   <option value="">Bitte auswählen</option>
@@ -228,7 +229,7 @@
                   </span>
                   <span class="contact-method-card__copy">
                     <strong>E-Mail</strong>
-                    <small>Nachricht vorbereiten und per Gmail, Outlook oder Mail-App öffnen</small>
+                    <small>Direkt über das Formular senden</small>
                   </span>
                   <span class="contact-method-card__check" aria-hidden="true">✓</span>
                 </span>
@@ -236,36 +237,17 @@
             </div>
           </fieldset>
 
-          <fieldset class="email-provider" data-email-provider hidden>
-            <legend>E-Mail-Anbieter auswählen</legend>
-            <p class="email-provider__intro">Wähle Gmail, Outlook oder deine installierte Standard-Mail-App.</p>
-
-            <div class="email-provider__grid">
-              <label class="email-provider-card">
-                <input type="radio" name="emailProvider" value="gmail" checked>
-                <span>
-                  <strong>Gmail</strong>
-                  <small>Im Browser öffnen</small>
-                </span>
-              </label>
-
-              <label class="email-provider-card">
-                <input type="radio" name="emailProvider" value="outlook">
-                <span>
-                  <strong>Outlook</strong>
-                  <small>Im Browser öffnen</small>
-                </span>
-              </label>
-
-              <label class="email-provider-card">
-                <input type="radio" name="emailProvider" value="mailapp">
-                <span>
-                  <strong>Mail-App</strong>
-                  <small>Installierte Standard-Mail-App öffnen</small>
-                </span>
-              </label>
+            <div class="form-group contact-email-field" data-field="email" data-email-field hidden>
+              <label for="email">Deine E-Mail-Adresse <span aria-hidden="true">*</span></label>
+              <input id="email" name="email" type="email" autocomplete="email" placeholder="name@beispiel.at"
+                aria-describedby="email-error">
+              <small class="field-error" id="email-error" data-error-for="email" aria-live="polite"></small>
             </div>
-          </fieldset>
+
+            <div class="contact-honeypot" aria-hidden="true">
+              <label for="website-field">Website</label>
+              <input id="website-field" name="website" type="text" tabindex="-1" autocomplete="off">
+            </div>
 
             <div class="form-group privacy-consent" data-field="privacy">
               <label class="privacy-consent__label" for="privacy-consent">
@@ -297,6 +279,19 @@
     </section>
 
   </main>
+
+  <div class="contact-result-popup" data-contact-result-popup hidden>
+    <button class="contact-result-popup__backdrop" type="button" data-result-close aria-label="Popup schließen"></button>
+    <section class="contact-result-popup__dialog" role="dialog" aria-modal="true"
+      aria-labelledby="contact-result-title" aria-describedby="contact-result-message">
+      <button class="contact-result-popup__close" type="button" data-result-close aria-label="Popup schließen">×</button>
+      <span class="contact-result-popup__icon" aria-hidden="true" data-result-icon></span>
+      <p class="contact-result-popup__eyebrow">GlanzerDigital</p>
+      <h2 id="contact-result-title" data-result-title></h2>
+      <p id="contact-result-message" data-result-message></p>
+      <button class="button button--primary contact-result-popup__button" type="button" data-result-close>Schließen</button>
+    </section>
+  </div>
 
   <footer class="site-footer" data-site-footer></footer>
   <section class="consent-banner" role="dialog" aria-label="Datenschutz-Einstellungen" data-consent-banner hidden></section>

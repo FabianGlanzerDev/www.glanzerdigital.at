@@ -68,11 +68,12 @@ async function getAdminToken() {
 /** Runs the fetch health data operation. @returns {Promise<unknown>} The operation result. */
 async function fetchHealthData() {
   const token = await getAdminToken();
+  if (!token) throw new Error('Admin-Token fehlt. Bitte neu anmelden.');
   const endpoint = window.GlanzerAdminConfig?.endpoints?.health || './api/health.php';
   const headers = { Authorization: `Bearer ${token}`, 'X-Firebase-ID-Token': token };
   const response = await fetch(endpoint, { headers, cache: 'no-store' });
   const data = await response.json().catch(() => ({}));
-  if (!response.ok) throw new Error(data.message || 'Systemcheck fehlgeschlagen.');
+  if (!response.ok) throw new Error(data.message || `Systemcheck fehlgeschlagen (${response.status}).`);
   return data.checks || {};
 }
 
@@ -94,15 +95,42 @@ function renderHealthChecks(checks = {}) {
   renderBooleanHealth('ga4', checks.ga4, 'Property und Service-Account konfiguriert', 'GA4-Konfiguration fehlt');
   renderBooleanHealth('sitemap', checks.sitemap, 'Datei vorhanden', 'Datei fehlt');
   renderBooleanHealth('robots', checks.robots, 'Datei vorhanden', 'Datei fehlt');
+  renderBooleanHealth('contactMail', checks.contactMail, 'PHP-Mail-Endpunkt bereit', 'Kontakt-Mail nicht verfügbar');
 }
 
 
 
 /** Runs the run health check operation. @returns {Promise<unknown>} The operation result. */
 async function runHealthCheck() {
-  if (!window.GlanzerAdminAuth?.isAuthenticated()) return;
-  try { renderHealthChecks(await fetchHealthData()); }
-  catch { setSystemState('privateStorage', 'is-pending', 'Systemcheck nicht erreichbar'); }
+  const button = document.querySelector('[data-action="check-health"]');
+  setHealthCheckUi(button, true, 'Systemcheck läuft …');
+  try {
+    renderHealthChecks(await fetchHealthData());
+    setHealthStatus(`Systemcheck erfolgreich · ${new Date().toLocaleTimeString('de-AT', { hour: '2-digit', minute: '2-digit' })}`);
+  } catch (error) {
+    setHealthStatus(error?.message || 'Systemcheck nicht erreichbar.', true);
+  } finally {
+    setHealthCheckUi(button, false, 'Systemcheck starten');
+  }
+}
+
+
+
+/** Updates the visible status text of the manual system check. */
+function setHealthStatus(message, error = false) {
+  const status = document.querySelector('[data-health-status]');
+  if (!status) return;
+  status.textContent = message;
+  status.style.color = error ? '#ff7a89' : '';
+}
+
+
+
+/** Updates the manual system-check button while a request is running. */
+function setHealthCheckUi(button, busy, label) {
+  if (!(button instanceof HTMLButtonElement)) return;
+  button.disabled = busy;
+  button.textContent = label;
 }
 
 

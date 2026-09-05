@@ -13,7 +13,8 @@ function translateDeliveryText(value) {
 function buildMessageBody(data, industry = '') {
   const t = translateDeliveryText;
   const details = [
-    `Name: ${data.name}`, `${t('Projektstand:')} ${t(data.projectStatus)}`,
+    `Name: ${data.name}`,
+    `${t('Projektstand:')} ${t(data.projectStatus)}`,
     `${t('Zeitraum:')} ${t(data.timeframe)}`,
   ];
   if (industry) details.splice(1, 0, `${t('Branche / Beispiel:')} ${t(industry)}`);
@@ -28,67 +29,6 @@ function buildWhatsAppLink(data, industry = '') {
 }
 
 
-/** Builds an e-mail subject for one project enquiry. */
-function buildEmailSubject(data) {
-  return `${translateDeliveryText('Website-Anfrage von')} ${data.name}`;
-}
-
-
-/** Encodes the shared webmail parameters once. */
-function getEncodedMailValues(data, industry = '') {
-  return {
-    to: encodeURIComponent(CONTACT_CONFIG.contactEmail),
-    subject: encodeURIComponent(buildEmailSubject(data)),
-    body: encodeURIComponent(buildMessageBody(data, industry)),
-  };
-}
-
-
-/** Returns whether the current browser is running on a mobile/touch device. */
-function isMobileMailContext() {
-  const mobileAgent = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
-  const touchTablet = navigator.maxTouchPoints > 1 && window.innerWidth <= 1024;
-  return mobileAgent || touchTablet;
-}
-
-
-/** Builds a mailto URL for the installed mail application. */
-function buildMailtoUrl(data, industry = '') {
-  const subject = encodeURIComponent(buildEmailSubject(data));
-  const body = encodeURIComponent(buildMessageBody(data, industry));
-  return `mailto:${CONTACT_CONFIG.contactEmail}?subject=${subject}&body=${body}`;
-}
-
-
-/** Opens the installed/default mail app with the prepared enquiry. */
-function openMailApp(data, industry = '') {
-  window.location.href = buildMailtoUrl(data, industry);
-  window.GlanzerAnalytics?.track('contact_click', 'E-Mail-App');
-  return { ok: true, message: CONTACT_CONFIG.text.mailAppOpened };
-}
-
-
-/** Builds a Gmail or Outlook compose URL. */
-function buildWebmailComposeUrl(provider, data, industry = '') {
-  const mail = getEncodedMailValues(data, industry);
-  if (provider === 'outlook') return buildOutlookUrl(mail);
-  return buildGmailUrl(mail);
-}
-
-
-/** Builds the Gmail compose URL. */
-function buildGmailUrl(mail) {
-  return `https://mail.google.com/mail/?view=cm&fs=1&to=${mail.to}&su=${mail.subject}&body=${mail.body}`;
-}
-
-
-/** Builds the Outlook compose URL. */
-function buildOutlookUrl(mail) {
-  return `https://outlook.office.com/mail/deeplink/compose?to=${mail.to}&subject=${mail.subject}&body=${mail.body}`;
-}
-
-
-
 /** Opens WhatsApp with the prepared enquiry. */
 function openWhatsApp(data, industry = '') {
   window.open(buildWhatsAppLink(data, industry), '_blank', 'noopener,noreferrer');
@@ -97,25 +37,36 @@ function openWhatsApp(data, industry = '') {
 }
 
 
-/** Opens Gmail or Outlook with the prepared enquiry. */
-function openWebmail(provider, data, industry = '') {
-  const url = buildWebmailComposeUrl(provider, data, industry);
-  window.open(url, '_blank', 'noopener,noreferrer');
-  window.GlanzerAnalytics?.track('contact_click', `E-Mail-${provider}`);
-  return CONTACT_CONFIG.text.webmailOpened;
+/** Returns the JSON request payload for direct e-mail delivery. */
+function buildEmailPayload(data, industry = '') {
+  return { ...data, industry };
 }
 
 
+/** Sends one e-mail enquiry to the server endpoint. */
+async function requestEmailDelivery(data, industry = '') {
+  const response = await fetch(CONTACT_CONFIG.emailEndpoint, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(buildEmailPayload(data, industry)),
+  });
+  return response.ok;
+}
 
-/** Delivers the e-mail enquiry according to the selected provider. */
-async function deliverEmail(provider, data, industry = '') {
-  if (isMobileMailContext() || provider === 'mailapp') return openMailApp(data, industry);
-  return { ok: true, message: openWebmail(provider, data, industry) };
+
+/** Delivers the e-mail enquiry directly through the website server. */
+async function deliverEmail(data, industry = '') {
+  try {
+    const ok = await requestEmailDelivery(data, industry);
+    if (ok) window.GlanzerAnalytics?.track('contact_submit', 'E-Mail-Formular');
+    return { ok, message: ok ? CONTACT_CONFIG.text.emailSent : CONTACT_CONFIG.text.emailFailed };
+  } catch {
+    return { ok: false, message: CONTACT_CONFIG.text.emailFailed };
+  }
 }
 
 
 window.GlanzerContactDelivery = {
   deliverEmail,
-  isMobileMailContext,
   openWhatsApp,
 };

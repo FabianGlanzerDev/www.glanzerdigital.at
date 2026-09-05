@@ -16,6 +16,7 @@ $serviceAccountPath = gd_admin_private_path('google-service-account.json');
 $config = is_file($configPath) ? require $configPath : [];
 $config = is_array($config) ? $config : [];
 $property = trim((string) ($config['ga4_property_id'] ?? ''));
+$contactMailPath = gd_admin_website_path('api/contact-mail.php');
 
 $checks = [
     'privateStorage' => is_dir($privateDir) && is_dir($dataDir) && is_writable($dataDir),
@@ -25,6 +26,7 @@ $checks = [
     'ga4' => ctype_digit($property) && is_file($serviceAccountPath) && is_file($analyticsPath),
     'sitemap' => is_file(gd_admin_website_path('sitemap.xml')),
     'robots' => is_file(gd_admin_website_path('robots.txt')),
+    'contactMail' => is_file($contactMailPath) && is_readable($contactMailPath) && function_exists('mail'),
 ];
 
 gd_admin_json(['ok' => true, 'checks' => $checks]);
